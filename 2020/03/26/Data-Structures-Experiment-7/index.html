@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Data Structures Experiment #7 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="实现稀疏矩阵的三元组形式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structures Experiment #7">
+<meta property="og:url" content="http://example.com/2020/03/26/Data-Structures-Experiment-7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实现稀疏矩阵的三元组形式。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/03/26/Data-Structures-Experiment-7/Data-Structures-Experiment-7/wx.png">
+<meta property="article:published_time" content="2020-03-26T03:59:33.000Z">
+<meta property="article:modified_time" content="2020-05-07T08:37:11.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Experiments">
+<meta property="article:tag" content="Data Structures">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/03/26/Data-Structures-Experiment-7/Data-Structures-Experiment-7/wx.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Data-Structures-Experiment-7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/26/Data-Structures-Experiment-7/" class="article-date">
+  <time class="dt-published" datetime="2020-03-26T03:59:33.000Z" itemprop="datePublished">2020-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Data Structures Experiment #7
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>实现稀疏矩阵的三元组形式。</p>
+</blockquote>
+<a id="more"></a>
+
+<p><img src="Data-Structures-Experiment-7/wx.png" alt="wx"></p>
+<blockquote>
+<p>通常认为矩阵中非零元素的总数比上矩阵所有元素总数的值小于等于0.05时，则称该矩阵为稀疏矩阵。</p>
+<p>本次实验要求以三元组的形式实现稀疏矩阵。需要SPMartix类的接口有:</p>
+<ul>
+<li><p><code>SPMatrix::SPMatrix(int r, int c);</code><br>构造函数，构造一个r行c列的稀疏矩阵。</p>
+</li>
+<li><p><code>SPMatrix::SPMatrix(int r, int c, int max_element);</code><br>构造函数，构造一个r行c列，元素最多为max_element个的稀疏矩阵。</p>
+</li>
+<li><p><code>int SPMatrix::get(int i, int j);</code><br>获取矩阵中i行j列的值。如果没有元素，则返回0</p>
+</li>
+<li><p><code>void SPMatrix::rotate();</code><br>实现稀疏矩阵的转置操作。</p>
+</li>
+<li><p><code>int SPMatrix::set(int i, int j, int val);</code><br>将i行j列的值设置为val。</p>
+</li>
+<li><p><code>SPMatrix SPMatrix::operator+(const SPMatrix&amp; b);</code><br>重载矩阵的加法操作。</p>
+</li>
+<li><p><code>SPMatrix SPMatrix::operator-(const SPMatrix&amp; b);</code><br>重载稀疏矩阵的减法操作。</p>
+</li>
+<li><p><code>SPMatrix SPMatrix::operator*(const SPMatrix&amp; b);</code><br>重载稀疏矩阵中的乘法操作。</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="0x00-数据域封装"><a href="#0x00-数据域封装" class="headerlink" title="0x00 数据域封装"></a>0x00 数据域封装</h1><p>对于矩阵来说，其属性值包括总行数和总列数，而稀疏矩阵还应包括非零元素的个数。</p>
+<p>稀疏矩阵是用三元组存取的，所以定义三元组每个结点的结构，包括行标、列标和元素数值。最后将每个结点存到三元组中。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> mu, nu, tu;</span><br><span class="line">    Triple* data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Triple</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> row, col;</span><br><span class="line">        <span class="keyword">int</span> value;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="0x01-构造函数"><a href="#0x01-构造函数" class="headerlink" title="0x01 构造函数"></a>0x01 构造函数</h1><p>构造一个稀疏矩阵，当给出最大元素个数时，动态分配<code>max_element</code>个内存空间，未给出时则分配<code>r * c</code>个（有无更好的方法？）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SPMatrix::SPMatrix(<span class="keyword">int</span> r, <span class="keyword">int</span> c)&#123;</span><br><span class="line">    data = <span class="keyword">new</span> Triple[r * c];</span><br><span class="line">    mu = r;</span><br><span class="line">    nu = c;</span><br><span class="line">    tu = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SPMatrix::SPMatrix(<span class="keyword">int</span> r, <span class="keyword">int</span> c, <span class="keyword">int</span> max_element)&#123;</span><br><span class="line">    data = <span class="keyword">new</span> Triple[max_element];</span><br><span class="line">    mu = r;</span><br><span class="line">    nu = c;</span><br><span class="line">    tu = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x02-set函数"><a href="#0x02-set函数" class="headerlink" title="0x02 set函数"></a>0x02 set函数</h1><p>直接将参数存入三元组，存完后非零元素个数增1。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SPMatrix::set</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    data[tu].row = i;</span><br><span class="line">    data[tu].col = j;</span><br><span class="line">    data[tu].value = val;</span><br><span class="line">    tu++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x03-get函数"><a href="#0x03-get函数" class="headerlink" title="0x03 get函数"></a>0x03 get函数</h1><p>将三元组从头遍历，找对应行和列的元素值，未找到则返回0。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SPMatrix::get</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span><span class="keyword">const</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; tu; k++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (data[k].row == i &amp;&amp; data[k].col == j)</span><br><span class="line">            <span class="keyword">return</span> data[k].value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x04-转置函数"><a href="#0x04-转置函数" class="headerlink" title="0x04 转置函数"></a>0x04 转置函数</h1><p>首先将矩阵的型变换，即行数变列数、列数变行数。</p>
+<p>其次将三元组的每个结点行标变列标、列标变行标。</p>
+<blockquote>
+<p>注：稀疏矩阵的转置还需对三元组重新排序，由于本算法在读取时并未对其排序，故此处从略。“一个稀疏矩阵A<sub>m*n</sub>采用三元组形式表示，若把三元组中有关行下标与列下标的值互换，并把m和n的值互换，则就完成了A<sub>m*n</sub>的转置运算。”这一说法是错误的。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SPMatrix::rotate</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = mu;</span><br><span class="line">    mu = nu;</span><br><span class="line">    nu = temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; tu; k++) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = data[k].row;</span><br><span class="line">        data[k].row = data[k].col;</span><br><span class="line">        data[k].col = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x05-重载加法运算符"><a href="#0x05-重载加法运算符" class="headerlink" title="0x05 重载加法运算符"></a>0x05 重载加法运算符</h1><p>另构造一和矩阵来存储两矩阵之和。</p>
+<p>两矩阵可加的前提是两矩阵同型，应该先作判断。</p>
+<p>矩阵的加法即对应位置元素相加，将矩阵视为数组以便于运算。</p>
+<p>两矩阵对应位置不一定都存在元素，即数组的<code>loc</code>不一定相同，应分别判断。</p>
+<p>每次加完后，和矩阵的非零元素数增1。</p>
+<p>最后考虑某一个矩阵的非零元素已经全部遍历完成，此时将另一矩阵剩余元素加到和矩阵里。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">SPMatrix SPMatrix::<span class="keyword">operator</span>+(<span class="keyword">const</span> SPMatrix&amp; b)&#123;</span><br><span class="line">    <span class="function">SPMatrix <span class="title">add</span><span class="params">(mu, nu)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (b.mu != mu || b.nu != nu)</span><br><span class="line">        <span class="keyword">return</span> add;</span><br><span class="line">    add.mu = mu;</span><br><span class="line">    add.nu = nu;</span><br><span class="line">    add.tu = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, aLoc, bLoc;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; tu &amp;&amp; j &lt; b.tu) &#123;</span><br><span class="line">        aLoc = data[i].row * nu + data[i].col;</span><br><span class="line">        bLoc = b.data[j].row * b.nu + b.data[j].col;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (aLoc &lt; bLoc) &#123;</span><br><span class="line">            add.data[add.tu].row = data[i].row;</span><br><span class="line">            add.data[add.tu].col = data[i].col;</span><br><span class="line">            add.data[add.tu].value = data[i].value;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (aLoc &gt; bLoc) &#123;</span><br><span class="line">            add.data[add.tu].row = b.data[j].row;</span><br><span class="line">            add.data[add.tu].col = b.data[j].col;</span><br><span class="line">            add.data[add.tu].value = b.data[j].value;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (aLoc == bLoc) &#123;</span><br><span class="line">            <span class="keyword">if</span> (data[i].value + b.data[j].value) &#123;</span><br><span class="line">                add.data[add.tu].row = data[i].row;</span><br><span class="line">                add.data[add.tu].col = data[i].col;</span><br><span class="line">                add.data[add.tu].value = data[i].value + b.data[j].value;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        add.tu++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; tu) &#123;</span><br><span class="line">        add.data[add.tu].row = data[i].row;</span><br><span class="line">        add.data[add.tu].col = data[i].col;</span><br><span class="line">        add.data[add.tu].value = data[i].value;</span><br><span class="line">        i++;</span><br><span class="line">        add.tu++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; b.tu) &#123;</span><br><span class="line">        add.data[add.tu].row = b.data[j].row;</span><br><span class="line">        add.data[add.tu].col = b.data[j].col;</span><br><span class="line">        add.data[add.tu].value = b.data[j].value;</span><br><span class="line">        j++;</span><br><span class="line">        add.tu++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x06-重载减法运算符"><a href="#0x06-重载减法运算符" class="headerlink" title="0x06 重载减法运算符"></a>0x06 重载减法运算符</h1><p>与加法类似。</p>
+<h1 id="0x07-重载乘法运算符"><a href="#0x07-重载乘法运算符" class="headerlink" title="0x07 重载乘法运算符"></a>0x07 重载乘法运算符</h1><p>另构造一积矩阵来存储两矩阵之积。</p>
+<p>两矩阵可乘的前提是左矩阵的列数等于右矩阵的行数，应该先作判断。</p>
+<p>矩阵的乘法即左矩阵的行与右矩阵的列对应相乘再相加，将右矩阵视为数组以便于运算。</p>
+<p>以左矩阵为基准，将右矩阵的各个属性分别存储以便于进一步运算，即重排。包括右矩阵的每行非零元素个数以及每行第一个非零元素在数组中对应的位置。</p>
+<p>按左矩阵的行进行运算，每计算完一行将结果存入一个数组中，再赋值给积矩阵。</p>
+<p>最后释放<code>new</code>所分配的内存。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">SPMatrix SPMatrix::<span class="keyword">operator</span>*(<span class="keyword">const</span> SPMatrix&amp; b)&#123;</span><br><span class="line">    <span class="function">SPMatrix <span class="title">mul</span><span class="params">(mu, nu)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (b.mu != nu)</span><br><span class="line">        <span class="keyword">return</span> mul;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span>* tuOfEachBRow = <span class="keyword">new</span> <span class="keyword">int</span>[b.mu];</span><br><span class="line">    <span class="keyword">int</span>* firstIndexOfEachBRow = <span class="keyword">new</span> <span class="keyword">int</span>[b.mu + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span>* rowPOfResult = <span class="keyword">new</span> <span class="keyword">int</span>[b.nu];</span><br><span class="line">    <span class="keyword">int</span> aLoc, aRowLoc, aColLoc, bColLoc;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b.mu; i++)</span><br><span class="line">        tuOfEachBRow[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b.tu; i++)</span><br><span class="line">        tuOfEachBRow[b.data[i].row]++;</span><br><span class="line">    firstIndexOfEachBRow[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; b.mu; i++)</span><br><span class="line">        firstIndexOfEachBRow[i] = firstIndexOfEachBRow[i - <span class="number">1</span>] + tuOfEachBRow[i - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    aLoc = <span class="number">0</span>;</span><br><span class="line">    mul.tu = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span> (aLoc &lt; tu) &#123;</span><br><span class="line">        aRowLoc = data[aLoc].row;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b.nu; i++)</span><br><span class="line">            rowPOfResult[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (aLoc &lt; tu &amp;&amp; data[aLoc].row == aRowLoc) &#123;</span><br><span class="line">            aColLoc = data[aLoc].col;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = firstIndexOfEachBRow[aColLoc]; i &lt; firstIndexOfEachBRow[aColLoc + <span class="number">1</span>]; i++) &#123;</span><br><span class="line">                bColLoc = b.data[i].col;</span><br><span class="line">                rowPOfResult[bColLoc] += data[aLoc].value * b.data[i].value;</span><br><span class="line">            &#125;</span><br><span class="line">            aLoc++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; b.nu; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (rowPOfResult[i]) &#123;</span><br><span class="line">                mul.tu++;</span><br><span class="line">                mul.data[mul.tu].row = aRowLoc;</span><br><span class="line">                mul.data[mul.tu].value = rowPOfResult[i];</span><br><span class="line">                mul.data[mul.tu].col = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mul.mu = mu;</span><br><span class="line">    mul.nu = b.nu;</span><br><span class="line">    mul.tu++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] tuOfEachBRow;</span><br><span class="line">    <span class="keyword">delete</span>[] firstIndexOfEachBRow;</span><br><span class="line">    <span class="keyword">delete</span>[] rowPOfResult; </span><br><span class="line">    <span class="keyword">return</span> mul;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x08-析构函数"><a href="#0x08-析构函数" class="headerlink" title="0x08 析构函数"></a>0x08 析构函数</h1><p>释放内存。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPMatrix::~SPMatrix()&#123;</span><br><span class="line">    <span class="keyword">delete</span>[] data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x…"><a href="#0x…" class="headerlink" title="0x…"></a>0x…</h1><p>如果你发现了我的错误或者有更好的解决方案，欢迎一起交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/26/Data-Structures-Experiment-7/" data-id="ckkyvzn5v000vhejbcwkm2ufn" data-title="Data Structures Experiment #7" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/30/Theory-Study-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          理论学习（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/25/Computer-Systems-Experiment-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Computer Systems Experiment #2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/29/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

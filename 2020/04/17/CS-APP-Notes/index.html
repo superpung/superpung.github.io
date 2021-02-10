@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Computer Systems: A Programmer&#39;s Perspective_Notes | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="对于《深入理解计算机系统（第三版）》一书的一些摘要与想法。 持续更新…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Computer Systems: A Programmer&#39;s Perspective_Notes">
+<meta property="og:url" content="http://example.com/2020/04/17/CS-APP-Notes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="对于《深入理解计算机系统（第三版）》一书的一些摘要与想法。 持续更新…">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/wx.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%AF%BB%E5%8F%96hello.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%8A%A0%E8%BD%BD%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%86%99%E5%88%B0%E6%98%BE%E7%A4%BA%E5%99%A8.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%AD%98%E5%82%A8%E5%99%A8.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B1%82.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8A%BD%E8%B1%A1.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E7%BD%91%E7%BB%9C%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8DI:O%E8%AE%BE%E5%A4%87.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%BF%9C%E7%A8%8B%E8%BF%90%E8%A1%8Chello.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%A4%84%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%A4%9A%E6%A0%B8%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8A%BD%E8%B1%A1.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/summary-c-all-versions_thumb.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%A4%A7%E5%B0%8F.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%A4%A7%E5%B0%8F%E7%AB%AF.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0%E8%BF%90%E7%AE%97.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%95%B4%E6%95%B0%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/32%E4%BD%8D%E6%95%B4%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/64%E4%BD%8D%E6%95%B4%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/C%E6%95%B4%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E9%87%8D%E8%A6%81%E6%95%B0%E5%AD%97.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/T2U.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E4%B8%A4%E4%B8%AA%E7%AC%A6%E5%8F%B7%E4%BD%8D.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/U2T.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8A%A0%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%88%8D%E5%BC%83%E6%BA%A2%E5%87%BA%E4%BD%8D.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%BA%A2%E5%87%BA.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E8%A1%A5%E7%A0%81%E5%8A%A0%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%AD%A3%E8%B4%9F%E6%BA%A2%E5%87%BA.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%8D%95%E7%B2%BE%E5%BA%A6%E4%B8%89%E6%83%85%E5%86%B5.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%9C%A8%E6%95%B0%E8%BD%B4.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/8%E4%BD%8D%E6%B5%AE%E7%82%B9.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%8D%95%E5%8F%8C%E7%B2%BE%E5%BA%A6%E9%87%8D%E8%A6%81%E5%80%BC.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8Bx86-64.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%AF%84%E5%AD%98%E5%99%A8.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E6%A0%88.png">
+<meta property="og:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/%E5%85%A5%E6%A0%88%E5%92%8C%E5%87%BA%E6%A0%88.png">
+<meta property="article:published_time" content="2020-04-17T09:29:28.000Z">
+<meta property="article:modified_time" content="2020-05-29T13:54:07.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Computer Systems">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/04/17/CS-APP-Notes/CS-APP-Notes/wx.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-CS-APP-Notes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/17/CS-APP-Notes/" class="article-date">
+  <time class="dt-published" datetime="2020-04-17T09:29:28.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Computer Systems: A Programmer&#39;s Perspective_Notes
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>对于《深入理解计算机系统（第三版）》一书的一些摘要与想法。</p>
+<p><em>持续更新…</em></p>
+<a id="more"></a>
+
+<p><img src="CS-APP-Notes/wx.png" alt="SuperPung_公众号"></p>
+<blockquote>
+<p>本书从程序员的角度，讲述程序员如何能够利用系统知识来编写出更好的程序。</p>
+<ul>
+<li>你将会学习一些实践技巧，比如如何避免由计算机表示数字的方式引起的奇怪的数字错误。</li>
+<li>你将学会怎样通过一些小窍门来优化自己的 C 代码，以充分利用现代处理器和存储器系统的设计。</li>
+<li>你将了解编译器是如何实现过程调用的，以及如何利用这些知识来避免缓冲区溢出错误带来的安全漏洞，这些弱点给网络和因特网软件带来了巨大的麻烦。</li>
+<li>你将学会如何识别和避免链接时那些令人讨厌的错误，它们困扰着普通的程序员。</li>
+<li>你将学会如何编写自己的 Unix shell、自己的动态存储分配包，甚至于自己的 Web 服务器。</li>
+<li>你会认识并发带来的希望和陷阱，这个主题随着单个芯片上集成了多个处理器核变得越来越重要。</li>
+</ul>
+</blockquote>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a><em>Background</em></h1><ol>
+<li>本书的重点是执行<code>x86-64</code>机器代码的系统。<code>x86-64</code>是英特尔及其竞争对手自1978年起，以<code>8086</code>微处理器为代表，不断进化的最新成果。这类微处理器俗称为“<code>x86</code>”。</li>
+<li>处理器的计算能力和内存容量随着半导体技术的演进有了很大的增长，从处理16位字，发展到引入<code>IA32</code>处理器处理32位字，再到最近的<code>x86-64</code>处理64位字。</li>
+<li>本书考虑的是这些机器如何在Linux操作系统上运行C语言程序。</li>
+<li>本书的前几章揭示了C语言程序和它们相对应的机器语言程序之间的交互作用（即互相转化）。机器语言示例都是用运行在<code>x86-64</code>处理器上的GNU GCC编译器生成的。</li>
+<li>学习系统的唯一方法就是**做(do)**系统，即在真正的系统上解决具体的问题，或是编写和运行程序。</li>
+</ol>
+<h1 id="Chapter-1-A-Tour-of-ComPuter-Systems"><a href="#Chapter-1-A-Tour-of-ComPuter-Systems" class="headerlink" title="Chapter 1: A Tour of ComPuter Systems"></a>Chapter 1: A Tour of ComPuter Systems</h1><blockquote>
+<p>第1章：计算机系统漫游。这一章通过研究“<code>hello, world</code>”这个简单程序的生命周期，介绍计算机系统的主要概念和主题。</p>
+</blockquote>
+<p>所有计算机系统都有相似的硬件和软件组件，它们又执行着相似的功能。本书的目的就是深入了解这些组件是如何工作的以及这些组件是如何影响程序的正确性和性能的，以此来提高程序员自身的技能。</p>
+<p>我们是从<code>hello</code>程序来认识C语言的。尽管<code>hello</code>程序非常简单，但是为了让它实现运行，系统的每个主要组成部分都需要协调工作。从某种意义上来说，本书的目的就是要帮助你了解当你在系统上执行<code>hello</code>程序时，系统发生了什么以及为什么会这样。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;hello, world\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们通过跟踪<code>hello</code>程序的生命周期来开始对系统的学习——从它被程序员创建开始，到在系统上运行，输出简单的消息，然后终止。</p>
+<p>我们将沿着这个程序的生命周期，简要地介绍一些逐步出现的关键概念、专业术语和组成部分。后面的章节将围绕这些内容展开。</p>
+<h2 id="1-1-Information-Is-Bits-Context"><a href="#1-1-Information-Is-Bits-Context" class="headerlink" title="1.1 Information Is Bits + Context"></a>1.1 Information Is Bits + Context</h2><ol>
+<li>信息就是位+上下文。</li>
+<li><code>hello</code>程序的生命周期从源程序的创建开始。</li>
+<li>源程序实际就是一个由值<code>0</code>和<code>1</code>组成的<strong>位（bit，比特）</strong>序列，8个位被组织成一组，称为<strong>字节</strong>。</li>
+<li>源程序就是以字节序列的方式存储在文件中的，每个字节都有一个整数值，对应于某些字符。对应的标准便是<strong>ASCII标准</strong>——用一个唯一的单字节大小的整数值来表示每个字符。</li>
+<li>像源程序这样只由ASCII字符构成的文件称为<strong>文本文件</strong>，所有其他文件都称为<strong>二进制文件</strong>。</li>
+<li>源程序的表示方法说明了一个基本思想：系统中所有的信息——包括磁盘文件、内存中的程序、内存中存放的用户数据以及网络上传送的数据，<strong>都是由一串比特表示的</strong>。区分不同数据对象的唯一方法是我们读到这些数据对象时的<strong>上下文</strong>。比如，在不同的上下文中，一个同样的字节序列可能表示一个整数、浮点数、字符串或者机器指令。</li>
+<li>从这个基本思想可以看出，数字的机器表示方式与实际的整数和实数是不同的。数字的机器表示值是对真值的有限近似值，有时会有意想不到的行为表现。</li>
+<li>C语言与Unix操作系统关系密切。C从一开始就是作为一种用于Unix系统的程序语言开发出来的，大部分Unix内核以及所有支撑工具和函数库都是用C语言编写的。</li>
+</ol>
+<h2 id="1-2-Programs-Are-Translated-by-Other-Programs-into-Different-Forms"><a href="#1-2-Programs-Are-Translated-by-Other-Programs-into-Different-Forms" class="headerlink" title="1.2 Programs Are Translated by Other Programs into Different Forms"></a>1.2 Programs Are Translated by Other Programs into Different Forms</h2><ol>
+<li><p>程序被其他程序翻译成不同的格式。</p>
+</li>
+<li><p>为了在系统上运行程序，每条C语句都必须被其他程序转化为一系列的低级<strong>机器语言</strong>指令。然后这些指令按照一种称为<strong>可执行目标程序</strong>的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为<strong>可执行目标文件</strong>。</p>
+</li>
+<li><p>在Unix系统上，从源文件到目标文件的转化是由<strong>编译器驱动程序</strong>完成的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -o hello hello.c</span></span><br></pre></td></tr></table></figure></li>
+<li><p>此时，GCC编译器驱动程序读取源程序文件<code>hello.c</code>，并把它翻译成一个可执行目标文件<code>hello</code>。这个翻译过程可分为四个阶段完成，如图所示。执行这四个阶段的程序（<strong>预处理器</strong>、<strong>编译器</strong>、<strong>汇编器</strong>和<strong>链接器</strong>）一起构成了<span id = "CompilationSystem"><strong>编译系统（compilation system）</strong></span>。<em>（Markdown锚点标签不可有空格）</em><img src="CS-APP-Notes/%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F.png" alt="编译系统"></p>
+<ul>
+<li><strong>预处理阶段</strong>。预处理器（cpp）将以<code>#</code>开头的命令的内容直接插入程序文本中，得到以<code>.i</code>作为文件扩展名的另一个C程序。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>编译阶段</strong>。编译器（ccl）将<code>.i</code>文本文件翻译成<strong>汇编语言程序</strong>的<code>.s</code>文本文件。汇编语言为不同高级语言的不同编译器提供了通用的输出语言。<ul>
+<li><strong>汇编阶段</strong>。汇编器（as）将<code>.s</code>文件翻译成机器语言指令，把这些指令打包成<strong>可重定位目标程序（relocatable object program）</strong>的格式，保存在<code>.o</code>二进制文件中。</li>
+<li><strong>链接阶段</strong>。链接器（ld）将标准库函数单独预编译好的<code>.o</code>目标文件与上一阶段的<code>.o</code>程序合并，得到<strong>可执行目标文件（可执行文件）</strong>，可以被加载到内存中，由系统执行。</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li><p>GNU（GNU’s Not Unix）项目的目标是开发出一个完整的类Unix系统，其源代码能够不受限制地被修改和传播。GNU项目已经开发出了一个包含Unix操作系统的所有主要部件的环境，但内核是由LInux项目独立发展而来的。</p>
+</li>
+<li><p>GNU环境包括EMACS编辑器、GCC编译器、GDB调试器、汇编器、链接器、处理二进制文件的工具以及其他一些部件。 </p>
+</li>
+<li><p>GCC编译器已经发展到支持许多不同的语言，能够为许多不同的机器生成代码。支持的语言包括C、C++、Fortran、Java、Pascal、面向对象 C 语言（Objective-C）和 Ada。</p>
+</li>
+</ol>
+<h2 id="1-3-It-Pays-to-Understand-How-Compilation-Systems-Work"><a href="#1-3-It-Pays-to-Understand-How-Compilation-Systems-Work" class="headerlink" title="1.3 It Pays to Understand How Compilation Systems Work"></a>1.3 It Pays to Understand How Compilation Systems Work</h2><p>了解编译系统如何工作是大有益处的：</p>
+<ul>
+<li><strong>优化程序性能</strong>。对于不同的C语句，编译器将其转化为机器代码的方式也不同。比如，一个<code>switch</code>语句是否总是比一系列的<code>if-else</code>语句高效得多？一个函数调用的开销有多大？<code>while</code>循环比<code>for</code>循环更有效吗？指针引用比数组索引更有效吗？为什么将循环求和的结果放到一个本地变量中，会比将其放到一个通过引用传递过来的参数中，运行起来快很多呢？为什么我们只是简单地重新排列一下算术表达式中的括号就能让函数运行得更快？</li>
+<li><strong>理解链接时出现的错误</strong>。一些最令人困扰的程序错误往往都与链接器操作有关，尤其是当你试图构建大型的软件系统时。比如，链接器报告说它无法解析一个引用，这是什么意思？静态变量和全局变量的区别是什么？如果你在不同的C文件中定义了名字相同的两个全局变量会发生什么？静态库和动态库的区别是什么？我们在命令行上排列库的顺序有什么影响？最严重的是，为什么有些链接错误直到运行时才会出现？</li>
+<li><strong>避免安全漏洞</strong>。缓冲区溢出错误是造成大多数网络和Internet服务器上安全漏洞的主要原因。存在这些错误是因为很少有程序员能够理解需要限制从不受信任的源接收数据的数量和格式。学习安全编程的第一步就是理解数据和控制信息存储在程序栈上的方式会引起的后果。</li>
+</ul>
+<p>在第3章中，我们会了解到编译器是怎样把不同的C语言结构翻译成机器语言的。作为学习汇编语言的一部分，我们还将在第3章中描述堆栈原理和缓冲区溢出错误。我们还将学习程序员、编译器和操作系统可以用来降低攻击威胁的方法。在第5章中，将学习如何通过简单转换C语言代码，帮助编译器更好地完成工作，从而调整C程序的性能。在第6章中，将学习存储器系统的层次结构特性，C语言编译器如何将数组存放在内存中，以及C程序又是如何能够利用这些知识从而更高效地运行。</p>
+<h2 id="1-4-Processors-Read-and-Interpret-Instructions-Stored-in-Memory"><a href="#1-4-Processors-Read-and-Interpret-Instructions-Stored-in-Memory" class="headerlink" title="1.4 Processors Read and Interpret Instructions Stored in Memory"></a>1.4 Processors Read and Interpret Instructions Stored in Memory</h2><p>处理器<strong>读</strong>并<strong>解释</strong>储存在内存中的指令。</p>
+<p>当源程序已经被<a href="#CompilationSystem">编译系统</a>翻译成了可执行目标文件并存放在磁盘上后，要想在Unix系统上运行该可执行文件，应该将它的文件名输入到称为<code>shell</code>的应用程序中，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> ./hello</span></span><br><span class="line">hello, world</span><br><span class="line"><span class="meta">linux&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>shell</code>是一个命令行解释器，它输出一个提示符，等待输入一个命令行，然后执行这个命令。如果该命令行的第一个单词不是一个内置的<code>shell</code>命令，那么<code>shell</code>就会假设这是一个可执行文件的名字，它将加载并运行这个文件。</p>
+<h3 id="1-4-1-Hardware-Organization-of-a-System"><a href="#1-4-1-Hardware-Organization-of-a-System" class="headerlink" title="1.4.1 Hardware Organization of a System"></a>1.4.1 Hardware Organization of a System</h3><p> <span id = "hardware">系统的硬件组成</span>（CPU：中央处理单元；ALU：算数逻辑单元；PC：程序计数器；USB：通用串行总线）：<img src="CS-APP-Notes/%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90.png" alt="系统的硬件组成"></p>
+<ol>
+<li><p><strong>Buses</strong></p>
+<p><strong>总线</strong>是贯穿整个系统的一组电子管道，携带信息字节并负责在各个部件间传递。</p>
+<p>通常总线被设计成传送定长的字节块，也就是<strong>字（word）</strong>。字中的字节数（即<strong>字长</strong>）是一个基本的系统参数，各个系统中都不尽相同。现在的大多数机器字长要么是4个字节（32 位），要么是8个字节（64 位）。</p>
+</li>
+<li><p><strong>I/O Devices</strong></p>
+<p><strong>输入/输出设备</strong>是系统与外部世界的联系通道。</p>
+<p>I/O设备包括键盘、鼠标、显示器，以及用于长期存储数据和程序的磁盘驱动器（磁盘）。</p>
+<p>每个I/O设备都通过一个<strong>控制器</strong>或<strong>适配器</strong>与I/O总线相连。</p>
+<p>控制器和适配器之间的区别主要在于它们的封装方式——控制器是I/O设备本身或者系统的主印制电路板（<strong>主板</strong>）上的芯片组，而适配器则是一块插在主板插槽上的卡。它们的功能都是在I/O总线和I/O设备之间传递信息。</p>
+</li>
+<li><p><strong>Main Memory</strong></p>
+<p><strong>主存</strong>是一个<strong>临时</strong>存储设备，在处理器执行程序时用来存放程序和程序处理的数据。</p>
+<p>从物理上来说，主存是由一组<strong>动态随机存取存储器（DRAM）</strong>芯片组成的。</p>
+<p>从逻辑上来说，存储器是一个线性的<strong>字节数组</strong>，每个字节都有其唯一的地址（数组索引），这些地址是从零开始的。</p>
+<p>一般来说，组成程序的每条机器指令都由不同数量的字节构成。与C程序变量相对应的数据项的大小是根据类型变化的。比如，在运行Linux的<code>X86-64</code>机器上，<code>short</code>类型的数据需要2个字节，<code>int</code>和<code>float</code>类型需要4个字节，而<code>long</code>和<code>double</code>类型需要8个宇节。</p>
+</li>
+<li><p><strong>Processor</strong></p>
+<p><strong>中央处理单元（CPU）</strong>，简称<strong>处理器</strong>，是解释（<strong>执行，executes</strong>）存储在主存中指令的引擎。</p>
+<p>处理器的核心是一个大小为一个字的存储设备（<strong>寄存器，register</strong>），称为<strong>程序计数器（PC）</strong>。PC时刻指向主存中的某条机器语言指令（地址）。</p>
+<p>处理器是按照一个由<strong>指令集架构</strong>决定的<strong>指令执行模型</strong>来操作的，从系统通电开始，直到系统断电。在这个模型中，指令按照<strong>严格的顺序</strong>执行，而执行一条指令包含执行一系列的步骤。</p>
+<p>处理器从程序计数器指向的内存处读取指令，解释指令中的位，执行该指令指示的简单操作，然后更新PC，使其指向下一条指令，而这条指令并不一定和在内存中刚刚执行的指令相邻。</p>
+<p>指令指示的简单操作围绕着主存、<strong>寄存器文件（register file）</strong>和<strong>算术/逻辑单元（ALU）</strong>进行。寄存器文件是一个小的存储设备，由一些单个字长的寄存器组成，每个寄存器都有唯一的名字。ALU计算新的数据和地址值。指令指示的简单操作包括：</p>
+<ul>
+<li><strong>加载</strong>：从主存复制一个字节或者一个字到寄存器，以覆盖寄存器原来的内容。</li>
+<li><strong>存储</strong>：从寄存器复制一个字节或者一个字到主存的某个位置，以覆盖这个位置上原来的内容。</li>
+<li><strong>操作</strong>：把两个寄存器的内容复制到ALU，ALU对这两个字做算术运算，并将结果存放到一个寄存器中，以覆盖该寄存器中原来的内容。</li>
+<li><strong>跳转</strong>：从指令本身中抽取一个字，并将这个字复制到程序计数器（PC）中，以覆盖PC中原来的值。</li>
+</ul>
+<p>处理器并非只是它的指令集架构的简单实现，而且使用了非常复杂的机制来加速程序的执行。处理器的指令集架构描述的是每条机器代码指令的效果；而微体系结构描述的是处理器实际上是如何实现的。</p>
+</li>
+</ol>
+<h3 id="1-4-2-Running-the-hello-Program"><a href="#1-4-2-Running-the-hello-Program" class="headerlink" title="1.4.2 Running the hello Program"></a>1.4.2 Running the hello Program</h3><p>通过了解<a href="#hardware">系统的硬件组成</a>和操作，下面介绍当运行<code>hello</code>程序时到底发生了些什么。</p>
+<ol>
+<li><p>初始时，我们向键盘上输入字符串“./hello”后，<code>shell</code>程序将字符逐一读入寄存器，再把它存放到内存中。如下图所示。<img src="CS-APP-Notes/%E8%AF%BB%E5%8F%96hello.png" alt="从键盘上读取hello命令"></p>
+</li>
+<li><p>敲下回车键时，<code>shell</code> 程序知道我们已经结束了命令的输入，执行一系列指令来加载可执行的<code>hello</code>文件，将<code>hello</code>目标文件中的代码和数据从磁盘复制到主存。数据包括最终输出的字符串“<code>hello, world\n</code>”。</p>
+<p>利用<strong>直接存储器存取（DMA）</strong>技术，数据可以不通过处理器而直接从磁盘到达主存。如下图所示。<img src="CS-APP-Notes/%E5%8A%A0%E8%BD%BD%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6.png" alt="从磁盘加载可执行文件到主存"></p>
+</li>
+<li><p>目标文件<code>hello</code>中的代码和数据被加载到主存后，处理器开始执行<code>hello</code>程序的<code>main</code>程序中的机器语言指令。这些指令将“<code>hello, world\n</code>”字符串中的字节从主存复制到寄存器文件，再从寄存器文件复制到显示设备，最终显示在屏幕上。如下图所示。<img src="CS-APP-Notes/%E5%86%99%E5%88%B0%E6%98%BE%E7%A4%BA%E5%99%A8.png" alt="将输出字符串从存储器写到显示器"></p>
+</li>
+</ol>
+<h2 id="1-5-Caches-Matter"><a href="#1-5-Caches-Matter" class="headerlink" title="1.5 Caches Matter"></a>1.5 Caches Matter</h2><ol>
+<li><p>高速缓存至关重要。</p>
+</li>
+<li><p>上面的示例表明，系统花费了大量的时间把信息从一个地方挪到另一个地方：</p>
+<ul>
+<li><code>hello</code>程序的机器指令：磁盘-&gt;主存-&gt;处理器；</li>
+<li>数据串“<code>hello, world\n</code>”：磁盘-&gt;主存-&gt;显示设备。</li>
+</ul>
+<p>这些复制就是开销，减慢了程序“真正”的工作。所以应该让这些复制操作尽快完成。</p>
+</li>
+<li><p>根据机械原理，较大的存储设备要比较小的存储设备运行得慢——处理器从寄存器文件中读数据比从主存中读数据几乎要快100倍，而且处理器与主存的这种差距还在持续增大。</p>
+</li>
+<li><p>针对处理器与主存之间的差异，一种更小更快的存储设备——<strong>高速缓存存储器（cache memory，cache/高速缓存）</strong>，可以作为暂时的集结区域，存放处理器近期可能会需要的信息。如下图所示。<img src="CS-APP-Notes/%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%AD%98%E5%82%A8%E5%99%A8.png" alt="高速缓存存储器"></p>
+</li>
+<li><p>cache芯片上的<strong>L1高速缓存</strong>的容量可以达到数万字节，访问速度几乎和访问寄存器文件一样快。</p>
+</li>
+<li><p>一个容量为数十万到数百万字节的更大的 L2 高速缓存通过一条特殊的总线连接到处 理器。进程访问<strong>L2 高速缓存</strong>的时间要比访问L1高速缓存的时间长5倍，但是这仍然比访问主存的时间快5～10倍。</p>
+</li>
+<li><p>L1和L2高速缓存是用一种叫做<strong>静态随机访问存储器（SRAM）</strong> 的硬件技术实现的。系统可以获得一个很大的存储器，同时访问速度也很快，原因是利用了高速缓存的<strong>局部性</strong>原理，即程序具有访问局部区域里的数据和代码的趋势。通过让高速缓存里存放可能经常访问的数据，大部分的内存操作都能在快速的高速缓存中完成。</p>
+</li>
+<li><p>在处理器和一个较大较慢的设备（例如主存）之间插入一个更小更快的存储设备（例如高速缓存）的想法已经成为一个普遍的观念。正因如此，程序员利用高速缓存可以将程序的性能提高一个数量级。</p>
+</li>
+</ol>
+<h2 id="1-6-Storage-Devices-Form-a-Hierarchy"><a href="#1-6-Storage-Devices-Form-a-Hierarchy" class="headerlink" title="1.6 Storage Devices Form a Hierarchy"></a>1.6 Storage Devices Form a Hierarchy</h2><p>存储设备形成层次结构：</p>
+<p>其主要思想就是上一层的存储器作为低一层存储器的高速缓存。如下图所示。从上至下，设备的访问速度越来越慢、容量越来越大，每字节的造价也越来越便宜。<img src="CS-APP-Notes/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png" alt="一个存储器层次结构的示例"></p>
+<p>程序员同样可以利用对整个存储器层次结构的理解来提高程序性能。</p>
+<h2 id="1-7-The-Operating-System-Manages-the-Hardware"><a href="#1-7-The-Operating-System-Manages-the-Hardware" class="headerlink" title="1.7 The Operating System Manages the Hardware"></a>1.7 The Operating System Manages the Hardware</h2><p>操作系统管理硬件。</p>
+<p>上面的<code>hello</code>程序运行过程中，<code>shell</code>和<code>hello</code>程序都没有直接访问键盘、显示器、磁盘或主存，而是依靠操作系统。</p>
+<p>可以把操作系统看成是应用程序和硬件之间插入的一层软件，所有应用程序对硬件的操作尝试都必须通过操作系统。如下图所示。<img src="CS-APP-Notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%88%86%E5%B1%82.png" alt="计算机系统的分层视图"></p>
+<p>操作系统有两个基本功能：</p>
+<ul>
+<li>防止硬件被失控的应用程序滥用；</li>
+<li>向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备。</li>
+</ul>
+<p>操作系统通过几个基本的抽象概念（<strong>进程</strong>、<strong>虚拟内存</strong>、和<strong>文件</strong>）来实现这两个功能。如下图所示。<img src="CS-APP-Notes/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8A%BD%E8%B1%A1.png" alt="操作系统提供的抽象表示"></p>
+<ul>
+<li>文件是对I/O设备的抽象表示；</li>
+<li>虚拟内存是对主存和磁盘I/O设备的抽象表示；</li>
+<li>进程则是对处理器、主存和I/O设备的抽象表示。</li>
+</ul>
+<h3 id="1-7-1-Processes"><a href="#1-7-1-Processes" class="headerlink" title="1.7.1 Processes"></a>1.7.1 Processes</h3><ol>
+<li><p><strong>进程</strong>是操作系统对一个正在运行的程序的一种抽象。在一个系统上可以同时运行多个进程，而每个进程都好像在独占地使用硬件。</p>
+</li>
+<li><p><strong>并发运行</strong>是指一个进程的指令和另一个进程的指令是交错执行的。</p>
+</li>
+<li><p>传统系统在一个时刻只能执行一个程序，而先进的<strong>多核</strong>处理器同时能够执行多个程序。</p>
+</li>
+<li><p>在大多数系统中，需要运行的进程数是多于可以运行它们的CPU个数的。无论是单核还是多核系统，一个CPU看上去在并发地执行多个进程，是通过处理器在进程间切换来实现的。</p>
+<p>操作系统实现这种交错执行的机制称为<strong>上下文切换</strong>。</p>
+</li>
+<li><p>操作系统保持跟踪进程运行所需的所有状态信息，这种“状态”即<strong>上下文</strong>，包括许多信息——比如PC和寄存器文件的当前值。</p>
+</li>
+<li><p>当操作系统决定要把控制权从当前进程转移到某个新进程时，会保存当前进程的上下文、恢复新进程的上下文，然后将控制权传递到新进程，即进行<strong>上下文切换</strong>。新进程会从它上次停止的地方开始。如下图所示。<img src="CS-APP-Notes/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2.png" alt="进程的上下文切换"></p>
+<p>当<code>hello</code>程序运行时，<code>Process A</code>为<code>shell</code>进程，<code>Process B</code>为<code>hello</code>进程。</p>
+<ul>
+<li>最开始只有<code>shell</code>进程在运行，等待命令行的输入。</li>
+<li>当运行<code>hello</code>程序时，<code>shell</code>通过<strong>系统调用</strong>（一个专门的函数）来执行请求。系统调用会将控制权传递给操作系统。</li>
+<li>操作系统保存<code>shell</code>进程的上下文，创建一个新的<code>hello</code>进程及其上下文，然后将控制权传给<code>hello</code>进程。</li>
+<li><code>hello</code>进程终止后，操作系统恢复<code>shell</code>进程的上下文，传回控制权，<code>shell</code>进程继续等待下一个命令行输入。</li>
+</ul>
+</li>
+<li><p>如上图所示，从一个进程到另一个进程的转换是由操作系统<strong>内核（kernel）</strong>管理的。内核是操作系统<strong>代码</strong>常驻内存的部分。</p>
+</li>
+<li><p>当应用程序需要操作系统的某些操作时，比如读写文件，它就执行一条特殊的<strong>系统调用（system call）</strong>指令，将控制权传递给内核。然后内核执行被请求的操作并返回应用程序。</p>
+</li>
+<li><p>注意，内核不是一个独立的进程。相反，它是系统管理全部进程所用<strong>代码</strong>和<strong>数据结构</strong>的集合。</p>
+</li>
+<li><p>实现进程这个抽象概念需要低级<strong>硬件</strong>和操作系统<strong>软件</strong>之间的紧密合作。</p>
+</li>
+</ol>
+<h3 id="1-7-2-Threads"><a href="#1-7-2-Threads" class="headerlink" title="1.7.2 Threads"></a>1.7.2 Threads</h3><ol>
+<li>一个进程并非只有单一的控制流，而是可以由多个称为<strong>线程</strong>的执行单元组成，每个线程都运行在进程的上下文中，并共享同样的代码和全局数据。</li>
+<li>多线程之间比多进程之间更容易共享数据，线程一般来说都比进程更高效。</li>
+<li>正因线程的优点，当有多处理器可用的时候，多线程也是一种使得程序可以运行得更快的方法。</li>
+</ol>
+<h3 id="1-7-3-Virtual-Memory"><a href="#1-7-3-Virtual-Memory" class="headerlink" title="1.7.3 Virtual Memory"></a>1.7.3 Virtual Memory</h3><ol>
+<li><p><strong>虚拟内存</strong>是一个抽象概念，它为每个进程提供了一个假象，即每个进程都在独占地使用主存。</p>
+</li>
+<li><p>每个进程看到的内存都是一致的，称为<strong>虚拟地址空间</strong>。如下图所示（为Linux进程的虚拟地址空间）。<img src="CS-APP-Notes/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4.png" alt="进程的虚拟地址空间"></p>
+<p>在Linux中，地址空间最上面的区域是保留给<strong>操作系统</strong>中的代码和数据的，底部区域存放<strong>用户</strong>进程定义的代码和数据。</p>
+<p>图中的地址是从下往上增大的。</p>
+</li>
+<li><p>每个进程看到的虚拟地址空间由大量准确定义的区构成，每个区都有专门的功能（从下往上）：</p>
+<ul>
+<li><strong>Program code and data（程序代码和数据）</strong>。对所有的进程来说，代码是从同一固定地址开始，紧接着的是和C全局变量相对应的数据位置。此区直接按照可执行目标文件的内容初始化。</li>
+<li><strong>Heap（堆）</strong>。代码和数据区在进程一开始运行时就被指定了大小，但堆可以在运行时动态地扩展和收缩（当调用像<code>malloc</code>和<code>free</code>这样的C标准库函数时）。</li>
+<li><strong>Shared libraries（共享库）</strong>。用来存放像C标准库和数学库这样的共享库的代码和数据的区域。</li>
+<li><strong>Stack（栈）</strong>。编译器用栈来实现函数调用。和堆一样，用户栈在程序执行期间可以动态地扩展和收缩。</li>
+<li><strong>Kernel virtual memory（内核虚拟内存）</strong>。地址空间顶部的区域是为内核保留的，不允许应用程序读写此区域的内容或直接调用内核代码定义的函数，而是必须调用内核来执行这些操作。</li>
+</ul>
+</li>
+<li><p>虚拟内存的运作需要硬件和操作系统软件之间精密复杂的交互，包括对处理器生成的每个地址的硬件翻译。基本思想是把一个进程虚拟内存的内容存储在磁盘上，然后用主存作为磁盘的高速缓存。</p>
+</li>
+</ol>
+<h3 id="1-7-4-Files"><a href="#1-7-4-Files" class="headerlink" title="1.7.4 Files"></a>1.7.4 Files</h3><ol>
+<li><strong>文件</strong>就是字节序列，仅此而已。</li>
+<li>每个I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成文件。</li>
+<li>系统中的所有输入输出都是通过使用一小组称为<strong>Unix I/O</strong>的系统函数调用读写文件来实现的。</li>
+<li>文件向应用程序提供了一个统一的视图，来看待系统中可能含有的所有各式各样的I/O设备。同一个程序可以在使用不同磁盘技术的不同系统上运行。</li>
+</ol>
+<h2 id="1-8-Systems-Communicate-with-Other-Systems-Using-Networks"><a href="#1-8-Systems-Communicate-with-Other-Systems-Using-Networks" class="headerlink" title="1.8 Systems Communicate with Other Systems Using Networks"></a>1.8 Systems Communicate with Other Systems Using Networks</h2><ol>
+<li><p>系统之间利用网络通信，而不是一个孤立的硬件和软件的集合体。</p>
+</li>
+<li><p>从一个单独的系统来看，网络可视为一个I/O设备。如下图所示。<img src="CS-APP-Notes/%E7%BD%91%E7%BB%9C%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8DI:O%E8%AE%BE%E5%A4%87.png" alt="网络也是一种I/O设备"></p>
+<p>当系统从主存复制一串字节到网络适配器时，数据流经过网络到达另一台机器，而不是到达本地磁盘驱动器。</p>
+<p>相似地，系统可以读取从其他机器发送来的数据，并把数据复制到自己的主存。</p>
+</li>
+<li><p>同样，可以使用<code>telnet</code>应用在一个远程主机上运行<code>hello</code>程序——用本地主机<code>telnet</code>客户端连接远程主机<code>telnet</code>服务器。如下图所示。<img src="CS-APP-Notes/%E8%BF%9C%E7%A8%8B%E8%BF%90%E8%A1%8Chello.png" alt="利用telnet通过网络远程运行hello"></p>
+</li>
+</ol>
+<h2 id="1-9-Important-Themes"><a href="#1-9-Important-Themes" class="headerlink" title="1.9 Important Themes"></a>1.9 Important Themes</h2><p>系统不仅仅只是硬件，而是硬件和系统软件互相交织的集合体，它们必须共同协作以达到运行应用程序的最终目的。</p>
+<p>下面是一些重要概念。</p>
+<h3 id="1-9-1-Amdahl’s-Law"><a href="#1-9-1-Amdahl’s-Law" class="headerlink" title="1.9.1 Amdahl’s Law"></a>1.9.1 Amdahl’s Law</h3><ol>
+<li><strong>Amdahl定律</strong>是Gene Amdahl（计算领域早期先锋之一）对提升系统某一部分性能所带来的效果做出的简单却有见地的观察。</li>
+<li>主要思想：当我们对系统的某个部分加速时，其对系统整体性能的影响取决于该部分的重要性和加速程度。</li>
+<li>设系统执行某应用程序原来需要的时间为$t$，系统某部分所需执行时间为$\alpha t$，该部分性能提升比例为$k$，即该部分现在所需时间为$(\alpha t)/k$。因此，总的执行时间应为$$T=(1-\alpha)t+(\alpha t)/k=t[(1-\alpha)+\alpha/k]$$由此，可以计算加速比$S=t/T$为$$S=\frac{1}{(1-\alpha)+\alpha/k}$$</li>
+<li>从公式中可以看出，即使对系统的一个主要部分（$\alpha$很大）做出了总大改进，但获得的系统加速比$S$却明显小于这部分的加速比$k$。这就是Amdahl定律的主要观点——要想显著加速整个系统，必须提升全系统中相当大的部分的速度。</li>
+<li>性能提升最好的表示方法就是用比例的形式$S=t/T$，其中$t$是原始系统所需的时间，$T$是修改后的系统所需时间，这种表示法比百分比更易理解。</li>
+<li>当$k$趋向于∞时，意味着加速到不花时间的程度，得到$$S_{∞}=\frac{1}{(1-\alpha)}$$</li>
+</ol>
+<h3 id="1-9-2-Concurrency-and-Parallelism"><a href="#1-9-2-Concurrency-and-Parallelism" class="headerlink" title="1.9.2 Concurrency and Parallelism"></a>1.9.2 Concurrency and Parallelism</h3><ol>
+<li>我们想要计算机做得更多并且更快，这是驱动进步的持续动力。当处理器能够<strong>同时</strong>做<strong>更多</strong>的事情时，这两个因素都会改进。</li>
+<li><strong>并发（concurrency）</strong>指一个同时具有多个活动的系统；<strong>并行（Parallelism）</strong>指的是用并发来使一个系统运行得更快。</li>
+<li>并行可以在计算机系统的多个抽象层次上运用：<ul>
+<li><strong>线程级并发</strong><ol>
+<li>构建在进程之上，设计出同时执行多个程序的系统，这就导致了<strong>并发</strong>。</li>
+<li>使用线程，可以在一个进程中执行多个控制流。</li>
+<li>这种并发执行只是<strong>模拟</strong>出来的，是通过使一台计算机在它正在执行的进程间<strong>快速切换</strong>来实现的。</li>
+<li>这种并发形式允许多个用户同时与系统交互，也允许一个用户同时从事多个任务。</li>
+<li>在以前，即使处理器必须在多个任务间切换，大多数实际的计算也都是由<strong>一个</strong>处理器来完成的。这种配置称为<strong>单处理器系统</strong>。</li>
+<li>由单操作系统内核控制的多处理器组成的系统，称为<strong>多处理器系统</strong>。不同的处理器类型可以分类如下。<img src="CS-APP-Notes/%E5%A4%84%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE.png" alt="不同的处理器类型分类"></li>
+<li>多核处理器是将多个核（CPU）集成到一个集成电路芯片上，如下图所示。图中微处理器芯片有4个CPU核，每个核都有自己的L1和L2高速缓存，其中L1高速缓存分为两个部分——一个保存最近取到的指令，另一个存放数据。这些核共享更高层次的高速缓存，以及到主存的接口。<img src="CS-APP-Notes/%E5%A4%9A%E6%A0%B8%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84.png" alt="多核处理器的组织结构"></li>
+<li><strong>超线程</strong>，也称<strong>同时多线程（simultaneous multi-threading）</strong>，是一项允许一个CPU执行多个控制流的技术。</li>
+<li>常规的处理器需要大约20 000个时钟周期做不同线程间的转换，而超线程的处理器可以在单个周期的基础上决定要执行哪一个线程。这使得CPU能够更好地利用它的处理资源。</li>
+<li>假设一个线程必须等到某些数据被装载到高速缓存中，那CPU就可以继续去执行另一个线程。举例来说，Intel Core i7处理器可以让每个核执行两个线程，所以一个4核的系统实际上可以并行地执行8个线程。</li>
+<li>CPU某些硬件有多个备份，比如程序计数器和寄存器 件，而其他的硬件部分只有一份，比如执行浮点算术运算的单元。</li>
+<li>多处理器的使用减少了在执行多个任务时模拟并发的需要，同时可以使应用程序运行得更快（必须要求程序是以多线程方式来书写的，这些线程可以并行地高效执行），从而提高系统性能。</li>
+</ol>
+</li>
+<li><strong>指令级并行</strong><ol>
+<li>在较低的抽象层次上，现代处理器可以同时执行多条指令的属性称为<strong>指令级并行</strong>。</li>
+<li>处理器可以保持每个时钟周期2～4条指令的执行速率，但每条指令从开始到结束需要更长的时间（大约20个或者更多周期）。</li>
+<li>处理器使用了非常多的聪明的技巧来同时处理多达100条指令。在<strong>流水线（pipelining）</strong>中，将执行一条指令所需要的活动划分成不同的步骤、将处理器的硬件组织成一系列的阶段，每个阶段执行一个步骤，这些阶段可以并行地操作，用来处理不同指令的不同部分。</li>
+<li>如果处理器可以达到比一个时钟周期一条指令更快的执行速率，就称之为<strong>超标量（superscalar）</strong>处理器。</li>
+</ol>
+</li>
+<li><strong>单指令、多数据并行</strong><ol>
+<li>一条指令产生多个可以并行执行的操作，称为<strong>单指令、多数据</strong>，即SIMD并行。</li>
+<li>提供这些SIMD指令多是为了提高处理影像、声音和视频数据应用的执行速度。</li>
+<li>虽然有些编译器会试图从C程序中自动抽取SIMD并行性，但是更可靠的方法是用编译器支持的特殊的向量数据类型来写程序，比如GCC就支持向量数据类型。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-9-3-The-Importance-of-Abstractions-in-Computer-Systems"><a href="#1-9-3-The-Importance-of-Abstractions-in-Computer-Systems" class="headerlink" title="1.9.3 The Importance of Abstractions in Computer Systems"></a>1.9.3 The Importance of Abstractions in Computer Systems</h3><p>计算机系统中抽象的重要性：</p>
+<ol>
+<li><p><strong>抽象</strong>的使用是计算机科学中最为重要的概念之一。</p>
+</li>
+<li><p>为一组函数规定一个简单的应用程序接口（API）就是一种抽象，程序员无需了解它内部的工作便可以使用这些代码。</p>
+</li>
+<li><p>如下图所示，在处理器里，<strong>指令集架构</strong>提供了对实际处理器硬件的抽象。<img src="CS-APP-Notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%8A%BD%E8%B1%A1.png" alt="计算机系统抽象"></p>
+<p>计算机系统中的一个重大主题就是提供不同层次的抽象表示，来隐藏实际实现的复杂性。使用这个抽象，机器代码程序表现得就好像运行在一个一次只执行一条指令的处理器上。</p>
+</li>
+<li><p>底层的硬件远比抽象描述的要复杂精细，它并行地执行多条指令，但又总是与那个简单有序的模型保持一致。只要执行模型一样，不同的处理器实现也能执行同样的机器代码，而又提供不同的开销和性能。</p>
+</li>
+<li><p>操作系统有几个抽象：</p>
+<ul>
+<li><strong>文件</strong>是对I/O设备的抽象；</li>
+<li><strong>虚拟内存</strong>是对程序存储器的抽象；</li>
+<li><strong>进程</strong>是对一个正在运行的程序的抽象；</li>
+<li><strong>虚拟机</strong>提供对整个计算机的抽象，包括操作系统、处理器和程序。（虚拟机的思想是IBM在20世纪60年代提出来的）</li>
+</ul>
+</li>
+</ol>
+<h2 id="1-10-Summary"><a href="#1-10-Summary" class="headerlink" title="1.10 Summary"></a>1.10 Summary</h2><p>计算机系统是由<strong>硬件</strong>和<strong>系统软件</strong>组成的，它们共同协作以运行应用程序。计算机内部的信息被表示为一组组的<strong>位</strong>，它们依据<strong>上下文</strong>有不同的解释方式。程序被其他程序翻译成不同的形式，开始时是<strong>ASCII文本</strong>，然后被编译器和链接器翻译成<strong>二进制可执行文件</strong>。</p>
+<p><strong>处理器</strong>读取并解释存放在<strong>主存</strong>里的二进制指令。因为计算机花费了大量的时间在内存、I/O设备和CPU寄存器之间复制数据，所以将系统中的存储设备划分成层次结构——<strong>CPU寄存器</strong>在顶部，接着是多层的<strong>硬件高速缓存存储器</strong>、<strong>DRAM主存</strong>和<strong>磁盘存储器</strong>。在层次模型中，位于更高层的存储设备比低层的存储设备要<strong>更快</strong>，单位比特造价也<strong>更高</strong>。层次结构中较高层次的存储设备可以作为较低层次设备的<strong>高速缓存</strong>。通过理解和运用这种存储层次结构的知识，程序员可以优化C程序的性能。</p>
+<p><strong>操作系统内核</strong>是应用程序和硬件之间的媒介。它提供三个基本的抽象：文件是对<strong>I/O设备</strong>的抽象；虚拟内存是对<strong>主存</strong>和<strong>磁盘</strong>的抽象；进程是<strong>处理器</strong>、<strong>主存</strong>和<strong>I/O设备</strong>的抽象。</p>
+<p>最后，<strong>网络</strong>提供了计算机系统之间通信的手段。从特殊系统的角度来看，网络就是一种<strong>I/O设备</strong>。</p>
+<h1 id="Part-I-Program-Structure-and-Execution"><a href="#Part-I-Program-Structure-and-Execution" class="headerlink" title="Part I: Program Structure and Execution"></a><em>Part I: Program Structure and Execution</em></h1><p>第一部分：程序<strong>结构</strong>和<strong>执行</strong>。</p>
+<p>我们对计算机系统的探索是从学习计算机本身开始的，它由<strong>处理器</strong>和<strong>存储器子系统</strong>组成。</p>
+<p>在核心部分，我们需要方法来<strong>表示</strong>基本数据类型，比如整数和实数运算的近似值。</p>
+<p>然后，我们考虑<strong>机器级指令</strong>如何操作这样的数据，以及编译器又如何将C程序翻译成这样的指令。</p>
+<p>接下来，研究几种实现<strong>处理器</strong>的方法，帮助我们更好地了解硬件资源如何被用来执行指令。</p>
+<p>一旦理解了编译器和机器级代码，我们就能了解如何通过编写C程序以及编译它们来<strong>最大化</strong>程序的性能。</p>
+<p>本部分以存储器子系统的设计作为结束，这是现代计算机系统最复杂的部分之一。</p>
+<p>本书的这一部分将领着你深入了解如何表示和执行应用程序。你将学会一些技巧，来帮助你写出安全、可靠且充分利用计算资源的程序。</p>
+<h1 id="Chapter-2-Representing-and-Manipulating-Information"><a href="#Chapter-2-Representing-and-Manipulating-Information" class="headerlink" title="Chapter 2: Representing and Manipulating Information"></a>Chapter 2: Representing and Manipulating Information</h1><blockquote>
+<p>第2章：信息的表示和处理。我们讲述了计算机的<strong>算术运算</strong>，重点描述了会对程序员有影响的<strong>无符号数</strong>和<strong>数的补码</strong>表示的特性。我们考虑数字是如何表示的，以及由此确定对于一个给定的字长，其可能编码值的范围。我们探讨有符号和无符号数字之间类型转换的效果，还阐述算术运算的数学特性。菜鸟级程序员经常很惊奇地了解到（用补码表示的）两个正数的和或者积可能为负。另一方面，补码的算术运算满足很多整数运算的代数特性，因此，编译器可以很安全地把一个<strong>常量乘法</strong>转化为一系列的<strong>移位</strong>和<strong>加法</strong>。我们用C语言的<strong>位级操作</strong>来说明布尔代数的原理和应用。我们从两个方面讲述了IEEE标准的浮点格式：一是如何用它来<strong>表示数值</strong>，一是浮点运算的<strong>数学属性</strong>。</p>
+<p>对计算机的算术运算有深刻的理解是写出可靠程序的关键。比如，程序员和编译器不能用表达式<code>(x - y &lt; 0)</code>来替代<code>(x &lt; y)</code>, 因为前者可能会产生溢出。甚至也不能用表达式<code>(-y &lt; -x)</code>来替代，因为在补码表示中负数和正数的范围是不对称的。<strong>算术溢出</strong>是造成程序错误和安全漏洞的一个常见根源，然而很少有书从程序员的角度来讲述计算机算术运算的特性。</p>
+</blockquote>
+<ol>
+<li><p>现代计算机存储和处理的信息以<strong>二值信号</strong>表示。</p>
+</li>
+<li><p>二进制数字，也被称为<strong>位（bit）</strong>，形成了数字革命的基础。</p>
+</li>
+<li><p>二进制能较好地存储和处理信息，因为它能够很容易地被表示、存储和传输，而且对二值信号进行存储和执行计算的电子电路非常简单和可靠。例如可以表示为穿孔卡片上有洞或无洞、导线上的高电压或低电压，或者顺时针或逆时针的磁场。</p>
+</li>
+<li><p>孤立的单个的位不是非常有用，但是当把位组合在一起，再加上某种<strong>解释（interpretation）</strong>，即赋予不同的可能位模式以含意，我们就能够表示任何有限集合的元素。这就是编码。</p>
+</li>
+<li><p>我们将研究三种最重要的数字表示：</p>
+<ul>
+<li><strong>无符号（unsigned）</strong>编码基于传统的二进制表示法，表示大于或者等于零的数字；</li>
+<li><strong>补码（two’s-complement）</strong>编码是表示<strong>有符号</strong>整数的最常见的方式；</li>
+<li><strong>浮点数（floating-point）</strong>编码是表示实数的科学计数法的以2为基数的版本。</li>
+</ul>
+<p>计算机用这些不同的表示方法实现算数运算，例如加法和乘法，类似于对应的整数和实数运算。</p>
+</li>
+<li><p>计算机的表示法是用<strong>有限</strong>数量的位来对一个数字编码，因此可能会因为结果太大而<strong>溢出（overflow）</strong>。</p>
+</li>
+<li><p>特别要注意<strong>浮点运算</strong>，它有完全不同的数学属性。溢出会产生特殊的值+∞。而且由于表示的精度有限，浮点运算是不可结合的。例如，大多数机器上的C表达式<code>(3.14 + 1e20) - 1e20</code>求得的值会是<code>0.0</code>，而<code>3.14 + (1e20 - 1e20)</code>求得的值会是<code>3.14</code>。</p>
+</li>
+<li><p>之所以浮点运算和整数运算会有不同的数学属性，是因为它们处理数字表示<strong>有限性</strong>的方式不同：</p>
+<ul>
+<li>整数的表示虽然只能编码一个相对<strong>较小的数值范围</strong>，但是这种表示是<strong>精确</strong>的；</li>
+<li>浮点数虽然可以编码一个<strong>较大的数值范围</strong>，但是这种表示是<strong>近似</strong>的。</li>
+</ul>
+</li>
+<li><p>为了使编写的程序能在<strong>全部数值范围内</strong>正确工作，而且具有可以跨越不同机器、操作系统和编译器组合的<strong>可移植性</strong>，了解数字的实际表示是非常重要的。</p>
+</li>
+<li><p>大量计算机的安全漏洞都是由于计算机算数运算的微妙细节引发的。</p>
+</li>
+<li><p>GNU编译器套装（GNU Complier Collection，GCC）可以基于不同的命令行选项，依照多个不同版本的C语言规则来编译程序，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">C版本</th>
+<th align="center">GCC命令行选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">GNU 89</td>
+<td align="center">无，<code>-std=gnu89</code></td>
+</tr>
+<tr>
+<td align="center">ANSI, ISO C90</td>
+<td align="center"><code>-ansi</code>, <code>-std=c89</code></td>
+</tr>
+<tr>
+<td align="center">ISO C99</td>
+<td align="center"><code>-std=c99</code></td>
+</tr>
+<tr>
+<td align="center">ISO C11</td>
+<td align="center"><code>-std=c11</code></td>
+</tr>
+</tbody></table>
+<p>比如，根据ISO C11来编译程序<code>prog.c</code>，我们可以使用命令行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -std=c11 prog.c</span></span><br></pre></td></tr></table></figure>
+<p>C语言各版本的区别如下图所示。<img src="CS-APP-Notes/summary-c-all-versions_thumb.png" alt="summary-c-all-versions_thumb"></p>
+</li>
+</ol>
+<h2 id="2-1-Information-Storage"><a href="#2-1-Information-Storage" class="headerlink" title="2.1 Information Storage"></a>2.1 Information Storage</h2><p>信息存储。</p>
+<ol>
+<li>大多数计算机使用8位的块（<strong>字节，byte</strong>）作为<strong>最小的</strong>可寻址的内存单位，而不是访问内存中单独的位。</li>
+<li>机器级程序将内存视为一个非常大的<strong>字节数组</strong>，称为<strong>虚拟内存（virtual memory）</strong>，内存的每个<strong>字节</strong>都由一个唯一的数字来标识，称为它的<strong>地址（address）</strong>，所有可能地址的集合就称为<strong>虚拟地址空间（virtual address space）</strong>。</li>
+<li>虚拟地址空间只是一个展现给机器级程序的<strong>概念性映像</strong>，实际的实现是将动态随机访问存储器（DRAM）、闪存、磁盘存储器、特殊硬件和操作系统软件结合起来，为程序提供一个<strong>看上去统一的字节数组</strong>。</li>
+<li>编译器和运行时系统将存储器空间<strong>划分为更可管理的单元</strong>，来存放不同的<strong>程序对象（program object）</strong>，即<strong>程序数据</strong>、<strong>指令</strong>和<strong>控制信息</strong>。</li>
+<li>可以用各种机制来分配和管理程序不同部分的存储，这种管理完全是在虚拟地址空间里完成的。</li>
+<li>C指针存储某个存储块的第一个字节的虚拟地址，无论指针指向一个整数、一个结构或是某个其他程序对象。</li>
+<li>C编译器会把每个指针和<strong>类型</strong>信息联系起来，以根据指针类型而生成不同的机器级代码来访问指针指向位置存储的值。（生成的机器级程序不包含类型信息）</li>
+<li>每个程序对象可以简单地视为一个字节块，而程序本身就是一个字节序列。</li>
+</ol>
+<h3 id="2-1-1-Hexadecimal-Notation"><a href="#2-1-1-Hexadecimal-Notation" class="headerlink" title="2.1.1 Hexadecimal Notation"></a>2.1.1 Hexadecimal Notation</h3><p>十六进制表示法：</p>
+<ol>
+<li>一个字节的值域是$00000000_{2}$～$11111111_{2}$，即$0_{10}$～$255_{10}$。可以看出，二进制表示法太冗长，而由于10不是2的幂次导致十进制表示法与位模式的互相转化很麻烦。</li>
+<li>替代以上两种方法，以16为基数，或称<strong>十六进制（hexadecimal，hex）</strong>数，来表示位模式——使用数字0～9以及字符’A’～’F’来表示16个可能的值。每1个hex位对应4个二进制位，$A_{16}=10_{10}$、$C_{16}=12_{10}$、$F_{16}=15_{10}$。用十六进制书写，一个字节的值域为$00_{16}$～$FF_{16}$。</li>
+<li>在C语言中，以0x或0X开头的数字常量被认为是十六进制的值，字符’A’～’F’可以大写，也可以小写，甚至大小写混合。</li>
+<li>特别地，当x是2的非负整数次幂时，即$x=2^{n}(n\geq 0)$，则x的二进制表示就是1后面跟n个0。每4个二进制0对应一个十六进制0，前面$0001_{2}=1_{16}$、$0010_{2}=2_{16}$、$0100_{2}=4_{16}$、$1000_{2}=8_{16}$。</li>
+</ol>
+<h3 id="2-1-2-Data-Sizes"><a href="#2-1-2-Data-Sizes" class="headerlink" title="2.1.2 Data Sizes"></a>2.1.2 Data Sizes</h3><p>字数据大小。</p>
+<ol>
+<li><p>计算机的<strong>字长（word size）</strong>指明指针数据的标称大小（nominal size）。虚拟地址是以字来编码的，所以字长决定的最重要的系统参数就是<strong>虚拟地址空间的最大大小</strong>。</p>
+<p>对一个字长为$w$的机器而言，虚拟地址的范围为$0$～$2^{w}-1$，程序最多访问$2^{w}$个字节。</p>
+</li>
+<li><p>32位字长限制虚拟地址空间为4千兆字节（写作4GB），刚刚超过$4\times 10^{9}$字节。扩展到64位字长使得虚拟地址空间为16EB，大约是$1.84\times 10^{19}$字节。</p>
+</li>
+<li><p>大多数64位机器也可以运行32位程序（向后兼容）。若程序<code>prog.c</code>用如下伪指令编译后</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -m32 prog.c</span></span><br></pre></td></tr></table></figure>
+<p>可以在32位或64位机器上正确运行；而用下述伪指令编译后</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -m64 prog.c</span></span><br></pre></td></tr></table></figure>
+<p>只能在64位机器上运行。</p>
+<p>因此，我们将程序称为“32位程序”或“64位程序”，区别在于该程序是如何编译的，而不是其运行的机器类型。</p>
+</li>
+<li><p>下图是基本C数据类型的典型大小（以字节为单位）。分配的字节数受程序是如何编译的影响而变化，本图给出的是32位和64位程序的典型值。<img src="CS-APP-Notes/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%A4%A7%E5%B0%8F.png" alt="数据类型大小"></p>
+<p>C数据类型<code>char</code>表示一个单独的字节，尽管“<code>char</code>”是由于它被用来存储文本串中的单个字符这一事实而得名，但也能被用来存储整数值。</p>
+<p>为避免字节数在不同编译器设置下的改变，ISO C99引入一类数据大小固定的数据类型，包括<code>int32_t</code>和<code>int64_t</code>，分别为4字节和8字节。使用确定大小的整数类型是程序员准确控制数据表示的最佳途径。</p>
+</li>
+<li><p>大部分数据类型默认均为有符号，除非有前缀关键字<code>unsigned</code>。数据类型<code>char</code>例外，尽管大多数编译器和机器将它们视为有符号数，但C标准不保证这一点。所以应该用有符号字符的声明来保证其为一个字节的有符号数值（不过程序行为对<code>char</code>是否有符号并不敏感）。</p>
+</li>
+<li><p><code>unsigned long</code>、<code>unsigned long int</code>、<code>long unsigned</code>、<code>long unsigned int</code>都是一个意思。</p>
+</li>
+<li><p>程序可移植性的一个方面就是使程序对不同数据类型的确切大小不敏感。C语言标准对不同数据类型的数字范围设置了下界，但是却没有上界。</p>
+</li>
+</ol>
+<h3 id="2-1-3-Addressing-and-Byte-Ordering"><a href="#2-1-3-Addressing-and-Byte-Ordering" class="headerlink" title="2.1.3 Addressing and Byte Ordering"></a>2.1.3 Addressing and Byte Ordering</h3><p>寻址和字节顺序。</p>
+<ol>
+<li><p>如果一个程序对象超过1字节，即跨越了多个字节，就应该规定这个对象内存中的排列方式及其地址——在几乎所有的机器上，多字节对象都被存储为<strong>连续的</strong>字节序列，对象的地址为<strong>所使用字节中最小的地址</strong>。</p>
+<p>假设<code>int</code>型变量<code>x</code>地址为0x100，即地址表达式<code>&amp;x</code>的值为0x100。<code>x</code>的4个字节将被存储在内存的0x100、0x101、0x102和0x103位置。</p>
+</li>
+<li><p>假设一个整数有$w$位，$x_{w-1}$为最高有效位，$x_{0}$为最低有效位。若$w$是8的倍数，则这些位每8位一组便分成字节，最高有效字节为$x_{w-1}$～$x_{w-8}$，最低有效字节为$x_{7}$～$x_{0}$。</p>
+<ul>
+<li>某些机器选择在内存中按照从<strong>最低有效字节</strong>到<strong>最高有效字节</strong>的顺序存储对象，称为<strong>小端法（little endian）</strong>（最低有效字节在最前面）；</li>
+<li>另一些机器则按照从<strong>最高有效字节</strong>到<strong>最低有效字节</strong>的顺序存储，称为<strong>大端法（big endian）</strong>（最高有效字节在最前面）。</li>
+</ul>
+<p>假设<code>int</code>型变量<code>x</code>位于地址0x100处，它的hex值为0x01234567，则在内存中存储方式有以下两种：<img src="CS-APP-Notes/%E5%A4%A7%E5%B0%8F%E7%AB%AF.png" alt="大小端"></p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>Little endian</th>
+<th>Big endian</th>
+<th>Bi-endian</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大多数Inter兼容机</td>
+<td>IBM和Oracle的大多数机器</td>
+<td>IBM和Oracle制造的比较新的微处理器</td>
+</tr>
+<tr>
+<td>IBM和Oracle制造的个人计算机（使用Inter兼容的处理器）</td>
+<td></td>
+<td>许多用于移动电话的ARM微处理器</td>
+</tr>
+<tr>
+<td>Android（来自Google）和iOS（来自Apple）</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>虽然字节顺序不可见，编译出的程序结果也相同，但有时字节顺序也会成问题：</p>
+<ul>
+<li><p>不同类型的机器间通过网络传送二进制数据时，若小端法机器产生的数据被发送到大端法机器或反之，接收程序时会发现字节成了反序的。</p>
+<p>为避免这类问题，须遵守已建立的关于字节顺序的规则。</p>
+</li>
+<li><p>当阅读表示整数数据的字节序列时字节顺序也很重要。</p>
+</li>
+<li><p>当编写规避正常的类型系统的程序时。C中可以通过使用<strong>强制类型转换（cast）</strong>或<strong>联合（union）</strong>来允许一种数据类型引用一个对象，而这种数据类型与创建这个对象时定义的数据类型不同。</p>
+</li>
+</ul>
+</li>
+<li><p>C格式化指令<code>&quot;%.2x&quot;</code>表明整数必须用至少两个数字的十六进制格式输出。</p>
+</li>
+</ol>
+<h3 id="2-1-4-Representing-Strings"><a href="#2-1-4-Representing-Strings" class="headerlink" title="2.1.4 Representing Strings"></a>2.1.4 Representing Strings</h3><p>表示字符串：</p>
+<ol>
+<li><p>C语言中字符串被编码为一个以null（其值为0）字符结尾的字符数组。每个字符都由某个标准编码来表示，最常见的就是ASCII字符码。</p>
+</li>
+<li><p>在使用ASCII码作为字符码的任何系统上都将得到相同的结果，与字节顺序和字大小无关。因而，文本数据比二进制数据具有更强的<strong>平台独立性</strong>。</p>
+</li>
+<li><p>字符<code>&#39;a&#39;</code>～<code>&#39;z&#39;</code>的ASCII码为0x61～0x7A。</p>
+</li>
+<li><p>ASCII字符集适合于编码英语文档，不适合表达一些特殊字符，完全不适合编码希腊语、俄语和中文等语言的文档。Unicode联合会（Unicode Consortium）修订了最全面且广泛接受的文字编码标准，其基本编码称为Unicode的“统一字符集”，使用32位来表示字符。常见字符只需要1个或2个字节，不常用字符需要更多字节。</p>
+<p>特别地，UTF-8表示将每个字符编码为一个字节序列，ASCII字符使用其在ASCII中一样的单字节编码。</p>
+<p>Java使用Unicode表示字符串，对于C也有支持Unicode的程序库。</p>
+</li>
+</ol>
+<h3 id="2-1-5-Representing-Code"><a href="#2-1-5-Representing-Code" class="headerlink" title="2.1.5 Representing Code"></a>2.1.5 Representing Code</h3><p>表示代码：</p>
+<ol>
+<li>不同的机器类型、不同的操作系统使用不同的且不兼容的指令和编码方式（即使进程完全一样），因此二进制代码是不兼容的。二进制代码很少能在不同机器和操作系统组合之间移植。</li>
+<li>计算机系统的一个基本概念就是，从机器的角度来看，程序仅仅只是字节序列。机器没有关于原始源程序的任何信息，除了可能有些用来帮助调试的辅助表以外。</li>
+</ol>
+<h3 id="2-1-6-Introduction-to-Boolean-Algebra"><a href="#2-1-6-Introduction-to-Boolean-Algebra" class="headerlink" title="2.1.6 Introduction to Boolean Algebra"></a>2.1.6 Introduction to Boolean Algebra</h3><p>布尔代数简介。</p>
+<ol>
+<li><p>二进制值是计算机编码、存储和操作信息的核心，所以围绕数值0和1的研究已经演化出了丰富的数学知识体系——这起源于1850年前后乔治·布尔（George Boole，1815—1864）的工作，因此也被称为<strong>布尔代数（Boolean algebra）</strong>。后来创立信息论领域的Claude Shannon（1916—2001）首先建立了布尔代数和数字逻辑之间的联系。</p>
+</li>
+<li><p>下图列举了几种布尔代数的运算，二进制值1和0表示逻辑值<code>TRUE</code>或者<code>FALSE</code>，运算符<code>~</code>、<code>&amp;</code>、<code>|</code>和<code>^</code>分别表示逻辑运算NOT、AND、OR、和EXCLUSIVE-OR。<img src="CS-APP-Notes/%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0%E8%BF%90%E7%AE%97.png" alt="布尔代数运算"></p>
+<p>我们可以将上述4个布尔运算扩展到<strong>位向量</strong>的运算，位向量就是固定长度为w、由0和1组成的串。位向量的运算可以定义成参数的每个对应元素之间的运算。</p>
+</li>
+<li><p>当考虑长度为w的位向量上的<code>^</code>、<code>&amp;</code>和<code>~</code>运算时，会得到一种不同的数学形式，称为<strong>布尔环（Boolean ring）</strong>。</p>
+<p>布尔环与整数运算有很多相同属性，如整数运算中每个值<code>x</code>都有一个加法逆元（additive inverse）<code>-x</code>，使得<code>x+(-x)=0</code>。布尔环也有类似的属性，这里的“加法”运算是<code>^</code>，每个元素的加法逆元是它自身——也就是说，对任何值<code>a</code>来说，<code>a^a=0</code>（用<code>0</code>来表示全0的位向量）。当我们重新排列组合顺序，这个属性也仍然成立，因此有<code>(a^b)^a=b</code>。这个属性会引起一些很有趣的结果和聪明的技巧。</p>
+</li>
+<li><p>位向量一个很有用的应用就是表示有限集合。我们可以用位向量[$a_{w-1}, …, a_{1}, a_{0}$]编码任何子集A⊆{0, 1, …, w-1}，其中$a_{i}=1$当且仅当i⊆A。例如位向量a=[01101001]表示集合 A={0, 3, 5, 6}，而b=[01010101]表示集合B={0, 2, 4, 6}。使用这种编码集合的方法，布尔运算<code>|</code>和<code>&amp;</code>分别对应于集合的并和交，而<code>~</code>对应于集合的补。还是用前面那个例子，运算<code>a&amp;b</code>得到位向量[01000001]，而 A∩B={0, 6}。</p>
+</li>
+<li><p>我们还能够通过指定一个位向量<strong>掩码</strong>，有选择地enable或是屏蔽（disable）一些<strong>信号</strong>，其中某一位位置上为1时，表明信号 是有效的（enable），而0表明该信号是被屏蔽（disable）的。因而，这个掩码表示的就是设置为有效信号的集合。</p>
+</li>
+</ol>
+<h3 id="2-1-7-Bit-Level-Operations-in-C"><a href="#2-1-7-Bit-Level-Operations-in-C" class="headerlink" title="2.1.7 Bit-Level Operations in C"></a>2.1.7 Bit-Level Operations in C</h3><p>C语言中的<strong>位级运算</strong>：</p>
+<ol>
+<li><p>交换指针变量<code>x</code>和<code>y</code>所指向的存储位置处存放的值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inplace_swap</span><span class="params">(<span class="keyword">int</span> *x, <span class="keyword">int</span> *y)</span> </span>&#123;</span><br><span class="line">  *y = *x ^ *y; <span class="comment">/* Step 1 */</span></span><br><span class="line">  *x = *x ^ *y; <span class="comment">/* Step 2 */</span></span><br><span class="line">  *y = *x ^ *y; <span class="comment">/* Step 3 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不需要第三个位置来临时存储另一个值，但这种交换方式并没有性能上的优化，仅仅是一个智力游戏。（每个元素就是它自身的加法逆元（<code>a^a=0</code>））</p>
+</li>
+<li><p>位级运算的一个常见应用就是实现<strong>掩码</strong>运算，比如取<code>x=0x89ABCDEF</code>的最低有效字节：<code>x &amp; 0xFF = 0x000000EF</code>；表达式<code>~0</code>将生成一个全1的掩码，与字长无关，相比之下，0xFFFFFFFF只能工作在32位机器上，是不可移植的。</p>
+</li>
+<li><p><code>|0</code>使位不变，<code>|1</code>使位全1；<code>&amp;0</code>使位全0，<code>&amp;1</code>使位不变；<code>^0</code>使位不变，<code>^1</code>使位取反。</p>
+</li>
+</ol>
+<h3 id="2-1-8-Logical-Operations-in-C"><a href="#2-1-8-Logical-Operations-in-C" class="headerlink" title="2.1.8 Logical Operations in C"></a>2.1.8 Logical Operations in C</h3><p>C语言中的<strong>逻辑运算</strong>（有别于位级运算）：</p>
+<ol>
+<li>逻辑运算符：<code>||</code>、<code>&amp;&amp;</code>和<code>!</code>。</li>
+<li>逻辑运算<code>&amp;&amp;</code>和<code>||</code>与位级运算<code>&amp;</code>和<code>|</code>的重要区别是，如果对第一个参数求值就能确定表达式的结果，那么逻辑运算就不会对第二个参数求值。如<code>a&amp;&amp;5/a</code>不会造成零除，<code>p&amp;&amp;*p++</code>不会导致间接引用空指针。</li>
+</ol>
+<h3 id="2-1-9-Shift-Operations-in-C"><a href="#2-1-9-Shift-Operations-in-C" class="headerlink" title="2.1.9 Shift Operations in C"></a>2.1.9 Shift Operations in C</h3><p>C语言中的移位运算：</p>
+<ol>
+<li><p><code>x&lt;&lt;k</code>：<code>x</code>左移<code>k</code>位，丢弃最高的<code>k</code>位，并在右端补<code>k</code>个0。移位运算是从左至右可结合的，即<code>x&lt;&lt;j&lt;&lt;k</code>等价于<code>(x&lt;&lt;j)&lt;&lt;k</code>。</p>
+</li>
+<li><p><code>x&gt;&gt;k</code>：分为两种形式，<strong>逻辑右移</strong>和<strong>算术右移</strong>：</p>
+<ul>
+<li>逻辑右移在左端补<code>k</code>个0；</li>
+<li>算术右移在左端补<code>k</code>个最高有效位的值（看上去有些奇特，但对有符号整数数据的运算非常有用）。</li>
+</ul>
+</li>
+<li><p>C语言标准并没有明确定义对于有符号数应该使用哪种类型的右移，由此造成了可移植性问题。实际上，<strong>几乎所有</strong>的编译器/机器组合都<strong>对有符号数使用算术右移</strong>，另一方面，<strong>对于无符号数，右移必须是逻辑的</strong>。</p>
+<p>与C相比，Java对于如何进行右移有明确的定义。表达式<code>x&gt;&gt;k</code>为算术右移；<code>x&gt;&gt;&gt;k</code>为逻辑右移。</p>
+</li>
+<li><p>在许多机器上，当移动一个<code>w</code>位的值时，移位指令只考虑位移量的低$log_{2}w$位，因此实际上位移量就是通过计算<code>k mod w</code>得到的。</p>
+<p>不过这种行为对于C程序来说是<strong>没有保证的</strong>，所以应该保持位移量小于待移位值的位数。另一方面，Java特别要求位移数量应该按照我们前面所讲的求模的方法来计算。</p>
+</li>
+<li><p>C语言中加减法的优先级高于移位运算，所以请加括号。</p>
+</li>
+</ol>
+<h2 id="2-2-Integer-Representations"><a href="#2-2-Integer-Representations" class="headerlink" title="2.2 Integer Representations"></a>2.2 Integer Representations</h2><p>整数表示。</p>
+<p>用位来编码整数有两种不同的方式：</p>
+<ul>
+<li>一种只能表示非负数；</li>
+<li>另一种能够表示负数、零和正数。</li>
+</ul>
+<p>这两种表示方式在数学属性和机器级实现方面密切相关。下图是一些数学术语，用于精确定义和描述计算机如何编码和操作整数。<img src="CS-APP-Notes/%E6%95%B4%E6%95%B0%E6%93%8D%E4%BD%9C.png" alt="整数操作"></p>
+<h3 id="2-2-1-Integral-Data-Types"><a href="#2-2-1-Integral-Data-Types" class="headerlink" title="2.2.1 Integral Data Types"></a>2.2.1 Integral Data Types</h3><p>整型数据类型——表示有限范围的整数。</p>
+<ol>
+<li><p>下面是32位和64位程序上C语言整型数据类型的典型取值范围：<img src="CS-APP-Notes/32%E4%BD%8D%E6%95%B4%E5%9E%8B.png" alt="32位整型"></p>
+<p><img src="CS-APP-Notes/64%E4%BD%8D%E6%95%B4%E5%9E%8B.png" alt="64位整型"></p>
+<p>大多数64位机器使用8个字节的表示，比32位机器上使用的4个字节的表示的取值范围大很多。</p>
+</li>
+<li><p>下面是C语言的整型数据类型保证的取值范围，C语言标准要求这些数据类型必须至少具有这样的取值范围：<img src="CS-APP-Notes/C%E6%95%B4%E5%9E%8B.png" alt="C整型"></p>
+<p>C和C++都支持有符号（默认）和无符号数，Java只支持有符号数。</p>
+</li>
+</ol>
+<h3 id="2-2-2-Unsigned-Encodings"><a href="#2-2-2-Unsigned-Encodings" class="headerlink" title="2.2.2 Unsigned Encodings"></a>2.2.2 Unsigned Encodings</h3><p>无符号数的编码：</p>
+<ol>
+<li>无符号数的编码就是它的<strong>二进制表示</strong>（$\vec{x}=[x_{w-1}, x_{w-2}, …, x_{0}]$）：$$B2U_{w}(\vec{x})\doteq \sum_{i=0}^{w-1}x_{i}2^{i}$$</li>
+<li>函数$B2U_{w}$将一个长度为$w$的0、1串映射到非负整数。</li>
+<li>下面是$w=4$的无符号数示例，当二进制表示中位<code>i</code>为1，数值就会加上$2^{i}$：<img src="CS-APP-Notes/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0.png" alt="无符号数"></li>
+<li>无符号数编码具有唯一性，因为函数$B2U_{w}$是一个双射。</li>
+</ol>
+<h3 id="2-2-3-Two’s-Complement-Encodings"><a href="#2-2-3-Two’s-Complement-Encodings" class="headerlink" title="2.2.3 Two’s-Complement Encodings"></a>2.2.3 Two’s-Complement Encodings</h3><p>有符号数的编码——补码编码：</p>
+<ol>
+<li><p>补码编码是将字的最高有效位解释为负权（negative weight）（$\vec{x}=[x_{w-1}, x_{w-2}, …, x_{0}]$）：$$B2T_{w}(\vec{x})\doteq -x_{w-1}2^{w-1}+\sum_{i=0}^{w-2}x_{i}2^{i}$$最高有效位也称为<strong>符号位</strong>，值为1时表示负数，值为0时表示非负。</p>
+</li>
+<li><p>下面是$w=4$的补码示例，把位3作为符号位，因此当它为1时，对数值的影响是$-2^{3}=-8$：<img src="CS-APP-Notes/%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0.png" alt="有符号数"></p>
+</li>
+<li><p>考虑w位补码：</p>
+<ul>
+<li>当符号位为1，其他位为0时，取到最小值$$TMin_{w}\doteq -2^{w-1}$$</li>
+<li>当符号位为0，其他位为1时，取到最大值$$TMax_{w}\doteq \sum_{i=0}^{w-2}2^{i}=2^{w-1}-1$$</li>
+</ul>
+<p>可以看出函数$B2T_{w}$是一个从长度为w的位模式到$TMin_{w}$和$TMax_{w}$之间数字的映射。</p>
+</li>
+<li><p>补码编码具有唯一性，因为函数$B2T_{w}$是一个双射。</p>
+</li>
+<li><p>下面是针对不同字长的几个重要数字的位模式和数值：<img src="CS-APP-Notes/%E9%87%8D%E8%A6%81%E6%95%B0%E5%AD%97.png" alt="重要数字"></p>
+<ul>
+<li>前三个是可表示的整数的范围；</li>
+<li>由于0的存在，补码的范围是不对称的：|TMin|=|TMax|+1，即TMin没有与之对应的正数，这导致了补码运算的某些特殊的属性，并且容易造成程序中细微的错误；</li>
+<li>最大的无符号数刚好比补码的最大值的两倍大一点：UMax=2TMax+1，补码表示中所有表示负数的位模式在无符号表示中都变成了正数；</li>
+<li>-1和UMax有同样的位表示——一个全1的串。</li>
+</ul>
+</li>
+<li><p>C语言并没有要求要用补码形式来表示有符号整数，但是几乎所有的机器都是这么做的。不应该假设除了上图之外的任何可表示的数值范围，也不应该假设有符号数会使用何种特殊的表示方式。C库中的文件<code>&lt;limits.h&gt;</code>定义了一组常量<code>INT_MAX</code>、<code>INT_MIN</code>和<code>UNIT_MAX</code>等，分别描述了有符号和无符号整数的范围。</p>
+</li>
+<li><p>ISO C99标准在文件<code>stdint.h</code>中引入了更大的整数类型类。它定义了一组数据类型，声明形如<code>intN_t</code>和<code>uintN_t</code>，对不同的N值指定N位有符号整数和无符号整数。N的具体值与 实现相关，但是大多数编译器允许的值为8、16、32和64。即<code>uint16_t</code>为16位无符号变量，<code>int32_t</code>为32位有符号变量。</p>
+</li>
+<li><p>上述数据类型对应着一组宏，定义了每个N值对应的最小和最大值。这些宏名字形如<code>INTN_MIN</code>、<code>INTN_MAX</code>和<code>UINTN_MAX</code>。确定宽度类型的带格式打印需要使用宏，以与系统相关的方式扩展为格式串，宏<code>PRId32</code>展开成字符串<code>d</code>，宏<code>PRIu64</code>展开成两个字符串<code>l</code>和<code>u</code>。使用宏能保证不论代码如何编译，都能生成正确的格式字符串。</p>
+</li>
+<li><p>Java标准明确要求采用补码表示整数数据类型，Java中的单字节数据类型称为<code>byte</code>，而不是<code>char</code>。这些非常具体的要求都是为了保证无论在什么机器上运行，Java程序都能表现得完全一样。</p>
+</li>
+<li><p>有符号数的其他表示方法：</p>
+<ul>
+<li><strong>反码（Ones’ Complement）</strong>：类似补码，但最高有效位权是$-(2^{w-1}-1)$而不是$-2^{w-1}$：$$B2O_{w}(\vec{x})\doteq -x_{w-1}(2^{w-1}-1)+\sum_{i=0}^{w-2}x_{i}2^{i}$$</li>
+<li><strong>原码（Sign-Magnitude）</strong>：最高有效位是符号位，用来确定剩下的位应该取负权还是正权：$$B2S_{w}(\vec{x})\doteq (-1)^{x_{w-1}}\times \sum_{i=0}^{w-2}x_{i}2^{i}$$</li>
+</ul>
+<p>这两种编码对于数字0有两种不同的编码方式：把[00…0]都解释为+0，而-0在原码中表示为[10…0]，在反码中表示为[11…1]。几乎所有现代机器都使用补码。在浮点数中有使用原码编码。</p>
+<p>对于非负数x，我们用$2^{w}-x$来计算-x的w位表示，用[111…1]-x来计算-x的反码表示。前者只有一个2，后者有很多个1，这就是“Two’s complement”和“Ones’ complement”的来源。</p>
+</li>
+<li><p>汇编文件中包含的十六进制数字都是用典型的补码形式表示的。</p>
+</li>
+</ol>
+<h3 id="2-2-4-Conversions-between-Signed-and-Unsigned"><a href="#2-2-4-Conversions-between-Signed-and-Unsigned" class="headerlink" title="2.2.4 Conversions between Signed and Unsigned"></a>2.2.4 Conversions between Signed and Unsigned</h3><p>有符号数和无符号数之间的转换：</p>
+<ol>
+<li><p>对于大多数C语言的实现，处理同样字长的有符号数和无符号数之间相互转换的一般规则是：数值可能会改变（编码方式改变），但是<strong>位模式不变</strong>。</p>
+</li>
+<li><p>数值是如何改变的（有符号数到无符号数，x满足$TMIn_{w}\le x\le TMax_{w}）$：</p>
+<ul>
+<li>当$x&lt;0$时，$T2U_{w}(x)=x+2^{w}$；</li>
+<li>当$x\ge 0$时，$T2U_{w}(x)=x$；</li>
+</ul>
+<p><img src="CS-APP-Notes/T2U.png" alt="T2U"></p>
+<p>实际上就是相差了两个符号位。负数转换成了大的正数，非负数保持不变。<img src="CS-APP-Notes/%E4%B8%A4%E4%B8%AA%E7%AC%A6%E5%8F%B7%E4%BD%8D.png" alt="两个符号位"></p>
+</li>
+<li><p>数值是如何改变的（无符号数到有符号数，u满足0\le u\le Umax_{w}）$：</p>
+<ul>
+<li>当$u\le TMax_{w}$时，$U2T_{w}(u)=u$；</li>
+<li>当$u&gt;TMax_{w}$时，$U2T_{w}(u)=u-2^{w}$；</li>
+</ul>
+<p><img src="CS-APP-Notes/U2T.png" alt="U2T"></p>
+</li>
+<li><p>在$0\le x\le TMax_{w}$之内的x有相同的无符号和有符号（补码）表示，范围之外的需要加上或减去$2^{w}$。</p>
+</li>
+<li><p>最靠近0的负数（-1）映射为最大的无符号数，最小的负数（TMin_{w}）映射为一个刚好在补码的正数范围之外的无符号数。</p>
+</li>
+</ol>
+<h3 id="2-2-5-Signed-versus-Unsigned-in-C"><a href="#2-2-5-Signed-versus-Unsigned-in-C" class="headerlink" title="2.2.5 Signed versus Unsigned in C"></a>2.2.5 Signed versus Unsigned in C</h3><p>C语言中的有符号数与无符号数。</p>
+<ol>
+<li><p>C语言中大多数数字默认为有符号，若要创建一个无符号常量，需要加上后缀字符<code>&#39;U&#39;</code>或者<code>&#39;u&#39;</code>。</p>
+</li>
+<li><p>C语言中可以显式或隐式转换有符号数和无符号数，用<code>printf</code>函数的<code>%u</code>可以打印<code>unsigned</code>即无符号数，<code>%d</code>打印<code>int</code>即有符号数。（CS:APP3e中文版52页、English version Page 111处有误）</p>
+</li>
+<li><p>C语言中执行运算时，如果它的一个运算数是有符号的而另一个是无符号的，那么C会隐式地<strong>将有符号数强制类型转换为无符号数</strong>，并假设这两个数都是非负的来执行这个运算：<img src="CS-APP-Notes/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2.png" alt="隐式转换"></p>
+<p><code>*</code>：发生类型转换。</p>
+<p>无符号数不要和-1比。</p>
+</li>
+<li><p>上图中将$TMin_{32}$写成<code>-2147483647-1</code>，没有写成<code>-2147483648</code>或<code>0x80000000</code>。在C头文件<code>limits.h</code>中发现使用了类似的写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Minimum and maximum values a tsigned int&#x27; can hold. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INT_MAX 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INT_MIN (-INT_MAX - 1)</span></span><br></pre></td></tr></table></figure>
+<p>是由于补码表示的不对称性和C语言的转换规则之间奇怪的交互，迫使我们用这种不寻常的方式。</p>
+</li>
+</ol>
+<h3 id="2-2-6-Expanding-the-Bit-Representation-of-a-Number"><a href="#2-2-6-Expanding-the-Bit-Representation-of-a-Number" class="headerlink" title="2.2.6 Expanding the Bit Representation of a Number"></a>2.2.6 Expanding the Bit Representation of a Number</h3><p>扩展一个数字的位表示。</p>
+<ol>
+<li>在不同字长的整数之间进行运算，保持数值不变的前提下，可以从一个较小的数据类型转换到一个较大的数据类型，但反过来是不可能的。</li>
+<li>将一个无符号数转换为一个更大的数据类型，只要简单地在表示的开头添加0。这种运算被称为<strong>零扩展（zero extension）</strong>，直接遵循了无符号数编码的定义。</li>
+<li>将一个有符号数（补码数字）转换为一个更大的数据类型，要执行<strong>符号扩展（sign extension）</strong>，在表示的开头添加最高有效位的值。因为都是2的幂次，2倍抵消一半后与原来相同。（理解了算术右移）</li>
+<li>C语言标准要求，<code>short</code>转换到<code>unsigned</code>时，先改变大小，再从有符号转换到无符号。即<code>(unsigned)sx</code>等价于<code>(unsigned)(int)sx</code>，而不是<code>(unsigned)(unsigned short)sx</code>。</li>
+</ol>
+<h3 id="2-2-7-Truncating-Numbers"><a href="#2-2-7-Truncating-Numbers" class="headerlink" title="2.2.7 Truncating Numbers"></a>2.2.7 Truncating Numbers</h3><p>截断数字。</p>
+<ol>
+<li>当从一个较小的数据类型转换到一个较大的数据类型时，会发生数字的截断，即丢弃最高若干位。</li>
+<li>截断一个数字可能会改变它的值，这就是溢出的一种形式。</li>
+<li>假设w位无符号数被截断为k位，结果为原数对$2^{k}$取模。</li>
+<li>假设w位有符号数（补码数值）被截断为k位，结果为原数对$2^{k}$取模后再转换为补码。</li>
+</ol>
+<h3 id="2-2-8-Advice-on-Signed-versus-Unsigned"><a href="#2-2-8-Advice-on-Signed-versus-Unsigned" class="headerlink" title="2.2.8 Advice on Signed versus Unsigned"></a>2.2.8 Advice on Signed versus Unsigned</h3><p>关于有符号数与无符号数的建议：</p>
+<p>无符号运算的细微特性，尤其是有符号数到无符号数的隐式转换，会导致错误或出现漏洞。避免这类错误的一种方法就是绝不使用无符号数，除C以外很少有语言支持无符号整数，这些语言的设计者认为无符号数带来的麻烦要比益处多得多。</p>
+<p>当我们想要把字仅仅看作是位的集合而没有任何数字意义时，无符号数值又是非常有用的。如往一个字中放入描述各种布尔条件的标记（flag）时、表示地址时、实现模运算和多精度运算的数学包时（数字是由字的数组来表示的）等。</p>
+<h2 id="2-3-Integer-Arithmetic"><a href="#2-3-Integer-Arithmetic" class="headerlink" title="2.3 Integer Arithmetic"></a>2.3 Integer Arithmetic</h2><p>整数运算。</p>
+<p>计算机运算具有有限性，理解计算机运算的细微之处能够帮助程序员编写更可靠的代码。</p>
+<h3 id="2-3-1-Unsigned-Addition"><a href="#2-3-1-Unsigned-Addition" class="headerlink" title="2.3.1 Unsigned Addition"></a>2.3.1 Unsigned Addition</h3><p>无符号加法。</p>
+<ol>
+<li><p>下图展示了当两个4位无符号数进行加法运算时，和的坐标图：<img src="CS-APP-Notes/%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8A%A0%E6%B3%95.png" alt="无符号加法"></p>
+<p>对于一个4位的字长（0～15），其和可能需要5位（0～30）。</p>
+</li>
+<li><p>上面的例子意味着，要想完整地表示算术运算的结果，我们不能对字长做任何限制。一些编程语言，如Lisp，实际上就支持无限精度的运算，允许任意的（在机器的内存限制之内）整数运算。更常见的是编程语言支持固定精度的运算，因此像加法和乘法这样的运算不同于它们在整数上的相应运算。</p>
+</li>
+<li><p>无符号加法：对<code>w</code>位的<code>x</code>和<code>y</code>，若<code>x+y</code>仍为<code>w</code>位，则无符号加法结果就是<code>x+y</code>；若<code>x+y</code>超过<code>w</code>位（溢出），即为<code>w+1</code>位，则无符号加法结果就是$x+y-2^{w}$。</p>
+<p>总之，位级表示结果就是舍弃溢出位，算术表示结果就是$(x+y) mod 2^{w}$。<img src="CS-APP-Notes/%E8%88%8D%E5%BC%83%E6%BA%A2%E5%87%BA%E4%BD%8D.png" alt="舍弃溢出位"></p>
+</li>
+<li><p>回到一开始的例子，真正的无符号加法可以表示为下图：<img src="CS-APP-Notes/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%BA%A2%E5%87%BA.png" alt="无符号溢出"></p>
+</li>
+<li><p>当结果比x或y小时，可以判定发生了溢出。</p>
+</li>
+<li><p>模数加法形成了一种数学结构，称为<strong>阿贝尔群（Abelian group）</strong>，以丹麦数学家Niels Henrik Abel（1802～1829）的名字命名。它是可交换的（abelian）且可结合的。它有一个单位元0，且每个元素有一个加法逆元（加法的逆操作即求反）。</p>
+</li>
+<li><p>无符号数的加法逆元：<code>w</code>位的无符号数<code>x</code>，其<code>w</code>位的无符号逆元为：当<code>x=0</code>时，为<code>x</code>；当<code>x&gt;0</code>时，为$2^{w}-x$。</p>
+<p>“$2^{w}=0$”</p>
+</li>
+</ol>
+<h3 id="2-3-2-Two’s-Complement-Addition"><a href="#2-3-2-Two’s-Complement-Addition" class="headerlink" title="2.3.2 Two’s-Complement Addition"></a>2.3.2 Two’s-Complement Addition</h3><p>有符号加法——补码加法。</p>
+<ol>
+<li><p>由于补码存在下限和上限，所以应该确定当结果太大或者太小时应该做些什么。</p>
+</li>
+<li><p>补码加法：对满足$-2^{w-1}\le x,y\le 2^{w-1}-1$的<code>x</code>和<code>y</code>，若<code>x+y</code>仍满足$-2^{w-1}\le x+y&lt;2^{w-1}-1$，则补码加法结果就是<code>x+y</code>；若$2^{w-1}\le x+y$（正溢出），则补码加法结果就是$x+y-2^{w}$；若$x+y&lt;-2^{w-1}$（负溢出），则补码加法结果就是$x+y+2^{w}$。<img src="CS-APP-Notes/%E8%A1%A5%E7%A0%81%E5%8A%A0%E6%B3%95.png" alt="补码加法"></p>
+<p>总之，结果的位级表示与无符号加法完全相同。实际上，大多数计算机对二者使用同样的机器指令。</p>
+</li>
+<li><p>字长为4的补码加法可以表示为：<img src="CS-APP-Notes/%E6%AD%A3%E8%B4%9F%E6%BA%A2%E5%87%BA.png" alt="正负溢出"></p>
+</li>
+<li><p>当x和y同号，但结果与之异号时，可以判定发生了正/负溢出。</p>
+</li>
+<li><p>同样，补码加法也形成了阿贝尔群。如<code>(x+y)-x==y</code>恒成立。</p>
+</li>
+<li><p>注意<code>-TMin=TMin</code>，在函数的任何测试过程中，<code>TMin</code>都应该作为一种测试情况。</p>
+</li>
+</ol>
+<h3 id="2-3-3-Two’s-Complement-Negation"><a href="#2-3-3-Two’s-Complement-Negation" class="headerlink" title="2.3.3 Two’s-Complement Negation"></a>2.3.3 Two’s-Complement Negation</h3><ol>
+<li><p>补码的加法逆元：<code>TMin</code>的加法逆元就是它本身；大于<code>TMin</code>的<code>x</code>的加法逆元就是<code>-x</code>。</p>
+<p>“$-2^{w}=0$”</p>
+</li>
+<li><p>求位级补码的加法逆元的第一种方法就是对每一位取反，再对结果加1（“取反加一”）。在C语言中，对于任意整数<code>x</code>，<code>-x</code>和<code>~x+1</code>的结果完全相同。</p>
+</li>
+<li><p>求位级补码的加法逆元的第二种方法就是将位向量分为两部分，找到最右边的1的位置（设为k）：$[x_{w-1}, x_{w-2}, …, x_{k+1}, 1, 0, …, 0]$，它的加法逆元就是$[~x_{w-1}, ~x_{w-2}, …, ~x_{k+1}, 1, 0, …, 0]$，即对位k左边的所有位取反。（证明方法参见<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Lab-1/">Data Lab #1</a>）</p>
+</li>
+</ol>
+<h3 id="2-3-4-Unsigned-Multiplication"><a href="#2-3-4-Unsigned-Multiplication" class="headerlink" title="2.3.4 Unsigned Multiplication"></a>2.3.4 Unsigned Multiplication</h3><p>w位无符号乘法，位级表示仍为截断高位，算术表示仍为对$2^{w}$取模的结果。</p>
+<h3 id="2-3-5-Two’s-Complement-Multiplication"><a href="#2-3-5-Two’s-Complement-Multiplication" class="headerlink" title="2.3.5 Two’s-Complement Multiplication"></a>2.3.5 Two’s-Complement Multiplication</h3><p>补码乘法与无符号乘法的结果具有位级等价性，位级表示为截断高位，算术表示为对$2^{w}$取模的结果的补码形式。</p>
+<h3 id="2-3-6-Multiplying-by-Constants"><a href="#2-3-6-Multiplying-by-Constants" class="headerlink" title="2.3.6 Multiplying by Constants"></a>2.3.6 Multiplying by Constants</h3><p>乘以常数。</p>
+<ol>
+<li><p>以往在大多数机器上，乘法指令相当慢，需要10个或更多的时钟周期，然而其他整数运算（例如加法、减法、位级运算和移位）只需要1个时钟周期。</p>
+<p>因此，编译器使用了一项重要的优化，试着用移位和加法运算的组合来代替乘以常数因子的乘法。</p>
+</li>
+<li><p>乘以2的k次幂等价于将其左移k位，溢出则截断。</p>
+</li>
+<li><p>将乘数分成[(0…0)(1…1)(0…0)…(1…1)]，对应位置采用移位运算。</p>
+</li>
+</ol>
+<h3 id="2-3-7-Dividing-by-Powers-of-2"><a href="#2-3-7-Dividing-by-Powers-of-2" class="headerlink" title="2.3.7 Dividing by Powers of 2"></a>2.3.7 Dividing by Powers of 2</h3><p>除以2的幂。</p>
+<ol>
+<li>在大多数机器上，整数除法要比整数乘法更慢——需要30个或者更多的时钟周期。</li>
+<li>除以2的幂使用右移来实现，无符号使用逻辑移位，有符号（补码）使用算术移位。</li>
+<li>整数除法总是<strong>舍入到零</strong>（舍弃小数）。</li>
+<li>无符号除以2的幂：右移相应位，向下舍入（向零舍入）。由于一定是逻辑右移，所以非常简单。</li>
+<li>有符号（补码）除以2的幂：默认为向下舍入，为了向零舍入，需要在移位之前<strong>偏置（biasing）</strong>这个值，如将x除以2的k次幂，可以表示成<code>(x+(1&lt;&lt;k)-1)&gt;&gt;k</code>（算术右移）。（CS:APP3e中文版73页处有误，抄都能抄错）</li>
+<li>偏置技术利用了：<code>x/y</code>向上舍入等价于<code>(x+y-1)/y</code>向下舍入（y&gt;0）。</li>
+<li>可以看到，除以2的幂可以由逻辑或者算术右移来实现。不幸的是，这种方法不能推广到任意常数，这与乘法不同。</li>
+</ol>
+<h3 id="2-3-8-Final-Thoughts-on-Integer-Arithmetic"><a href="#2-3-8-Final-Thoughts-on-Integer-Arithmetic" class="headerlink" title="2.3.8 Final Thoughts on Integer Arithmetic"></a>2.3.8 Final Thoughts on Integer Arithmetic</h3><p>关于整数运算的最后思考：由于表示数字的字长有限，计算机执行的整数运算实际上是一种模运算形式。</p>
+<h2 id="2-4-Floating-Point"><a href="#2-4-Floating-Point" class="headerlink" title="2.4 Floating Point"></a>2.4 Floating Point</h2><ol>
+<li>浮点表示对<strong>形如</strong>$V=x\times 2^{y}$<strong>的有理数</strong>进行编码。它对于执行涉及非常大的数字（$|V|\gg 0$）、非常接近于0（$|V|\ll 1$）的数字，以及更普遍地作为实数运算的近似值的计算，是很有用的。</li>
+<li>电气和电子工程师协会（IEEE）是一个包括所有电子和计算机技术的专业团体。它出版刊物，举办会议，并且建立委员会来定义标准，内容涉及从电力传输到软件工程。它创立了IEEE 754浮点标准。另一个IEEE标准的例子是无线网络的802.11标准。</li>
+<li>我们将看到IEEE浮点格式的数字表示并探讨舍入（rounding）问题。</li>
+</ol>
+<h3 id="2-4-1-Fractional-Binary-Numbers"><a href="#2-4-1-Fractional-Binary-Numbers" class="headerlink" title="2.4.1 Fractional Binary Numbers"></a>2.4.1 Fractional Binary Numbers</h3><p>二进制小数——理解浮点数的第一步。</p>
+<ol>
+<li>二进制小数中小数点右侧的位的权是2的负幂。</li>
+<li>当我们仅考虑有限长度的编码，小数的二进制表示法只能表示那些能够被写成$x\times 2^{y}$的数，其他的值只能够被近似地表示。增加二进制表示的长度可以提高表示的精度。</li>
+</ol>
+<h3 id="2-4-2-IEEE-Floating-Point-Representation"><a href="#2-4-2-IEEE-Floating-Point-Representation" class="headerlink" title="2.4.2 IEEE Floating-Point Representation"></a>2.4.2 IEEE Floating-Point Representation</h3><p>IEEE浮点表示。</p>
+<ol>
+<li><p>上面提到的是定点表示法，不能有效地表示非常大的数字。相反，我们希望通过给定x和y的值，来表示形如$x\times 2^{y}$的数。即二进制不再是普通的二进制数。</p>
+</li>
+<li><p>IEEE浮点标准用$V=(-1)^{s}\times M\times 2^{E}$的形式来表示一个数（即先将数字转换成<strong>二进制小数</strong>）：</p>
+<ul>
+<li><strong>符号（sign）</strong>：<code>s</code>决定这个数是负数（<code>s=1</code>）还是正数（<code>s=0</code>），数值0为特殊情况。</li>
+<li><strong>尾数（significand）</strong>：<code>M</code>是一个二进制小数，范围是1～2-𝜺，或者是0～1-𝜺。</li>
+<li><strong>阶码（exponent）</strong>：<code>E</code>的作用是对浮点数加权，权重是2的E次幂（可能是负数）。</li>
+</ul>
+</li>
+<li><p>将浮点数的位表示划分为三个字段，分别对这些值进行编码：</p>
+<ul>
+<li>一个单独的符号位<code>s</code>直接编码符号<code>s</code>。</li>
+<li><code>k</code>位的阶码字段$exp=e_{k-1}…e_{1}e_{0}$编码阶码E。</li>
+<li><code>n</code>位小数字段$frac=f_{n-1}…f_{1}f_{0}$编码尾数M，但是编码出来的值也依赖于阶码字段的值是否等于0。</li>
+</ul>
+<p>如下图所示：<img src="CS-APP-Notes/%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA.png" alt="浮点表示"></p>
+<ul>
+<li>在单精度浮点格式（C语言的<code>float</code>）中，<code>s</code>、<code>exp</code>和<code>frac</code>字段分别为1位、8位和23位，得到一个32位的表示；</li>
+<li>在双精度浮点格式（C语言的<code>double</code>）中，<code>s</code>、<code>exp</code>和<code>frac</code>字段分别为1位、11位和52位，得到一个64位的表示。</li>
+</ul>
+</li>
+<li><p>给定了位的表示，根据<code>exp</code>的值，被编码的值可以分成三种不同的情况（以单精度为例）：<img src="CS-APP-Notes/%E5%8D%95%E7%B2%BE%E5%BA%A6%E4%B8%89%E6%83%85%E5%86%B5.png" alt="单精度三情况"></p>
+<ol>
+<li><p><strong>规格化的值（normalized）</strong></p>
+<p>这是最普遍的情况，此时<code>exp</code>不为全0（0）且不为全1（单精度255，双精度2047）。</p>
+<p>这种情况中：</p>
+<ul>
+<li><p><code>exp</code>被解释为以<strong>偏置（biased）</strong>形式表示的<strong>有符号整数</strong>。即**阶码的值<code>E=e-Bias</code>**，其中<code>e</code>是无符号数，位表示为$e_{k-1}…e_{1}e_{0}$；<code>Bias</code>是一个等于$2^{k-1}-1$（单精度127，双精度1023）的偏置值。由此产生的指数的取值范围是，单精度-126～+127，双精度-1022～+1023。</p>
+</li>
+<li><p><code>frac</code>被解释为描述小数值<code>f</code>，其中$0\le f&lt;1$，二进制表示为$0.f_{n-1}…f_{1}f_{0}$，即二进制小数点在最高有效位的左边。**尾数<code>M=1+f</code>**，也称为隐含的以1开头（implied leading 1）表示，所以不用显式表示它。因为我们可以调整阶码E，使尾数M在$1\le M&lt;2$之中（假设没有溢出），这种表示方法可以轻松获得一个额外精度位。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>非规格化的值（denormalized）</strong></p>
+<p>此时<code>exp</code>为全0。</p>
+<p>这种情况中：</p>
+<ul>
+<li>**阶码值<code>E=1-Bias</code>**。虽然这比<code>E=-Bias</code>反直觉，但这种定义方式提供了一种从非规格化值平滑转换到规格化值的方法。</li>
+<li>**尾数<code>M=f</code>**，即小数字段，不包含隐含的开头的1。</li>
+</ul>
+<p>非规格化数有两个用途：</p>
+<ul>
+<li>提供了一种表示数值0的方法。因为规格化数中$M\ge 1$，不能表示0。符号位为0，其他域也全为0时，得到+0.0；符号位为1，其他域全为0时，得到-0.0。</li>
+<li>表示那些非常接近于0.0的数。它们提供了一种属性，称为<strong>逐渐溢出（gradual underflow）</strong>，其中可能的数值分布均匀地接近于0.0。</li>
+</ul>
+</li>
+<li><p><strong>特殊值（infinity&amp;NaN）</strong></p>
+<p>此时<code>exp</code>为全1。</p>
+<p>这种情况中：</p>
+<ul>
+<li>当小数域全为0时，得到无穷。当<code>s=0</code>时是+∞，当<code>s=1</code>时是-∞。当我们把两个非常大的数相乘，或者除以零时，无穷能够表示溢出的结果。</li>
+<li>当小数域为非零时，结果值称为“NaN”，即“不是一个数（Not a Number）”。一些运算的结果不是实数或无穷时就会得到这样的NaN值，比如计算$\sqrt{-1}$或∞-∞时。在某些应用中，表示未初始化的数据时，它们也很有用处。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-4-3-Example-Numbers"><a href="#2-4-3-Example-Numbers" class="headerlink" title="2.4.3 Example Numbers"></a>2.4.3 Example Numbers</h3><p>数字示例。</p>
+<ol>
+<li><p>将浮点数表示在数轴上（6位格式表示）：<img src="CS-APP-Notes/%E6%B5%AE%E7%82%B9%E6%95%B0%E5%9C%A8%E6%95%B0%E8%BD%B4.png" alt="浮点数在数轴"></p>
+<p>可以发现：</p>
+<ul>
+<li>两个无穷值在两个末端，非规格化数聚集在0的附近。</li>
+<li>+0和-0是两个特殊的非规格化数。</li>
+<li>可表示的数<strong>不是均匀分布的</strong>，越靠近原点处它们越稠密。</li>
+</ul>
+</li>
+<li><p>下面是8位浮点格式的示例：<img src="CS-APP-Notes/8%E4%BD%8D%E6%B5%AE%E7%82%B9.png" alt="8位浮点"></p>
+<p>可以观察到最大非规格化数到最小规格化数的平滑转变，这种平滑性归功于我们将非规格化数的<code>E</code>定义为<code>1-Bias</code>而不是<code>-Bias</code>，我们可以补偿非规格化数的尾数没有隐含的开头的1。</p>
+<p>而且可以观察到，位表达式是按升序排列的，表示的浮点数也是按升序排列的。这不是偶然的——IEEE格式如此设计就是为了浮点数能够<strong>使用整数排序函数</strong>来进行排序。</p>
+<p>当处理负数时，由于开头的1，并且是按降序排列的，但是不需要浮点运算来进行比较也能解决这个问题。</p>
+</li>
+<li><p>下面是一些重要的单精度和双精度浮点数的表示和数字值：<img src="CS-APP-Notes/%E5%8D%95%E5%8F%8C%E7%B2%BE%E5%BA%A6%E9%87%8D%E8%A6%81%E5%80%BC.png" alt="单双精度重要值"></p>
+</li>
+</ol>
+<h3 id="2-4-4-Rounding"><a href="#2-4-4-Rounding" class="headerlink" title="2.4.4 Rounding"></a>2.4.4 Rounding</h3><ol>
+<li>舍入就是用一种系统的方法找到实数“最接近的”浮点表示，关键是在两个可能值的正中间确定舍入方向。</li>
+<li>舍入的方式有向偶数舍入（round-to-even，也称向最接近的值舍入，round-to-nearest，是默认的方式，当数值在正中间时，使得舍入结果的最低有效数字是偶数）、向零舍入、向下舍入和向上舍入。</li>
+<li>除了向偶数舍入，其他三种方式产生实际值的确界（guaranteed bound），在一些数字应用中是很有用的：<ul>
+<li>向零舍入得到的值的绝对值不超过原数；</li>
+<li>向下舍入得到的值不超过原数；</li>
+<li>向上舍入得到的值不小于原数。</li>
+</ul>
+</li>
+<li>向偶数舍入在大多数情况下避免了统计偏差，使得结果不偏高也不偏低。</li>
+</ol>
+<h3 id="2-4-5-Floating-Point-Operations"><a href="#2-4-5-Floating-Point-Operations" class="headerlink" title="2.4.5 Floating-Point Operations"></a>2.4.5 Floating-Point Operations</h3><p>浮点运算。</p>
+<ol>
+<li>浮点运算的结果是实际运算舍入后的结果，实数上的加法也形成了阿贝尔群（但需要考虑舍入的影响）。</li>
+<li>浮点加法是可交换的，除了无穷和<code>NaN</code>外的大多数值都存在加法逆元（<code>+∞-∞=NaN</code>，<code>NaN</code>加任何数都等于<code>NaN</code>）。</li>
+<li>由于舍入的丢失，浮点加法是<strong>不可结合</strong>的，这是缺少的最重要的群属性。</li>
+<li>浮点加法满足单调性属性，即当$x\ne NaN$时，$a\ge b$能推出$x+a\ge x+b$。无符号和补码加法不具有此属性。</li>
+<li>浮点乘法是封闭的（虽然可能产生无穷大或<code>NaN</code>），是可交换的，乘法单位元是1.0。由于溢出或舍入而丢失精度的可能，浮点乘法不可结合、不可分配。</li>
+<li>浮点乘法同样满足单调性属性。无符号和补码乘法同样不具有此属性。</li>
+<li>浮点数的平方始终非负（即使可能溢出到+∞）。</li>
+</ol>
+<h3 id="2-4-6-Floating-Point-in-C"><a href="#2-4-6-Floating-Point-in-C" class="headerlink" title="2.4.6 Floating Point in C"></a>2.4.6 Floating Point in C</h3><p>C语言中的浮点数。</p>
+<ol>
+<li><p>在支持IEEE浮点格式的机器上，C中<code>float</code>对应单精度浮点数，<code>double</code>对应双精度浮点数。使用向偶数舍入的方式。</p>
+</li>
+<li><p>当程序文件中有</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _GNU_SOURCE 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>时，GNU编译器GCC会定义常数<code>INFINITY</code>表示+∞，<code>NaN</code>表示$NaN$。</p>
+</li>
+<li><p>当在<code>int</code>、<code>float</code>和<code>double</code>格式之间进行强制类型转换时，程序改变数值和位模式的原则如下：</p>
+<ul>
+<li>从<code>int</code>到<code>float</code>，不会溢出，可能舍入；</li>
+<li>从<code>int</code>或<code>float</code>到<code>double</code>，保留精确数值；</li>
+<li>从<code>double</code>到<code>float</code>，可能溢出，可能舍入；</li>
+<li>从<code>float</code>或<code>double</code>到<code>int</code>，可能溢出为不确定值，向零舍入。</li>
+</ul>
+</li>
+<li><p><code>x == (int)(double)x</code>为假，例如当<code>x</code>为<code>TMax</code>时；<code>f == -(-f)</code>为真，因为浮点数的相反数就是简单地对其符号位取反；<code>(f+d)-f == d</code>为假，因为可能发生舍入。</p>
+</li>
+</ol>
+<h2 id="2-5-Summary"><a href="#2-5-Summary" class="headerlink" title="2.5 Summary"></a>2.5 Summary</h2><p>计算机将信息编码为<strong>位（比特）</strong>，通常组织成<strong>字节序列</strong>。有<strong>不同的编码方式</strong>用来表示整数、实数和字符串。</p>
+<p>不同的计算机模型在编码数字和多字节数据中的<strong>字节顺序</strong>时使用不同的约定。</p>
+<p>大多数机器对整数使用<strong>补码</strong>编码，而对浮点数使用<strong>IEEE标准754</strong>编码。</p>
+<p>在相同长度的无符号和有符号整数之间进行强制类型转换时，大多数C语言实现遵循的原则是<strong>底层的位模式不变</strong>。在补码机器上，对于一个<code>w</code>位的值，这种行为是由函数$T2U_{w}$和$U2T_{w}$来描述的。</p>
+<p>由于<strong>编码的长度有限</strong>，与传统整数和实数运算相比，计算机运算具有非常不同的属性。当超出表示范围时，有限长度能够引起数值<strong>溢出</strong>。当浮点数非常接近于0.0，从而转换成零时，也会下溢。</p>
+<p>和大多数其他程序语言一样，C语言实现的有限整数运算和真实的整数运算相比，有一些特殊的属性。例如，由于溢出，表达式<code>x*x</code> 能够得出负数。</p>
+<p>浮点表示通过将数字编码为$x\times 2^{y}$的形式来<strong>近似</strong>地表示实数。最常见的浮点表示方式是由IEEE标准754定义的。它提供了几种不同的精度，最常见的是单精度（32位）和双精度（64位）。</p>
+<p>必须非常小心地使用浮点运算，因为浮点运算只有<strong>有限的范围和精度</strong>，而且并<strong>不遵守</strong>普遍的算术属性，比如结合性。</p>
+<h1 id="Chapter-3-Machine-Level-Representation-of-Programs"><a href="#Chapter-3-Machine-Level-Representation-of-Programs" class="headerlink" title="Chapter 3: Machine-Level Representation of Programs"></a>Chapter 3: Machine-Level Representation of Programs</h1><blockquote>
+<p>第3章：程序的机器级表示。我们教读者如何阅读由C编译器生成的x86-64机器代码。</p>
+<p>我们说明为不同控制结构（比如条件、循环和开关语句）生成的基本指令模式。我们还讲述过程的实现，包括栈分配、寄存器使用惯例和参数传递。我们讨论不同数据结构（如结构、 联合和数组）的分配和访问方式。我们还说明实现整数和浮点数算术运算的指令。我们还以分析程序在机器级的样子作为途径，来理解常见的代码安全漏洞（例如缓冲区溢出），以及理解程序员、编译器和操作系统可以采取的减轻这些威胁的措施。学习本章的概念能够帮助读者成为更好的程序员，因为你们懂得程序在机器上是如何表示的。另外一个好处就在于读者会对指针有非常全面而具体的理解。</p>
+</blockquote>
+<ol>
+<li>计算机执行的是<strong>机器代码</strong>，用<strong>字节序列</strong>编码低级的操作，包括处理数据、管理内存、读写存储设备上的数据，以及利用网络通信。</li>
+<li>机器代码是如何得到的？是<strong>编译器</strong>基于编程语言的规则、目标机器的指令集和操作系统遵循的惯例，经过一系列的阶段生成的。</li>
+<li>GCC C语言编译器以<strong>汇编代码</strong>的形式产生输出，汇编代码是<strong>机器代码的文本表示</strong>，给出程序中的每一条指令。然后GCC调用<strong>汇编器</strong>和<strong>链接器</strong>，根据汇编代码生成机器代码。</li>
+<li>高级语言屏蔽了程序的细节——机器级的实现，提供了较高的抽象级别，使得工作效率和可靠性提高。最大的优点是其可移植性，而汇编代码是与特定机器密切相关的。</li>
+<li>我们通过分析汇编代码，可以理解编译器的优化能力，并分析代码中隐含的低效率，还可以了解程序运行时的行为，防御可能出现的漏洞。</li>
+<li>我们将了解典型的编译器在将C程序结构变换成机器代码时所做的转换，相对于C代码表示的计算操作，优化编译器能够重新排列执行顺序，消除不必要的计算，用快速操作替换慢速操作，甚至将递归计算变换成迭代计算。</li>
+<li>这是一种<strong>逆向工程（reverse engineering）</strong>——通过研究系统和逆向工作，来试图了解系统（即汇编语言程序）的创建过程。</li>
+<li>我们的描述基于x86-64。IA32是x86-64的32位前身，而x86-64也可以向后兼容执行IA32程序。</li>
+</ol>
+<h2 id="3-1-A-Historical-Perspective"><a href="#3-1-A-Historical-Perspective" class="headerlink" title="3.1 A Historical Perspective"></a>3.1 A Historical Perspective</h2><p>历史观点。</p>
+<ol>
+<li><p>Inter处理器系列俗称x86，经历了长期的、不断进化的发展。以下列举了一些Inter处理器的模型，以及它们的一些关键特性，特别是影响机器级编程的特性。用其所需的晶体管数量来说明演变过程的复杂性，K表示1 000，M表示1 000 000，G表示1 000 000 000。</p>
+<ul>
+<li><strong>8086</strong>（1978年，29K个晶体管）。第一代单芯片、16位处理器之一。只有655 360字节的地址空间——地址只有20位长（可寻址范围为1 048 576字节），而操作系统保留了393 216字节自用。</li>
+<li><strong>80286</strong>（1982年，134K个晶体管）。增加了更多的寻址模式（现在已废弃），构成了IBM PC-AT个人计算机的基础，是MS Windows最初的使用平台。</li>
+<li><strong>i386</strong>（1985年，275K个晶体管）。将体系结构扩展到32位。增加了平坦寻址模式（flat addressing model），Linux和最新版本的Windows都是使用的这种模式。这是Inter系列中第一台全面支持Unix操作系统的机器。</li>
+<li><strong>i486</strong>（1989年，1.2M个晶体管）。改善了性能，同时将浮点单元集成到了处理器芯片上，但是指令集没有明显改变。</li>
+<li><strong>Pentium</strong>（1993年，3.1M个晶体管）。改善了性能，不过只对指令集进行了小的扩展。</li>
+<li><strong>PentiumPro</strong>（1995年，5.5M个晶体管）。引入全新的处理器设计，在内部被称为P6微体系结构。指令集中增加了一类“条件传送（conditional move）”指令。</li>
+<li><strong>Pentium/MMX</strong>（1997年，4.5M个晶体管）。在Pentium处理器中增加了一类新的处理整数向量的指令。每个数据大小可以是1、2或4字节。每个向量总长64位。</li>
+<li><strong>Pentium II</strong>（1997年，7M个晶体管）。P6微体系结构的延伸。</li>
+<li><strong>Pentium III</strong>（1999年，8.2M个晶体管）。引入了SSE，这是一类处理整数或浮点数向量的指令。每个数据可以是1、2或4个字节，打包成128位的向量。由于芯片上包括了 二级高速缓存，这种芯片后来的版本最多使用了24M个晶体管。</li>
+<li><strong>Pentium 4</strong> （2000年，42M个晶体管）。SSE扩展到了SSE2，增加了新的数据类型（包括双精度浮点数），以及针对这些格式的144条新指令。有了这些扩展，编译器可以使用SSE指令(而不是x87指令)，来编译浮点代码。</li>
+<li><strong>Pentium 4E</strong>（2004年，125M个晶体管）。增加了<strong>超线程</strong>（hyperthreading），这种技术可以在一个处理器上同时运行两个程序；还增加了EM64T，它是Intel对AMD（Advanced Micro Devices）提出的对IA32的64位扩展的实现，我们称之为x86-64。</li>
+<li><strong>Core 2</strong>（2006年，291M个晶体管）。回归到类似于P6的微体系结构。Intel的第一个多核微处理器，即多处理器实现在一个芯片上。但不支持超线程。</li>
+<li><strong>Core i7</strong>，Nehalem（2008 年，781M个晶体管）。既支持超线程，也有多核，最初的版本支持每个核上执行两个程序，每个芯片上最多四个核。</li>
+<li><strong>Core i7</strong>，SandyBridge（2011年，1.17G个晶体管）。引入了 AVX，这是对SSE的扩展，支持把数据封装进256位的向量。</li>
+<li><strong>Core i7</strong>，Haswell（2013年，1.4G个晶体管）。将AVX扩展至AVX2，增加了更多的指令和指令格式。</li>
+</ul>
+<p>每个后继处理器的设计都是后向兼容的——较早版本上编译的代码可以在较新的处理器上运行。正如我们看到的那样，为了保持这种进化传统，指令集中有许多非常奇怪的东西。Intel处理器系列有好几个名字，包括 IA32，也就是“Intel 32位体系结构（Intel Architecture 32-bit)”，以及最新的Intel64，即IA32 的64位扩展，我们也称为x86-64。最常用的名字是“x86”，我们用它指代整个系列，也反映了直到i486处理器命名的惯例。</p>
+</li>
+<li><p><strong>摩尔定律（Moore’s Law）</strong>：1965年，Gordon Moore，Inter公司的创始人，根据当时的芯片技术做出推断，预测在未来十年，芯片上的晶体管数量每年会翻一番。</p>
+<p>正如事实证明的那样，在超过50年中，半导体工业一直能够使得晶体管数目每18个月翻一倍。<img src="CS-APP-Notes/%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B.png" alt="摩尔定律"></p>
+<p>对于计算机技术的其他方面，也有类似的呈指数增长的情况出现，比如磁盘和半导体存储器的存储容量。这些惊人的增长速度一直是计算机革命的主要驱动力。</p>
+</li>
+</ol>
+<h2 id="3-2-Program-Encodings"><a href="#3-2-Program-Encodings" class="headerlink" title="3.2 Program Encodings"></a>3.2 Program Encodings</h2><p>程序编码。</p>
+<ol>
+<li><p>假设一个C程序有两个文件<code>p1.c</code>和<code>p2.c</code>，可以用Unix命令行编译这些代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Og -o p p1.c p2.c</span></span><br></pre></td></tr></table></figure>
+<p>命令<code>gcc</code>指的就是GCC C编译器（默认，也可以用<code>cc</code>来启动），<code>-Og</code>是生成机器代码的优化等级（使用较高级别优化产生的代码会严重变形，难以理解），实际中，从得到的程序的性能考虑，较高级别的优化（<code>-O1</code>或<code>-O2</code>）被认为是较好的选择。</p>
+</li>
+<li><p>从源代码到可执行代码，经历了四个阶段：</p>
+<ul>
+<li>预处理器（插入头文件、扩展宏），</li>
+<li>编译器（产生<code>.s</code>汇编代码文件），</li>
+<li>汇编器（将汇编代码转化成<code>.o</code>二进制目标代码文件（机器代码的一种形式，包含所有指令的二进制表示，未填入全局值的地址）），</li>
+<li>链接器（将目标代码与实现库函数的代码合并，产生最终的可执行代码文件（由<code>-o p</code>指定））。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-2-1-Machine-Level-Code"><a href="#3-2-1-Machine-Level-Code" class="headerlink" title="3.2.1 Machine-Level Code"></a>3.2.1 Machine-Level Code</h3><p>机器级代码。</p>
+<ol>
+<li><p>计算机系统使用了多种不同形式的抽象，利用更简单的抽象模型来隐藏实现的细节。机器级编程的两种抽象：</p>
+<ul>
+<li><p>由<strong>指令集体系架构（指令集架构，Instruction Set Architecture，ISA）</strong>来定义机器级程序的格式和行为，它定义了处理器状态、指令的格式，以及每条指令对状态的影响。</p>
+<p>大多数ISA，包括x86-64，将程序的行为描述成顺序执行每条指令，实际上是并发地执行许多指令，但可以采取措施保证整体行为与ISA指定的顺序执行的行为完全一致。</p>
+</li>
+<li><p>机器级程序使用的内存地址是<strong>虚拟地址</strong>，提供的内存模型看上去是一个非常大的字节数组。</p>
+<p>存储器系统的实际实现是将多个硬件存储器和操作系统软件组合起来。</p>
+</li>
+</ul>
+</li>
+<li><p>x86-64的机器代码和原始的C代码差别非常大，一些通常隐藏的处理器状态都是可见的：</p>
+<ul>
+<li><p><strong>程序计数器</strong>通常称为“PC”，在x86-64中用<code>%rip</code>表示，它给出将要执行的下一条指令在内存中的地址。</p>
+</li>
+<li><p><strong>整数寄存器文件</strong>包含16个命名的位置，分别存储64位的值，可以是地址（指针），也可以是整数数据。</p>
+<p>有的寄存器被用来记录某些重要的程序状态，而其他的寄存器用来保存临时数据，例如过程的参数和局部变量，以及函数的返回值。</p>
+</li>
+<li><p><strong>条件码寄存器</strong>保存着最近执行的算术或逻辑指令的状态信息，用来实现控制或数据流中的条件变化，如实现<code>if</code>和<code>while</code>语句。</p>
+</li>
+<li><p>一组<strong>向量寄存器</strong>可以存放一个或多个整数或浮点数值。</p>
+</li>
+</ul>
+</li>
+<li><p>虽然C语言提供了一种模型，可以在内存中声明和分配各种数据类型的<strong>对象</strong>，但是机器代码只是简单地将内存看成一个很大的、按字节寻址的<strong>数组</strong>。</p>
+</li>
+<li><p>C语言中的聚合数据类型，例如数组和结构，在机器代码中用<strong>一组连续的字节</strong>来表示。即使是对标量数据类型，汇编代码也<strong>不区分</strong>有符号或无符号整数，<strong>不区分</strong>各种类型的指针，甚至于<strong>不区分</strong>指针和整数。</p>
+</li>
+<li><p>程序内存包含：</p>
+<ul>
+<li>程序的可执行机器代码</li>
+<li>操作系统需要的一些信息</li>
+<li>用来管理过程调用和返回的运行时栈</li>
+<li>用户分配的内存块（比如用<code>malloc</code>库函数分配的）。</li>
+</ul>
+<p>程序内存用虚拟地址来寻址，在任意给定的时刻，只有有限一部分虚拟地址是合法的。操作系统负责管理虚拟地址空间，将虚拟地址翻译成实际处理器内存中的物理地址。</p>
+</li>
+<li><p>一条机器指令只执行一个非常基本的操作。</p>
+</li>
+<li><p>编译器产生机器指令的序列，才能实现程序结构，如算术表达式求值、循环或过程调用和返回。</p>
+</li>
+<li><p>支持GCC的开源社区一直在修改代码产生器，以产生更有效的代码。</p>
+</li>
+</ol>
+<h3 id="3-2-2-Code-Examples"><a href="#3-2-2-Code-Examples" class="headerlink" title="3.2.2 Code Examples"></a>3.2.2 Code Examples</h3><p>代码示例。</p>
+<ol>
+<li><p>示例源文件为<code>mstore.c</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">mult2</span><span class="params">(<span class="keyword">long</span>, <span class="keyword">long</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">multstore</span><span class="params">(<span class="keyword">long</span> x, <span class="keyword">long</span> y, <span class="keyword">long</span> *dest)</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> t = mult2(x, y);</span><br><span class="line">	*dest = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>-S</code>编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Og -S mstore.c</span></span><br></pre></td></tr></table></figure>
+<p>产生汇编文件<code>mstore.s</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">multstore:</span><br><span class="line">  pushq 	%rbx</span><br><span class="line">  movq 		%rdx, %rbx</span><br><span class="line">  call 		mult2</span><br><span class="line">  movq 		%rax, (%rbx) </span><br><span class="line">  popq 		%rbx</span><br><span class="line">  ret</span><br></pre></td></tr></table></figure>
+<p>每行对应一条机器指令，除去了所有关于局部变量名或数据类型的信息。</p>
+<p>若使用<code>-c</code>编译并汇编：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Og -c mstore.c</span></span><br></pre></td></tr></table></figure>
+<p>产生1 368字节目标代码文件<code>mstore.o</code>，是二进制的，无法直接查看。其中有一段14字节的序列，十六进制表示为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">53 48 89 d3 e8 00 00 00 00 48 89 03 5b c3</span><br></pre></td></tr></table></figure>
+<p>这就是汇编指令对应的目标代码。这也印证了机器执行的程序只是一个字节序列，是对一系列指令的编码。机器产生这些指令的源代码几乎一无所知。</p>
+</li>
+<li><p>上面是如何得到的程序的字节表示？在用反汇编器确定其长度是14字节后，可以利用GNU调试工具GDB：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x/14xb multstore</span><br></pre></td></tr></table></figure>
+<p>即显示（<code>x</code>）从函数<code>multstore</code>处开始的14个十六进制格式表示（<code>x</code>）的字节（<code>b</code>）。</p>
+</li>
+<li><p><strong>反汇编器（disassembler）</strong>可以查看机器代码文件，根据机器代码产生类似汇编代码的格式。Linux中objdump（object dump）的<code>-d</code>可以充当这个角色：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> objdump -d mstore.o</span></span><br></pre></td></tr></table></figure>
+<p>得到结果如下（增加了注解）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Disassembly of fuction multstore in binary file mstore.o</span><br><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">Offset 	Bytes 					Equivalent assembly language</span><br><span class="line">0: 			53							push 	%rbx</span><br><span class="line">1:			48 89 d3				mov 	%rdx,%rbx</span><br><span class="line">4:			e8 00 00 00 00 	callq 9 &lt;multstore+0x9&gt;</span><br><span class="line">9:			48 89 03 				mov 	%rax,(%rbx)</span><br><span class="line">c:			5b 							pop 	%rbx</span><br><span class="line">d: 			c3							retq</span><br></pre></td></tr></table></figure>
+<p>左侧将14个字节分成了6组，每组有1～5个字节，成为一条指令，右侧是等价的汇编语言。</p>
+</li>
+<li><p>一些关于机器代码和它的反汇编表示的特性值得注意：</p>
+<ul>
+<li><p>x86-64的指令长度从1到15个字节不等。</p>
+<p>常用的指令以及操作数较少的指令所需的字节数少，而那些不太常用或操作数较多的指令所需字节数较多。</p>
+</li>
+<li><p>机器指令的设计方式是，从某个给定位置开始，可以将字节唯一地解码成机器指令。</p>
+<p>例如，只有指令<code>pushq    %rbx</code>是以字节值<code>53</code>开头的。</p>
+</li>
+<li><p>反汇编器只是基于<strong>机器代码文件</strong>中的字节序列来确定汇编代码，<strong>不需要</strong>访问该程序的源代码或汇编代码。</p>
+</li>
+<li><p>反汇编器使用的指令命名规则与GCC生成的汇编代码使用的有些细微的差别。</p>
+<p>GCC生成的指令省略了结尾的<code>q</code>（大小指示符，大多数情况中可以省略），而反汇编器未省略。</p>
+</li>
+</ul>
+</li>
+<li><p>上面的代码并不是实际可执行的代码，需要对一组有<code>main</code>函数的目标代码文件运行链接器，假设为<code>main.c</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">multstore</span><span class="params">(<span class="keyword">long</span>, <span class="keyword">long</span>, <span class="keyword">long</span> *)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">long</span> d;</span><br><span class="line">  multstore(<span class="number">2</span>, <span class="number">3</span>, &amp;d);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;2 * 3 —&gt; %ld\n&quot;</span>, d);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">mult2</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">long</span> s = a * b;</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成可执行文件<code>prog</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Og -o prog main.c mstore.c</span></span><br></pre></td></tr></table></figure>
+<p>得到8 655字节文件<code>prog</code>，包含了两个过程的代码、用来启动和终止程序的代码、以及用来与操作系统交互的代码。</p>
+<p>反汇编<code>prog</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> objdump -d prog</span></span><br></pre></td></tr></table></figure>
+<p>反汇编器会抽取出各种代码序列，包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Disassembly of function sum multstore binary file prog</span><br><span class="line">0000000000400540 &lt;multstore&gt;</span><br><span class="line">400540: 53							push %rbx</span><br><span class="line">400541: 48 89 d3				move %rdx,%rbx</span><br><span class="line">400544: e8 42 00 00 00	callq 40058b &lt;mult2&gt;</span><br><span class="line">400549: 48 89 03				mov %rax,(%rbx)</span><br><span class="line">40054c: 5b							pop %rbx</span><br><span class="line">40054d: c3							retq</span><br><span class="line">40054e: 90							nop</span><br><span class="line">40054f: 90							nop</span><br></pre></td></tr></table></figure>
+<p>这段代码的特别之处是：</p>
+<ul>
+<li><p>左侧地址不同；</p>
+</li>
+<li><p>第5行调用函数处也添加了地址；</p>
+<p>（因为链接器的任务之一就是为函数调用找到匹配的函数的可执行代码的位置）</p>
+</li>
+<li><p>多了第9行和第10行两行代码。</p>
+<p>（这两行代码位于返回指令之后，对程序没有影响。只是为了使代码变为16字节，使得就存储器性能而言，能更好地放置下一个代码块）</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-2-3-Notes-on-Formatting"><a href="#3-2-3-Notes-on-Formatting" class="headerlink" title="3.2.3 Notes on Formatting"></a>3.2.3 Notes on Formatting</h3><p>关于格式的注解。</p>
+<ol>
+<li><p>GCC产生的汇编代码有些难读，它包含了我们不需要关心的信息，而且不提供任何程序的描述。</p>
+<p>用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Og -S mstore.c</span></span><br></pre></td></tr></table></figure>
+<p>生成汇编文件，得到<code>mstore.s</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	.file 	&quot;010-mstore.c&quot;</span><br><span class="line">	.text</span><br><span class="line">	.globl 	multstore</span><br><span class="line">	.type 	multstore, @function</span><br><span class="line">multstore:</span><br><span class="line">	pushq 	%rbx</span><br><span class="line">	movq 		%rdx, %rbx</span><br><span class="line">	call 		mult2</span><br><span class="line">	movq 		%rax, (%rbx)</span><br><span class="line">	popq 		%rbx</span><br><span class="line">	ret</span><br><span class="line">	.size 	multstore, .-multstore</span><br><span class="line">	.ident 	&quot;GCC:(Ubuntu4.8.l-2ubuntul-12.04) 4.8.1&quot;</span><br><span class="line">	.section 				.note.GNU-stack,&quot; &quot;,@progbits</span><br></pre></td></tr></table></figure>
+<p>所有以<code>.</code>开头的都是指导汇编器和链接器工作的伪指令，可以忽略。</p>
+</li>
+<li><p>对于一些应用程序，程序员必须用汇编代码来访问机器的低级特性：</p>
+<ul>
+<li>可以用汇编代码编写整个函数，在链接阶段把它们和C函数组合起来；</li>
+<li>也可以利用GCC的支持，直接在C程序中嵌入汇编代码。</li>
+</ul>
+</li>
+<li><p>我们的表述是<strong>ATT</strong>（根据“AT&amp;T”命名，是运营贝尔实验室多年的公司）<strong>格式</strong>的汇编代码，是GCC、OBJDUMP和其他一些我们使用的工具的默认格式。</p>
+<p>其他一些编程工具，包括Microsoft的工具，以及来自Inter的文档，其汇编代码都是<strong>Inter格式</strong>的。</p>
+<p>利用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Og -S -masm=inter mstore.c</span></span><br></pre></td></tr></table></figure>
+<p>得到下列汇编代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">multstore: </span><br><span class="line">	push 	rbx</span><br><span class="line">	mov 	rbx, rdx </span><br><span class="line">	call 	mult2</span><br><span class="line">	mov 	QWORD PTR [rbx], rax</span><br><span class="line">	pop 	rbx</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
+<p>这就是Inter格式，与ATT格式的不同之处是：</p>
+<ul>
+<li>省略了后缀；</li>
+<li>省略了<code>%</code> ；</li>
+<li>用不同方式描述内存中的位置，是<code>QWORD PTR [rbx]</code>而不是<code>(%rbx)</code>；</li>
+<li>操作数的顺序相反。</li>
+</ul>
+</li>
+<li><p>虽然C编译器在把程序中表达的计算转换到机器代码方面表现出色，但是仍然有一些机器特性是C程序访问不到的。</p>
+<p>例如，每次x86-64处理器执行算术或逻辑运算时，如果得到的运算结果的低8位中有偶数个1，那么就会把一个名为<code>PF</code>的1位条件码 （condition code）标志设置为1，否则就设置为0。</p>
+<p>这里的<code>PF</code>表示“parity flag（奇偶标志）”。在C语言中计算这个信息需要至少7次移位、掩码和异或运算。即使作为每次算术或逻辑运算的一部分，硬件都完成了这项计算，而C程序却无法知道<code>PF</code>条件码标志的值。</p>
+<p>在程序中插入几条汇编代码指令就能很容易地完成这项任务。</p>
+<p>在C程序中插入汇编代码有两种方法：</p>
+<ul>
+<li>第一种是，我们可以编写完整的函数，放进一个独立的汇编代码文件中，让汇编器和链接器把它和用C语言书写的代码合并起来；</li>
+<li>第二种方法是，我们可以使用GCC的内联汇编（inlineassembly）特性，用asm伪指令可以在C程序中包含简短的汇编代码。这种方法的好处是减少了与机器相关的代码量。</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-3-Data-Formats"><a href="#3-3-Data-Formats" class="headerlink" title="3.3 Data Formats"></a>3.3 Data Formats</h2><p>数据格式。</p>
+<ol>
+<li><p>Inter用“字（word）”表示16位数据类型，称32位数为“双字（double words）”，称64位数为“四字（quad words）”。</p>
+</li>
+<li><p>C语言数据类型在x86-64中的大小：<img src="CS-APP-Notes/C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8Bx86-64.png" alt="C数据类型x86-64"></p>
+<ul>
+<li><p>标准<code>int</code>值存储为双字（32位）；</p>
+</li>
+<li><p>指针（用<code>char*</code>表示）存储为8字节（64位）的四字；</p>
+</li>
+<li><p><code>long</code>实现为64位，允许表示的值范围较大。x86-64指令集同样包括完整的针对字节、字和双字的指令；</p>
+</li>
+<li><p><code>float</code>为4字节的双字、<code>double</code>为8字节的四字；</p>
+<p>（<code>long double</code>为80位、10字节，但不能移植到非x86机器上，较低效，不建议使用）</p>
+</li>
+</ul>
+</li>
+<li><p>GCC生成汇编代码指令的后缀表明了操作数的大小：<code>l</code>表示双字（32位数被看成是“长字（long word）”），也可以表示4字节<code>int</code>和8字节<code>double</code>，这不会产生歧义，因为浮点数使用的是一组完全不同的指令和寄存器。</p>
+</li>
+</ol>
+<h2 id="3-4-Accessing-Information"><a href="#3-4-Accessing-Information" class="headerlink" title="3.4 Accessing Information"></a>3.4 Accessing Information</h2><p>访问信息。</p>
+<ol>
+<li>一个x86-64的中央处理单元（CPU）包含一组16个存储64位值的<strong>通用目的寄存器</strong>，用来存储<strong>整数数据</strong>和<strong>地址（指针）</strong>：<img src="CS-APP-Notes/%E5%AF%84%E5%AD%98%E5%99%A8.png" alt="寄存器"><ul>
+<li>最初的8086中有8个16位的寄存器，即<code>%ax</code>到<code>%bp</code>，<strong>每个寄存器都有特殊的用途</strong>，它们的名字就反映了这些不同的用途；</li>
+<li>扩展到IA32架构时，这些寄存器也扩展成32位，标号从<code>%eax</code>到<code>%ebp</code>；</li>
+<li>扩展到x86-64后，原来的8个寄存器扩展成64位，标号从<code>%rax</code>到<code>%rbp</code>，此外还增加了8个新的寄存器，标号从<code>%r8</code>到<code>%r15</code>。</li>
+</ul>
+</li>
+<li>生成1字节和2字节数字的指令会保持剩下的字节不变；生成4字节数字的指令会把高位4个字节置为0（从IA32到x86-64的扩展）。</li>
+<li>不同的寄存器扮演不同的角色：<ul>
+<li>栈指针<code>%rsp</code>用来指明运行时栈的结束位置，有些程序会明确地读写这个寄存器；</li>
+<li>另外15个寄存器的用法更灵活；</li>
+<li>少量指令会使用某些特定的寄存器；</li>
+<li>有一组标准的编程规范控制着如何使用寄存器来管理栈、传递函数参数、从函数的返回值，以及存储局部和临时数据。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-4-1-Operand-Specifiers"><a href="#3-4-1-Operand-Specifiers" class="headerlink" title="3.4.1 Operand Specifiers"></a>3.4.1 Operand Specifiers</h3><p>操作数指示符。</p>
+<ol>
+<li><p>大多数指令有一个或多个<strong>操作数（operand）</strong>，指示出执行一个操作要使用的<strong>源数据值</strong>，以及放置结果的<strong>目的位置</strong>：</p>
+</li>
+<li><p>源数据值可以以常数形式给出，或是从寄存器或内存读出，结果可以存放在寄存器或内存中。</p>
+</li>
+<li><p>操作数分为三种类型：</p>
+<ul>
+<li><p><strong>立即数（immediate）</strong>：用来表示常数值。</p>
+<p>ATT格式中的书写方式是<code>$</code>后加一整数。不同指令允许的立即数值范围不同，汇编器会自动选择最紧凑的方式进行数值编码。</p>
+</li>
+<li><p><strong>寄存器（register）</strong>：表示某个寄存器的内容。</p>
+<p>低位1、2、4或8字节都可以作为操作数，分别对应8、16、32或64位。下图中用$r_{a}$表示任意寄存器$a$，用$R[r_{a}]$来表示它的值，即将寄存器集合看成一个数组$R$，用寄存器标识符作为索引。</p>
+</li>
+<li><p><strong>内存引用</strong>：根据计算出来的地址（有效地址）访问某个内存位置。</p>
+<p>将内存看成一个很大的字节数组，用$M_{b}[Addr]$表示对存储在内存中从地址$Addr$开始的$b$个字节值的引用。</p>
+</li>
+</ul>
+</li>
+<li><p>x86-64支持的操作数格式（比例因子<code>s</code>必须是1、2、4或者8）：<img src="CS-APP-Notes/%E6%93%8D%E4%BD%9C%E6%95%B0%E6%A0%BC%E5%BC%8F.png" alt="操作数格式"></p>
+</li>
+<li><p>上图可以看出多种不同的寻址模式，允许不同形式的内存引用。最后的通用形式中，基址寄存器和变址寄存器必须是64位的。</p>
+</li>
+</ol>
+<h3 id="3-4-2-Data-Movement-Instructions"><a href="#3-4-2-Data-Movement-Instructions" class="headerlink" title="3.4.2 Data Movement Instructions"></a>3.4.2 Data Movement Instructions</h3><p>数据传送指令。</p>
+<ol>
+<li><p>MOV类：把数据从源位置复制到目的位置，不做任何变化。包括<code>movb</code>、<code>movw</code>、<code>movl</code>和<code>movq</code>，操作的数据大小分别是1、2、4和8字节。第一个是源操作数，第二个是目的操作数。</p>
+</li>
+<li><p>源操作数可以是立即数、寄存器或内存，但目的操作数只能是寄存器或内存。x86-64又加了一条限制：传送指令的两个操作数不能同时为内存。</p>
+</li>
+<li><p>大多数情况下，MOV指令只会更新目的操作数指定的寄存器字节或内存位置，例外是<code>movl</code>指令，它会把目的寄存器的高位4字节设置为0。原因是x86-64采用的惯例，即任何寄存器生成32位值的指令都会把该寄存器的高位部分置成0。</p>
+</li>
+<li><p>常规的<code>movq</code>只能以表示为32位补码数字的立即数作为源操作数，然后把这个值利用符号位扩展得到64位的值，放到目的位置。而<code>movabsq</code>可以以任意64位立即数作为源操作数，且只能以寄存器作为目的。</p>
+</li>
+<li><p>在将较小的源值复制到较大的目的时使用另外两类数据传送指令：</p>
+<ul>
+<li>MOVZ类：把数据从源（寄存器或内存中）复制到目的寄存器，把目的中剩余的字节填充为0（零扩展）；</li>
+<li>MOVS类：和MOVZ类似，只不过通过符号位扩展来填充。</li>
+</ul>
+<p>指令的最后两个字符均为大小指示符，第一个是源的大小，第二个是目的的大小（目的大于源）。</p>
+<p>包括<code>movzbw</code>、<code>movzbl</code>、<code>movzwl</code>、<code>movzbq</code>、<code>movzwq</code>和<code>movsbw</code>、<code>movsbl</code>、<code>movswl</code>、<code>movsbq</code>、<code>movswq</code>，还有<code>movslq</code>、<code>cltq</code>（<code>cltq</code>只作用于<code>%eax</code>和<code>%rax</code>，没有操作数，作用是把<code>%eax</code>（源）符号扩展到<code>%rax</code>（目的））。</p>
+<p>注意没有“<code>movzlq</code>”这样的指令。</p>
+</li>
+</ol>
+<h3 id="3-4-3-Data-Movement-Example"><a href="#3-4-3-Data-Movement-Example" class="headerlink" title="3.4.3 Data Movement Example"></a>3.4.3 Data Movement Example</h3><p>数据传送示例。</p>
+<ol>
+<li>指针就是地址，间接引用指针（<code>*p</code>）就是在内存中使用存放该指针的寄存器。</li>
+<li>局部变量保存在寄存器中，而不是内存中。访问寄存器比访问内存要快得多。</li>
+</ol>
+<h3 id="3-4-4-Pushing-and-Popping-Stack-Data"><a href="#3-4-4-Pushing-and-Popping-Stack-Data" class="headerlink" title="3.4.4 Pushing and Popping Stack Data"></a>3.4.4 Pushing and Popping Stack Data</h3><p>压入和弹出栈操作（属于数据传送操作）。</p>
+<ol>
+<li>栈遵循LIFO原则，可以实现为一个数组，总是从数组的一端插入和删除元素，这一端被称为<strong>栈顶</strong>。</li>
+<li>如下图所示，栈向下（低地址）增长，即<strong>栈顶</strong>元素的地址是所有栈中元素地址中<strong>最低</strong>的（栈顶位于图的底部）：<img src="CS-APP-Notes/%E6%A0%88.png" alt="栈"></li>
+<li>栈指针<code>%rsp</code>保存着栈顶元素的地址（始终指向栈顶）。</li>
+<li>下图是入栈和出栈指令（只有一个操作数）：<img src="CS-APP-Notes/%E5%85%A5%E6%A0%88%E5%92%8C%E5%87%BA%E6%A0%88.png" alt="入栈和出栈"><ul>
+<li>将一个四字压入栈中，先将栈指针减8，然后将值写到新的栈顶地址；</li>
+<li>弹出一个四字，先从栈顶位置读出数据，然后将栈指针加8。被弹出的栈顶元素仍保留在对应的内存位置中，直到被覆盖。</li>
+</ul>
+</li>
+<li>可以用标准的内存寻址方法访问栈内的任意位置。</li>
+</ol>
+<h2 id="3-5-Arithmetic-and-Logical-Operations"><a href="#3-5-Arithmetic-and-Logical-Operations" class="headerlink" title="3.5 Arithmetic and Logical Operations"></a>3.5 Arithmetic and Logical Operations</h2><p>算术和逻辑操作。</p>
+<ol>
+<li>下图是一些整数和逻辑操作。除<code>leaq</code>外，各为一类，如ADD类有<code>addb</code>、<code>addw</code>、<code>addl</code>和<code>addq</code>，分别是字节加法、字加法、双字加法和四字加法。某些类又被归为一组，分别为加载有效地址、一元操作、二元操作和移位。</li>
+</ol>
+<h3 id="3-5-1-Load-Effective-Address"><a href="#3-5-1-Load-Effective-Address" class="headerlink" title="3.5.1 Load Effective Address"></a>3.5.1 Load Effective Address</h3><h3 id="3-5-2-Unary-and-Binary-Operations"><a href="#3-5-2-Unary-and-Binary-Operations" class="headerlink" title="3.5.2 Unary and Binary Operations"></a>3.5.2 Unary and Binary Operations</h3><h3 id="3-5-3-Shift-Operations"><a href="#3-5-3-Shift-Operations" class="headerlink" title="3.5.3 Shift Operations"></a>3.5.3 Shift Operations</h3><h3 id="3-5-4-Discussion"><a href="#3-5-4-Discussion" class="headerlink" title="3.5.4 Discussion"></a>3.5.4 Discussion</h3><h3 id="3-5-5-Special-Arithmetic-Operations"><a href="#3-5-5-Special-Arithmetic-Operations" class="headerlink" title="3.5.5 Special Arithmetic Operations"></a>3.5.5 Special Arithmetic Operations</h3><h2 id="3-6-Control"><a href="#3-6-Control" class="headerlink" title="3.6 Control"></a>3.6 Control</h2><h3 id="3-6-1-Condition-Codes"><a href="#3-6-1-Condition-Codes" class="headerlink" title="3.6.1 Condition Codes"></a>3.6.1 Condition Codes</h3><h3 id="3-6-2-Accessing-the-Condition-Codes"><a href="#3-6-2-Accessing-the-Condition-Codes" class="headerlink" title="3.6.2 Accessing the Condition Codes"></a>3.6.2 Accessing the Condition Codes</h3><h3 id="3-6-3-Jump-Instructions"><a href="#3-6-3-Jump-Instructions" class="headerlink" title="3.6.3 Jump Instructions"></a>3.6.3 Jump Instructions</h3><h3 id="3-6-4-Jump-Instruction-Encodings"><a href="#3-6-4-Jump-Instruction-Encodings" class="headerlink" title="3.6.4 Jump Instruction Encodings"></a>3.6.4 Jump Instruction Encodings</h3><h3 id="3-6-5-Implementing-Conditional-Branches-with-Conditional-Control"><a href="#3-6-5-Implementing-Conditional-Branches-with-Conditional-Control" class="headerlink" title="3.6.5 Implementing Conditional Branches with Conditional Control"></a>3.6.5 Implementing Conditional Branches with Conditional Control</h3><h3 id="3-6-6-Implementing-Conditional-Branches-with-Conditional-Moves"><a href="#3-6-6-Implementing-Conditional-Branches-with-Conditional-Moves" class="headerlink" title="3.6.6 Implementing Conditional Branches with Conditional Moves"></a>3.6.6 Implementing Conditional Branches with Conditional Moves</h3><h3 id="3-6-7-Loops"><a href="#3-6-7-Loops" class="headerlink" title="3.6.7 Loops"></a>3.6.7 Loops</h3><h3 id="3-6-8-Switch-Statements"><a href="#3-6-8-Switch-Statements" class="headerlink" title="3.6.8 Switch Statements"></a>3.6.8 Switch Statements</h3><h2 id="3-7-Procedures"><a href="#3-7-Procedures" class="headerlink" title="3.7 Procedures"></a>3.7 Procedures</h2><h3 id="3-7-1-The-Run-Time-Stack"><a href="#3-7-1-The-Run-Time-Stack" class="headerlink" title="3.7.1 The Run-Time Stack"></a>3.7.1 The Run-Time Stack</h3><h3 id="3-7-2-Control-Transfer"><a href="#3-7-2-Control-Transfer" class="headerlink" title="3.7.2 Control Transfer"></a>3.7.2 Control Transfer</h3><h3 id="3-7-3-Data-Transfer"><a href="#3-7-3-Data-Transfer" class="headerlink" title="3.7.3 Data Transfer"></a>3.7.3 Data Transfer</h3><h3 id="3-7-4-Local-Storage-on-the-Stack"><a href="#3-7-4-Local-Storage-on-the-Stack" class="headerlink" title="3.7.4 Local Storage on the Stack"></a>3.7.4 Local Storage on the Stack</h3><h3 id="3-7-5-Local-Storage-in-Registers"><a href="#3-7-5-Local-Storage-in-Registers" class="headerlink" title="3.7.5 Local Storage in Registers"></a>3.7.5 Local Storage in Registers</h3><h3 id="3-7-6-Recursive-Procedures"><a href="#3-7-6-Recursive-Procedures" class="headerlink" title="3.7.6 Recursive Procedures"></a>3.7.6 Recursive Procedures</h3><h2 id="3-8-Array-Allocation-and-Access"><a href="#3-8-Array-Allocation-and-Access" class="headerlink" title="3.8 Array Allocation and Access"></a>3.8 Array Allocation and Access</h2><h3 id="3-8-1-Basic-Principles"><a href="#3-8-1-Basic-Principles" class="headerlink" title="3.8.1 Basic Principles"></a>3.8.1 Basic Principles</h3><h3 id="3-8-2-Pointer-Arithmetic"><a href="#3-8-2-Pointer-Arithmetic" class="headerlink" title="3.8.2 Pointer Arithmetic"></a>3.8.2 Pointer Arithmetic</h3><h3 id="3-8-3-Nested-Arrays"><a href="#3-8-3-Nested-Arrays" class="headerlink" title="3.8.3 Nested Arrays"></a>3.8.3 Nested Arrays</h3><h3 id="3-8-4-Fixed-Size-Arrays"><a href="#3-8-4-Fixed-Size-Arrays" class="headerlink" title="3.8.4 Fixed-Size Arrays"></a>3.8.4 Fixed-Size Arrays</h3><h3 id="3-8-5-Variable-Size-Arrays"><a href="#3-8-5-Variable-Size-Arrays" class="headerlink" title="3.8.5 Variable-Size Arrays"></a>3.8.5 Variable-Size Arrays</h3><h2 id="3-9-Heterogeneous-Data-Structures"><a href="#3-9-Heterogeneous-Data-Structures" class="headerlink" title="3.9 Heterogeneous Data Structures"></a>3.9 Heterogeneous Data Structures</h2><h3 id="3-9-1-Structures"><a href="#3-9-1-Structures" class="headerlink" title="3.9.1 Structures"></a>3.9.1 Structures</h3><h3 id="3-9-2-Unions-305"><a href="#3-9-2-Unions-305" class="headerlink" title="3.9.2 Unions 305"></a>3.9.2 Unions 305</h3><h3 id="3-9-3-Data-Alignment-309"><a href="#3-9-3-Data-Alignment-309" class="headerlink" title="3.9.3 Data Alignment 309"></a>3.9.3 Data Alignment 309</h3><h2 id="3-10-Combining-Control-and-Data-in-Machine-Level-Programs"><a href="#3-10-Combining-Control-and-Data-in-Machine-Level-Programs" class="headerlink" title="3.10 Combining Control and Data in Machine-Level Programs"></a>3.10 Combining Control and Data in Machine-Level Programs</h2><h3 id="3-10-1-Understanding-Pointers"><a href="#3-10-1-Understanding-Pointers" class="headerlink" title="3.10.1 Understanding Pointers"></a>3.10.1 Understanding Pointers</h3><h3 id="3-10-2-Life-in-the-Real-World-Using-the-gdb-Debugger"><a href="#3-10-2-Life-in-the-Real-World-Using-the-gdb-Debugger" class="headerlink" title="3.10.2 Life in the Real World: Using the gdb Debugger"></a>3.10.2 Life in the Real World: Using the gdb Debugger</h3><h3 id="3-10-3-Out-of-Bounds-Memory-References-and-Buffer-Overflow"><a href="#3-10-3-Out-of-Bounds-Memory-References-and-Buffer-Overflow" class="headerlink" title="3.10.3 Out-of-Bounds Memory References and Buffer Overflow"></a>3.10.3 Out-of-Bounds Memory References and Buffer Overflow</h3><h3 id="3-10-4-Thwarting-Buffer-Overflow-Attacks"><a href="#3-10-4-Thwarting-Buffer-Overflow-Attacks" class="headerlink" title="3.10.4 Thwarting Buffer Overflow Attacks"></a>3.10.4 Thwarting Buffer Overflow Attacks</h3><h3 id="3-10-5-Supporting-Variable-Size-Stack-Frames"><a href="#3-10-5-Supporting-Variable-Size-Stack-Frames" class="headerlink" title="3.10.5 Supporting Variable-Size Stack Frames"></a>3.10.5 Supporting Variable-Size Stack Frames</h3><h2 id="3-11-Floating-Point-Code"><a href="#3-11-Floating-Point-Code" class="headerlink" title="3.11 Floating-Point Code"></a>3.11 Floating-Point Code</h2><h3 id="3-11-1-Floating-Point-Movement-and-Conversion-Operations"><a href="#3-11-1-Floating-Point-Movement-and-Conversion-Operations" class="headerlink" title="3.11.1 Floating-Point Movement and Conversion Operations"></a>3.11.1 Floating-Point Movement and Conversion Operations</h3><h3 id="3-11-2-Floating-Point-Code-in-Procedures"><a href="#3-11-2-Floating-Point-Code-in-Procedures" class="headerlink" title="3.11.2 Floating-Point Code in Procedures"></a>3.11.2 Floating-Point Code in Procedures</h3><h3 id="3-11-3-Floating-Point-Arithmetic-Operations"><a href="#3-11-3-Floating-Point-Arithmetic-Operations" class="headerlink" title="3.11.3 Floating-Point Arithmetic Operations"></a>3.11.3 Floating-Point Arithmetic Operations</h3><h3 id="3-11-4-Defining-and-Using-Floating-Point-Constants"><a href="#3-11-4-Defining-and-Using-Floating-Point-Constants" class="headerlink" title="3.11.4 Defining and Using Floating-Point Constants"></a>3.11.4 Defining and Using Floating-Point Constants</h3><h3 id="3-11-5-Using-Bitwise-Operations-in-Floating-Point-Code"><a href="#3-11-5-Using-Bitwise-Operations-in-Floating-Point-Code" class="headerlink" title="3.11.5 Using Bitwise Operations in Floating-Point Code"></a>3.11.5 Using Bitwise Operations in Floating-Point Code</h3><h3 id="3-11-6-Floating-Point-Comparison-Operations"><a href="#3-11-6-Floating-Point-Comparison-Operations" class="headerlink" title="3.11.6 Floating-Point Comparison Operations"></a>3.11.6 Floating-Point Comparison Operations</h3><h3 id="3-11-7-Observations-about-Floating-Point-Code"><a href="#3-11-7-Observations-about-Floating-Point-Code" class="headerlink" title="3.11.7 Observations about Floating-Point Code"></a>3.11.7 Observations about Floating-Point Code</h3><h2 id="3-12-Summary"><a href="#3-12-Summary" class="headerlink" title="3.12 Summary"></a>3.12 Summary</h2><h1 id="Chapter-4-Processor-Architecture"><a href="#Chapter-4-Processor-Architecture" class="headerlink" title="Chapter 4: Processor Architecture"></a>Chapter 4: Processor Architecture</h1><blockquote>
+<p>第 4 章:处理器体 系结构。这一章讲述基本的组合和时序逻辑元素，并展示这些元素如 何在数据通路中组合到一起，来执行 X86-64 指令集的一个称为“Y86-64”的简化子集。 我们从设计单时钟周期数据通路开始。这个设计概念上非常简单，但是运行速度不会太 快。然后我们引人流水线的思想，将处理一条指令所需要的不同步骤实现为独立的阶段。 这个设计中，在任何时刻，每个阶段都可以处理不同的指令。我们的五阶段处理器流水 线更加实用。本章中处理器设计的控制逻辑是用一种称为 HCL的简单硬件描述语言来描 述的。用 HCL 写的硬件设计能够编译和链接到本书提供的模拟器中，还可以根据这些设计生成 Verilog 描述，它适合合成到实际可以运行的硬件上去。</p>
+</blockquote>
+<h2 id="4-1-The-Y86-64-Instruction-Set-Architecture"><a href="#4-1-The-Y86-64-Instruction-Set-Architecture" class="headerlink" title="4.1 The Y86-64 Instruction Set Architecture"></a>4.1 The Y86-64 Instruction Set Architecture</h2><p>4.1.1 Programmer-Visible State<br>4.1.2 Y86-64 Instructions<br>4.1.3 Instruction Encoding<br>4.1.4 Y86-64 Exceptions<br>4.1.5 Y86-64 Programs<br>4.1.6 Some Y86-64 Instruction Details</p>
+<h2 id="4-2-Logic-Design-and-the-Hardware-Control-Language-HCL"><a href="#4-2-Logic-Design-and-the-Hardware-Control-Language-HCL" class="headerlink" title="4.2 Logic Design and the Hardware Control Language HCL"></a>4.2 Logic Design and the Hardware Control Language HCL</h2><p>4.2.1 Logic Gates<br>4.2.2 Combinational Circuits and HCL Boolean Expressions<br>4.2.3 Word-Level Combinational Circuits and HCL<br>Integer Expressions<br>4.2.4 Set Membership<br>4.2.5 Memory and Clocking</p>
+<h2 id="4-3-Sequential-Y86-64-Implementations"><a href="#4-3-Sequential-Y86-64-Implementations" class="headerlink" title="4.3 Sequential Y86-64 Implementations"></a>4.3 Sequential Y86-64 Implementations</h2><p>4.3.1 Organizing Processing into Stages</p>
+<p>4.3.2 SEQ Hardware Structure<br>4.3.3 SEQ Timing<br>4.3.4 SEQ Stage Implementations</p>
+<h2 id="4-4-General-Principles-of-Pipelining-448"><a href="#4-4-General-Principles-of-Pipelining-448" class="headerlink" title="4.4 General Principles of Pipelining 448"></a>4.4 General Principles of Pipelining 448</h2><p>4.4.1 Computational Pipelines<br>4.4.2 A Detailed Look at Pipeline Operation<br>4.4.3 Limitations of Pipelining<br>4.4.4 Pipelining a System with Feedback</p>
+<h2 id="4-5-Pipelined-Y86-64-Implementations"><a href="#4-5-Pipelined-Y86-64-Implementations" class="headerlink" title="4.5 Pipelined Y86-64 Implementations"></a>4.5 Pipelined Y86-64 Implementations</h2><p>4.5.1 SEQ+: Rearranging the Computation Stages<br>4.5.2 Inserting Pipeline Registers<br>4.5.3 Rearranging and Relabeling Signals<br>4.5.4 Next PC Prediction<br>4.5.5 Pipeline Hazards<br>4.5.6 Exception Handling<br>4.5.7 PIPE Stage Implementations<br>4.5.8 Pipeline Control Logic<br>4.5.9 Performance Analysis<br>4.5.10 Unfinished Business</p>
+<h2 id="4-6-Summary"><a href="#4-6-Summary" class="headerlink" title="4.6 Summary"></a>4.6 Summary</h2><p>4.6.1 Y86-64 Simulators</p>
+<p>Bibliographic Notes</p>
+<p>Homework Problems</p>
+<p>Solutions to Practice Problems</p>
+<h1 id="Chapter-5-Optimizing-Program-Performance"><a href="#Chapter-5-Optimizing-Program-Performance" class="headerlink" title="Chapter 5: Optimizing Program Performance"></a>Chapter 5: Optimizing Program Performance</h1><blockquote>
+<p>第 5 章:优化程序性能。在这一章里，我们介绍了许多提高代码性能的技术，主要思想</p>
+<p>就是让程序员通过使编译器能够生成更有效的机器代码来学习编写 C 代码。我们一开始 介绍的是减少程序需要做的工作的变换，这些是在任何机器上写任何程序时都应该遵循 的。然后讲的是增加生成的机器代码中指令级并行度的变换，因而提高了程序在现代</p>
+<p>“超标量”处理器上的性能。为了解释这些变换行之有效的原理，我们介绍了一个简单 的操作模型，它描述了现代乱序处理器是如何工作的，然后给出了如何根据一个程序的 图形化表示中的关键路径来测量一个程序可能的性能。你会惊讶于对 C 代码做一些简单 的变换能给程序带来多大的速度提升。</p>
+</blockquote>
+<h2 id="5-1-Capabilities-and-Limitations-of-Optimizing-Compilers"><a href="#5-1-Capabilities-and-Limitations-of-Optimizing-Compilers" class="headerlink" title="5.1 Capabilities and Limitations of Optimizing Compilers"></a>5.1 Capabilities and Limitations of Optimizing Compilers</h2><h2 id="5-2-Expressing-Program-Performance"><a href="#5-2-Expressing-Program-Performance" class="headerlink" title="5.2 Expressing Program Performance"></a>5.2 Expressing Program Performance</h2><h2 id="5-3-Program-Example"><a href="#5-3-Program-Example" class="headerlink" title="5.3 Program Example"></a>5.3 Program Example</h2><h2 id="5-4-Eliminating-Loop-Inefficiencies"><a href="#5-4-Eliminating-Loop-Inefficiencies" class="headerlink" title="5.4 Eliminating Loop Inefficiencies"></a>5.4 Eliminating Loop Inefficiencies</h2><h2 id="5-5-Reducing-Procedure-Calls"><a href="#5-5-Reducing-Procedure-Calls" class="headerlink" title="5.5 Reducing Procedure Calls"></a>5.5 Reducing Procedure Calls</h2><h2 id="5-6-Eliminating-Unneeded-Memory-References"><a href="#5-6-Eliminating-Unneeded-Memory-References" class="headerlink" title="5.6 Eliminating Unneeded Memory References"></a>5.6 Eliminating Unneeded Memory References</h2><h2 id="5-7-Understanding-Modern-Processors"><a href="#5-7-Understanding-Modern-Processors" class="headerlink" title="5.7 Understanding Modern Processors"></a>5.7 Understanding Modern Processors</h2><p>5.7.1 Overall Operation<br>5.7.2 Functional Unit Performance<br>5.7.3 An Abstract Model of Processor Operation</p>
+<h2 id="5-8-Loop-Unrolling"><a href="#5-8-Loop-Unrolling" class="headerlink" title="5.8 Loop Unrolling"></a>5.8 Loop Unrolling</h2><h2 id="5-9-Enhancing-Parallelism"><a href="#5-9-Enhancing-Parallelism" class="headerlink" title="5.9 Enhancing Parallelism"></a>5.9 Enhancing Parallelism</h2><p>5.9.1 Multiple Accumulators<br>5.9.2 Reassociation Transformation</p>
+<h2 id="5-10-Summary-of-Results-for-Optimizing-Combining-Code"><a href="#5-10-Summary-of-Results-for-Optimizing-Combining-Code" class="headerlink" title="5.10 Summary of Results for Optimizing Combining Code"></a>5.10 Summary of Results for Optimizing Combining Code</h2><h2 id="5-11-Some-Limiting-Factors"><a href="#5-11-Some-Limiting-Factors" class="headerlink" title="5.11 Some Limiting Factors"></a>5.11 Some Limiting Factors</h2><p>5.11.1 Register Spilling<br>5.11.2 Branch Prediction and Misprediction Penalties</p>
+<h2 id="5-12-Understanding-Memory-Performance"><a href="#5-12-Understanding-Memory-Performance" class="headerlink" title="5.12 Understanding Memory Performance"></a>5.12 Understanding Memory Performance</h2><p>5.12.1 Load Performance<br>5.12.2 Store Performance</p>
+<h2 id="5-13-Life-in-the-Real-World-Performance-Improvement-Techniques"><a href="#5-13-Life-in-the-Real-World-Performance-Improvement-Techniques" class="headerlink" title="5.13 Life in the Real World: Performance Improvement Techniques"></a>5.13 Life in the Real World: Performance Improvement Techniques</h2><h2 id="5-14-Identifying-and-Eliminating-Performance-Bottlenecks"><a href="#5-14-Identifying-and-Eliminating-Performance-Bottlenecks" class="headerlink" title="5.14 Identifying and Eliminating Performance Bottlenecks"></a>5.14 Identifying and Eliminating Performance Bottlenecks</h2><p>5.14.1 Program Profiling<br>5.14.2 Using a Profiler to Guide Optimization</p>
+<h2 id="5-15-Summary"><a href="#5-15-Summary" class="headerlink" title="5.15 Summary"></a>5.15 Summary</h2><h1 id="Chapter-6-The-Memory-Hierarchy"><a href="#Chapter-6-The-Memory-Hierarchy" class="headerlink" title="Chapter 6: The Memory Hierarchy"></a>Chapter 6: The Memory Hierarchy</h1><blockquote>
+<p>第 6 章:存储器层次结构。对应用程序员来说，存储器系统是计算机系统中最直接可见 的部分之一。到目前为止，读者一直认同这样一个存储器系统概念模型，认为它是一个 有一致访问时间的线性数组。实际上，存储器系统是一个由不同容量、造价和访问时间 的存储设备组成的层次结构。我们讲述不同类型的随机存取存储器(RAM)和只读存储器</p>
+<p>(ROM), 以及磁盘和固态硬盘 e的几何形状和组织构造。我们描述这些存储设备是如 何放置在层次结构中的，讲述访问局部性是如何使这种层次结构成为可能的。我们通 过一个独特的观点使这些理论具体化，那就是将存储器系统视为一个“存储器山”， 山脊是时间局部性，而斜坡是空间局部性。最后，我们向读者阐述如何通过改善程序 的时间局部性和空间局部性来提高应用程序的性能。</p>
+</blockquote>
+<h2 id="6-1-Storage-Technologies"><a href="#6-1-Storage-Technologies" class="headerlink" title="6.1 Storage Technologies"></a>6.1 Storage Technologies</h2><p>6.1.1 Random Access Memory<br>6.1.2 Disk Storage<br>6.1.3 Solid State Disks<br>6.1.4 Storage Technology Trends</p>
+<h2 id="6-2-Locality"><a href="#6-2-Locality" class="headerlink" title="6.2 Locality"></a>6.2 Locality</h2><p>6.2.1 Locality of References to Program Data<br>6.2.2 Locality of Instruction Fetches<br>6.2.3 Summary of Locality</p>
+<h2 id="6-3-The-Memory-Hierarchy"><a href="#6-3-The-Memory-Hierarchy" class="headerlink" title="6.3 The Memory Hierarchy"></a>6.3 The Memory Hierarchy</h2><p>6.3.1 Caching in the Memory Hierarchy<br>6.3.2 Summary of Memory Hierarchy Concepts</p>
+<h2 id="6-4-Cache-Memories"><a href="#6-4-Cache-Memories" class="headerlink" title="6.4 Cache Memories"></a>6.4 Cache Memories</h2><p>6.4.1 Generic Cache Memory Organization<br>6.4.2 Direct-Mapped Caches<br>6.4.3 Set Associative Caches<br>6.4.4 Fully Associative Caches<br>6.4.5 Issues with Writes<br>6.4.6 Anatomy of a Real Cache Hierarchy<br>6.4.7 Performance Impact of Cache Parameters</p>
+<h2 id="6-5-Writing-Cache-Friendly-Code"><a href="#6-5-Writing-Cache-Friendly-Code" class="headerlink" title="6.5 Writing Cache-Friendly Code"></a>6.5 Writing Cache-Friendly Code</h2><h2 id="6-6-Putting-It-Together-The-Impact-of-Caches-on-Program-Performance"><a href="#6-6-Putting-It-Together-The-Impact-of-Caches-on-Program-Performance" class="headerlink" title="6.6 Putting It Together: The Impact of Caches on Program Performance"></a>6.6 Putting It Together: The Impact of Caches on Program Performance</h2><p>6.6.1 The Memory Mountain<br>6.6.2 Rearranging Loops to Increase Spatial Locality<br>6.6.3 Exploiting Locality in Your Programs</p>
+<h2 id="6-7-Summary"><a href="#6-7-Summary" class="headerlink" title="6.7 Summary"></a>6.7 Summary</h2><h2 id="Part-II-Running-Programs-on-a-System"><a href="#Part-II-Running-Programs-on-a-System" class="headerlink" title="Part II: Running Programs on a System"></a><em>Part II: Running Programs on a System</em></h2><h1 id="Chapter-7-Linking"><a href="#Chapter-7-Linking" class="headerlink" title="Chapter 7: Linking"></a>Chapter 7: Linking</h1><blockquote>
+<p>第 7 章:链接。本章讲述静态和动态链接，包括的概念有可重定位的和可执行的目 标文件、符号解析、重定位、静态库、共享目标库、位置无关代码，以及库打桩。 大多数讲述系统的书中都不讲链接，我们要讲述它是出于以下原因。第一，程序员 遇到的最令人迷惑的问题中，有一些和链接时的小故障有关，尤其是对那些大型软 件包来说。第二，链接器生成的目标文件是与一些像加载、虚拟内存和内存映射这 样的概念相关的。</p>
+</blockquote>
+<h2 id="7-1-Compiler-Drivers"><a href="#7-1-Compiler-Drivers" class="headerlink" title="7.1 Compiler Drivers"></a>7.1 Compiler Drivers</h2><h2 id="7-2-Static-Linking"><a href="#7-2-Static-Linking" class="headerlink" title="7.2 Static Linking"></a>7.2 Static Linking</h2><h2 id="7-3-Object-Files"><a href="#7-3-Object-Files" class="headerlink" title="7.3 Object Files"></a>7.3 Object Files</h2><h2 id="7-4-Relocatable-Object-Files"><a href="#7-4-Relocatable-Object-Files" class="headerlink" title="7.4 Relocatable Object Files"></a>7.4 Relocatable Object Files</h2><h2 id="7-5-Symbols-and-Symbol-Tables"><a href="#7-5-Symbols-and-Symbol-Tables" class="headerlink" title="7.5 Symbols and Symbol Tables"></a>7.5 Symbols and Symbol Tables</h2><h2 id="7-6-Symbol-Resolution"><a href="#7-6-Symbol-Resolution" class="headerlink" title="7.6 Symbol Resolution"></a>7.6 Symbol Resolution</h2><p>7.6.1 How Linkers Resolve Duplicate Symbol Names<br>7.6.2 Linking with Static Libraries<br>7.6.3 How Linkers Use Static Libraries to Resolve References</p>
+<h2 id="7-7-Relocation"><a href="#7-7-Relocation" class="headerlink" title="7.7 Relocation"></a>7.7 Relocation</h2><p>7.7.1 Relocation Entries<br>7.7.2 Relocating Symbol References</p>
+<h2 id="7-8-Executable-Object-Files"><a href="#7-8-Executable-Object-Files" class="headerlink" title="7.8 Executable Object Files"></a>7.8 Executable Object Files</h2><h2 id="7-9-Loading-Executable-Object-Files"><a href="#7-9-Loading-Executable-Object-Files" class="headerlink" title="7.9 Loading Executable Object Files"></a>7.9 Loading Executable Object Files</h2><h2 id="7-10-Dynamic-Linking-with-Shared-Libraries"><a href="#7-10-Dynamic-Linking-with-Shared-Libraries" class="headerlink" title="7.10 Dynamic Linking with Shared Libraries"></a>7.10 Dynamic Linking with Shared Libraries</h2><h2 id="7-11-Loading-and-Linking-Shared-Libraries-from-Applications"><a href="#7-11-Loading-and-Linking-Shared-Libraries-from-Applications" class="headerlink" title="7.11 Loading and Linking Shared Libraries from Applications"></a>7.11 Loading and Linking Shared Libraries from Applications</h2><h2 id="7-12-Position-Independent-Code-PIC"><a href="#7-12-Position-Independent-Code-PIC" class="headerlink" title="7.12 Position-Independent Code (PIC)"></a>7.12 Position-Independent Code (PIC)</h2><h2 id="7-13-Library-Interpositioning"><a href="#7-13-Library-Interpositioning" class="headerlink" title="7.13 Library Interpositioning"></a>7.13 Library Interpositioning</h2><p>7.13.1 Compile-Time Interpositioning<br>7.13.2 Link-Time Interpositioning<br>7.13.3 Run-Time Interpositioning</p>
+<h2 id="7-14-Tools-for-Manipulating-Object-Files"><a href="#7-14-Tools-for-Manipulating-Object-Files" class="headerlink" title="7.14 Tools for Manipulating Object Files"></a>7.14 Tools for Manipulating Object Files</h2><h2 id="7-15-Summary"><a href="#7-15-Summary" class="headerlink" title="7.15 Summary"></a>7.15 Summary</h2><h1 id="Chapter-8-Exceptional-Control-Flow"><a href="#Chapter-8-Exceptional-Control-Flow" class="headerlink" title="Chapter 8: Exceptional Control Flow"></a>Chapter 8: Exceptional Control Flow</h1><blockquote>
+<p>第 8 章:异常控制流。在本书的这个部分，我们通过介绍异常控制流(即除正常分 支和过程调用以外的控制流的变化)的一般概念，打破单一程序的模型。我们给出 存在于系统所有层次的异常控制流的例子，从底层的硬件异常和中断，到并发进程 的上下文切换，到由于接收 Linux 信号引起的控制流突变，到 C语言中破坏栈原则 的非本地跳转。</p>
+<p>在这一章，我们介绍进程的基本概念，进程是对一个正在执行的程序的一种抽 象。读者会学习进程是如何工作的，以及如何在应用程序中创建和操纵进程。我们会展示应用程序员如何通过 Linux 系统调用来使用多个进程。学完本章之后，读者 就能够编写带作业控制的 Linux shell 了。同时，这里也会向读者初步展示程序的并 发执行会引起不确定的行为。</p>
+</blockquote>
+<h2 id="8-1-Exceptions"><a href="#8-1-Exceptions" class="headerlink" title="8.1 Exceptions"></a>8.1 Exceptions</h2><p>8.1.1 Exception Handling<br>8.1.2 Classes of Exceptions<br>8.1.3 Exceptions in Linux/x86-64 Systems</p>
+<h2 id="8-2-Processes"><a href="#8-2-Processes" class="headerlink" title="8.2 Processes"></a>8.2 Processes</h2><p>8.2.1 Logical Control Flow<br>8.2.2 Concurrent Flows 769<br>8.2.3 Private Address Space 770<br>8.2.4 User and Kernel Modes 770<br>8.2.5 Context Switches 772</p>
+<h2 id="8-3-System-Call-Error-Handling-773"><a href="#8-3-System-Call-Error-Handling-773" class="headerlink" title="8.3 System Call Error Handling 773"></a>8.3 System Call Error Handling 773</h2><h2 id="8-4-Process-Control-774"><a href="#8-4-Process-Control-774" class="headerlink" title="8.4 Process Control 774"></a>8.4 Process Control 774</h2><p>8.4.1 Obtaining Process IDs 775<br>8.4.2 Creating and Terminating Processes 775<br>8.4.3 Reaping Child Processes 779<br>8.4.4 Putting Processes to Sleep 785<br>8.4.5 Loading and Running Programs 786<br>8.4.6 Using fork and execve to Run Programs 789</p>
+<h2 id="8-5-Signals"><a href="#8-5-Signals" class="headerlink" title="8.5 Signals"></a>8.5 Signals</h2><p>8.5.1 Signal Terminology 794<br>8.5.2 Sending Signals 795<br>8.5.3 Receiving Signals 798<br>8.5.4 Blocking and Unblocking Signals 800<br>8.5.5 Writing Signal Handlers 802<br>8.5.6 Synchronizing Flows to Avoid Nasty Concurrency Bugs 812<br>8.5.7 Explicitly Waiting for Signals 814</p>
+<h2 id="8-6-Nonlocal-Jumps-817"><a href="#8-6-Nonlocal-Jumps-817" class="headerlink" title="8.6 Nonlocal Jumps 817"></a>8.6 Nonlocal Jumps 817</h2><h2 id="8-7-Tools-for-Manipulating-Processes-822"><a href="#8-7-Tools-for-Manipulating-Processes-822" class="headerlink" title="8.7 Tools for Manipulating Processes 822"></a>8.7 Tools for Manipulating Processes 822</h2><h2 id="8-8-Summary-823"><a href="#8-8-Summary-823" class="headerlink" title="8.8 Summary 823"></a>8.8 Summary 823</h2><p>Bibliographic Notes 823 Homework Problems 824 Solutions to Practice Problems 831</p>
+<h1 id="Chapter-9-Virtual-Memory-837"><a href="#Chapter-9-Virtual-Memory-837" class="headerlink" title="Chapter 9: Virtual Memory 837"></a>Chapter 9: Virtual Memory 837</h1><blockquote>
+<p>第 9 章:虚拟内存。我们讲述虚拟内存系统是希望读者对它是如何工作的以及它的特 性有所了解。我们想让读者了解为什么不同的并发进程各自都有一个完全相同的地址 范围，能共享某些页，而又独占另外一些页。我们还讲了一些管理和操纵虚拟内存的 问题。特别地，我们讨论了存储分配操作，就像标准库的 malloc 和 free 操作。阐述 这些内容是出于下面几个目的。它加强了这样一个概念，那就是虚拟内存空间只是一 个字节数组，程序可以把它划分成不同的存储单元。它可以帮助读者理解当程序包含 存储泄漏和非法指针引用等内存引用错误时的后果。最后，许多应用程序员编写自己 的优化了的存储分配操作来满足应用程序的需要和特性。这一章比其他任何一章都更 能展现将计算机系统中的硬件和软件结合起来阐述的优点。而传统的计算机体系结构 和操作系统书籍都只讲述虚拟内存的某一方面。</p>
+</blockquote>
+<h2 id="9-1-Physical-and-Virtual-Addressing-839"><a href="#9-1-Physical-and-Virtual-Addressing-839" class="headerlink" title="9.1 Physical and Virtual Addressing 839"></a>9.1 Physical and Virtual Addressing 839</h2><h2 id="9-2-Address-Spaces-840"><a href="#9-2-Address-Spaces-840" class="headerlink" title="9.2 Address Spaces 840"></a>9.2 Address Spaces 840</h2><h2 id="9-3-VM-as-a-Tool-for-Caching-841"><a href="#9-3-VM-as-a-Tool-for-Caching-841" class="headerlink" title="9.3 VM as a Tool for Caching 841"></a>9.3 VM as a Tool for Caching 841</h2><p>9.3.1 DRAM Cache Organization 842<br>9.3.2 Page Tables 842<br>9.3.3 Page Hits 844<br>9.3.4 Page Faults 844<br>9.3.5 Allocating Pages 846<br>9.3.6 Locality to the Rescue Again 846</p>
+<h2 id="9-4-VM-as-a-Tool-for-Memory-Management-847"><a href="#9-4-VM-as-a-Tool-for-Memory-Management-847" class="headerlink" title="9.4 VM as a Tool for Memory Management 847"></a>9.4 VM as a Tool for Memory Management 847</h2><h2 id="9-5-VM-as-a-Tool-for-Memory-Protection-848"><a href="#9-5-VM-as-a-Tool-for-Memory-Protection-848" class="headerlink" title="9.5 VM as a Tool for Memory Protection 848"></a>9.5 VM as a Tool for Memory Protection 848</h2><h2 id="9-6-Address-Translation-849"><a href="#9-6-Address-Translation-849" class="headerlink" title="9.6 Address Translation 849"></a>9.6 Address Translation 849</h2><p>9.6.1 9.6.2 9.6.3 9.6.4</p>
+<h2 id="9-7-Case-9-7-1-9-7-2"><a href="#9-7-Case-9-7-1-9-7-2" class="headerlink" title="9.7 Case 9.7.1 9.7.2"></a>9.7 Case 9.7.1 9.7.2</h2><p>Integrating Caches and VM 853<br>Speeding Up Address Translation with a TLB 853 Multi-Level Page Tables 855<br>Putting It Together: End-to-End Address Translation 857<br>Study: The Intel Core i7/Linux Memory System 861 Core i7 Address Translation 862<br>Linux Virtual Memory System 864</p>
+<h2 id="9-8-Memory-Mapping-869"><a href="#9-8-Memory-Mapping-869" class="headerlink" title="9.8 Memory Mapping 869"></a>9.8 Memory Mapping 869</h2><p>9.8.1 Shared Objects Revisited 869<br>9.8.2 The fork Function Revisited 872<br>9.8.3 The execve Function Revisited 872<br>9.8.4 User-Level Memory Mapping with the mmap Function 873</p>
+<h2 id="9-9-Dynamic-Memory-Allocation-875"><a href="#9-9-Dynamic-Memory-Allocation-875" class="headerlink" title="9.9 Dynamic Memory Allocation 875"></a>9.9 Dynamic Memory Allocation 875</h2><p>9.9.1 The malloc and free Functions 876<br>9.9.2 Why Dynamic Memory Allocation? 879<br>9.9.3 Allocator Requirements and Goals 880<br>9.9.4 Fragmentation 882<br>9.9.5 Implementation Issues 882<br>9.9.6 Implicit Free Lists 883<br>9.9.7 Placing Allocated Blocks 885<br>9.9.8 Splitting Free Blocks 885<br>9.9.9 Getting Additional Heap Memory 886<br>9.9.10 Coalescing Free Blocks 886<br>9.9.11 Coalescing with Boundary Tags 887<br>9.9.12 Putting It Together: Implementing a Simple Allocator 890<br>9.9.13 Explicit Free Lists 898<br>9.9.14 Segregated Free Lists 899</p>
+<h2 id="9-10-Garbage-Collection-901"><a href="#9-10-Garbage-Collection-901" class="headerlink" title="9.10 Garbage Collection 901"></a>9.10 Garbage Collection 901</h2><p>9.10.1 Garbage Collector Basics 902<br>9.10.2 Mark&amp;Sweep Garbage Collectors 903<br>9.10.3 Conservative Mark&amp;Sweep for C Programs 905</p>
+<h2 id="9-11-Common-Memory-Related-Bugs-in-C-Programs-906"><a href="#9-11-Common-Memory-Related-Bugs-in-C-Programs-906" class="headerlink" title="9.11 Common Memory-Related Bugs in C Programs 906"></a>9.11 Common Memory-Related Bugs in C Programs 906</h2><p>9.11.1 Dereferencing Bad Pointers 906<br>9.11.2 Reading Uninitialized Memory 907<br>9.11.3 Allowing Stack Buffer Overflows 907<br>9.11.4 Assuming That Pointers and the Objects They Point to Are the Same Size 908<br>9.11.5 Making Off-by-One Errors 908<br>9.11.6 Referencing a Pointer Instead of the Object It Points To 909<br>9.11.7 Misunderstanding Pointer Arithmetic 909<br>9.11.8 Referencing Nonexistent Variables 910<br>9.11.9 Referencing Data in Free Heap Blocks 910<br>9.11.10 Introducing Memory Leaks 911</p>
+<h2 id="9-12-Summary-911-Bibliographic-Notes-912"><a href="#9-12-Summary-911-Bibliographic-Notes-912" class="headerlink" title="9.12 Summary 911 Bibliographic Notes 912"></a>9.12 Summary 911 Bibliographic Notes 912</h2><p>Homework Problems 912 Solutions to Practice Problems 916<br>Part III Interaction and Communication between Programs</p>
+<h1 id="Chapter-10-System-Level-I-O"><a href="#Chapter-10-System-Level-I-O" class="headerlink" title="Chapter 10: System-Level I/O"></a>Chapter 10: System-Level I/O</h1><blockquote>
+<p>第 10 章:系统级 I/O。我们讲述 Unix I/O 的基本概念，例如文件和描述符。我们 描述如何共享文件，I/O 重定向是如何工作的，还有如何访问文件的元数据。我们 还开发了一个健壮的带缓冲区的 1/�包，可以正确处理一种称为 short counts 的奇 特行为，也就是库函数只读取一部分的输人数据。我们阐述 C 的标准 I/O 库，以及 它与 Linux I/O 的关系，重点谈到标准 I/O 的局限性，这些局限性使之不适合网络 编程。总的来说，本章的主题是后面两章—— 网络和并发编程的基础。</p>
+</blockquote>
+<h2 id="10-1-Unix-I-O-926"><a href="#10-1-Unix-I-O-926" class="headerlink" title="10.1 Unix I/O 926"></a>10.1 Unix I/O 926</h2><h2 id="10-2-Files-927"><a href="#10-2-Files-927" class="headerlink" title="10.2 Files 927"></a>10.2 Files 927</h2><h2 id="10-3-Opening-and-Closing-Files-929"><a href="#10-3-Opening-and-Closing-Files-929" class="headerlink" title="10.3 Opening and Closing Files 929"></a>10.3 Opening and Closing Files 929</h2><h2 id="10-4-Reading-and-Writing-Files-931"><a href="#10-4-Reading-and-Writing-Files-931" class="headerlink" title="10.4 Reading and Writing Files 931"></a>10.4 Reading and Writing Files 931</h2><h2 id="10-5-Robust-Reading-and-Writing-with-the-Rio-Package-933"><a href="#10-5-Robust-Reading-and-Writing-with-the-Rio-Package-933" class="headerlink" title="10.5 Robust Reading and Writing with the Rio Package 933"></a>10.5 Robust Reading and Writing with the Rio Package 933</h2><p>10.5.1 Rio Unbuffered Input and Output Functions 933<br>10.5.2 Rio Buffered Input Functions 934</p>
+<h2 id="10-6-Reading-File-Metadata-939"><a href="#10-6-Reading-File-Metadata-939" class="headerlink" title="10.6 Reading File Metadata 939"></a>10.6 Reading File Metadata 939</h2><h2 id="10-7-Reading-Directory-Contents-941"><a href="#10-7-Reading-Directory-Contents-941" class="headerlink" title="10.7 Reading Directory Contents 941"></a>10.7 Reading Directory Contents 941</h2><h2 id="10-8-Sharing-Files-942"><a href="#10-8-Sharing-Files-942" class="headerlink" title="10.8 Sharing Files 942"></a>10.8 Sharing Files 942</h2><h2 id="10-9-I-O-Redirection-945"><a href="#10-9-I-O-Redirection-945" class="headerlink" title="10.9 I/O Redirection 945"></a>10.9 I/O Redirection 945</h2><h2 id="10-10-Standard-I-O-947"><a href="#10-10-Standard-I-O-947" class="headerlink" title="10.10 Standard I/O 947"></a>10.10 Standard I/O 947</h2><h2 id="10-11-Putting-It-Together-Which-I-O-Functions-Should-I-Use-947"><a href="#10-11-Putting-It-Together-Which-I-O-Functions-Should-I-Use-947" class="headerlink" title="10.11 Putting It Together: Which I/O Functions Should I Use? 947"></a>10.11 Putting It Together: Which I/O Functions Should I Use? 947</h2><h2 id="10-12-Summary-949"><a href="#10-12-Summary-949" class="headerlink" title="10.12 Summary 949"></a>10.12 Summary 949</h2><p>Bibliographic Notes 950 Homework Problems 950 Solutions to Practice Problems 951</p>
+<h1 id="Chapter-11-Network-Programming"><a href="#Chapter-11-Network-Programming" class="headerlink" title="Chapter 11: Network Programming"></a>Chapter 11: Network Programming</h1><blockquote>
+<p>第 11 章:网络编程。对编程而言，网络是非常有趣的 I/O设备，它将许多我们前面 文中学习的概念(比如进程、信号、字节顺序、内存映射和动态内存分配)联系在一起。</p>
+<p>网络程序还为下一章的主题——并发，提供了一个很令人信服的上下文。本章只是网络编程的一个很小的部分，使读者能够编写一个简单的 Web 服务器。我们还讲述位于 所有网络程序底层的客户端-服务器模型。我们展现了一个程序员对 Internet 的观点， 并且教读者如何用套接字接口来编写 Internet 客户端和服务器。最后，我们介绍超文 本传输协议(HTTP),并开发了一个简单的迭代式Web服务器。</p>
+</blockquote>
+<h2 id="11-1-The-Client-Server-Programming-Model-954"><a href="#11-1-The-Client-Server-Programming-Model-954" class="headerlink" title="11.1 The Client-Server Programming Model 954"></a>11.1 The Client-Server Programming Model 954</h2><h2 id="11-2-Networks-955"><a href="#11-2-Networks-955" class="headerlink" title="11.2 Networks 955"></a>11.2 Networks 955</h2><h2 id="11-3-The-Global-IP-Internet-960"><a href="#11-3-The-Global-IP-Internet-960" class="headerlink" title="11.3 The Global IP Internet 960"></a>11.3 The Global IP Internet 960</h2><p>11.3.1 IP Addresses 961<br>11.3.2 Internet Domain Names 963<br>11.3.3 Internet Connections 965</p>
+<h2 id="11-4-The-Sockets-Interface-968"><a href="#11-4-The-Sockets-Interface-968" class="headerlink" title="11.4 The Sockets Interface 968"></a>11.4 The Sockets Interface 968</h2><p>11.4.1 Socket Address Structures 969<br>11.4.2 The socket Function 970<br>11.4.3 The connect Function<br>11.4.4 The bind Function 971<br>11.4.5 The listen Function 971<br>11.4.6 The accept Function 972<br>11.4.7 Host and Service Conversion 973<br>11.4.8 Helper Functions for the Sockets Interface 978<br>11.4.9 Example Echo Client and Server 980</p>
+<h2 id="11-5-Web-Servers-984"><a href="#11-5-Web-Servers-984" class="headerlink" title="11.5 Web Servers 984"></a>11.5 Web Servers 984</h2><p>11.5.1 Web Basics 984<br>11.5.2 Web Content 985<br>11.5.3 HTTP Transactions 986<br>11.5.4 Serving Dynamic Content 989</p>
+<h2 id="11-6-Putting-It-Together-The-Tiny-Web-Server-992"><a href="#11-6-Putting-It-Together-The-Tiny-Web-Server-992" class="headerlink" title="11.6 Putting It Together: The Tiny Web Server 992"></a>11.6 Putting It Together: The Tiny Web Server 992</h2><h2 id="11-7-Summary-1000"><a href="#11-7-Summary-1000" class="headerlink" title="11.7 Summary 1000"></a>11.7 Summary 1000</h2><p>Bibliographic Notes 1001 Homework Problems 1001 Solutions to Practice Problems 1002</p>
+<h1 id="Chapter-12-Concurrent-Programming"><a href="#Chapter-12-Concurrent-Programming" class="headerlink" title="Chapter 12: Concurrent Programming"></a>Chapter 12: Concurrent Programming</h1><blockquote>
+<p>第 12 章:并发编程。这一章以 Internet 服务器设计为例介绍了并发编程。我们比较 对照了三种编写并发程序的基本机制(进程、I/O多路复用和线程)，并且展示如何用 它们来建造并发 Internet 服务器。我们探讨了用 Pÿ V 信号量操作来实现同步、线程 安全和可重入、竞争条件以及死锁等的基本原则。对大多数服务器应用来说，写并发 代码都是很关键的。我们还讲述了线程级编程的使用方法，用这种方法来表达应用程 序中的并行性，使得程序在多核处理器上能执行得更快。使用所有的核解决同一个计 算问题需要很小心谨慎地协调并发线程，既要保证正确性，又要争取获得高性能。</p>
+</blockquote>
+<h2 id="12-1-Concurrent-Programming-with-Processes-1009"><a href="#12-1-Concurrent-Programming-with-Processes-1009" class="headerlink" title="12.1 Concurrent Programming with Processes 1009"></a>12.1 Concurrent Programming with Processes 1009</h2><p>12.1.1 A Concurrent Server Based on Processes 1010<br>12.1.2 Pros and Cons of Processes 1011</p>
+<h2 id="12-2-Concurrent-Programming-with-I-O-Multiplexing-1013"><a href="#12-2-Concurrent-Programming-with-I-O-Multiplexing-1013" class="headerlink" title="12.2 Concurrent Programming with I/O Multiplexing 1013"></a>12.2 Concurrent Programming with I/O Multiplexing 1013</h2><p>12.2.1 A Concurrent Event-Driven Server Based on I/O<br>Multiplexing 1016<br>12.2.2 Pros and Cons of I/O Multiplexing 1021</p>
+<h2 id="12-3-Concurrent-Programming-with-Threads-1021"><a href="#12-3-Concurrent-Programming-with-Threads-1021" class="headerlink" title="12.3 Concurrent Programming with Threads 1021"></a>12.3 Concurrent Programming with Threads 1021</h2><p>12.3.1 Thread Execution Model 1022<br>12.3.2 Posix Threads 1023<br>12.3.3 Creating Threads 1024<br>12.3.4 Terminating Threads 1024<br>12.3.5 Reaping Terminated Threads 1025<br>12.3.6 Detaching Threads 1025<br>12.3.7 Initializing Threads 1026<br>12.3.8 A Concurrent Server Based on Threads 1027</p>
+<h2 id="12-4-Shared-Variables-in-Threaded-Programs-1028"><a href="#12-4-Shared-Variables-in-Threaded-Programs-1028" class="headerlink" title="12.4 Shared Variables in Threaded Programs 1028"></a>12.4 Shared Variables in Threaded Programs 1028</h2><p>12.4.1 Threads Memory Model 1029<br>12.4.2 Mapping Variables to Memory 1030<br>12.4.3 Shared Variables 1031</p>
+<h2 id="12-5-Synchronizing-Threads-with-Semaphores-1031"><a href="#12-5-Synchronizing-Threads-with-Semaphores-1031" class="headerlink" title="12.5 Synchronizing Threads with Semaphores 1031"></a>12.5 Synchronizing Threads with Semaphores 1031</h2><p>12.5.1 Progress Graphs 1035<br>12.5.2 Semaphores 1037<br>12.5.3 Using Semaphores for Mutual Exclusion 1038<br>12.5.4 Using Semaphores to Schedule Shared Resources 1040<br>12.5.5 Putting It Together: A Concurrent Server Based on</p>
+<h2 id="12-6-Using"><a href="#12-6-Using" class="headerlink" title="12.6 Using"></a>12.6 Using</h2><h2 id="12-7-Other"><a href="#12-7-Other" class="headerlink" title="12.7 Other"></a>12.7 Other</h2><p>Prethreading 1044<br>Threads for Parallelism 1049 Concurrency Issues 1056<br>12.7.1 Thread Safety 1056<br>12.7.2 Reentrancy 1059<br>12.7.3 Using Existing Library Functions in Threaded Programs 1060<br>12.7.4 Races 1061<br>12.7.5 Deadlocks 1063</p>
+<h2 id="12-8-Summary-1066-Bibliographic-Notes-1066"><a href="#12-8-Summary-1066-Bibliographic-Notes-1066" class="headerlink" title="12.8 Summary 1066 Bibliographic Notes 1066"></a>12.8 Summary 1066 Bibliographic Notes 1066</h2><p>Homework Problems 1067 Solutions to Practice Problems 1072</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/17/CS-APP-Notes/" data-id="ckkyvzn6l003ghejbgvh9evnu" data-title="Computer Systems: A Programmer&#39;s Perspective_Notes" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/17/Data-Structures-Experiment-10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Data Structures Experiment #10
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/11/Data-Lab-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Data Lab: Manipulating Bits #2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/29/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/21/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
