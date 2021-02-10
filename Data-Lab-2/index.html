@@ -14,14 +14,14 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.superpung.xyz","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"www.superpung.xyz","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta name="description" content="对于实验一（Data Lab）的一些想法（下）。">
 <meta property="og:type" content="article">
@@ -165,7 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-1-conditional"><span class="nav-number">1.</span> <span class="nav-text">Puzzle 1 - conditional</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-2-isNonNegative"><span class="nav-number">2.</span> <span class="nav-text">Puzzle 2 - isNonNegative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-3-isGreater"><span class="nav-number">3.</span> <span class="nav-text">Puzzle 3 - isGreater</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-4-absVal"><span class="nav-number">4.</span> <span class="nav-text">Puzzle 4 - absVal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-5-isPower2"><span class="nav-number">5.</span> <span class="nav-text">Puzzle 5 - isPower2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-6-float-neg"><span class="nav-number">6.</span> <span class="nav-text">Puzzle 6 - float_neg</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-7-float-i2f"><span class="nav-number">7.</span> <span class="nav-text">Puzzle 7 - float_i2f</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Declare-Variables"><span class="nav-number">7.1.</span> <span class="nav-text">Declare Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Judge-Special-Value"><span class="nav-number">7.2.</span> <span class="nav-text">Judge Special Value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Judge-Sign"><span class="nav-number">7.3.</span> <span class="nav-text">Judge Sign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-Exponent-Bits"><span class="nav-number">7.4.</span> <span class="nav-text">Get Exponent Bits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-Fraction-Bits"><span class="nav-number">7.5.</span> <span class="nav-text">Get Fraction Bits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Round-to-Even"><span class="nav-number">7.6.</span> <span class="nav-text">Round to Even</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Return-Result"><span class="nav-number">7.7.</span> <span class="nav-text">Return Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-Code"><span class="nav-number">7.8.</span> <span class="nav-text">Source Code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-%E2%80%A6"><span class="nav-number">8.</span> <span class="nav-text">Puzzle …</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-1-conditional"><span class="nav-text">Puzzle 1 - conditional</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-2-isNonNegative"><span class="nav-text">Puzzle 2 - isNonNegative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-3-isGreater"><span class="nav-text">Puzzle 3 - isGreater</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-4-absVal"><span class="nav-text">Puzzle 4 - absVal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-5-isPower2"><span class="nav-text">Puzzle 5 - isPower2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-6-float-neg"><span class="nav-text">Puzzle 6 - float_neg</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-7-float-i2f"><span class="nav-text">Puzzle 7 - float_i2f</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Declare-Variables"><span class="nav-text">Declare Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Judge-Special-Value"><span class="nav-text">Judge Special Value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Judge-Sign"><span class="nav-text">Judge Sign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-Exponent-Bits"><span class="nav-text">Get Exponent Bits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-Fraction-Bits"><span class="nav-text">Get Fraction Bits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Round-to-Even"><span class="nav-text">Round to Even</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Return-Result"><span class="nav-text">Return Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-Code"><span class="nav-text">Source Code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Puzzle-%E2%80%A6"><span class="nav-text">Puzzle …</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,11 +191,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SuperPung" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SuperPung" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:superpung.lee@gmail.com" title="E-Mail → mailto:superpung.lee@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/super_lee" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;super_lee" rel="noopener" target="_blank"><i class="telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/super_pung" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;super_pung" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/syeopung.lee.3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;syeopung.lee.3" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/superpung.lee" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;superpung.lee" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://tingtalk.me/" title="https:&#x2F;&#x2F;tingtalk.me&#x2F;" rel="noopener" target="_blank">TingTalk</a>
+        </li>
+    </ul>
+  </div>
 
         </div>
       </div>
@@ -211,6 +241,10 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/SuperPung" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -270,14 +304,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span></span>
+      <span>5.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>NaN:aN</span>
+      <span>5 mins.</span>
     </span>
 </div>
 
@@ -299,33 +333,33 @@
 </blockquote>
 <p>利用位操作来实现三目运算符表达式<code>x ? y : z</code>的功能，只需判断<code>x</code>是否为<code>0</code>：若不为<code>0</code>则返回<code>y</code>；反之则返回<code>z</code>。</p>
 <p>同样可以利用算术右移的特点制作一个<strong>掩码（mask）</strong>，类似<a href="https://www.superpung.xyz/2020/04/02/Data-Lab-1/">#1</a>中提到的“模版”，以便于操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int conditional(int x, int y, int z)</span><br><span class="line">&#123;</span><br><span class="line">    int msk &#x3D; (!!x) &lt;&lt; 31 &gt;&gt; 31;</span><br><span class="line">    return (msk &amp; y) | (~msk &amp; z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">conditional</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msk = (!!x) &lt;&lt; <span class="number">31</span> &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">return</span> (msk &amp; y) | (~msk &amp; z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-2-isNonNegative"><a href="#Puzzle-2-isNonNegative" class="headerlink" title="Puzzle 2 - isNonNegative"></a>Puzzle 2 - isNonNegative</h1><blockquote>
 <p>isNonNegative - return 1 if x &gt;= 0, return 0 otherwise<br>Example: isNonNegative(-1) = 0.  isNonNegative(0) = 1.<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 6<br>Rating: 3</p>
 </blockquote>
 <p>判断符号位即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int isNonNegative(int x)</span><br><span class="line">&#123;</span><br><span class="line">    return !(x &gt;&gt; 31);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isNonNegative</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !(x &gt;&gt; <span class="number">31</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-3-isGreater"><a href="#Puzzle-3-isGreater" class="headerlink" title="Puzzle 3 - isGreater"></a>Puzzle 3 - isGreater</h1><blockquote>
 <p>isGreater - if x &gt; y  then return 1, else return 0<br>Example: isGreater(4,5) = 0, isGreater(5,4) = 1<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 24<br> Rating: 3</p>
 </blockquote>
 <p>比较大小，显然当<code>x</code>为正且<code>y</code>为负时，一定有<code>x &gt; y</code>成立；当<code>x</code>为负且<code>y</code>为正时，上式一定不成立。</p>
 <p>当<code>x</code>与<code>y</code>同号时，判断二者之差是否为正即可。注意题目要求，当二者相等时返回<code>0</code>，故此处作差时减<code>1</code>。</p>
 <p>判断正负依然利用符号位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int isGreater(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">    int _x, _y, sub;</span><br><span class="line">    _x &#x3D; x &gt;&gt; 31;</span><br><span class="line">    _y &#x3D; y &gt;&gt; 31;</span><br><span class="line">    sub &#x3D; (x + ~y) &gt;&gt; 31;</span><br><span class="line">    return (!_x &amp; _y) | (!(_x ^ _y) &amp; !sub);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> isGreater(<span class="keyword">int</span> <span class="keyword">x</span>, <span class="keyword">int</span> <span class="keyword">y</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> _x, _y, <span class="function"><span class="keyword">sub</span></span>;</span><br><span class="line">    _x = <span class="keyword">x</span> &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    _y = <span class="keyword">y</span> &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="function"><span class="keyword">sub</span> = (<span class="title">x</span> + ~<span class="title">y</span>) &gt;&gt; 31</span>;</span><br><span class="line">    <span class="keyword">return</span> (!_x &amp; _y) | (!(_x ^ _y) &amp; !<span class="function"><span class="keyword">sub</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-4-absVal"><a href="#Puzzle-4-absVal" class="headerlink" title="Puzzle 4 - absVal"></a>Puzzle 4 - absVal</h1><blockquote>
 <p>absVal - absolute value of x<br>Example: absVal(-1) = 1.<br>You may assume -TMax &lt;= x &lt;= TMax<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 10<br>Rating: 4</p>
 </blockquote>
 <p>正数的绝对值为其本身，负数的绝对值为其相反数。</p>
 <p>位全0取反为-1（<code>~0 + 1 = 0</code>），全1取反为0。</p>
 <p>依然可以利用符号位右移作为掩码，当<code>x</code>为正时掩码全0，异或后仍为原值；当<code>x</code>为负时掩码全1，异或后相当于取反的效果，再加1即得到其相反数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int absVal(int x)</span><br><span class="line">&#123;</span><br><span class="line">    int _x &#x3D; x &gt;&gt; 31;</span><br><span class="line">    return (x ^ _x) + (~_x + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">absVal</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> _x = x &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">return</span> (x ^ _x) + (~_x + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-5-isPower2"><a href="#Puzzle-5-isPower2" class="headerlink" title="Puzzle 5 - isPower2"></a>Puzzle 5 - isPower2</h1><blockquote>
 <p>isPower2 - returns 1 if x is a power of 2, and 0 otherwise<br>Examples: isPower2(5) = 0, isPower2(8) = 1, isPower2(0) = 0<br>Note that no negative number is a power of 2.<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 20<br>Rating: 4</p>
 </blockquote>
 <p>一个数为2的幂次，即其二进制位有且仅有1位为1。</p>
 <p>不妨设其中1所在最低位为第<code>n</code>位，则减1后其<code>0～n-1</code>位均变为1，而第<code>n</code>位变为0——<code>0～n</code>为与原值相反，<code>n</code>位以上与原值相同。此时将减1后的值与原值取与，可知取与结果的低<code>n+1</code>位必为0。若原值在<code>n</code>位以上仍存在1，则取与结果必不为0，由上段推论知，此时原值必不为2的幂次。若原值在<code>n</code>位以上全0，则取与结果必为0，此时原值必为2的幂次。</p>
 <p>显然非正值必不为2的幂次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int isPower2(int x)</span><br><span class="line">&#123;</span><br><span class="line">    int msk &#x3D; x + ~0;</span><br><span class="line">    return !(x &amp; msk) &amp; !(x &gt;&gt; 31) &amp; !!x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int isPower2(int <span class="meta">x</span>)</span><br><span class="line">&#123;</span><br><span class="line">    int msk = <span class="meta">x</span> + ~0;</span><br><span class="line">    <span class="meta">return</span> !(<span class="meta">x</span> &amp; msk) &amp; !(<span class="meta">x</span> &gt;&gt; 31) &amp; !!<span class="meta">x</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-6-float-neg"><a href="#Puzzle-6-float-neg" class="headerlink" title="Puzzle 6 - float_neg"></a>Puzzle 6 - float_neg</h1><blockquote>
 <p>float_neg - Return bit-level equivalent of expression -f for floating point argument f. Both the argument and result are passed as unsigned int’s, but they are to be interpreted as the bit-level representations of single-precision floating point values.<br>When argument is NaN, return argument.<br>Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while<br>Max ops: 10<br>Rating: 2</p>
 </blockquote>
@@ -334,7 +368,7 @@
 <p>本题只需判断参数<code>uf</code>是否为<code>NaN</code>，是则返回其本身，否则返回其相反数。</p>
 <p>制作低<code>31</code>位全1的掩码，同原值取与以保留参数<code>uf</code>除去符号位的值，取与结果同0x7f800000相比可判断原值是否为<code>NaN</code>。</p>
 <p>求相反数只需变换符号位，同掩码0x80000000异或即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">unsigned float_neg(unsigned uf)</span><br><span class="line">&#123;</span><br><span class="line">    int msk &#x3D; 0x7fffffff;</span><br><span class="line">    unsigned low &#x3D; uf &amp; msk;</span><br><span class="line">    if (low &gt; 0x7f800000)</span><br><span class="line">        return uf;</span><br><span class="line">    else &#123;</span><br><span class="line">        msk &#x3D; 0x80000000;</span><br><span class="line">        return uf ^ msk;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">float_neg</span><span class="params">(<span class="keyword">unsigned</span> uf)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msk = <span class="number">0x7fffffff</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> low = uf &amp; msk;</span><br><span class="line">    <span class="keyword">if</span> (low &gt; <span class="number">0x7f800000</span>)</span><br><span class="line">        <span class="keyword">return</span> uf;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        msk = <span class="number">0x80000000</span>;</span><br><span class="line">        <span class="keyword">return</span> uf ^ msk;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-7-float-i2f"><a href="#Puzzle-7-float-i2f" class="headerlink" title="Puzzle 7 - float_i2f"></a>Puzzle 7 - float_i2f</h1><blockquote>
 <p>float_i2f - Return bit-level equivalent of expression (float) x<br>Result is returned as unsigned int, but it is to be interpreted as the bit-level representation of a single-precision floating point values.<br>Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while<br>Max ops: 30<br>Rating: 4</p>
 </blockquote>
@@ -342,24 +376,24 @@
 <p>整数转化为浮点数，首先将整数的二进制编码转化为科学计数法$m\times 2^{e}$的形式，其中$m$的小数部分便对应浮点数的<code>fraction</code>位，$e$对应浮点数的<code>exponent</code>位，符号位互相对应。例如$78=1001110_{2}=1.00111\times 2^{6}_{2}$，故<code>sign</code>位为0，<code>exponent</code>位为$6+127=133=100 00101_{2}$，<code>fraction</code>位为$001 1100 0000 0000 0000 0000$。</p>
 <p>由于浮点数由<code>sign</code>、<code>exponent</code>、<code>fraction</code>三部分组成，可以分三部分来进行转换。</p>
 <h2 id="Declare-Variables"><a href="#Declare-Variables" class="headerlink" title="Declare Variables"></a>Declare Variables</h2><p><code>sig</code>、<code>exp</code>、<code>frc</code>分别代表浮点数的三部分；<code>frcMsk</code>为<code>fraction</code>位全1的掩码，用于存放<code>fraction</code>位；<code>eBit</code>指向<code>x</code>中1的最高位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int sig &#x3D; (x &gt;&gt; 31) &amp; 1;</span><br><span class="line">int exp, frc;</span><br><span class="line">int frcMsk &#x3D; 0x7fffff;</span><br><span class="line">int eBit &#x3D; 1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int</span> sig = (x &gt;&gt; <span class="number">31</span>) &amp; <span class="number">1</span>;</span><br><span class="line"><span class="attribute">int</span> exp, frc;</span><br><span class="line"><span class="attribute">int</span> frcMsk = <span class="number">0</span>x<span class="number">7</span>fffff;</span><br><span class="line"><span class="attribute">int</span> eBit = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="Judge-Special-Value"><a href="#Judge-Special-Value" class="headerlink" title="Judge Special Value"></a>Judge Special Value</h2><p>特殊值只需返回特定值。</p>
 <p>当<code>x</code>的值为0x80000000时，即$-2^{31}$，是有符号<code>int</code>型最小值。为避免操作可能导致的溢出错误，此处直接返回其<code>float</code>值，即<code>exponent</code>部分为$31+127=158$，其他位均为0。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (x &#x3D;&#x3D; 0)</span><br><span class="line">    return x;</span><br><span class="line">else if (x &#x3D;&#x3D; 0x80000000)</span><br><span class="line">    return 0xcf000000;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">if</span> (<span class="meta">x</span> == 0)</span><br><span class="line">    <span class="meta">return</span> <span class="meta">x</span>;</span><br><span class="line"><span class="meta">else</span> <span class="meta">if</span> (<span class="meta">x</span> == 0x80000000)</span><br><span class="line">    <span class="meta">return</span> 0xcf000000;</span><br></pre></td></tr></table></figure>
 <h2 id="Judge-Sign"><a href="#Judge-Sign" class="headerlink" title="Judge Sign"></a>Judge Sign</h2><p>负数转化为其相反数进行运算。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (sig)</span><br><span class="line">    x &#x3D; -x;</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (sig)</span><br><span class="line">    <span class="keyword">x</span> <span class="operator">=</span> -<span class="keyword">x</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <h2 id="Get-Exponent-Bits"><a href="#Get-Exponent-Bits" class="headerlink" title="Get Exponent Bits"></a>Get Exponent Bits</h2><p>当右移<code>eBit</code>位后为0，而右移<code>eBit-1</code>位不为0时，说明<code>eBit-1</code>位1所在最高位。例如$78=1001110_{2}$，右移<code>6</code>位不为0，而右移<code>7</code>位为0，故1所在最高位为第<code>6</code>位。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (x &gt;&gt; eBit)</span><br><span class="line">    eBit++;</span><br><span class="line">exp &#x3D; --eBit + 127;</span><br></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (x &gt;&gt; eBit)</span><br><span class="line">    eBit++;</span><br><span class="line"><span class="built_in">exp</span> = <span class="comment">--eBit + 127;</span></span><br></pre></td></tr></table></figure>
 <h2 id="Get-Fraction-Bits"><a href="#Get-Fraction-Bits" class="headerlink" title="Get Fraction Bits"></a>Get Fraction Bits</h2><p>左移<code>31-eBit</code>位，将1所在最高位移动到第<code>31</code>位。当<code>x</code>为$78=1001110_{2}$时，移动后即$$78=1001 1100 0000 0000 0000 0000 0000 0000_{2}.$$再右移到fraction的位最高位后$$0000 0000 1001 1100 0000 0000 0000 0000$$同掩码$$0000 0000 0111 1111 1111 1111 1111 1111$$取与，即可得到<code>fraction</code>位。</p>
 <p>至于为什么将最高位的1舍弃，请<a href="#IEEE754">返回</a>并继续阅读。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; x &lt;&lt; (31 - eBit);</span><br><span class="line">frc &#x3D; (x &gt;&gt; 8) &amp; frcMsk;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">x</span> = x &lt;&lt; (<span class="number">31</span> - eBit)<span class="comment">;</span></span><br><span class="line"><span class="attr">frc</span> = (x &gt;&gt; <span class="number">8</span>) &amp; frcMsk<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <h2 id="Round-to-Even"><a href="#Round-to-Even" class="headerlink" title="Round to Even"></a>Round to Even</h2><p>上面的<code>fraction</code>是将<code>x</code>右移<code>8</code>位后取得的，应该考虑被移出去的<code>8</code>位是否满足进位的条件，若符合应该进行进位。</p>
 <p>先取<code>x</code>的低<code>8</code>位，若大于一半或者等于一半，应该进位。注意此处进位为向<strong>偶数</strong>进位，即若等于一半且被进位的位置为0时不进位。</p>
 <p>进位之后<code>fraction</code>位会出现变化，若超出<code>23</code>位长，应向<code>exponent</code>进位，且进位后<code>fraction</code>与掩码取与重置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x &amp;&#x3D; 0xff;</span><br><span class="line">if ((x &gt; 0x80) || ((x &#x3D;&#x3D; 0x80) &amp;&amp; (frc &amp; 1)))</span><br><span class="line">    frc++;</span><br><span class="line">if (frc &gt;&gt; 23) &#123;</span><br><span class="line">    exp++;</span><br><span class="line">    frc &amp;&#x3D; frcMsk;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x <span class="meta">&amp;= 0xff;</span></span><br><span class="line">if ((x &gt; <span class="number">0</span>x80) <span class="string">|| ((x == 0x80) &amp;&amp; (frc &amp; 1)))</span></span><br><span class="line">    frc++;</span><br><span class="line">if (frc &gt;&gt; <span class="number">23</span>) &#123;</span><br><span class="line">    <span class="built_in">exp</span>++;</span><br><span class="line">    frc <span class="meta">&amp;= frcMsk;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Return-Result"><a href="#Return-Result" class="headerlink" title="Return Result"></a>Return Result</h2><p>将各部分左移到相应位置取或即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return (sig &lt;&lt; 31) | (exp &lt;&lt; 23) | frc;</span><br></pre></td></tr></table></figure>
-<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">unsigned float_i2f(int x)</span><br><span class="line">&#123;</span><br><span class="line">    int sig &#x3D; (x &gt;&gt; 31) &amp; 1;</span><br><span class="line">    int exp, frc;</span><br><span class="line">    int frcMsk &#x3D; 0x7fffff;</span><br><span class="line">    int eBit &#x3D; 1;</span><br><span class="line"></span><br><span class="line">    if (x &#x3D;&#x3D; 0)</span><br><span class="line">        return x;</span><br><span class="line">    else if (x &#x3D;&#x3D; 0x80000000)</span><br><span class="line">        return 0xcf000000;</span><br><span class="line">    else &#123;</span><br><span class="line">        if (sig)</span><br><span class="line">            x &#x3D; -x;</span><br><span class="line"></span><br><span class="line">        while (x &gt;&gt; eBit)</span><br><span class="line">            eBit++;</span><br><span class="line">        exp &#x3D; --eBit + 127;</span><br><span class="line"></span><br><span class="line">        x &#x3D; x &lt;&lt; (31 - eBit);</span><br><span class="line">        frc &#x3D; (x &gt;&gt; 8) &amp; frcMsk;</span><br><span class="line">        x &amp;&#x3D; 0xff;</span><br><span class="line">        if ((x &gt; 0x80) || ((x &#x3D;&#x3D; 0x80) &amp;&amp; (frc &amp; 1)))</span><br><span class="line">            frc++;</span><br><span class="line">        if (frc &gt;&gt; 23) &#123;</span><br><span class="line">            exp++;</span><br><span class="line">            frc &amp;&#x3D; frcMsk;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return (sig &lt;&lt; 31) | (exp &lt;&lt; 23) | frc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (sig &lt;&lt; <span class="number">31</span>) | <span class="type">(exp</span> &lt;&lt; <span class="number">23</span>) | <span class="type">frc</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">unsigned float_i2f(int <span class="meta">x</span>)</span><br><span class="line">&#123;</span><br><span class="line">    int sig = (<span class="meta">x</span> &gt;&gt; 31) &amp; 1;</span><br><span class="line">    int exp, frc;</span><br><span class="line">    int frcMsk = 0x7fffff;</span><br><span class="line">    int eBit = 1;</span><br><span class="line"></span><br><span class="line">    <span class="meta">if</span> (<span class="meta">x</span> == 0)</span><br><span class="line">        <span class="meta">return</span> <span class="meta">x</span>;</span><br><span class="line">    <span class="meta">else</span> <span class="meta">if</span> (<span class="meta">x</span> == 0x80000000)</span><br><span class="line">        <span class="meta">return</span> 0xcf000000;</span><br><span class="line">    <span class="meta">else</span> &#123;</span><br><span class="line">        <span class="meta">if</span> (sig)</span><br><span class="line">            <span class="meta">x</span> = -<span class="meta">x</span>;</span><br><span class="line"></span><br><span class="line">        <span class="meta">while</span> (<span class="meta">x</span> &gt;&gt; eBit)</span><br><span class="line">            eBit++;</span><br><span class="line">        exp = --eBit + 127;</span><br><span class="line"></span><br><span class="line">        <span class="meta">x</span> = <span class="meta">x</span> &lt;&lt; (31 - eBit);</span><br><span class="line">        frc = (<span class="meta">x</span> &gt;&gt; 8) &amp; frcMsk;</span><br><span class="line">        <span class="meta">x</span> &amp;= 0xff;</span><br><span class="line">        <span class="meta">if</span> ((<span class="meta">x</span> &gt; 0x80) || ((<span class="meta">x</span> == 0x80) <span class="variable">&amp;&amp;</span> (frc &amp; 1)))</span><br><span class="line">            frc++;</span><br><span class="line">        <span class="meta">if</span> (frc &gt;&gt; 23) &#123;</span><br><span class="line">            exp++;</span><br><span class="line">            frc &amp;= frcMsk;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">return</span> (sig &lt;&lt; 31) | (exp &lt;&lt; 23) | frc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-…"><a href="#Puzzle-…" class="headerlink" title="Puzzle …"></a>Puzzle …</h1><p>同时也要注意代码的规范问题，利用辅助工具可以协助提高代码的质量。</p>
 <p>例如，运行<code>./btest</code>以检查函数功能的正确性：<br><img src="Data-Lab-2/btest.png" alt="btest检测"><br>运行<code>./dlc -e bits.c</code>以检查每个函数的运算符使用情况：<br><img src="Data-Lab-2/dlc.png" alt="dlc检测"><br>运行<code>./driver.pl</code>以同时输出<code>dlc</code>和<code>BDD checker</code>的结果：<br><img src="Data-Lab-2/driver.png" alt="driver检测"></p>
 
@@ -370,6 +404,24 @@
     
 
     <footer class="post-footer">
+          <div class="reward-container">
+  <div>Thanks for your reading.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="SUPER WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="SUPER Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
           
 
 <div class="post-copyright">
@@ -387,9 +439,46 @@
 </ul>
 </div>
 
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/super_pung">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/super_lee">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
           <div class="post-tags">
-              <a href="/tags/Computer-Systems/" rel="tag"># Computer Systems</a>
-              <a href="/tags/Lab-Assignments/" rel="tag"># Lab Assignments</a>
+              <a href="/tags/Computer-Systems/" rel="tag"><i class="fa fa-tag"></i> Computer Systems</a>
+              <a href="/tags/Lab-Assignments/" rel="tag"><i class="fa fa-tag"></i> Lab Assignments</a>
           </div>
 
         
@@ -443,12 +532,15 @@
   <footer class="footer">
     <div class="footer-inner">
 
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">null </a>
+      <img src="http://www.beian.gov.cn/portal/download" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010102002019" rel="noopener" target="_blank">津公网安备11010102002019号 </a>
+  </div>
 
 <div class="copyright">
-  &copy; 
+  &copy; Jan 14, 2020 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-heartbeat"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">SUPER</span>
 </div>
@@ -457,24 +549,22 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">424k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">6:25</span>
   </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
-  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
 
