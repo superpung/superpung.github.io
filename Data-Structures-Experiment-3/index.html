@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Data Structures Experiment #3 | ExiTalk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="双向链表的实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structures Experiment #3">
+<meta property="og:url" content="http://www.superpung.xyz/Data-Structures-Experiment-3/">
+<meta property="og:site_name" content="ExiTalk">
+<meta property="og:description" content="双向链表的实现。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.superpung.xyz/Data-Structures-Experiment-3/Data-Structures-Experiment-3/wx.png">
+<meta property="article:published_time" content="2020-05-07T01:59:50.000Z">
+<meta property="article:modified_time" content="2020-05-07T05:33:18.000Z">
+<meta property="article:author" content="SUPER">
+<meta property="article:tag" content="Experiments">
+<meta property="article:tag" content="Data Structures">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.superpung.xyz/Data-Structures-Experiment-3/Data-Structures-Experiment-3/wx.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ExiTalk" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ExiTalk</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Follow your heart</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.superpung.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Data-Structures-Experiment-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Data-Structures-Experiment-3/" class="article-date">
+  <time class="dt-published" datetime="2020-05-07T01:59:50.000Z" itemprop="datePublished">2020-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Data Structures Experiment #3
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>双向链表的实现。</p>
+</blockquote>
+<a id="more"></a>
+
+<p><img src="Data-Structures-Experiment-3/wx.png" alt="SuperPung_公众号"></p>
+<blockquote>
+<ul>
+<li><code>DBLinkList::DBLinkList();</code><br>构造函数，需要在类中初始化相应的成员变量。</li>
+<li><code>DBLinkList::~DBLinkList();</code><br>析构函数，需要将所有动态申请的内存都释放。</li>
+<li><code>void DBLinkList::insert(int data, int location);</code><br>在<code>location</code>位置插入<code>data</code>，测试程序保证<code>data</code>合法。</li>
+<li><code>void DBLinkList::remove(int location);</code><br>将<code>location</code>的元素移除，测试程序保证<code>location</code>的合法性。</li>
+<li><code>int DBLinkList::length();</code><br>获取双向链表的长度。</li>
+<li><code>int DBLinkList::getData(int location);</code><br>获取列表中<code>lcation</code>位置的元素，测试数据保证<code>location</code>的合法。</li>
+<li><code>void DBLinkList::bubbleSort();</code><br>将双向链表进行冒泡排序。</li>
+</ul>
+</blockquote>
+<h1 id="0x01-构造函数"><a href="#0x01-构造函数" class="headerlink" title="0x01 构造函数"></a>0x01 构造函数</h1><p>将头、尾指针均赋为空。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DBLinkList::DBLinkList()&#123;</span><br><span class="line">    head = <span class="literal">NULL</span>;</span><br><span class="line">    tail = <span class="literal">NULL</span>;</span><br><span class="line">    len = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x02-insert"><a href="#0x02-insert" class="headerlink" title="0x02 insert"></a>0x02 insert</h1><p>判断位置的合法性。</p>
+<p>分情况：</p>
+<ul>
+<li>在表头插入，判断是否为空表；</li>
+<li>在表中插入，指针沿链表移动到前一个位置，断开并重新链接；</li>
+<li>在表尾插入，利用尾指针链接。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DBLinkList::insert</span><span class="params">(<span class="keyword">int</span> data, <span class="keyword">int</span> location)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (location &lt; <span class="number">0</span> || location &gt; len)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    DBNode *newNode = <span class="keyword">new</span> DBNode;</span><br><span class="line">    newNode-&gt;value = data;</span><br><span class="line">    <span class="keyword">if</span> (location == <span class="number">0</span>) &#123;</span><br><span class="line">        newNode-&gt;nxt = head;</span><br><span class="line">        newNode-&gt;pre = <span class="literal">NULL</span>;</span><br><span class="line">        head = newNode;</span><br><span class="line">        <span class="keyword">if</span> (tail == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            tail = newNode;</span><br><span class="line">            newNode-&gt;nxt = <span class="literal">NULL</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            newNode-&gt;nxt-&gt;pre = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (location != len) &#123;</span><br><span class="line">    DBNode *p = head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; location - <span class="number">1</span>; i++)</span><br><span class="line">        p = p-&gt;nxt;</span><br><span class="line">    p-&gt;nxt-&gt;pre = newNode;</span><br><span class="line">    newNode-&gt;nxt = p-&gt;nxt;</span><br><span class="line">    p-&gt;nxt = newNode;</span><br><span class="line">    newNode-&gt;pre = p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (location == len) &#123;</span><br><span class="line">        tail-&gt;nxt = newNode;</span><br><span class="line">        newNode-&gt;pre = tail;</span><br><span class="line">        tail = newNode;</span><br><span class="line">        newNode-&gt;nxt = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    len++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x03-remove"><a href="#0x03-remove" class="headerlink" title="0x03 remove"></a>0x03 remove</h1><p>同上。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DBLinkList::remove</span><span class="params">(<span class="keyword">int</span> location)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (location == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">1</span>) &#123;</span><br><span class="line">            DBNode *temp = head;</span><br><span class="line">            head = <span class="literal">NULL</span>;</span><br><span class="line">            tail = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">delete</span> temp;</span><br><span class="line">            temp = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            head-&gt;nxt-&gt;pre = <span class="literal">NULL</span>;</span><br><span class="line">            DBNode *temp = head;</span><br><span class="line">            head = head-&gt;nxt;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">delete</span> temp;</span><br><span class="line">            temp = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (location != len - <span class="number">1</span>) &#123;</span><br><span class="line">        DBNode *p = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; location; i++)</span><br><span class="line">            p = p-&gt;nxt;</span><br><span class="line">        p-&gt;pre-&gt;nxt = p-&gt;nxt;</span><br><span class="line">        p-&gt;nxt-&gt;pre = p-&gt;pre;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        p = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (location == len - <span class="number">1</span>) &#123;</span><br><span class="line">        DBNode *temp = tail;</span><br><span class="line">        tail = tail-&gt;pre;</span><br><span class="line">        tail-&gt;nxt = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span> temp;</span><br><span class="line">        temp = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    len--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x04-length"><a href="#0x04-length" class="headerlink" title="0x04 length"></a>0x04 length</h1><p>直接返回长度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DBLinkList::length</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x05-getData"><a href="#0x05-getData" class="headerlink" title="0x05 getData"></a>0x05 getData</h1><p>指针沿链表移动到该位置，返回其数值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DBLinkList::getData</span><span class="params">(<span class="keyword">int</span> location)</span></span>&#123;</span><br><span class="line">    DBNode *p = head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; location; i++)</span><br><span class="line">        p = p-&gt;nxt;</span><br><span class="line">    <span class="keyword">return</span> p-&gt;value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x06-bubbleSort"><a href="#0x06-bubbleSort" class="headerlink" title="0x06 bubbleSort"></a>0x06 bubbleSort</h1><p>冒泡排序，未改变指针，仅交换数值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DBLinkList::bubbleSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        DBNode *p = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len - i - <span class="number">1</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            p = p-&gt;nxt;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;pre-&gt;value &gt; p-&gt;value) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = p-&gt;pre-&gt;value;</span><br><span class="line">                p-&gt;pre-&gt;value = p-&gt;value;</span><br><span class="line">                p-&gt;value = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x07-析构函数"><a href="#0x07-析构函数" class="headerlink" title="0x07 析构函数"></a>0x07 析构函数</h1><p>逐结点释放内存。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DBLinkList::~DBLinkList()&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        DBNode *temp;</span><br><span class="line">        temp = head;</span><br><span class="line">        head = head-&gt;nxt;</span><br><span class="line">        <span class="keyword">delete</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> head;</span><br><span class="line">    <span class="keyword">delete</span> tail;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.superpung.xyz/Data-Structures-Experiment-3/" data-id="ckkyvzn5s000nhejb3m5p86z1" data-title="Data Structures Experiment #3" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Data-Structures-Experiment-4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Data Structures Experiment #4
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Data-Structures-Experiment-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Data Structures Experiment #2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 SUPER<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

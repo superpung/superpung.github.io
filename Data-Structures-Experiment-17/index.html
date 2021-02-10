@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Data Structures Experiment #17 | ExiTalk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="排序2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structures Experiment #17">
+<meta property="og:url" content="http://www.superpung.xyz/Data-Structures-Experiment-17/">
+<meta property="og:site_name" content="ExiTalk">
+<meta property="og:description" content="排序2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.superpung.xyz/Data-Structures-Experiment-17/Data-Structures-Experiment-17/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
+<meta property="article:published_time" content="2020-06-03T07:09:27.000Z">
+<meta property="article:modified_time" content="2020-06-03T11:14:02.000Z">
+<meta property="article:author" content="SUPER">
+<meta property="article:tag" content="Experiments">
+<meta property="article:tag" content="Data Structures">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.superpung.xyz/Data-Structures-Experiment-17/Data-Structures-Experiment-17/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ExiTalk" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ExiTalk</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Follow your heart</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.superpung.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Data-Structures-Experiment-17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Data-Structures-Experiment-17/" class="article-date">
+  <time class="dt-published" datetime="2020-06-03T07:09:27.000Z" itemprop="datePublished">2020-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Data Structures Experiment #17
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>排序2</p>
+</blockquote>
+<a id="more"></a>
+
+<p><img src="Data-Structures-Experiment-17/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt="SuperPung_公众号"></p>
+<blockquote>
+<p>在<code>MySort.cpp</code>中完成两个排序方法：</p>
+<ul>
+<li><p><code>mergeSort(int* arr, int len);</code></p>
+<p>实现归并排序，需要排序的数组为<code>arr</code>，数组长度为<code>len</code></p>
+</li>
+<li><p><code>cardSort(int* arr, int len);</code></p>
+<p>实现基数排序，需要排序的数组为<code>arr</code>，数组长度为<code>len</code></p>
+<p>整数基数排序的一个方法：可以逐位取<code>&amp;</code>获得不同位的信息。例如，第一趟基数排序时，将序列中的数字(<code>a &amp; 0xf0000000</code>)，就得到了最高四位的数值，可以首先对最高位比较大小并进行排序。</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="mergeSort"><a href="#mergeSort" class="headerlink" title="mergeSort"></a>mergeSort</h1><p>归并排序仍然是一种“分治”的思想，即将数组分成两部分，分别对其排序，再依次取两个有序数组中较小的元素，将两个数组“归并”成一个数组。只要不断地将数组一分为二，再分别归并，就能完成对这个数组的排序。</p>
+<p>可以看出此处为递归函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (len &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = len / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span>* left = <span class="keyword">new</span> <span class="keyword">int</span>[mid];</span><br><span class="line">    <span class="keyword">int</span>* right = <span class="keyword">new</span> <span class="keyword">int</span>[len - mid];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; mid; i++)</span><br><span class="line">        left[i] = arr[i];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len - mid; i++)</span><br><span class="line">        right[i] = arr[i + mid];</span><br><span class="line">    </span><br><span class="line">    mergeSort(left, mid);</span><br><span class="line">    mergeSort(right, len - mid);</span><br><span class="line"></span><br><span class="line">    merge(left, mid, right, len - mid, arr);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] left;</span><br><span class="line">    <span class="keyword">delete</span>[] right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先一分为二（若此时数组大小已经小于2，即停止递归），左半部分存入<code>left</code>，右半部分存入<code>right</code> ，再进行递归，最后<code>merge</code>函数实现归并：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>* left, <span class="keyword">int</span> leftCount, <span class="keyword">int</span>* right, <span class="keyword">int</span> rightCount, <span class="keyword">int</span>* result)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &lt; leftCount &amp;&amp; j &lt; rightCount) &#123;</span><br><span class="line">        <span class="keyword">if</span> (left[i] &lt; right[j])</span><br><span class="line">            result[k++] = left[i++];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            result[k++] = right[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &lt; leftCount)</span><br><span class="line">        result[k++] = left[i++];</span><br><span class="line">    <span class="keyword">while</span> (j &lt; rightCount)</span><br><span class="line">        result[k++] = right[j++];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传入参数分别为：左半数组以及它的大小、右半数组以及它的大小、归并存入的数组。</p>
+<p>递归的过程想象成二叉树，从叶结点开始。因为第一层递归时两边数组大小均为1，所以只需判断并找出左侧和右侧中较小的一个存入第一位，剩下那个存入第二位即可。第二层递归时两边的数组都是经过第一层之后的，自然都是有序的，后续递归也是如此。</p>
+<p>注意，下面两个<code>while</code>循环只会执行一个。</p>
+<h1 id="cardSort"><a href="#cardSort" class="headerlink" title="cardSort"></a>cardSort</h1><p>基数排序和归并排序的思想相同，仍进行“分治”，只不过“分”的不是数组，而是每个数值。</p>
+<p>假设对一个值全是两位数的数组排序，直接排序较为困难，我们可以先大致排一下序，即将0～9的分到一组、将10～19的分到一组……这样先按照十位数排好序，再分别对每一组的数值按个位数排序，就可以完成整体的排序。这种方法就是<strong>最高位优先法</strong>。</p>
+<p>也可以反过来，即先按个位数排好序，再按十位数排序。这种方法就是<strong>最低位优先法</strong>，它和最高位优先法相比，优点是无需分组，因为最终的有序序列中，十位数相同的数值的个位数一定是按升序排列的。</p>
+<p>所以我选择最低位优先法。下面看一下基数排序具体是如何实现的。</p>
+<hr>
+<p>首先定义一些变量：</p>
+<ul>
+<li><p><code>maxBits</code>是整个数组最大元素的位数（十进制），用于决定我们要循环多少次。</p>
+<p>因为一次循环是对当前位的排序。第一次对个位数排好序后，第二次再对十位数排序时，两个十位数相同的元素，较后的一定比较前的元素大。</p>
+</li>
+<li><p><code>curBits</code>是当前元素的位数（十进制），<code>curNum</code>是当前元素。</p>
+<p>这两个变量只在寻找<code>maxBits</code>时用到。</p>
+</li>
+<li><p><code>curBit</code>是当前循环正在比较的位（十进制），如个位是<code>1</code>、十位是<code>10</code>、百位是<code>100</code>等等。配合下面两个变量效果更佳。</p>
+</li>
+<li><p><code>MSBits</code>是当前元素的最高若干位（十进制），<code>LSBit</code>是<code>MSBits</code>中最低的一位。</p>
+<p>显而易见，这两个变量在循环中比较某一位时会用到。用当前元素除以<code>curBit</code>即为<code>MSBits</code>，再<code>% 10</code>即为<code>LSBit</code>。</p>
+<p>其实也可以不另取变量，此处只为提高可读性。</p>
+</li>
+<li><p><code>group</code>数组作为一个函数（数学意义上），存储某一位上元素的个数（后续还会进行改进）。</p>
+<p>若<code>group[x]</code>的值为<code>y</code>，则意味着当前循环中，最低位为<code>x</code>的元素有<code>y</code>个。<code>x</code>的取值范围为0～9，共10个元素的大小。</p>
+</li>
+<li><p><code>result</code>数组用于存放当前循环排好序的序列，最终再copy给<code>arr</code>数组。</p>
+</li>
+<li><p><code>i</code>和<code>j</code>用于<code>for</code>循环的索引。</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> maxBits = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> curBits, curNum, curBit;</span><br><span class="line"><span class="keyword">int</span> MSBits, LSBit;</span><br><span class="line"><span class="keyword">int</span> group[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> result[len];</span><br><span class="line"><span class="keyword">int</span> i, j;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>其次就是第一步，找到最大位数<code>maxBits</code>：</p>
+<p>遍历整个数组，找到最大的位数。</p>
+<p>求位数的方法就是一直除以<code>10</code>（“右移”一位），直到结果为<code>0</code>，看它除了多少次。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    curNum = arr[i];</span><br><span class="line">    curBits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curNum) &#123;</span><br><span class="line">        curBits++;</span><br><span class="line">        curNum /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    maxBits = (curBits &gt; maxBits) ? curBits : maxBits;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>最后是核心的循环部分（代码已截断）：</p>
+<p>初始时<code>curBit</code>为1，代表此次循环针对的是个位数，此后每次循环<code>curBit</code>自增十倍，代表更高位。</p>
+<p>每次循环开始时都要初始化<code>group</code>数组为全0用于计数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>, curBit = <span class="number">1</span>; i &lt; maxBits; i++, curBit *= <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)</span><br><span class="line">        group[j] = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>此处的<code>for</code>循环用于给<code>group</code>数组赋值。第2～3行为固定操作，取了当前排序的位。将<code>group</code>中对应位置的计数增1即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">    MSBits = arr[j] / curBit;</span><br><span class="line">    LSBit = MSBits % <span class="number">10</span>;</span><br><span class="line">    group[LSBit]++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，为了简化排序，后续操作中我不再对<code>arr</code>进行交换，而是直接将对应元素复制到另一个<code>result</code>数组。那么此时“应该复制到哪个位置”就是需要解决的问题。</p>
+<p>由于上一步得到的<code>group</code>数组已经存放了对应位的个数，那么我们只需将<code>group[1]</code>加上<code>group[0]</code>，就得到了当前位为<code>1</code>的元素在数组中的终止位置，后续也是如此。</p>
+<p>注意数组从0开始，需先将<code>group[0]</code>自减1。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">group[<span class="number">0</span>]--;</span><br><span class="line"><span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++)</span><br><span class="line">    group[j] += group[j - <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>其次是核心中的核心，将<code>arr</code>数组复制到<code>result</code>的对应位置。</p>
+<p>上一步已经计算出了当前位为0、1、2……9的元素们各自在数组中的终止位置，即我们已经将数组分块并大致排好了顺序；且上一次循环已经将当前位的下一位排好序（第一次除外），即我们可以对每一块进行更细的排序。所以我们只需<strong>从后向前遍历</strong>（保证每一块的元素从大到小），并将元素存入对应的终止位置，存入后终止位置自减1，最后即可得到我们想要的排好序的<code>result</code>序列。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (j = len - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">    MSBits = arr[j] / curBit;</span><br><span class="line">    LSBit = MSBits % <span class="number">10</span>;</span><br><span class="line">    result[group[LSBit]--] = arr[j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时的<code>arr</code>数组只是作为每次循环的传递作用，故最后将得到的<code>result</code>数组拷贝到<code>arr</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">      <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; len; j++)</span><br><span class="line">            arr[j] = result[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>完整代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cardSort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxBits = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curBits, curNum, curBit;</span><br><span class="line">    <span class="keyword">int</span> MSBits, LSBit;</span><br><span class="line">    <span class="keyword">int</span> group[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> result[len];</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        curNum = arr[i];</span><br><span class="line">        curBits = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (curNum) &#123;</span><br><span class="line">            curBits++;</span><br><span class="line">            curNum /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        maxBits = (curBits &gt; maxBits) ? curBits : maxBits;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, curBit = <span class="number">1</span>; i &lt; maxBits; i++, curBit *= <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)</span><br><span class="line">            group[j] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">            MSBits = arr[j] / curBit;</span><br><span class="line">            LSBit = MSBits % <span class="number">10</span>;</span><br><span class="line">            group[LSBit]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        group[<span class="number">0</span>]--;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++)</span><br><span class="line">            group[j] += group[j - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (j = len - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">            MSBits = arr[j] / curBit;</span><br><span class="line">            LSBit = MSBits % <span class="number">10</span>;</span><br><span class="line">            result[group[LSBit]--] = arr[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; len; j++)</span><br><span class="line">            arr[j] = result[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.superpung.xyz/Data-Structures-Experiment-17/" data-id="ckkyvzn5r000ihejb2ihx6v7k" data-title="Data Structures Experiment #17" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Data-Structures-Experiments/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Data Structures Experiments
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Final-Homework/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Final Homework: 黎明前的黑暗</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 SUPER<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

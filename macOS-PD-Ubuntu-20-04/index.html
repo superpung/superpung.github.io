@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes | ExiTalk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="macOS 安装虚拟机过程记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes">
+<meta property="og:url" content="http://www.superpung.xyz/macOS-PD-Ubuntu-20-04/">
+<meta property="og:site_name" content="ExiTalk">
+<meta property="og:description" content="macOS 安装虚拟机过程记录">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/SuperPung/Pictures/main/Exitalk.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ubuntuReleases.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ubuntuCdimageReleases.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ubuntuCdimage.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%89%93%E5%BC%80.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E8%87%AA%E5%8A%A8%E6%9F%A5%E6%89%BE.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%89%8B%E5%8A%A8%E9%80%89%E6%8B%A9.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%96%B0%E5%BB%BA.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%AC%A2%E8%BF%8E.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%8F%96%E6%B6%88%E6%9B%B4%E6%96%B0.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%AE%89%E8%A3%85%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%86%99%E5%85%A5%E7%A3%81%E7%9B%98.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E4%B8%8A%E6%B5%B7.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%A7%93%E5%90%8D.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%AE%89%E8%A3%85%E7%AD%89%E5%BE%85.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%9C%A8%E7%BA%BF%E8%B4%A6%E5%8F%B7.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pdLivepatch.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E9%9A%90%E7%A7%81.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%B8%AE%E5%8A%A9%E6%94%B9%E8%BF%9B.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%87%86%E5%A4%87%E5%B0%B1%E7%BB%AA.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90.png">
+<meta property="article:published_time" content="2021-01-27T11:17:18.000Z">
+<meta property="article:modified_time" content="2021-01-27T13:33:11.000Z">
+<meta property="article:author" content="SUPER">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/SuperPung/Pictures/main/Exitalk.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ExiTalk" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ExiTalk</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Follow your heart</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.superpung.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-macOS-PD-Ubuntu-20-04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/macOS-PD-Ubuntu-20-04/" class="article-date">
+  <time class="dt-published" datetime="2021-01-27T11:17:18.000Z" itemprop="datePublished">2021-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>macOS 安装虚拟机过程记录</p>
+<a id="more"></a>
+
+<p><img src="https://raw.githubusercontent.com/SuperPung/Pictures/main/Exitalk.png"></p>
+<p>本文使用的软件版本及系统环境：</p>
+<ul>
+<li>macOS Big Sur (arm64)</li>
+<li>Ubuntu 20.04.2 LTS (arm64)</li>
+<li>Parallels Desktop 16 for M1 Mac Technical Preview</li>
+</ul>
+<h1 id="下载-Ubuntu-20-04-2-arm64-iso-文件"><a href="#下载-Ubuntu-20-04-2-arm64-iso-文件" class="headerlink" title="下载 Ubuntu 20.04.2 arm64 iso 文件"></a>下载 Ubuntu 20.04.2 arm64 iso 文件</h1><p>由于大部分主流操作系统（Windows、macOS等）均为 amd64（即<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/X86-64">x86-64</a>）架构，Ubuntu 各版本镜像文件也都以 amd64 为主。先后在<a target="_blank" rel="noopener" href="https://cn.ubuntu.com/">Ubuntu官网</a>、<a target="_blank" rel="noopener" href="https://releases.ubuntu.com/">Ubuntu releases</a>、<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a>、<a target="_blank" rel="noopener" href="https://mirrors.163.com/">网易开源镜像站</a>等处均未找到 arm 版本镜像文件。</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ubuntuReleases.png"></p>
+<p>最后终于在<a target="_blank" rel="noopener" href="http://cdimage.ubuntu.com/">Ubuntu CDImage</a>处找到。</p>
+<p>访问<a target="_blank" rel="noopener" href="http://cdimage.ubuntu.com/">Ubuntu CDImage</a>，若点击“releases/”并进入其子目录后，无法找到 arm 版本的桌面镜像，最多可以找到各版本的 arm 服务器安装镜像（这已经比<a target="_blank" rel="noopener" href="https://releases.ubuntu.com/">Ubuntu releases</a>全面了）：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ubuntuCdimageReleases.png"></p>
+<p>正确的“打开方式”是，不进入“releases/”，而是进入“focal/”-“daily-live”-“current”，此时就可以看到我们要下载的 arm 桌面镜像了：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ubuntuCdimage.png"></p>
+<p>点击右侧“64-bit ARM (ARMv8/AArch64) desktop image”即可下载。</p>
+<p>或直接点此<a target="_blank" rel="noopener" href="http://cdimage.ubuntu.com/focal/daily-live/current/focal-desktop-arm64.iso">下载链接</a>进行下载。</p>
+<blockquote>
+<p>注：下载可能需要国际网络环境。</p>
+</blockquote>
+<h1 id="下载-Parallels-Desktop"><a href="#下载-Parallels-Desktop" class="headerlink" title="下载 Parallels Desktop"></a>下载 Parallels Desktop</h1><p>访问<a target="_blank" rel="noopener" href="https://www.parallels.com/blogs/parallels-desktop-apple-silicon-mac/">文章链接</a>，点击“Try Technical Preview”，登录，阅读 “Step 1”、“Step 2”后，进入“Step 3”，点击“Parallels Desktop 16 for M1 Mac build 50393”右侧的“DOWNLOAD”即可下载，记录下方的 MD5 校验和和激活密钥。</p>
+<p>或直接点此<a target="_blank" rel="noopener" href="https://www.parallels.com/directdownload/pdbeta">下载链接</a>进行下载。</p>
+<blockquote>
+<p>注：下载可能需要国际网络环境。</p>
+</blockquote>
+<p>下载完成后，检查 MD5 校验和：打开“终端”，键入<code>md5 </code>（注意空格）并将 dmg 文件拖至其后，得到的 MD5 校验和与 Parallels 给出的进行比较，若一致则文件完好。</p>
+<h1 id="安装-Parallels-Desktop"><a href="#安装-Parallels-Desktop" class="headerlink" title="安装 Parallels Desktop"></a>安装 Parallels Desktop</h1><p>双击 dmg 文件，按照提示即可成功安装。</p>
+<h1 id="新建虚拟机"><a href="#新建虚拟机" class="headerlink" title="新建虚拟机"></a>新建虚拟机</h1><p>输入激活密钥后，打开 Parallels Desktop：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%89%93%E5%BC%80.png"></p>
+<p>继续，新建虚拟机：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E8%87%AA%E5%8A%A8%E6%9F%A5%E6%89%BE.png"></p>
+<p>点击“手动选择”：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%89%8B%E5%8A%A8%E9%80%89%E6%8B%A9.png"></p>
+<p>点击“选择文件…”并选择下载好的 iso 文件：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%96%B0%E5%BB%BA.png"></p>
+<p>识别为“Ubuntu Linux”后，点击“继续”开始安装。</p>
+<p>稍等片刻即成功创建虚拟机。</p>
+<h1 id="开启虚拟机，安装-Ubuntu"><a href="#开启虚拟机，安装-Ubuntu" class="headerlink" title="开启虚拟机，安装 Ubuntu"></a>开启虚拟机，安装 Ubuntu</h1><p>开启虚拟机，选择语言为“中文(简体)”：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E6%AC%A2%E8%BF%8E.png"></p>
+<p>继续，选择键盘布局：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80.png"></p>
+<p>默认，继续，选择安装选项，取消“安装 Ubuntu 时下载更新”以节约安装的时间：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%8F%96%E6%B6%88%E6%9B%B4%E6%96%B0.png"></p>
+<p>继续，选择安装类型“清除整个磁盘并安装 Ubuntu”：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%AE%89%E8%A3%85%E7%B1%BB%E5%9E%8B.png"></p>
+<p>现在安装，将改动写入磁盘：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%86%99%E5%85%A5%E7%A3%81%E7%9B%98.png"></p>
+<p>继续选择地区为“Shanghai”：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E4%B8%8A%E6%B5%B7.png"></p>
+<p>继续设置姓名：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%A7%93%E5%90%8D.png"></p>
+<p>输入姓名、计算机名、用户名及密码后，继续进入安装页面，等待：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%AE%89%E8%A3%85%E7%AD%89%E5%BE%85.png"></p>
+<p>安装成功后，进入选择在线账号：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%9C%A8%E7%BA%BF%E8%B4%A6%E5%8F%B7.png"></p>
+<p>跳过即可，Livepatch：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pdLivepatch.png"></p>
+<p>隐私设置：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E9%9A%90%E7%A7%81.png"></p>
+<p>帮助改进 Ubuntu：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%B8%AE%E5%8A%A9%E6%94%B9%E8%BF%9B.png"></p>
+<p>准备就绪：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%87%86%E5%A4%87%E5%B0%B1%E7%BB%AA.png"></p>
+<p>安装完成：</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/pd%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.superpung.xyz/macOS-PD-Ubuntu-20-04/" data-id="ckkyvzn5z001chejb8we65vjo" data-title="macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/VS-Code-Config/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          VS Code on Windows Configuration_Notes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Win-VM-Ubuntu-20-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 SUPER<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

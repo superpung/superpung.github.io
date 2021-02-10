@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Data Structures Experiment #13 | ExiTalk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="完成Dijkstra算法，实现单源最短路的求法（邻接表表示）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structures Experiment #13">
+<meta property="og:url" content="http://www.superpung.xyz/Data-Structures-Experiment-13/">
+<meta property="og:site_name" content="ExiTalk">
+<meta property="og:description" content="完成Dijkstra算法，实现单源最短路的求法（邻接表表示）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.superpung.xyz/Data-Structures-Experiment-13/Data-Structures-Experiment-13/wx.png">
+<meta property="og:image" content="http://www.superpung.xyz/Data-Structures-Experiment-13/Data-Structures-Experiment-13/g1.gif">
+<meta property="article:published_time" content="2020-05-06T08:16:07.000Z">
+<meta property="article:modified_time" content="2020-05-06T09:25:21.000Z">
+<meta property="article:author" content="SUPER">
+<meta property="article:tag" content="Experiments">
+<meta property="article:tag" content="Data Structures">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.superpung.xyz/Data-Structures-Experiment-13/Data-Structures-Experiment-13/wx.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ExiTalk" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ExiTalk</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Follow your heart</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.superpung.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Data-Structures-Experiment-13" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Data-Structures-Experiment-13/" class="article-date">
+  <time class="dt-published" datetime="2020-05-06T08:16:07.000Z" itemprop="datePublished">2020-05-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Data Structures Experiment #13
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>完成Dijkstra算法，实现单源最短路的求法（邻接表表示）</p>
+</blockquote>
+<a id="more"></a>
+
+<p><img src="Data-Structures-Experiment-13/wx.png" alt="wx"></p>
+<blockquote>
+<p>完善给出的Graph类。</p>
+<ul>
+<li><code>Graph(int max_v);</code><br>构造函数，max_v 是顶点的个数。</li>
+<li><code>～Graph();</code><br>析构函数，释放分配的空间。</li>
+<li><code>void addedge(int s, int t, int w);</code><br>添加一条从s到t，权重为w的有向边。</li>
+<li><code>int getV();</code><br>获得图中顶点的个数。</li>
+<li><code>int* dijkstra();</code><br>获取从1出发的单源最短路数组。如果某个点无法到达则长度为-1。</li>
+</ul>
+</blockquote>
+<h1 id="0x00-数据域封装"><a href="#0x00-数据域封装" class="headerlink" title="0x00 数据域封装"></a>0x00 数据域封装</h1><p>与<a href="https://www.superpung.xyz/Data-Structures-Experiment-12/">#12</a>基本相同。</p>
+<p>增加了<code>inDegree</code>数组以存放各顶点入度，<code>dij</code>数组以存放dijkstra算法生成的单源最短路数组：<code>dij[i]</code>代表顶点<code>1</code>到顶点<code>i</code>的最短路权。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">EdgeNode</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> dest;</span><br><span class="line">        <span class="keyword">int</span> cost;</span><br><span class="line">        EdgeNode* next;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">VertexNode</span> &#123;</span></span><br><span class="line">        EdgeNode* firstAdj;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    VertexNode* VexList;</span><br><span class="line">    <span class="keyword">int</span>* inDegree;</span><br><span class="line">    <span class="keyword">int</span>* dij;</span><br><span class="line">    <span class="keyword">int</span> num_v;</span><br></pre></td></tr></table></figure>
+<h1 id="0x01-构造函数"><a href="#0x01-构造函数" class="headerlink" title="0x01 构造函数"></a>0x01 构造函数</h1><p>与前三次基本相同。</p>
+<p>初始化<code>dij[1]</code>为0，其他均为<code>-1</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Graph::Graph(<span class="keyword">int</span> max_v)&#123;</span><br><span class="line">    num_v = max_v;</span><br><span class="line">    VexList = <span class="keyword">new</span> VertexNode[num_v + <span class="number">1</span>];</span><br><span class="line">    inDegree = <span class="keyword">new</span> <span class="keyword">int</span>[num_v + <span class="number">1</span>];</span><br><span class="line">    dij = <span class="keyword">new</span> <span class="keyword">int</span>[num_v + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num_v; i++) &#123;</span><br><span class="line">        VexList[i].firstAdj = <span class="literal">NULL</span>;</span><br><span class="line">        inDegree[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">1</span>)</span><br><span class="line">            dij[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            dij[i] = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x02-addedge"><a href="#0x02-addedge" class="headerlink" title="0x02 addedge"></a>0x02 addedge</h1><p>与<a href="https://www.superpung.xyz/Data-Structures-Experiment-12/">#12</a>基本相同。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Graph::addedge</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">    EdgeNode* newEdge = <span class="keyword">new</span> EdgeNode;</span><br><span class="line">    newEdge-&gt;weight = w;</span><br><span class="line">    newEdge-&gt;vertex = t;</span><br><span class="line"></span><br><span class="line">    newEdge-&gt;next = VexList[s].firstAdj;</span><br><span class="line">    VexList[s].firstAdj = newEdge;</span><br><span class="line"></span><br><span class="line">    inDegree[t]++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x03-getV"><a href="#0x03-getV" class="headerlink" title="0x03 getV"></a>0x03 getV</h1><p>判断出度和入度不同时为零。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Graph::getV</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num_v; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (VexList[i].firstAdj || inDegree[i])</span><br><span class="line">            sum++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x04-dijkstra"><a href="#0x04-dijkstra" class="headerlink" title="0x04 dijkstra"></a>0x04 dijkstra</h1><p><a target="_blank" rel="noopener" href="https://v.youku.com/v_show/id_XMjQyOTY1NDQw.html?spm=a2hbt.13141534.app.5~5!2~5!2~5~5~5!2~5~5!2~5!2~5!2~5~5!32~A">什么是dijkstra算法？</a></p>
+<p>设顶点数为<code>count</code>，则至多只需<code>count-1</code>次（即<code>left</code>次）更新<code>dij</code>数组即可。</p>
+<ul>
+<li><p>更新前的准备工作：</p>
+<p>声明每次更新时从<code>dij</code>数组找到的未访问过的最小值以及它的下标，<code>visit</code>数组用于判断是否访问过此顶点，并将<code>dij</code>数组初始化（类似广度第一层）。</p>
+</li>
+<li><p>开始更新：</p>
+<ul>
+<li><p>先初始化<code>min</code>，找一个未访问过的且距离不为无穷的顶点。若找完后<code>i &gt; count</code>，则说明没有符合条件的顶点，即未访问过的顶点都是无穷远的顶点，说明算法已经结束，直接<code>break</code>。</p>
+</li>
+<li><p>初始化后，再逐个比较找到最小值，并更新最小值及其下标。成功找到最小值后将该顶点记为已访问。</p>
+</li>
+<li><p>从最小值顶点开始遍历其链表，设指针为<code>p</code>，判断<code>1</code>-&gt;(不一定直达)-&gt;<code>min_index</code>-&gt;<code>p-&gt;dest</code>路径总权（<code>p-&gt;cost+min</code>）是否比<code>1</code>-&gt;(不一定直达)-&gt;<code>p-&gt;dest</code>（<code>dij[p-&gt;dest]</code>）小，取较小者更新<code>dij[p-&gt;dest]</code>。</p>
+</li>
+</ul>
+</li>
+<li><p>更新后：</p>
+<ul>
+<li><p>观察<code>main.cpp</code>，发现要求dijkstra算法生成的单源最短路数组为从<code>0</code>开始，则只需将<code>dij</code>数组整体前移1位。</p>
+</li>
+<li><p>释放内存并返回。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>完整算法如下。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">Graph::dijkstra</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min, min_index;</span><br><span class="line">    <span class="keyword">int</span> count = getV();</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> left = count - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">bool</span>* visit = <span class="keyword">new</span> <span class="keyword">bool</span>[count + <span class="number">1</span>];</span><br><span class="line">    EdgeNode* p;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= count; i++)</span><br><span class="line">        visit[i] = <span class="literal">false</span>;</span><br><span class="line">    p = VexList[<span class="number">1</span>].firstAdj;</span><br><span class="line">    <span class="keyword">while</span> (p) &#123;</span><br><span class="line">        dij[p-&gt;dest] = p-&gt;cost;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= count; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dij[i] &gt;= <span class="number">0</span> &amp;&amp; !visit[i]) &#123;</span><br><span class="line">                min = dij[i];</span><br><span class="line">                min_index = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; count)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= count; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dij[i] &gt;= <span class="number">0</span> &amp;&amp; dij[i] &lt; min &amp;&amp; !visit[i]) &#123;</span><br><span class="line">                min = dij[i];</span><br><span class="line">                min_index = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        visit[min_index] = <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">        p = VexList[min_index].firstAdj;</span><br><span class="line">        <span class="keyword">while</span> (p) &#123;</span><br><span class="line">            dij[p-&gt;dest] = (p-&gt;cost + min &lt; dij[p-&gt;dest] || dij[p-&gt;dest] == <span class="number">-1</span>) ? </span><br><span class="line">                           (p-&gt;cost + min) : dij[p-&gt;dest];</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; count; i++)</span><br><span class="line">        dij[i] = dij[i + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] visit;</span><br><span class="line">    <span class="keyword">return</span> dij;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x05-析构函数"><a href="#0x05-析构函数" class="headerlink" title="0x05 析构函数"></a>0x05 析构函数</h1><p>逐结点释放内存。</p>
+<p>若<code>main.cpp</code>末尾有以下语句：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> arr;</span><br><span class="line"><span class="comment">// 在这里可以释放 dijkstra 分配的数组</span></span><br></pre></td></tr></table></figure>
+<p>则无需在析构函数中释放<code>dij</code>数组内存。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Graph::~Graph()&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num_v; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (VexList[i].firstAdj) &#123;</span><br><span class="line">            EdgeNode* temp = VexList[i].firstAdj;</span><br><span class="line">            VexList[i].firstAdj = temp-&gt;next;</span><br><span class="line">            <span class="keyword">delete</span> temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] VexList;</span><br><span class="line">    <span class="keyword">delete</span>[] inDegree;</span><br><span class="line">    <span class="keyword">delete</span>[] dij;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x06-补充"><a href="#0x06-补充" class="headerlink" title="0x06 补充"></a>0x06 补充</h1><p>建议增加测试样例，现提供一个如下（供参考）。<img src="Data-Structures-Experiment-13/g1.gif" alt="g1"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Graph <span class="title">g1</span><span class="params">(<span class="number">7</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">g1.addedge(<span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>);</span><br><span class="line">g1.addedge(<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>);</span><br><span class="line">g1.addedge(<span class="number">1</span>, <span class="number">6</span>, <span class="number">14</span>);</span><br><span class="line">g1.addedge(<span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>);</span><br><span class="line">g1.addedge(<span class="number">2</span>, <span class="number">4</span>, <span class="number">15</span>);</span><br><span class="line">g1.addedge(<span class="number">3</span>, <span class="number">4</span>, <span class="number">11</span>);</span><br><span class="line">g1.addedge(<span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>);</span><br><span class="line">g1.addedge(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>);</span><br><span class="line">g1.addedge(<span class="number">6</span>, <span class="number">5</span>, <span class="number">9</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len1 = g1.getV();</span><br><span class="line"><span class="keyword">int</span> *arr1 = g1.dijkstra();</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> r_arr1[<span class="number">6</span>] = &#123;<span class="number">0</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">11</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(len1 == <span class="number">6</span>)&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Pass check point 3!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len1; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr1[i] != r_arr1[i]) <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(i == len1) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Pass check point 4!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.superpung.xyz/Data-Structures-Experiment-13/" data-id="ckkyvzn5l000ahejbh54vbixy" data-title="Data Structures Experiment #13" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Data-Structures-Experiment-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Data Structures Experiment #1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Bomb-Lab/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bomb Lab: Defusing a Binary Bomb</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Systems/" rel="tag">Computer Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structures/" rel="tag">Data Structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Experiments/" rel="tag">Experiments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lab-Assignments/" rel="tag">Lab Assignments</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/" rel="tag">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Operating-Systems/" rel="tag">Operating Systems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/" rel="tag">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Computer-Systems/" style="font-size: 16.67px;">Computer Systems</a> <a href="/tags/Data-Structures/" style="font-size: 18.33px;">Data Structures</a> <a href="/tags/Experiments/" style="font-size: 20px;">Experiments</a> <a href="/tags/Lab-Assignments/" style="font-size: 13.33px;">Lab Assignments</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Operating-Systems/" style="font-size: 10px;">Operating Systems</a> <a href="/tags/Others/" style="font-size: 11.67px;">Others</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/VS-Code-Config/">VS Code on Windows Configuration_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/macOS-PD-Ubuntu-20-04/">macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Win-VM-Ubuntu-20-04/">Windows&amp;VMware&amp;Ubuntu_20.04 Installation_Notes</a>
+          </li>
+        
+          <li>
+            <a href="/Xv6-homeworks/">Xv6 homeworks</a>
+          </li>
+        
+          <li>
+            <a href="/Theory-Study-3/">理论学习（三）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 SUPER<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
