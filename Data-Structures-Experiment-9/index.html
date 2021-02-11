@@ -30,15 +30,15 @@
 <meta property="og:site_name" content="ExiTalk">
 <meta property="og:description" content="完成哈夫曼树类的私有属性以及接口，实现哈夫曼树类。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.superpung.xyz/Data-Structures-Experiment-9/Data-Structures-Experiment-9/wx.png">
-<meta property="og:image" content="https://www.superpung.xyz/Data-Structures-Experiment-9/Data-Structures-Experiment-9/HufTree.png">
+<meta property="og:image" content="https://www.superpung.xyz/Data-Structures-Experiment-9/wx.png">
+<meta property="og:image" content="https://www.superpung.xyz/Data-Structures-Experiment-9/HufTree.png">
 <meta property="article:published_time" content="2020-04-09T01:46:32.000Z">
 <meta property="article:modified_time" content="2020-05-07T08:48:52.000Z">
 <meta property="article:author" content="SUPER">
 <meta property="article:tag" content="Experiments">
 <meta property="article:tag" content="Data Structures">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.superpung.xyz/Data-Structures-Experiment-9/Data-Structures-Experiment-9/wx.png">
+<meta name="twitter:image" content="https://www.superpung.xyz/Data-Structures-Experiment-9/wx.png">
 
 
 <link rel="canonical" href="https://www.superpung.xyz/Data-Structures-Experiment-9/">
@@ -345,11 +345,11 @@
 </blockquote>
 <a id="more"></a>
 
-<p><img src="Data-Structures-Experiment-9/wx.png" alt="wx"></p>
+<p><img src="/Data-Structures-Experiment-9/wx.png" alt="wx"></p>
 <blockquote>
 <p>在<code>HuffmanTree</code>类中给出了四个函数:</p>
 <ul>
-<li><code>HuffmanTree(const char* str);</code><br>将<code>str</code>构建为哈夫曼树，要求权值较小的节点放在左子，左子编号为<code>0</code>。例如<code>&quot;aaaabbc&quot;</code>的树生成如下。<img src="Data-Structures-Experiment-9/HufTree.png" alt="HufTree"></li>
+<li><code>HuffmanTree(const char* str);</code><br>将<code>str</code>构建为哈夫曼树，要求权值较小的节点放在左子，左子编号为<code>0</code>。例如<code>&quot;aaaabbc&quot;</code>的树生成如下。<img src="/Data-Structures-Experiment-9/HufTree.png" alt="HufTree"></li>
 <li><code>char* getencode(char c);</code><br>获取字符<code>c</code>的编码。将结果以<code>char*</code>的形式返回。上例中的 <code>getencode(‘c’)</code>返回结果为<code>00</code>。</li>
 <li><code>int getWPL();</code><br>返回哈夫曼树的WPL。</li>
 <li><code>~HuffmanTree();</code><br>哈夫曼树的析构函数。</li>
@@ -387,7 +387,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HuffmanTree::mini</span><span class="params">(<span class="keyword">int</span>&amp; left, <span class="keyword">int</span>&amp; right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min, _min;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nodes; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (HufTree[i].weight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            min = _min = HufTree[i].weight;</span><br><span class="line">            left = right = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nodes; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (HufTree[i].weight &lt; min &amp;&amp; HufTree[i].weight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            min = HufTree[i].weight;</span><br><span class="line">            left = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nodes; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (HufTree[i].weight &lt; _min &amp;&amp; HufTree[i].weight &gt; min &amp;&amp; HufTree[i].weight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            _min = HufTree[i].weight;</span><br><span class="line">            right = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Combining-1"><a href="#Combining-1" class="headerlink" title="Combining"></a>Combining</h3><p>寻找权最小的两个结点，进行合并。</p>
 <p>将所得父结点存储在Huffman数组后部分（根结点），将后部分进行初始化。</p>
-<p>合并之后需要将两个子结点<span id = "shield"><strong>屏蔽</strong></span>，不会出现在以后的<code>Searching</code>中。</p>
+<p>合并之后需要将两个子结点<span id="shield"><strong>屏蔽</strong></span>，不会出现在以后的<code>Searching</code>中。</p>
 <blockquote>
 <p>此处若不处理已经合并的结点，则下次寻找时仍会返回此结点而出现错误。</p>
 </blockquote>
@@ -400,7 +400,7 @@
 <h2 id="Freeing"><a href="#Freeing" class="headerlink" title="Freeing"></a>Freeing</h2><p>释放字符数组和权数组内存。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span>[] ch;</span><br><span class="line"><span class="keyword">delete</span>[] weigh;</span><br></pre></td></tr></table></figure>
 <p><em>至此，构造函数已经完成。</em></p>
-<h1 id="0x02-Get-Encode"><a href="#0x02-Get-Encode" class="headerlink" title="0x02 Get Encode"></a>0x02 Get Encode</h1><p>遍历叶结点，找到<code>c</code>字符对应的结点，将其编码转换为<code>char*</code>型，存储于构造函数的<span id = "encode"><code>encode</code></span>中。</p>
+<h1 id="0x02-Get-Encode"><a href="#0x02-Get-Encode" class="headerlink" title="0x02 Get Encode"></a>0x02 Get Encode</h1><p>遍历叶结点，找到<code>c</code>字符对应的结点，将其编码转换为<code>char*</code>型，存储于构造函数的<span id="encode"><code>encode</code></span>中。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">HuffmanTree::getcode</span><span class="params">(<span class="keyword">char</span> c)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; leaves; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (HufTree[i].data == c) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; HufTree[i].code.length(); j++)</span><br><span class="line">                encode[j] = HufTree[i].code[j];</span><br><span class="line">            encode[HufTree[i].code.length()] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> encode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="0x03-Get-WPL"><a href="#0x03-Get-WPL" class="headerlink" title="0x03 Get WPL"></a>0x03 Get WPL</h1><p>WPL：Weighted Path Length（带权路径长度），计算公式如下。$$WPL =\sum_{k=1}^nw_kl_k$$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">HuffmanTree::getWPL</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> WPL;</span><br><span class="line">    WPL = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; leaves; i++)</span><br><span class="line">        WPL += -HufTree[i].weight * HufTree[i].code.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> WPL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

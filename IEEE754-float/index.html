@@ -30,15 +30,15 @@
 <meta property="og:site_name" content="ExiTalk">
 <meta property="og:description" content="关于单精度浮点数编码的简介。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.superpung.xyz/IEEE754-float/IEEE754-float/wx.png">
-<meta property="og:image" content="https://www.superpung.xyz/IEEE754-float/IEEE754-float/490px-General_floating_point_frac.svg.png">
-<meta property="og:image" content="https://www.superpung.xyz/IEEE754-float/IEEE754-float/1180px-Float_example.svg.png">
+<meta property="og:image" content="https://www.superpung.xyz/IEEE754-float/wx.png">
+<meta property="og:image" content="https://www.superpung.xyz/IEEE754-float/490px-General_floating_point_frac.svg.png">
+<meta property="og:image" content="https://www.superpung.xyz/IEEE754-float/1180px-Float_example.svg.png">
 <meta property="article:published_time" content="2020-04-10T15:38:55.000Z">
 <meta property="article:modified_time" content="2020-04-20T11:38:58.000Z">
 <meta property="article:author" content="SUPER">
 <meta property="article:tag" content="Computer Systems">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.superpung.xyz/IEEE754-float/IEEE754-float/wx.png">
+<meta name="twitter:image" content="https://www.superpung.xyz/IEEE754-float/wx.png">
 
 
 <link rel="canonical" href="https://www.superpung.xyz/IEEE754-float/">
@@ -342,7 +342,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>关于单精度浮点数编码的简介。</p>
 <a id="more"></a>
-<p><img src="IEEE754-float/wx.png" alt="SuperPung_公众号"></p>
+<p><img src="/IEEE754-float/wx.png" alt="SuperPung_公众号"></p>
 <blockquote>
 <p><em>参考文献</em><br>维基百科编者. IEEE 754[G/OL]. 维基百科, 2020(20200403)[2020-04-03]. -{R|<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=IEEE_754&amp;oldid=58965505%7D-">https://zh.wikipedia.org/w/index.php?title=IEEE_754&amp;oldid=58965505}-</a>.<br>维基百科编者. 單精度浮點數[G/OL]. 维基百科, 2019(20190714)[2019-07-14]. -{R|<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%96%AE%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8&amp;oldid=55208237%7D-">https://zh.wikipedia.org/w/index.php?title=%E5%96%AE%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8&amp;oldid=55208237}-</a>.</p>
 </blockquote>
@@ -352,7 +352,7 @@
 <blockquote>
 <p>本文表示比特的约定：<br>把<code>W</code>个比特（bit）的数据，从内存地址低端到高端，以<code>0</code>到<code>W−1</code>编码。通常将内存地址低端的比特写在最右边，称作<strong>最低有效位（Least Significant Bit, LSB）</strong>，代表最小的比特，改变时<strong>对整体数值影响最小</strong>的比特。声明这一点的必要性在于X86体系架构是<strong>小端序</strong>的数据存储。<br>对于十进制整数$N$，必要时表示为$N_{10}$以与二进制的数的表示$N_2$相区分。<br>对于一个数，其二进制科学计数法表示下的指数的值，下文称之为指数的实际值；而根据IEEE 754标准对指数部分的编码的值，称之为浮点数表示法指数域的编码值。</p>
 </blockquote>
-<p><img src="IEEE754-float/490px-General_floating_point_frac.svg.png" alt="整体呈现"><br>二进制浮点数以符号数值表示法的格式存储——最高有效位被指定为<strong>符号位（sign bit）</strong>；“指数部分”，即次高有效的e个比特，存储<strong>指数部分</strong>；最后剩下的f个低有效位的比特，存储“有效数”（significand）的<strong>小数部分</strong>（在非规约形式下整数部分默认为0，其他情况下一律默认为1）。</p>
+<p><img src="/IEEE754-float/490px-General_floating_point_frac.svg.png" alt="整体呈现"><br>二进制浮点数以符号数值表示法的格式存储——最高有效位被指定为<strong>符号位（sign bit）</strong>；“指数部分”，即次高有效的e个比特，存储<strong>指数部分</strong>；最后剩下的f个低有效位的比特，存储“有效数”（significand）的<strong>小数部分</strong>（在非规约形式下整数部分默认为0，其他情况下一律默认为1）。</p>
 <h2 id="指数偏移值"><a href="#指数偏移值" class="headerlink" title="指数偏移值"></a>指数偏移值</h2><p><strong>指数偏移值（exponent bias）</strong>，即浮点数表示法中指数域的编码值，等于指数的实际值加上某个固定的值，IEEE 754标准规定该固定值为$2^{e-1}-1$，其中的$e$为存储指数的比特的长度。</p>
 <p>以单精度浮点数为例，它的指数域是8个比特，固定偏移值是$2^{8-1}-1=128-1=127$。此为有号数的表示方式，单精度浮点数的指数部分实际取值是从-126到127（-127和128被用作特殊值处理，见下方“非规约形式的浮点数”和“特殊值”）。例如指数实际值为$17_{10}$，在单精度浮点数中的指数域编码值为$144_{10}$，即$144_{10}=17_{10}+127_{10}$。</p>
 <p>采用指数的实际值加上固定的偏移值的办法表示浮点数的指数，好处是可以用长度为$e$个比特的无符号整数来表示所有的指数取值，这使得两个浮点数的指数大小的比较更为容易，实际上可以按照字典序比较两个浮点表示的大小。</p>
@@ -409,7 +409,7 @@
 <p>第一位的正负号0代表正，1代表负。</p>
 <p>中间八位共可表示$2^8=256$个数，指数可以是二补码；或0到255，0到126代表-127到-1，127代表零，128-255代表1-128。</p>
 <p>有效数位最左手边的1并不会储存，因为它一定存在（二进制的第一个有效数字必定是1）。换言之，有效数位是24位，实际储存23位。</p>
-<p><img src="IEEE754-float/1180px-Float_example.svg.png" alt="float"><br>$sign=+1$</p>
+<p><img src="/IEEE754-float/1180px-Float_example.svg.png" alt="float"><br>$sign=+1$</p>
 <p>$exponent=(-127)+124=-3$</p>
 <p>$fraction=1+2^{-2}=1.25$</p>
 <p>$value=(+1)\times 2^{-3}\times 1.25=+0.15625$</p>
