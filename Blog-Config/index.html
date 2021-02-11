@@ -25,14 +25,15 @@
   </script>
 <meta name="description" content="Blog 配置过程记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub&amp;Hexo&amp;NexT Blog Config_Notes">
+<meta property="og:title" content="GitHub&amp;Hexo&amp;NexT Blog_Config_Notes">
 <meta property="og:url" content="https://www.superpung.xyz/Blog-Config/">
 <meta property="og:site_name" content="ExiTalk">
 <meta property="og:description" content="Blog 配置过程记录">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png">
+<meta property="og:image" content="https://guanqr.com/images/hexo-theme-next.png">
 <meta property="article:published_time" content="2021-02-11T01:17:47.000Z">
-<meta property="article:modified_time" content="2021-02-11T05:11:32.131Z">
+<meta property="article:modified_time" content="2021-02-11T10:25:02.407Z">
 <meta property="article:author" content="SUPER">
 <meta property="article:tag" content="Notes">
 <meta name="twitter:card" content="summary">
@@ -51,7 +52,7 @@
     lang   : 'en'
   };
 </script>
-<title>GitHub&Hexo&NexT Blog Config_Notes | ExiTalk</title>
+<title>GitHub&Hexo&NexT Blog_Config_Notes | ExiTalk</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168209848-1"></script>
     <script>
@@ -167,7 +168,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -180,6 +181,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="nav-text">安装 Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="nav-text">安装 Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C-GitHub"><span class="nav-text">注册 GitHub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Git"><span class="nav-text">配置 Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90-rsa"><span class="nav-text">生成 rsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-SSH"><span class="nav-text">配置 SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-text">其他配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0-Blog"><span class="nav-text">初始化本地 Blog</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="nav-text">Hexo 基本指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-text">init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new"><span class="nav-text">new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generate"><span class="nav-text">generate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#publish"><span class="nav-text">publish</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server"><span class="nav-text">server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploy"><span class="nav-text">deploy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#render"><span class="nav-text">render</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#migrate"><span class="nav-text">migrate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clean"><span class="nav-text">clean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list"><span class="nav-text">list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#version"><span class="nav-text">version</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-text">Hexo 基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-NexT"><span class="nav-text">安装 NexT</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -289,7 +291,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GitHub&Hexo&NexT Blog Config_Notes
+          GitHub&Hexo&NexT Blog_Config_Notes
         </h1>
 
         <div class="post-meta-container">
@@ -302,7 +304,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-02-11 09:17:47 / Modified: 13:11:32" itemprop="dateCreated datePublished" datetime="2021-02-11T09:17:47+08:00">2021-02-11</time>
+      <time title="Created: 2021-02-11 09:17:47 / Modified: 18:25:02" itemprop="dateCreated datePublished" datetime="2021-02-11T09:17:47+08:00">2021-02-11</time>
     </span>
 
   
@@ -327,14 +329,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>10</span>
+      <span>7.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>7 mins.</span>
     </span>
 </div>
 
@@ -350,7 +352,188 @@
 
 <p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png" alt="ExiTalk"></p>
 <blockquote>
+<p>Hi，你目前进入的<a href="https://www.superpung.xyz/">这个博客网站</a>，就是按照这篇文章来配置的。</p>
+<p>今天是 2021 年 2 月 11 日，除夕，提前祝看到这里的你新年快乐。<em>（虽然没人看到）</em></p>
+<p><a href="https://www.superpung.xyz/">这个博客网站</a>最初建成于 2020 年 1 月 14 日左右，陆续由于换了四次电脑，博客也迁移了三次。从建成至今，不知不觉已经过了一年多。一年多来，随着各种软件的升级迭代，每次迁移都意味着需要重新配置新的功能，同时也见证了 Git、Hexo 和 NexT 的发展。</p>
+<p>2021.2.10～11，完成了第三次迁移（也许是最后一次迁移），所以打算整理一下一年来搭建博客遇到的各种问题。</p>
+<p>目前已经有许多优秀的博客平台，为什么还要自己搭建博客网站？确实，如果你想纯粹地写博客、分享自己的想法、更容易互相交流，那么博客平台是一个很不错的选择。但是，搭建个人的博客网站可以让你拥有一个只属于你的个人空间，它有极高的自由度，你可以绝对地进行改造，并了解一些关于网站前端的知识。借助于各种优秀的插件，它会变得更加简洁而强大。</p>
+<p>此博客网站为 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 框架，依托于 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a> ，使用 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a> 主题。</p>
 </blockquote>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><ul>
+<li><p>Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe">点此下载</a>（Git for Windows 2.30.1)</p>
+</li>
+<li><p>macOS：通过 Homebrew 安装</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2></li>
+<li><p>Windows：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.5/node-v14.15.5-x86.msi">点此下载</a>（node v14.15.5 x86）</p>
+</li>
+<li><p>macOS：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.5/node-v14.15.5.pkg">点此下载</a>（node v14.15.5）（M1 可通过 Rosetta 2 进行转译）</p>
+</li>
+</ul>
+<h2 id="注册-GitHub"><a href="#注册-GitHub" class="headerlink" title="注册 GitHub"></a>注册 GitHub</h2><p>注册 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 账号（密码不要太简单），创建名为 <code>&#123;username&#125;.github.io</code> 的仓库。</p>
+<blockquote>
+<p>假设你的 GitHub 用户名为 <code>name</code>，则创建的仓库需命名为 <code>name.github.io</code>。</p>
+</blockquote>
+<h1 id="配置-Git"><a href="#配置-Git" class="headerlink" title="配置 Git"></a>配置 Git</h1><h2 id="生成-rsa"><a href="#生成-rsa" class="headerlink" title="生成 rsa"></a>生成 rsa</h2><p>Windows 打开 Git Bash，macOS 打开终端（Terminal），检查本机已存在的 ssh 密钥：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>Windows 若不存在此文件夹，则创建：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>生成 <code>rsa</code>（<code>name@email.com</code> 为你的 GitHub 的邮件地址）：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;name@email.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>无需设置密码，所以回车、回车、回车。</p>
+<p>执行以下命令：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>复制全部（即 <code>id_rsa.pub</code> 文件内容）。</p>
+<h2 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h2><p>打开你的 <a target="_blank" rel="noopener" href="https://github.com/">GitHub 主页</a>，点击右上角头像，点击”Settings“进入设置，点击左侧“SSH and GPG keys”，点击右侧“New SSH key”新建密钥。</p>
+<p>“Title”随意，将刚才复制的内容粘贴到“Key”处，“Add SSH key”。</p>
+<p>此时你可能会收到一封邮件提醒。</p>
+<p>本地执行以下命令，测试是否成功：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>若提示</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<p>输入 “yes”，回车。</p>
+<p>若看到：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi &#123;username&#125;! You’ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>说明 SSH 配置成功。</p>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><p>配置你的用户名以及 GitHub 邮箱：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;&#123;username&#125;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;name@email.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h1><p>执行：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>macOS 可能会提示权限问题，尝试许多其他办法无果后，可以尝试 root 执行（不推荐）：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>执行：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<p>若正常输出则证明 Hexo 安装成功。</p>
+<h1 id="初始化本地-Blog"><a href="#初始化本地-Blog" class="headerlink" title="初始化本地 Blog"></a>初始化本地 Blog</h1><p>创建一个文件夹，作为博客的根目录。</p>
+<p>在此根目录中，执行：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">hexo g</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>修改根目录下 <code>_config.yml</code> 文件，将末尾的 <code>deploy</code> 部分修改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">	<span class="attr">repository:</span> <span class="string">git@github.com:&#123;username&#125;/&#123;username&#125;.github.io.git</span></span><br><span class="line">	<span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>执行：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>部署博客。</p>
+<p>访问 <code>https://&#123;username&#125;.github.io</code> ，若出现经典的 <code>landscape</code> 页面则说明初始化成功。</p>
+<h1 id="Hexo-基本指令"><a href="#Hexo-基本指令" class="headerlink" title="Hexo 基本指令"></a>Hexo 基本指令</h1><p>后续博客文章的生成、发布等操作均通过 Hexo 指令完成。</p>
+<p>下面列出一些 Hexo 的基本指令，其他指令请参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">Hexo 官方文档 - 命令</a>。</p>
+<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">init</span> [folder]</span><br></pre></td></tr></table></figure>
+<p>新建一个网站。如果没有设置 <code>folder</code> ，Hexo 默认在目前的文件夹建立网站。</p>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>新建一篇文章。如果没有设置 <code>layout</code> 的话，默认使用根目录下 <code>_config.yml</code> 中的 <code>default_layout</code> 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="string">&quot;post title with whitespace&quot;</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下，Hexo 会使用文章的标题来决定文章文件的路径。</p>
+<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">generate</span></span><br></pre></td></tr></table></figure>
+<p>生成静态文件。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-d</code>, <code>--deploy</code></td>
+<td align="left">文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td align="left"><code>-w</code>, <code>--watch</code></td>
+<td align="left">监视文件变动</td>
+</tr>
+<tr>
+<td align="left"><code>-b</code>, <code>--bail</code></td>
+<td align="left">生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td align="left"><code>-f</code>, <code>--force</code></td>
+<td align="left">强制重新生成文件 Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。 使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td align="left"><code>-c</code>, <code>--concurrency</code></td>
+<td align="left">最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody></table>
+<p>该命令可以简写为</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br></pre></td></tr></table></figure>
+<h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>发表草稿。</p>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure>
+<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-p</code>, <code>--port</code></td>
+<td align="left">重设端口</td>
+</tr>
+<tr>
+<td align="left"><code>-s</code>, <code>--static</code></td>
+<td align="left">只使用静态文件</td>
+</tr>
+<tr>
+<td align="left"><code>-l</code>, <code>--log</code></td>
+<td align="left">启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody></table>
+<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo deploy</span><br></pre></td></tr></table></figure>
+<p>部署网站。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-g</code>, <code>--generate</code></td>
+<td align="left">部署之前预先生成静态文件</td>
+</tr>
+</tbody></table>
+<p>该命令可以简写为：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
+<p>渲染文件。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-o</code>, <code>--output</code></td>
+<td align="left">设置输出路径</td>
+</tr>
+</tbody></table>
+<h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo migrate &lt;<span class="keyword">type</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>从其他<strong>博客系统</strong> <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</p>
+<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo clean</span><br></pre></td></tr></table></figure>
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo list &lt;<span class="keyword">type</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>列出网站资料。</p>
+<h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="built_in">version</span></span><br></pre></td></tr></table></figure>
+<p>显示 Hexo 版本。</p>
+<h1 id="Hexo-基本配置"><a href="#Hexo-基本配置" class="headerlink" title="Hexo 基本配置"></a>Hexo 基本配置</h1><p>博客根目录初始化后，文件结构如下：</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── <span class="variable">_config</span>.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── <span class="variable">_drafts</span></span><br><span class="line">|   └── <span class="variable">_posts</span></span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li><code>package.json</code> 是应用程序的信息。</li>
+<li><code>scaffolds</code> 是模版文件夹，Hexo 会根据 <code>scaffold</code> 来建立文件，是在新建的文章文件中默认填充的内容。</li>
+<li><code>source</code> 是资源文件夹，即存放用户资源的地方。除 <code>_posts</code> 文件夹之外，开头命名为 <code>_</code> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 <code>public</code> 文件夹，而其他文件会被拷贝过去。</li>
+<li><code>themes</code> 是主题文件夹，Hexo 会根据主题来生成静态页面。</li>
+</ul>
+<p>而 <code>_config.yml</code> 就是博客网站的配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Site 网站基本信息设置</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo</span> <span class="comment"># 网站的标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span> <span class="comment"># 网站的副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span> <span class="comment"># 网站的描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="comment"># 网站的关键词，支持多个关键词</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">John</span> <span class="string">Doe</span> <span class="comment"># 你的名字，同时会出现在主题显示文章的作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span> <span class="comment"># 网站使用的语言，中国大陆一般设置为 zh-Hans 或 zh-CN，不同主题的要求可能不同</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span> <span class="comment"># 网站的时区，中国大陆一般设置为 Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL URL 设置</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://example.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://example.com</span> <span class="comment"># 网址，以 http:// 或 https:// 开头</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span> <span class="comment"># 网站根目录，如果博客不是在上面网站的根目录，可以修改此部分</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span> <span class="comment"># 文章的永久链接的格式，嫌长可以设置为 :title/，即文章的标题</span></span><br><span class="line"><span class="attr">permalink_defaults:</span> <span class="comment"># 永久链接中各部分的默认值</span></span><br><span class="line"><span class="attr">pretty_urls:</span> <span class="comment"># 美化 URL</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks 字面意思 我一般设置为 false</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks 字面意思 我一般设置为 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory 目录设置，一般不用改</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span> <span class="comment"># 资源文件夹，这个文件夹用来存放内容</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span> <span class="comment"># 公共文件夹，这个文件夹用于存放 generate 生成的站点文件</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span> <span class="comment"># 标签文件夹</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span> <span class="comment"># 归档文件夹</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span> <span class="comment"># 分类文件夹</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span> <span class="comment"># Include code 文件夹，source_dir 下的子目录</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span> <span class="comment"># 国际化（internationalization，i18n）文件夹</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="comment"># 跳过指定文件的渲染。匹配到的文件将会被不做改动地复制到 public 目录中。你可以使用 glob 表达式来匹配路径：如 &quot;mypage/**/*&quot; 和 &quot;_post/test-post.md&quot;。如果文件少你也可以通过在对应文件开头加上“layout: false来屏蔽渲染</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing 文章设置</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts 新文章的文件名</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span> <span class="comment"># 预设布局，前面说过</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase 把标题转换为 title case</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="comment"># 在新标签页中打开链接</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab 在新标签页中打开链接</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">site</span> <span class="comment"># Apply to the whole site 对整个网站（site）生效或仅对文章（post）生效</span></span><br><span class="line">  <span class="attr">exclude:</span> <span class="string">&#x27;&#x27;</span> <span class="comment"># 需要排除的域名。主域名和子域名如 www 需分别配置</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span> <span class="comment"># 把文件名称转换为 (1) 小写或 (2) 大写</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span> <span class="comment"># 显示草稿</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span> <span class="comment"># 新建文章 md 的时候是否再新建一个同名文件夹用于存放图片等引用文件</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span> <span class="comment"># 把链接改为与根目录的相对位址</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span> <span class="comment"># 显示未来的文章</span></span><br><span class="line"><span class="attr">highlight:</span> <span class="comment"># Highlight.js 代码块的设置</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hljs:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">prismjs:</span> <span class="comment"># PrismJS 代码块的设置</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">preprocess:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认情况下，Hexo 生成的超链接都是绝对地址。</span></span><br><span class="line"><span class="comment"># 例如，如果您的网站域名为 example.com,您有一篇文章名为 hello，那么绝对链接可能像这样：</span></span><br><span class="line"><span class="comment"># http://example.com/hello.html，它是绝对于域名的。</span></span><br><span class="line"><span class="comment"># 相对链接像这样：/hello.html，</span></span><br><span class="line"><span class="comment"># 也就是说，无论用什么域名访问该站点，都没有关系，这在进行反向代理时可能用到。</span></span><br><span class="line"><span class="comment"># 通常情况下，建议使用绝对地址。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Home page setting 不用改</span></span><br><span class="line"><span class="comment"># path: Root path for your blogs index page. (default = &#x27;&#x27;)</span></span><br><span class="line"><span class="comment"># per_page: Posts displayed per page. (0 = disable pagination)</span></span><br><span class="line"><span class="comment"># order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag 分类和标签，不用改</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span> <span class="comment"># 默认分类</span></span><br><span class="line"><span class="attr">category_map:</span> <span class="comment"># 分类别名</span></span><br><span class="line"><span class="attr">tag_map:</span> <span class="comment"># 标签别名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Metadata elements 不用改</span></span><br><span class="line"><span class="comment">## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta</span></span><br><span class="line"><span class="attr">meta_generator:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format 日期时间格式，不用改</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span> <span class="comment"># 日期格式</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="string">HH:mm:ss</span> <span class="comment"># 时间格式</span></span><br><span class="line"><span class="comment">## updated_option supports &#x27;mtime&#x27;, &#x27;date&#x27;, &#x27;empty&#x27;</span></span><br><span class="line"><span class="attr">updated_option:</span> <span class="string">&#x27;mtime&#x27;</span> <span class="comment"># 当 Front Matter 中没有指定 updated 时 updated 的取值</span></span><br><span class="line"><span class="comment"># mtime: 使用文件的最后修改时间。这是从 Hexo 3.0.0 开始的默认行为。</span></span><br><span class="line"><span class="comment"># date: 使用 date 作为 updated 的值。可被用于 Git 工作流之中，因为使用 Git 管理站点时，文件的最后修改日期常常会发生改变</span></span><br><span class="line"><span class="comment"># empty: 直接删除 updated。使用这一选项可能会导致大部分主题和插件无法正常工作。</span></span><br><span class="line"><span class="comment"># use_date_for_updated 选项已经被废弃，将会在下个重大版本发布时去除。请改为使用 updated_option: &#x27;date&#x27;。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination 分页，不用改</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">10</span> <span class="comment"># 每页显示的文章量 (0 = 关闭分页功能)</span></span><br><span class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span> <span class="comment"># 分页目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Include / Exclude file(s) 包括或不包括目录和文件，让 Hexo 进行处理或忽略某些目录和文件夹。你可以使用 glob 表达式对目录和文件进行匹配。</span></span><br><span class="line"><span class="comment">## include:/exclude: options only apply to the &#x27;source/&#x27; folder</span></span><br><span class="line"><span class="attr">include:</span> <span class="comment"># Hexo 默认会忽略隐藏文件和文件夹（包括名称以下划线和 . 开头的文件和文件夹，Hexo 的 _posts 和 _data 等目录除外）。通过设置此字段将使 Hexo 处理他们并将它们复制到 source 目录下。</span></span><br><span class="line"><span class="attr">exclude:</span> <span class="comment"># Hexo 会忽略这些文件和目录</span></span><br><span class="line"><span class="attr">ignore:</span> <span class="comment"># Ignore files/folders</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions 扩展</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span> <span class="comment"># 当前主题名称（主题文件夹下特定主题文件夹的名字），false 则禁用主题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment 部署设置，必须更改，前面说了</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>今年迁移博客的时候发现，Hexo 升级至 5.0.0 以上后，新增加了独立的 <code>_config.[theme].yml</code> 文件，在站点根目录下，支持 <code>yml</code> 或 <code>json</code> 格式。需要配置站点 <code>_config.yml</code> 文件中的 <code>theme</code> 以供 Hexo 寻找 <code>_config.[theme].yml</code> 文件。</p>
+<blockquote>
+<p>我们强烈建议你将所有的主题配置集中在一处。如果你不得不在多处配置你的主题，那么这些信息对你将会非常有用：Hexo 在合并主题配置时，Hexo 配置文件中的 <code>theme_config</code> 的优先级最高，其次是 <code>_config.[theme].yml</code> 文件，最后是位于主题目录下的 <code>_config.yml</code> 文件。</p>
+</blockquote>
+<h1 id="安装-NexT"><a href="#安装-NexT" class="headerlink" title="安装 NexT"></a>安装 NexT</h1><p>经过上述操作，基本上已经配置完成了。如果追求美观以及其他高级功能，可以继续看。</p>
+<p>Hexo 的默认主题是 landscape，推荐使用 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT 主题</a>。</p>
+<p><img src="https://guanqr.com/images/hexo-theme-next.png"></p>
 
     </div>
 
@@ -386,7 +569,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.superpung.xyz/Blog-Config/" title="GitHub&amp;Hexo&amp;NexT Blog Config_Notes">https://www.superpung.xyz/Blog-Config/</a>
+      <a href="https://www.superpung.xyz/Blog-Config/" title="GitHub&amp;Hexo&amp;NexT Blog_Config_Notes">https://www.superpung.xyz/Blog-Config/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -498,13 +681,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">424k</span>
+    <span title="Symbols count total">432k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:25</span>
+    <span title="Reading time total">6:32</span>
   </span>
 </div>
 
