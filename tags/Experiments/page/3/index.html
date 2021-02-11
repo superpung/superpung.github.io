@@ -403,6 +403,18 @@
   
 
 
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"dTCUKVKvTVtMNlJS8ouhSrSy-gzGzoHsz","appKey":"Xu5gOcha47h22aiE985nuBSN","serverURLs":null,"placeholder":"Please leave a message here","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/tags/Experiments/page/3/",
+      serverURLs: "https://dtcukvkv.api.lncldglobal.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
 </body>
 </html>
 
