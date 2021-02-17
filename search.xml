@@ -43,23 +43,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在博客中添加一个自定义页面</title>
-    <url>/Blog-a-custom-page/</url>
-    <content><![CDATA[<p>如果你想在博客子目录添加一个自定义的 html 页面，不妨看一看。</p>
-<a id="more"></a>
-
-<p>受菜单栏启发，可以将自定义页面放到菜单栏。在 <code>_config.next.yml</code> 文件的 <code>menu</code> 中，按照 <code>Key: /link/ || icon</code> 格式添加一项。</p>
-<p>比如添加 <code>love: /love/ || fa fa-heart</code>，即在菜单栏添加了一个名为“love”、路径为 <code>/source/love/</code>、图标为 <code>fa fa-heart</code> 的菜单。</p>
-<p>接下来在对应路径处放置写好的 html 文件 <code>index.html</code>。此时生成预览后，可以发现自定义的页面上方仍有菜单栏、下方有网站页脚。这是 Hexo 将自定义页面也进行了渲染的结果。</p>
-<p>如果不想对自定义页面渲染，可以按照上一篇文章提到的，在 <code>_config.yml</code> 文件的 <code>skip_render</code> 中添加 <code>love/index.html</code>。或者在 <code>index.html</code> 开头添加：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">layout: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>完成。</p>
-]]></content>
-      <tags>
-        <tag>Blog Config</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客文章如何加密？</title>
     <url>/Blog-article-encryption/</url>
     <content><![CDATA[<p>如果你想把文章只对特定人可见，那么可以试试对文章加密。</p>
@@ -76,6 +59,23 @@
 <li><a href="https://github.com/D0n9X1n/hexo-blog-encrypt">hexo-blog-encrypt</a></li>
 </ul>
 </blockquote>
+]]></content>
+      <tags>
+        <tag>Blog Config</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在博客中添加一个自定义页面</title>
+    <url>/Blog-a-custom-page/</url>
+    <content><![CDATA[<p>如果你想在博客子目录添加一个自定义的 html 页面，不妨看一看。</p>
+<a id="more"></a>
+
+<p>受菜单栏启发，可以将自定义页面放到菜单栏。在 <code>_config.next.yml</code> 文件的 <code>menu</code> 中，按照 <code>Key: /link/ || icon</code> 格式添加一项。</p>
+<p>比如添加 <code>love: /love/ || fa fa-heart</code>，即在菜单栏添加了一个名为“love”、路径为 <code>/source/love/</code>、图标为 <code>fa fa-heart</code> 的菜单。</p>
+<p>接下来在对应路径处放置写好的 html 文件 <code>index.html</code>。此时生成预览后，可以发现自定义的页面上方仍有菜单栏、下方有网站页脚。这是 Hexo 将自定义页面也进行了渲染的结果。</p>
+<p>如果不想对自定义页面渲染，可以按照上一篇文章提到的，在 <code>_config.yml</code> 文件的 <code>skip_render</code> 中添加 <code>love/index.html</code>。或者在 <code>index.html</code> 开头添加：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">layout: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>完成。</p>
 ]]></content>
       <tags>
         <tag>Blog Config</tag>
@@ -1457,6 +1457,67 @@
       </tags>
   </entry>
   <entry>
+    <title>还不会实现「二叉树」？</title>
+    <url>/Data-Structures-Experiment-8/</url>
+    <content><![CDATA[<p>Data Structures Experiment #8 - 实现一个二叉树类。</p>
+<a id="more"></a>
+
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png"></p>
+<blockquote>
+<ul>
+<li><code>BinTree();</code><br>构造函数，构造一个空的二叉排序树。</li>
+<li><code> ~BinTree();</code><br>析构函数，将二叉排序树销毁。</li>
+<li><code>void insert(int val, int parent, int flg);</code><br>将值为<code>val</code>的元素插入到二叉树中。此节点的父节点编号为<code>parent</code>，如果<code>parent</code>项为0，表示插入元素为根结点。如果<code>flg</code>为-1，则此节点为父节点的左子，如果<code>flg</code>为1，则此节点为父节点的右子。<br>二叉树的节点编号按照插入顺序逐一递增，编号从1开始。<br>例如：<ul>
+<li><code>tree.insert(10, 0, 0);</code> 插入编号为1的根结点；</li>
+<li><code>tree.insert(20, 1, 1);</code> 插入编号为2的节点，节点是根结点的右子。</li>
+</ul>
+</li>
+<li><code>int* p_traversal() const;</code><br>前序遍历二叉树，并将结果保存到int<em>中返回。</em></li>
+<li><code>int* m_traversal() const;</code><br>中序遍历二叉树，并将结果保存到int*中返回</li>
+<li><code>int height() const;</code><br>获得二叉树高度。</li>
+<li><code>int countNode() const;</code><br>获得二叉树的节点总个数。</li>
+</ul>
+</blockquote>
+<h1 id="0x00-数据域封装"><a href="#0x00-数据域封装" class="headerlink" title="0x00 数据域封装"></a>0x00 数据域封装</h1><p>定义二叉树结点结构体，包括数值、序号、左子树和右子树。</p>
+<p>创建二叉树，定义计数器。</p>
+<p>定义一些后续会用到的递归函数。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BinNode</span> &#123;</span></span><br><span class="line">      <span class="keyword">int</span> data, number;</span><br><span class="line">      BinNode* lChild;</span><br><span class="line">      BinNode* rChild;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    BinNode* root;</span><br><span class="line">    <span class="keyword">int</span> count;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroyTree</span><span class="params">(BinNode* Tree)</span></span>;</span><br><span class="line">    <span class="function">BinNode* <span class="title">search_number</span><span class="params">(BinNode* Tree, <span class="keyword">int</span> num)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">p_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(BinNode* Tree)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="0x01-构造函数"><a href="#0x01-构造函数" class="headerlink" title="0x01 构造函数"></a>0x01 构造函数</h1><p>二叉树初始化为空。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">BinTree::BinTree()&#123;</span><br><span class="line">    root = <span class="literal">NULL</span>;</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x02-insert"><a href="#0x02-insert" class="headerlink" title="0x02 insert"></a>0x02 insert</h1><p>插入结点需要先找到父结点，所以先写一个递归函数用于找到某个结点。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">BinNode* <span class="title">BinTree::search_number</span><span class="params">(BinNode* Tree, <span class="keyword">int</span> num)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (Tree) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Tree-&gt;number == num)</span><br><span class="line">            <span class="keyword">return</span> Tree;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            search_number(Tree-&gt;lChild, num);</span><br><span class="line">            search_number(Tree-&gt;rChild, num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新建一个结点，各属性赋值。</p>
+<ul>
+<li><p>如果是根结点，则直接链入；</p>
+</li>
+<li><p>如果不是根结点，则对应链入父结点的左子或右子，其中父结点通过上一函数找到。</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::insert</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> parent, <span class="keyword">int</span> flg)</span> </span>&#123;</span><br><span class="line">    BinNode* newNode = <span class="keyword">new</span> BinNode;</span><br><span class="line">    newNode-&gt;data = val;</span><br><span class="line">    newNode-&gt;number = count + <span class="number">1</span>;</span><br><span class="line">    newNode-&gt;lChild = newNode-&gt;rChild = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (parent == <span class="number">0</span>)</span><br><span class="line">        root = newNode;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (flg == <span class="number">-1</span>)</span><br><span class="line">            search_number(root, parent)-&gt;lChild = newNode;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flg == <span class="number">1</span>)</span><br><span class="line">            search_number(root, parent)-&gt;rChild = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x03-p-traversal"><a href="#0x03-p-traversal" class="headerlink" title="0x03 p_traversal"></a>0x03 p_traversal</h1><p>前序遍历的递归函数表示（注意此处要<strong>引用传递</strong>）：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::p_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Tree) &#123;</span><br><span class="line">        pointer[index++] = Tree-&gt;data;</span><br><span class="line">        p_order(Tree-&gt;lChild, pointer, index);</span><br><span class="line">        p_order(Tree-&gt;rChild, pointer, index);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在递归的基础上：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">BinTree::p_traversal</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    p_order(root, p, i);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x04-m-traversal"><a href="#0x04-m-traversal" class="headerlink" title="0x04 m_traversal"></a>0x04 m_traversal</h1><p>中序遍历的递归函数表示（注意此处要<strong>引用传递</strong>）：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::m_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Tree) &#123;</span><br><span class="line">        m_order(Tree-&gt;lChild, pointer, index);</span><br><span class="line">        pointer[index++] = Tree-&gt;data;</span><br><span class="line">        m_order(Tree-&gt;rChild, pointer, index);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在递归的基础上：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">BinTree::m_traversal</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    m_order(root, p, i);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x05-countNode"><a href="#0x05-countNode" class="headerlink" title="0x05 countNode"></a>0x05 countNode</h1><p>返回结点个数。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinTree::countNode</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x06-height"><a href="#0x06-height" class="headerlink" title="0x06 height"></a>0x06 height</h1><p>递归遍历求二叉树高度。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinTree::getHeight</span><span class="params">(BinNode* Tree)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Tree == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> m = getHeight(Tree-&gt;lChild);</span><br><span class="line">        <span class="keyword">int</span> n = getHeight(Tree-&gt;rChild);</span><br><span class="line">        <span class="keyword">return</span> (m &gt; n) ? m + <span class="number">1</span> : n + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接调用：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinTree::height</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getHeight(root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="0x07-析构函数"><a href="#0x07-析构函数" class="headerlink" title="0x07 析构函数"></a>0x07 析构函数</h1><p>递归销毁二叉树：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::destroyTree</span><span class="params">(BinNode* Tree)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (Tree) &#123;</span><br><span class="line">        BinNode* left = Tree-&gt;lChild;</span><br><span class="line">        BinNode* right = Tree-&gt;rChild;</span><br><span class="line">        <span class="keyword">delete</span> Tree;</span><br><span class="line">        Tree = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span> (left)</span><br><span class="line">            destroyTree(left);</span><br><span class="line">        <span class="keyword">if</span> (right)</span><br><span class="line">            destroyTree(right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接调用：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">BinTree::~BinTree()&#123;</span><br><span class="line">    destroyTree(root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Experiments</tag>
+        <tag>Data Structures</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>还不会实现「稀疏矩阵」？</title>
     <url>/Data-Structures-Experiment-7/</url>
     <content><![CDATA[<p>Data Structures Experiment #7 - 实现稀疏矩阵的三元组形式。</p>
@@ -1519,67 +1580,6 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">SPMatrix::~SPMatrix()&#123;</span><br><span class="line">    <span class="keyword">delete</span>[] data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="0x…"><a href="#0x…" class="headerlink" title="0x…"></a>0x…</h1><p>如果你发现了我的错误或者有更好的解决方案，欢迎一起交流。</p>
 ]]></content>
-      <tags>
-        <tag>Experiments</tag>
-        <tag>Data Structures</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>还不会实现「二叉树」？</title>
-    <url>/Data-Structures-Experiment-8/</url>
-    <content><![CDATA[<p>Data Structures Experiment #8 - 实现一个二叉树类。</p>
-<a id="more"></a>
-
-<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png"></p>
-<blockquote>
-<ul>
-<li><code>BinTree();</code><br>构造函数，构造一个空的二叉排序树。</li>
-<li><code> ~BinTree();</code><br>析构函数，将二叉排序树销毁。</li>
-<li><code>void insert(int val, int parent, int flg);</code><br>将值为<code>val</code>的元素插入到二叉树中。此节点的父节点编号为<code>parent</code>，如果<code>parent</code>项为0，表示插入元素为根结点。如果<code>flg</code>为-1，则此节点为父节点的左子，如果<code>flg</code>为1，则此节点为父节点的右子。<br>二叉树的节点编号按照插入顺序逐一递增，编号从1开始。<br>例如：<ul>
-<li><code>tree.insert(10, 0, 0);</code> 插入编号为1的根结点；</li>
-<li><code>tree.insert(20, 1, 1);</code> 插入编号为2的节点，节点是根结点的右子。</li>
-</ul>
-</li>
-<li><code>int* p_traversal() const;</code><br>前序遍历二叉树，并将结果保存到int<em>中返回。</em></li>
-<li><code>int* m_traversal() const;</code><br>中序遍历二叉树，并将结果保存到int*中返回</li>
-<li><code>int height() const;</code><br>获得二叉树高度。</li>
-<li><code>int countNode() const;</code><br>获得二叉树的节点总个数。</li>
-</ul>
-</blockquote>
-<h1 id="0x00-数据域封装"><a href="#0x00-数据域封装" class="headerlink" title="0x00 数据域封装"></a>0x00 数据域封装</h1><p>定义二叉树结点结构体，包括数值、序号、左子树和右子树。</p>
-<p>创建二叉树，定义计数器。</p>
-<p>定义一些后续会用到的递归函数。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BinNode</span> &#123;</span></span><br><span class="line">      <span class="keyword">int</span> data, number;</span><br><span class="line">      BinNode* lChild;</span><br><span class="line">      BinNode* rChild;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    BinNode* root;</span><br><span class="line">    <span class="keyword">int</span> count;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroyTree</span><span class="params">(BinNode* Tree)</span></span>;</span><br><span class="line">    <span class="function">BinNode* <span class="title">search_number</span><span class="params">(BinNode* Tree, <span class="keyword">int</span> num)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">p_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(BinNode* Tree)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="0x01-构造函数"><a href="#0x01-构造函数" class="headerlink" title="0x01 构造函数"></a>0x01 构造函数</h1><p>二叉树初始化为空。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">BinTree::BinTree()&#123;</span><br><span class="line">    root = <span class="literal">NULL</span>;</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="0x02-insert"><a href="#0x02-insert" class="headerlink" title="0x02 insert"></a>0x02 insert</h1><p>插入结点需要先找到父结点，所以先写一个递归函数用于找到某个结点。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">BinNode* <span class="title">BinTree::search_number</span><span class="params">(BinNode* Tree, <span class="keyword">int</span> num)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (Tree) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Tree-&gt;number == num)</span><br><span class="line">            <span class="keyword">return</span> Tree;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            search_number(Tree-&gt;lChild, num);</span><br><span class="line">            search_number(Tree-&gt;rChild, num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>新建一个结点，各属性赋值。</p>
-<ul>
-<li><p>如果是根结点，则直接链入；</p>
-</li>
-<li><p>如果不是根结点，则对应链入父结点的左子或右子，其中父结点通过上一函数找到。</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::insert</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> parent, <span class="keyword">int</span> flg)</span> </span>&#123;</span><br><span class="line">    BinNode* newNode = <span class="keyword">new</span> BinNode;</span><br><span class="line">    newNode-&gt;data = val;</span><br><span class="line">    newNode-&gt;number = count + <span class="number">1</span>;</span><br><span class="line">    newNode-&gt;lChild = newNode-&gt;rChild = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (parent == <span class="number">0</span>)</span><br><span class="line">        root = newNode;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (flg == <span class="number">-1</span>)</span><br><span class="line">            search_number(root, parent)-&gt;lChild = newNode;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flg == <span class="number">1</span>)</span><br><span class="line">            search_number(root, parent)-&gt;rChild = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="0x03-p-traversal"><a href="#0x03-p-traversal" class="headerlink" title="0x03 p_traversal"></a>0x03 p_traversal</h1><p>前序遍历的递归函数表示（注意此处要<strong>引用传递</strong>）：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::p_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Tree) &#123;</span><br><span class="line">        pointer[index++] = Tree-&gt;data;</span><br><span class="line">        p_order(Tree-&gt;lChild, pointer, index);</span><br><span class="line">        p_order(Tree-&gt;rChild, pointer, index);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在递归的基础上：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">BinTree::p_traversal</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    p_order(root, p, i);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="0x04-m-traversal"><a href="#0x04-m-traversal" class="headerlink" title="0x04 m_traversal"></a>0x04 m_traversal</h1><p>中序遍历的递归函数表示（注意此处要<strong>引用传递</strong>）：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::m_order</span><span class="params">(BinNode* Tree, <span class="keyword">int</span>* &amp;pointer, <span class="keyword">int</span> &amp;index)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Tree) &#123;</span><br><span class="line">        m_order(Tree-&gt;lChild, pointer, index);</span><br><span class="line">        pointer[index++] = Tree-&gt;data;</span><br><span class="line">        m_order(Tree-&gt;rChild, pointer, index);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在递归的基础上：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">BinTree::m_traversal</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    m_order(root, p, i);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="0x05-countNode"><a href="#0x05-countNode" class="headerlink" title="0x05 countNode"></a>0x05 countNode</h1><p>返回结点个数。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinTree::countNode</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="0x06-height"><a href="#0x06-height" class="headerlink" title="0x06 height"></a>0x06 height</h1><p>递归遍历求二叉树高度。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinTree::getHeight</span><span class="params">(BinNode* Tree)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Tree == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> m = getHeight(Tree-&gt;lChild);</span><br><span class="line">        <span class="keyword">int</span> n = getHeight(Tree-&gt;rChild);</span><br><span class="line">        <span class="keyword">return</span> (m &gt; n) ? m + <span class="number">1</span> : n + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>直接调用：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinTree::height</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getHeight(root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="0x07-析构函数"><a href="#0x07-析构函数" class="headerlink" title="0x07 析构函数"></a>0x07 析构函数</h1><p>递归销毁二叉树：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinTree::destroyTree</span><span class="params">(BinNode* Tree)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (Tree) &#123;</span><br><span class="line">        BinNode* left = Tree-&gt;lChild;</span><br><span class="line">        BinNode* right = Tree-&gt;rChild;</span><br><span class="line">        <span class="keyword">delete</span> Tree;</span><br><span class="line">        Tree = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span> (left)</span><br><span class="line">            destroyTree(left);</span><br><span class="line">        <span class="keyword">if</span> (right)</span><br><span class="line">            destroyTree(right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>直接调用：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">BinTree::~BinTree()&#123;</span><br><span class="line">    destroyTree(root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Experiments</tag>
         <tag>Data Structures</tag>
