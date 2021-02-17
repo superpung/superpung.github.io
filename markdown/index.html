@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Monta:300,300italic,400,400italic,700,700italic%7CLobster+two:300,300italic,400,400italic,700,700italic%7CRoboto+Slab:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.superpung.xyz","root":"/","images":"/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="如何写文章？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="让 Markdown Powerup（摘自「庭说」）">
+<meta property="og:url" content="https://www.superpung.xyz/markdown/">
+<meta property="og:site_name" content="SupTalk">
+<meta property="og:description" content="如何写文章？">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/Markdown.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/15/5d2b601b5f46477978.gif">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png">
+<meta property="og:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png">
+<meta property="article:published_time" content="2021-02-17T06:19:51.000Z">
+<meta property="article:modified_time" content="2021-02-17T06:24:40.296Z">
+<meta property="article:author" content="SUPER">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/Markdown.png">
+
+
+<link rel="canonical" href="https://www.superpung.xyz/markdown/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script><script src="https://cdn.jsdelivr.net/gh/SuperPung/super_live2d@v1.7/autoload.js"></script>
+
+<title>让 Markdown Powerup（摘自「庭说」） | SupTalk</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168209848-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-168209848-1');
+      }
+    </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f2bcd2857d66dc90e115d790b974341f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SupTalk</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Follow Your Heart</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-love"><a href="/love/" rel="section"><i class="fa fa-heart fa-fw"></i>love</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E9%97%A8"><span class="nav-text">入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-text">进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-text">有序列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E4%B8%80%EF%BC%88%E6%89%8B%E5%8A%A8%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">语法一（手动排序）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E4%BA%8C%EF%BC%88%E8%87%AA%E5%8A%A8%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">语法二（自动排序）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="nav-text">嵌套列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="nav-text">任务列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-text">图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-text">行内代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E8%A1%8C"><span class="nav-text">换行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E6%8D%A2%E8%A1%8C"><span class="nav-text">软换行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E6%8D%A2%E8%A1%8C"><span class="nav-text">硬换行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%92%E7%89%88"><span class="nav-text">公众号排版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8E%86%E6%8E%92%E7%89%88"><span class="nav-text">简历排版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%AE%E4%BB%B6%E6%8E%92%E7%89%88"><span class="nav-text">邮件排版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E4%B8%BA-Word"><span class="nav-text">转换为 Word</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E4%B8%BA-Mind-Map"><span class="nav-text">转换为 Mind Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%87%BA-md-%E6%A0%BC%E5%BC%8F"><span class="nav-text">从网页导出 md 格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E6%BC%82%E4%BA%AE%E7%9A%84-Markdown-%E6%BA%90%E4%BB%A3%E7%A0%81%E5%9B%BE%E7%89%87"><span class="nav-text">导出漂亮的 Markdown 源代码图片</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SUPER"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">SUPER</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SuperPung" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SuperPung" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:superpung.lee@gmail.com" title="E-Mail → mailto:superpung.lee@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/super_lee" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;super_lee" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/super_pung" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;super_pung" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/syeopung.lee.3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;syeopung.lee.3" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/superpung.lee" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;superpung.lee" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://tingtalk.me/" title="https:&#x2F;&#x2F;tingtalk.me&#x2F;" rel="noopener" target="_blank">TingTalk</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.superpung.xyz/markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="SUPER">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SupTalk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          让 Markdown Powerup（摘自「庭说」）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-02-17 14:19:51 / Modified: 14:24:40" itemprop="dateCreated datePublished" datetime="2021-02-17T14:19:51+08:00">2021-02-17</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/markdown/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/markdown/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>6.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>如何写文章？</p>
+<a id="more"></a>
+
+<p>你应该知道，通过 <code>hexo n new_post</code> 可以新建一篇文章。新建的文章会出现在 <code>/source/_posts/</code> 中，是一个扩展名为 <code>md</code> 的文档。</p>
+<p>熟悉 Microsoft Word 的同学可能印象中文档的扩展名都是 <code>docx</code> 或 <code>doc</code>、<code>txt</code>、<code>rtf</code> 等，<code>md</code> 扩展名意味着这是一个新的格式，其实是一种新的语言——</p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/Markdown.png"></p>
+<p><strong>Markdown</strong>。</p>
+<p>现代汉语就像用脏了的人民币，要用 Markdown 洗一洗。（钟哥の奇妙比喻）</p>
+<p>Markdown 是一种轻量级标记语言。你不需要关心标题多大字号，段前距多少，列表缩进几格，只要在<strong>纯文本</strong>前后增加一些标记符号（例如 <code>#</code> <code>-</code> <code>*</code> <code>&gt;</code>），就能毫不费力地写出工整精美的文章。毫不夸张地说，Markdown 是比特世界赠予写作者的「笔」。</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><p>易学易记</p>
+<p>只要几分钟就可以 <a target="_blank" rel="noopener" href="https://commonmark.org/help/tutorial/">学会 Markdown</a>，然后你可能再也不想碰 Word 了。</p>
+</li>
+<li><p>专注写作</p>
+<p>富文本编辑器（例如 Word）是通过点击图形化的功能按钮来实现排版，而 Markdown 则是通过标记字符去赋予文字不同格式。<strong>易读易写</strong>（easy-to-read and easy-to-write），让任何与文字打交道的人专注于写作，不用操心排版。</p>
+</li>
+<li><p>格式统一</p>
+<p>同一份 Word 文档，在</p>
+<ul>
+<li>不同的设备：Windows、macOS、Android、iOS</li>
+<li>不同的版本：旧版 Word 、新版 Word</li>
+<li>不同的软件：Microsoft Office、WPS</li>
+</ul>
+<p>可能显示不一样的效果。而 Markdown 可以 Write once, export everywhere。不管在电脑上，还是手机上，用 Markdown 写出来的文章都能带来舒适、统一、美好的阅读体验。</p>
+</li>
+<li><p>向外兼容</p>
+<p>可以导出 PDF、 Word、HTML、图片等格式分享给没有安装 Markdown 编辑器的人。</p>
+</li>
+</ul>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>一开始你只要记住以下符号（英文半角状态），就能写出排版清爽的文章了。</p>
+<table>
+<thead>
+<tr>
+<th>标记符号</th>
+<th>标记结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>#</code> + <code>空格</code> + <code>文本</code></td>
+<td>一级标题</td>
+</tr>
+<tr>
+<td><code>##</code> + <code>空格</code> + <code>文本</code></td>
+<td>二级标题</td>
+</tr>
+<tr>
+<td><code>###</code> + <code>空格</code> + <code>文本</code></td>
+<td>三级标题</td>
+</tr>
+<tr>
+<td><code>-</code> + <code>空格</code> + <code>文本</code></td>
+<td>无序列表</td>
+</tr>
+<tr>
+<td><code>1</code> + <code>.</code> + <code>空格</code> + <code>文本</code></td>
+<td>有序列表</td>
+</tr>
+<tr>
+<td><code>&gt;</code> + <code>空格</code> + <code>文本</code></td>
+<td>引用</td>
+</tr>
+</tbody></table>
+<p>如果有些文字需要特殊说明：</p>
+<table>
+<thead>
+<tr>
+<th>标记符号</th>
+<th>标记结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>**</code> + <code>加粗</code> + <code>**</code></td>
+<td><strong>加粗</strong></td>
+</tr>
+<tr>
+<td><code>*</code> + <code>斜体</code> + <code>*</code></td>
+<td><em>斜体</em></td>
+</tr>
+<tr>
+<td><code>~~</code> + <code>删除线</code> + <code>~~</code></td>
+<td>删除线</td>
+</tr>
+</tbody></table>
+<p>是不是手痒了？下载一个 <a target="_blank" rel="noopener" href="https://sspai.com/tag/Markdown">Markdown 编辑器</a>， Keep calm and Markdown。</p>
+<ul>
+<li>Windows 和 macOS 用户推荐 <a target="_blank" rel="noopener" href="https://typora.io/">Typora</a>。</li>
+<li>Android 用户推荐 <a target="_blank" rel="noopener" href="https://writer.drakeet.com/">纯纯写作</a>。</li>
+<li>iOS 和 iPadOS 用户可以在 App Store 搜索「Markdown」下载（没找到好用的软件，如果找到了一定要告诉我）。</li>
+</ul>
+<p><img src="https://i.loli.net/2019/07/15/5d2b601b5f46477978.gif" alt="What You See Is What You Mean"></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>以上就是最基础的 Markdown 语法，普通用户看到这里就可以开始动笔尝试了。下面介绍一些 Markdown 的书写风格，让你的源码和文档更精美，更有条理。你不必一下子全部记住，需要实现哪个功能再来查阅或者问 <a target="_blank" rel="noopener" href="https://tingtalk.me/fq/">Google</a> 也不迟。</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p><strong>层级</strong></p>
+<ul>
+<li><p>正文的标题从 <code>##</code> 开始，<code>#</code> 要留给整篇文章的标题（也可以不写）。这样的大纲结构也可以很方便地转换为思维导图（Markdown to <a target="_blank" rel="noopener" href="https://www.xmind.cn/">Xmind</a> / <a target="_blank" rel="noopener" href="https://mindnode.com/">MindNode</a> / <a target="_blank" rel="noopener" href="https://mubu.com/">幕布</a> / <a target="_blank" rel="noopener" href="http://naotu.baidu.com/">百度脑图</a>……），也符合 SEO（搜索引擎优化）的规则。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题（h1）：文章的标题</span><br><span class="line"></span><br><span class="line">## 二级标题（h2）：正文的大标题</span><br><span class="line"></span><br><span class="line">### 三级标题（h3）：正文的小标题</span><br></pre></td></tr></table></figure></li>
+<li><p>虽然 Markdown 最大支持 <code>######</code> 六级标题，为了保持层级的简单，防止出现过于复杂的章节，请谨慎使用四级标题（除非是长文章）。如果三级标题下有并列性的内容，可以使用加粗、有序列表或无序列表代表末级标题。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">短文章的标题层级</span><br><span class="line"></span><br><span class="line"><span class="section">### 正文的小标题</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**三级标题 A**</span></span><br><span class="line"><span class="bullet">-</span> 论据 1（五级标题） </span><br><span class="line"><span class="bullet">  -</span> 细分论据 1（六级标题） </span><br><span class="line"><span class="bullet">  -</span> 细分论据 2（六级标题） </span><br><span class="line"><span class="bullet">  -</span> 细分论据 3（六级标题） </span><br><span class="line"><span class="bullet">-</span> 论据 2 </span><br><span class="line"><span class="bullet">-</span> 论据 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="strong">**三级标题 B**</span></span><br><span class="line"><span class="bullet">1.</span> 论据</span><br><span class="line"><span class="bullet">2.</span> 论据</span><br><span class="line"><span class="bullet">3.</span> 论据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="strong">**三级标题 C**</span></span><br><span class="line"><span class="bullet">-</span> 论据 1 </span><br><span class="line"><span class="bullet">-</span> 论据 2 </span><br><span class="line"><span class="bullet">-</span> 论据 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">长文章的标题层级</span><br><span class="line"></span><br><span class="line"><span class="section">### 正文的小标题 </span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 正文的三级标题 A</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 正文的三级标题 B</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 正文的三级标题 C</span></span><br></pre></td></tr></table></figure></li>
+<li><p>二级标题下，不能直接出现四级标题。</p>
+</li>
+<li><p>标题要避免孤立编号（即同级标题只有一个）。</p>
+</li>
+<li><p>标题要简短，结尾不带标点符号。</p>
+</li>
+<li><p>（源码上）标题前后空一行（段前距和段后距）。</p>
+</li>
+<li><p>大标题和小标题之间要有内容过渡（引出或概括下文）。</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Title</span></span><br><span class="line"></span><br><span class="line">开门见山地告诉读者这篇文章讲什么？</span><br><span class="line"></span><br><span class="line">一级标题作为文章的（页面）标题（H1），并且尽可能和文件名称保持一致。</span><br><span class="line"></span><br><span class="line">如果文章很长，使用 [TOC] 生成目录。</span><br><span class="line"></span><br><span class="line"><span class="meta">## What</span></span><br><span class="line"></span><br><span class="line">先定义问题是什么？……</span><br><span class="line"></span><br><span class="line">正文从二级标题开始。</span><br><span class="line"></span><br><span class="line"><span class="meta">## Why</span></span><br><span class="line"></span><br><span class="line">为什么会出现这样的问题？……</span><br><span class="line"></span><br><span class="line"><span class="meta">## How</span></span><br><span class="line"></span><br><span class="line">下一步该怎么办？……</span><br><span class="line"></span><br><span class="line"><span class="meta">## See also</span></span><br><span class="line"></span><br><span class="line">文末别忘了贴上参考链接。</span><br><span class="line"></span><br><span class="line">* https:<span class="comment">//link-to-more-info</span></span><br></pre></td></tr></table></figure>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3></li>
+</ul>
+<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>使用 <code>‐</code> 或 <code>*</code> 或 <code>+</code> 并跟随 1 个空格来表示无序列表。建议使用 <code>‐</code>（连字符，hyphen）。</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>我是谁</span><br><span class="line"><span class="bullet">- </span>我从哪里来</span><br><span class="line"><span class="bullet">- </span>我到哪里去</span><br></pre></td></tr></table></figure>
+<p><strong>不建议</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">*</span> <span class="string">我是谁</span></span><br><span class="line"><span class="string">*</span> <span class="string">我从哪里来</span></span><br><span class="line"><span class="string">*</span> <span class="string">我到哪里去</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="string">+</span> <span class="string">我是谁</span></span><br><span class="line"><span class="string">+</span> <span class="string">我从哪里来</span></span><br><span class="line"><span class="string">+</span> <span class="string">我到哪里去</span></span><br></pre></td></tr></table></figure>
+<p><strong>为什么</strong></p>
+<ul>
+<li>星号 <code>*</code> 可能和加粗和斜体符号产生混淆。</li>
+<li>加号 <code>+</code> 不流行。</li>
+</ul>
+<p><strong>与其他语法结合使用</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span><span class="strong">**《春日》**</span>：等闲识得东风面，万紫千红总是春。</span><br><span class="line"><span class="bullet">- </span><span class="strong">**《春草》**</span>：萋萋总是无情物，吹绿东风又一年。</span><br><span class="line"><span class="bullet">- </span><span class="strong">**《墨梅》**</span>：犹恨东风无意思，更吹烟雨暗黄昏。</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ul>
+<li><strong>《春日》</strong>：等闲识得东风面，万紫千红总是春。</li>
+<li><strong>《春草》</strong>：萋萋总是无情物，吹绿东风又一年。</li>
+<li><strong>《墨梅》</strong>：犹恨东风无意思，更吹烟雨暗黄昏。</li>
+</ul>
+<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><h5 id="语法一（手动排序）"><a href="#语法一（手动排序）" class="headerlink" title="语法一（手动排序）"></a><strong>语法一（手动排序）</strong></h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 斜月沉沉藏海雾，碣石潇湘无限路。</span><br><span class="line"><span class="bullet">2.</span> 不知乘月几人归，落月摇情满江树。</span><br><span class="line"><span class="bullet">3.</span> 春江潮水连海平，海上明月共潮生。</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ol>
+<li>斜月沉沉藏海雾，碣石潇湘无限路。</li>
+<li>不知乘月几人归，落月摇情满江树。</li>
+<li>春江潮水连海平，海上明月共潮生。</li>
+</ol>
+<p>对于比较短的、很少修改的有序列表，请按顺序标号，保持源码的可读性。</p>
+<h5 id="语法二（自动排序）"><a href="#语法二（自动排序）" class="headerlink" title="语法二（自动排序）"></a><strong>语法二（自动排序）</strong></h5><p>对于比较长的、可能会修改的列表（尤其是很长的嵌套列表），请使用「懒人编号法」。纵使有新的列表项「插队」，把序号弄乱了也没关系，Markdown 编辑器自动会对序号进行纠错。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span>  Foo.</span><br><span class="line"><span class="bullet">1.</span>  Bar.</span><br><span class="line"><span class="bullet">    1.</span> Foofoo.</span><br><span class="line"><span class="bullet">    1.</span> Barbar.</span><br><span class="line"><span class="bullet">    1.</span> Gargar</span><br><span class="line"><span class="bullet">1.</span>  Baz.</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ol>
+<li>Foo.</li>
+<li>Bar.<ol>
+<li>Foofoo.</li>
+<li>Barbar.</li>
+<li>Gargar</li>
+</ol>
+</li>
+<li>Baz.</li>
+</ol>
+<h4 id="嵌套列表"><a href="#嵌套列表" class="headerlink" title="嵌套列表"></a>嵌套列表</h4><p>缩进 2 ~ 4 个空格或一个 Tab（推荐），可以嵌套列表。</p>
+<p><strong>示例一</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span>  不知乘月几人归，落月摇情满江树。</span><br><span class="line"><span class="bullet">	-</span> 与君吟弄风月，端不负平生。</span><br><span class="line"><span class="bullet">	-</span> 对秋深，离恨苦，数夜满庭风雨。</span><br><span class="line"><span class="bullet">	-</span> 五月畲田收火米，三更津吏报潮鸡。</span><br><span class="line"><span class="bullet">2.</span>  人姝丽，粉香吹下，夜寒风细。</span><br><span class="line"><span class="bullet">	-</span> 弓弦抱汉月，马足践胡尘。</span><br><span class="line"><span class="bullet">	-</span> 寒月悲笳，万里西风瀚海沙。</span><br><span class="line"><span class="bullet">	-</span> 东堂坐见山，云风相吹嘘。</span><br><span class="line"><span class="bullet">3.</span>  沅溪夏晚足凉风，春酒相携就竹丛。</span><br><span class="line"><span class="bullet">	-</span> 白发渔樵江渚上，惯看秋月春风。</span><br><span class="line"><span class="bullet">	-</span> 归来独卧逍遥夜，梦里相逢酩酊天。</span><br><span class="line"><span class="bullet">	-</span> 致君尧舜上，再使风俗淳。</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ol>
+<li>不知乘月几人归，落月摇情满江树。<ul>
+<li>与君吟弄风月，端不负平生。</li>
+<li>对秋深，离恨苦，数夜满庭风雨。</li>
+<li>五月畲田收火米，三更津吏报潮鸡。</li>
+</ul>
+</li>
+<li>人姝丽，粉香吹下，夜寒风细。<ul>
+<li>弓弦抱汉月，马足践胡尘。</li>
+<li>寒月悲笳，万里西风瀚海沙。</li>
+<li>东堂坐见山，云风相吹嘘。</li>
+</ul>
+</li>
+<li>沅溪夏晚足凉风，春酒相携就竹丛。<ul>
+<li>白发渔樵江渚上，惯看秋月春风。</li>
+<li>归来独卧逍遥夜，梦里相逢酩酊天。</li>
+<li>致君尧舜上，再使风俗淳。</li>
+</ul>
+</li>
+</ol>
+<p><strong>示例二</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- ExiTalk</span><br><span class="line"><span class="meta">	&gt;</span><span class="bash"> - Home</span></span><br><span class="line"><span class="meta">	&gt;</span><span class="bash"> - Tags</span>  </span><br><span class="line"><span class="meta">	&gt;</span><span class="bash"> - Archives</span></span><br><span class="line">- Contact me</span><br><span class="line"><span class="meta">	&gt;</span><span class="bash"> - Email：superpung.lee(at)gmail.com</span></span><br><span class="line"><span class="meta">	&gt;</span><span class="bash"> - Telegram：t.me/super_lee</span></span><br><span class="line"><span class="meta">	&gt;</span><span class="bash"> - WeChat：superexi</span></span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ul>
+<li><p>ExiTalk</p>
+<blockquote>
+<ul>
+<li>Home</li>
+<li>Tags  </li>
+<li>Archives</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Contact me</p>
+<blockquote>
+<ul>
+<li>Email：superpung.lee(at)gmail.com</li>
+<li>Telegram：t.me/super_lee</li>
+<li>WeChat：superexi</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>Tips</strong></p>
+<ul>
+<li><code>Tab</code> 缩进一级</li>
+<li><code>Shift + Tab</code> 提升一级</li>
+</ul>
+<h4 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h4><p><strong>语法</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>[ ] 纯牛奶</span><br><span class="line"><span class="bullet">- </span>[x] 西瓜</span><br><span class="line"><span class="bullet">- </span>[ ] 鸡蛋</span><br><span class="line"><span class="bullet">- </span>[x] 保鲜膜</span><br><span class="line"><span class="bullet">- </span>[ ] 猪肉（暂时买不起）</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 纯牛奶</li>
+<li><input checked="" disabled="" type="checkbox"> 西瓜</li>
+<li><input disabled="" type="checkbox"> 鸡蛋</li>
+<li><input checked="" disabled="" type="checkbox"> 保鲜膜</li>
+<li><input disabled="" type="checkbox"> 猪肉（暂时买不起）</li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>在每一行使用 <code>&gt;</code> 符号，包括换行的句子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 我们是为人民服务的，所以，我们如果有缺点，就不怕别人批评指出。</span><br><span class="line">&gt; by 毛泽东：《为人民服务》（1944 年 9 月 8 日）</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我们是为人民服务的，所以，我们如果有缺点，就不怕别人批评指出。<br>by 毛泽东：《为人民服务》（1944 年 9 月 8 日）</p>
+</blockquote>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p><strong>语法</strong></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐           |                      居中对齐                      | 右对齐 |</span><br><span class="line">| <span class="symbol">:---------------</span> | <span class="symbol">:------------------------------------------------</span>: | -----: |</span><br><span class="line">| **加粗**         |          [插入链接](<span class="symbol">https:</span>/<span class="regexp">/www.superpung.xyz/</span>)          |  ￥<span class="number">5.7</span> |</span><br><span class="line">| `换行`&lt;br /&gt;下一行 | ![插入图片](<span class="symbol">https:</span>/<span class="regexp">/super-bucket1.oss-cn-beijing.aliyuncs.com/</span>ExiTalk.png) | ￥<span class="number">10.4</span> |</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="center">居中对齐</th>
+<th align="right">右对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>加粗</strong></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://tingtalk.me/">插入链接</a></td>
+<td align="right">￥5.7</td>
+</tr>
+<tr>
+<td align="left"><code>换行</code> 下一行</td>
+<td align="center"><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png" alt="插入图片"></td>
+<td align="right">￥10.4</td>
+</tr>
+</tbody></table>
+<p><strong>注释</strong></p>
+<ul>
+<li>Markdown 是轻量级的标记语言，所以不支持合并和拆分单元格。对于复杂表格，你可以在 Markdown 编辑器中使用 HTML 的 <code>&lt;table&gt;</code> 标签标记。</li>
+<li>输入 <code>&lt;br /&gt;</code> 可以换行（但不建议使用）。</li>
+<li>把 Excel 表格复制粘贴到某些 Markdown 编辑器（例如 Typora）可以直接转换为 Markdown 形式的表格。</li>
+</ul>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p><strong>语法</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[ExiTalk]</span>(<span class="attribute">https</span>:<span class="comment">//www.superpung.xyz/)</span></span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong>：<a href="https://www.superpung.xyz/">ExiTalk</a></p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><strong>语法</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[ExiTalk Official Account]</span>(<span class="attribute">https</span>:<span class="comment">//super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png)</span></span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png" alt="ExiTalk Official Account"></p>
+<p>Markdown 是一种纯文本标记语言，图片功能注定是它的弱项。</p>
+<p><strong>网络图床</strong></p>
+<p>但谁能保证哪个图床服务不倒闭？所以我在写作的时候，力求用文字把事情解释清楚，能不插入图片就不插入图片。我会用到的 <a target="_blank" rel="noopener" href="https://sspai.com/search/article?q=%E5%9B%BE%E5%BA%8A">图床</a> 是阿里云 OSS。</p>
+<p><strong>本地图片</strong></p>
+<p>Typora 支持插入本地图片，但是更改图片的路径和名称，图片就失效了。如果文章已经完稿了，可以把 Markdown 导出为 PDF 文档（这样图片就嵌入进去了）。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h4><p><strong>用 2 个重音符 `（backtick，在 Tab 键上方）包裹</strong></p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`Markdown` 是一种轻量级标记语言。</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<p><code>Markdown</code> 是一种轻量级标记语言。</p>
+<p>用两个 <code>包裹</code>，才能显示 ```：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">A</span> <span class="selector-tag">single</span> <span class="selector-tag">backtick</span> <span class="selector-tag">in</span> <span class="selector-tag">a</span> <span class="selector-tag">code</span> <span class="selector-tag">span</span>: `` ` ``</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">A</span> <span class="selector-tag">backtick-delimited</span> <span class="selector-tag">string</span> <span class="selector-tag">in</span> <span class="selector-tag">a</span> <span class="selector-tag">code</span> <span class="selector-tag">span</span>: `` `<span class="selector-tag">foo</span>` ``</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong><br>A single backtick in a code span: ```<br>A backtick-delimited string in a code span: <code>foo</code></p>
+<p><strong>重音符前后空一格</strong></p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 推荐：使用键盘快捷键 `Ctrl + D` 可以将当前网页保存为书签。</span><br><span class="line">- 反对：使用键盘快捷键`Ctrl+D`可以将当前网页保存为书签。</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<ul>
+<li>推荐：使用键盘快捷键 <code>Ctrl + D</code> 可以将当前网页保存为书签。</li>
+<li>反对：使用键盘快捷键<code>Ctrl+D</code>可以将当前网页保存为书签。</li>
+</ul>
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><p>将 3 个重音符 ` 置于代码块的首行和末行。首行的重音符后面可接代码语言名称，例如 `````python``，以达到相应的代码高亮效果。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">print</span> <span class="string">&quot;Hello, Python!&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">print</span> <span class="string">&quot;Hello, Python!&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong><a target="_blank" rel="noopener" href="https://blog.alispit.tel/create-a-git-diff-in-markdown/">diff 代码对比</a></strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">addTwoNumbers</span> (num1, num2) &#123;</span><br><span class="line">-  <span class="keyword">return</span> <span class="type">1</span> + <span class="number">2</span></span><br><span class="line">+  <span class="keyword">return</span> num1 + num2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>预览</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">addTwoNumbers</span> (num1, num2) &#123;</span><br><span class="line">-  <span class="keyword">return</span> <span class="type">1</span> + <span class="number">2</span></span><br><span class="line">+  <span class="keyword">return</span> num1 + num2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><blockquote>
+<p>以下键盘快捷键（语法）可能仅支持 Typora。</p>
+</blockquote>
+<p><code>Enter</code> = 换行 + 空行 = (<code>Shift</code> + <code>Enter</code>) × 2。</p>
+<p>即按下回车键创建一个新段落（段与段之间加入空行）。</p>
+<h4 id="软换行"><a href="#软换行" class="headerlink" title="软换行"></a>软换行</h4><p><code>Shift</code> + <code>Enter</code> = 换行（但是不会产生空行）。</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">`enticing` [ɪn&#x27;taɪsɪŋ] （事物）诱人的，有吸引力的；迷人的</span><br><span class="line">- Her neck was short but rounded <span class="literal">and</span> her arms plump <span class="literal">and</span> enticing. `Shift` + `Enter`</span><br><span class="line">  她的脖子短，但浑圆可爱；两臂丰腴，也很动人。by 《飘》 `Enter`</span><br><span class="line"></span><br><span class="line">- This was enticing to Wozniak, even more than any prospect of getting rich. `Shift` + `Enter`</span><br><span class="line">  这句话对沃兹尼亚克的诱惑太大了，比变成富人的诱惑还要大。by 《乔布斯传》 `Enter`</span><br></pre></td></tr></table></figure>
+<p><code>enticing</code> [ɪn’taɪsɪŋ] （事物）诱人的，有吸引力的；迷人的</p>
+<ul>
+<li>Her neck was short but rounded and her arms plump and enticing.<br>她的脖子短，但浑圆可爱；两臂丰腴，也很动人。by 《飘》</li>
+<li>This was enticing to Wozniak, even more than any prospect of getting rich.<br>这句话对沃兹尼亚克的诱惑太大了，比变成富人的诱惑还要大。by 《乔布斯传》</li>
+</ul>
+<h4 id="硬换行"><a href="#硬换行" class="headerlink" title="硬换行"></a>硬换行</h4><p>在行末使用空格（两个以上） + 换行（Enter），就可以实现强制换行，此语法适用于大部分 Markdown 编辑器。</p>
+<p>硬换行在文档被导出时将被保留，且没有换段的段后距。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">假如生活欺骗了你，  （<span class="number">2</span> 个空格）</span><br><span class="line">不要悲伤，不要心急！  （<span class="number">2</span> 个空格）</span><br><span class="line">忧郁的日子里须要镇静：  （<span class="number">2</span> 个空格）（<span class="number">2</span> 个空格）</span><br><span class="line">相信吧，快乐的日子将会来临！  （<span class="number">2</span> 个空格）</span><br><span class="line">心儿永远向往着未来；  （<span class="number">2</span> 个空格）</span><br><span class="line">现在却常是忧郁。  （<span class="number">2</span> 个空格）</span><br><span class="line">一切都是瞬息，一切都将会过去；  （<span class="number">2</span> 个空格）</span><br><span class="line">而那过去了的，就会成为亲切的怀恋。   （<span class="number">2</span> 个空格）</span><br><span class="line"><span class="keyword">by</span> 普希金</span><br></pre></td></tr></table></figure>
+<p>假如生活欺骗了你，<br>不要悲伤，不要心急！<br>忧郁的日子里须要镇静：<br>相信吧，快乐的日子将会来临！<br>心儿永远向往着未来；<br>现在却常是忧郁。<br>一切都是瞬息，一切都将会过去；<br>而那过去了的，就会成为亲切的怀恋。<br>by 普希金</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>语法</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分割线</td>
+<td><code>---</code>、<code>***</code>、<code>+++</code></td>
+<td>不常用</td>
+</tr>
+<tr>
+<td>内容目录</td>
+<td>[TOC]</td>
+<td>Table of Contents</td>
+</tr>
+</tbody></table>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>Markdown 的用途很广。Write once, export everywhere：写博客、写邮件、排推文、做 PPT 等。</p>
+<h3 id="公众号排版"><a href="#公众号排版" class="headerlink" title="公众号排版"></a>公众号排版</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://mdnice.com/">Markdown Nice</a>：让微信排版变 Nice，支持自定义主题 CSS。</li>
+<li><a target="_blank" rel="noopener" href="https://doocs.github.io/md/">微信 Markdown 编辑器</a>：高度简洁。</li>
+<li><a target="_blank" rel="noopener" href="https://knb.im/mp/">可能吧公众号 Style 一键转换器</a>：老司机禅叔出品。</li>
+</ul>
+<h3 id="简历排版"><a href="#简历排版" class="headerlink" title="简历排版"></a>简历排版</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://cv.ftqq.com/#">冷熊简历</a></li>
+<li><a target="_blank" rel="noopener" href="https://resume.mdnice.com/">resume.mdnice.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://resumd.t9t.io/">Resumd</a></li>
+</ul>
+<h3 id="邮件排版"><a href="#邮件排版" class="headerlink" title="邮件排版"></a>邮件排版</h3><p><a target="_blank" rel="noopener" href="https://markdown-here.com/">Markdown Here</a> 是一个浏览器扩展插件，可以将浏览器中编辑器（例如 email 正文）里的 Markdown 文本转换成渲染过后的 HTML，并且支持自定义 CSS。详情移步 <a target="_blank" rel="noopener" href="https://sspai.com/post/47189">在富文本在线编辑器中使用 Markdown</a>。</p>
+<h3 id="转换为-Word"><a href="#转换为-Word" class="headerlink" title="转换为 Word"></a>转换为 Word</h3><ul>
+<li>安装 Pandoc 后，Typora 可以导出 Word</li>
+</ul>
+<h3 id="转换为-Mind-Map"><a href="#转换为-Mind-Map" class="headerlink" title="转换为 Mind Map"></a>转换为 Mind Map</h3><ul>
+<li>对于 <a target="_blank" rel="noopener" href="https://www.xmind.cn/">Xmind</a> / <a target="_blank" rel="noopener" href="https://mindnode.com/">MindNode</a> / <a target="_blank" rel="noopener" href="http://naotu.baidu.com/">百度脑图</a> 等思维导图工具，直接导入 md 文档。</li>
+<li>对于幕布，可以用 Typora 导出 opml 格式，再导入。</li>
+<li><a target="_blank" rel="noopener" href="https://markmap.js.org/">Markmap</a>：<code>Mark</code>down + Mind<code>map</code>，使用思维导图可视化 Markdown。</li>
+</ul>
+<h3 id="从网页导出-md-格式"><a href="#从网页导出-md-格式" class="headerlink" title="从网页导出 md 格式"></a>从网页导出 md 格式</h3><p>借助浏览器插件 <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/simpread-reader-view/ijllcpnolfcooahcekpamkbidhejabll">简约</a> 导出 md 格式的网页，不用 手动添加标记符号。</p>
+<h3 id="导出漂亮的-Markdown-源代码图片"><a href="#导出漂亮的-Markdown-源代码图片" class="headerlink" title="导出漂亮的 Markdown 源代码图片"></a>导出漂亮的 Markdown 源代码图片</h3><ol>
+<li>打开 <a target="_blank" rel="noopener" href="http://carbon.now.sh/">carbon.now.sh</a></li>
+<li>语言选择 <code>Markdown</code></li>
+<li>书写或者粘贴 Markdown 源代码</li>
+<li>导出 PNG 像素图或者 SVG 矢量图</li>
+</ol>
+<blockquote>
+<p>参考</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tingtalk.me/markdown/">Markdown 入门教程及书写风格指南 | 庭说</a></li>
+</ul>
+<p>后记</p>
+<ul>
+<li>“写文章”此部分摘抄自 <a target="_blank" rel="noopener" href="https://tingtalk.me/">庭说</a>，部分内容有所修改。</li>
+<li>「庭说」是我目前唯一的“友链”，其中诸多优秀的文章给了我很大启发，在此再次对「庭说」的博主钟哥表示感谢，同时也感谢他为中文互联网做出的贡献。</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Thanks for your reading.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="SUPER WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="SUPER Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>SUPER
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.superpung.xyz/markdown/" title="让 Markdown Powerup（摘自「庭说」）">https://www.superpung.xyz/markdown/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/super_pung">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/super_lee">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.png">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Notes/" rel="tag"><i class="fa fa-tag"></i> Notes</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Blog-yuru-chara/" rel="prev" title="把萌萌哒看板娘抱回你的博客吧！">
+                  <i class="fa fa-chevron-left"></i> 把萌萌哒看板娘抱回你的博客吧！
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Blog-insert-audio-video/" rel="next" title="在博客文章中插入音视频">
+                  在博客文章中插入音视频 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; Jan 14, 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SUPER</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">491k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:27</span>
+  </span>
+</div><span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"dTCUKVKvTVtMNlJS8ouhSrSy-gzGzoHsz","appKey":"Xu5gOcha47h22aiE985nuBSN","serverURLs":"https://dtcukvkv.lc-cn-n1-shared.com","placeholder":"Please leave a message here","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/markdown/",
+      serverURLs: "https://dtcukvkv.lc-cn-n1-shared.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
+
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+  <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+  <script async src="/js/cursor/explosion.min.js"></script>
+
+
+
+</body>
+</html>
+
