@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>配置博客时不得不说的问题</title>
-    <url>/Blog-Config-1/</url>
+    <url>/blog/Blog-Config-1/</url>
     <content><![CDATA[<p>GitHub&amp;Hexo&amp;NexT Blog 配置过程记录（下）：其他配置及问题</p>
 <a id="more"></a>
 
@@ -44,7 +44,7 @@
   </entry>
   <entry>
     <title>博客文章如何加密？</title>
-    <url>/Blog-article-encryption/</url>
+    <url>/blog/Blog-article-encryption/</url>
     <content><![CDATA[<p>如果你想把文章只对特定人可见，那么可以试试对文章加密。</p>
 <a id="more"></a>
 
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <title>在博客中添加一个自定义页面</title>
-    <url>/Blog-a-custom-page/</url>
+    <url>/blog/Blog-a-custom-page/</url>
     <content><![CDATA[<p>如果你想在博客子目录添加一个自定义的 html 页面，不妨看一看。</p>
 <a id="more"></a>
 
@@ -83,7 +83,7 @@
   </entry>
   <entry>
     <title>鼠标指针下的光彩</title>
-    <url>/Blog-click-effects/</url>
+    <url>/blog/Blog-click-effects/</url>
     <content><![CDATA[<p>点击一下就出现烟花，这是怎么做到的？</p>
 <a id="more"></a>
 
@@ -127,7 +127,7 @@
   </entry>
   <entry>
     <title>在博客中添加评论功能</title>
-    <url>/Blog-comment-function/</url>
+    <url>/blog/Blog-comment-function/</url>
     <content><![CDATA[<p>如果你想更好地和读者互动，评论功能必不可少。当然，写出足够优秀的文章是更好互动的前提。</p>
 <a id="more"></a>
 
@@ -152,7 +152,7 @@
   </entry>
   <entry>
     <title>在博客文章中插入音视频</title>
-    <url>/Blog-insert-audio-video/</url>
+    <url>/blog/Blog-insert-audio-video/</url>
     <content><![CDATA[<p>让文章更加丰富吧</p>
 <a id="more"></a>
 
@@ -176,7 +176,7 @@
   </entry>
   <entry>
     <title>在博客文章中插入图片</title>
-    <url>/Blog-insert-images/</url>
+    <url>/blog/Blog-insert-images/</url>
     <content><![CDATA[<p>“插入图片”会遇到什么问题呢？</p>
 <a id="more"></a>
 
@@ -234,7 +234,7 @@
   </entry>
   <entry>
     <title>我和博客的一年</title>
-    <url>/Blog-migration-process/</url>
+    <url>/blog/Blog-migration-process/</url>
     <content><![CDATA[<p>Hexo 和 NexT 在这一年都发生了什么？</p>
 <a id="more"></a>
 
@@ -303,7 +303,7 @@
   </entry>
   <entry>
     <title>有谁不沉迷唐诗宋词呢？</title>
-    <url>/Blog-poetry/</url>
+    <url>/blog/Blog-poetry/</url>
     <content><![CDATA[<p>喜欢诗词的同学绝对要添加的一个功能。</p>
 <a id="more"></a>
 
@@ -324,7 +324,7 @@
   </entry>
   <entry>
     <title>让博客在 Safari 上发光</title>
-    <url>/Blog-safari-rainbow/</url>
+    <url>/blog/Blog-safari-rainbow/</url>
     <content><![CDATA[<p>Safari 工具栏上的 RGB 是怎么实现的？</p>
 <a id="more"></a>
 
@@ -348,7 +348,7 @@
   </entry>
   <entry>
     <title>博客文章如何置顶？</title>
-    <url>/Blog-top-article/</url>
+    <url>/blog/Blog-top-article/</url>
     <content><![CDATA[<p>如果你想让访客访问你的博客时首先看到某些文章，置顶功能必不可少。</p>
 <a id="more"></a>
 
@@ -378,7 +378,7 @@
   </entry>
   <entry>
     <title>把萌萌哒看板娘抱回你的博客吧！</title>
-    <url>/Blog-yuru-chara/</url>
+    <url>/blog/Blog-yuru-chara/</url>
     <content><![CDATA[<p>可爱的看板娘！</p>
 <a id="more"></a>
 
@@ -412,7 +412,7 @@
   </entry>
   <entry>
     <title>指针、字节序、移位、数组 reverse</title>
-    <url>/Computer-Systems-Experiment-2/</url>
+    <url>/blog/Computer-Systems-Experiment-2/</url>
     <content><![CDATA[<p>Computer Systems Experiment #2</p>
 <a id="more"></a>
 
@@ -444,7 +444,7 @@
   </entry>
   <entry>
     <title>简单又复杂的位级运算（未完待续）</title>
-    <url>/Data-Lab-1/</url>
+    <url>/blog/Data-Lab-1/</url>
     <content><![CDATA[<p>Data Lab: Manipulating Bits #1 - 对于实验一（Data Lab）的一些想法（上）。</p>
 <a id="more"></a>
 <p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png"></p>
@@ -505,7 +505,7 @@
   </entry>
   <entry>
     <title>简单又复杂的位级运算（续集）</title>
-    <url>/Data-Lab-2/</url>
+    <url>/blog/Data-Lab-2/</url>
     <content><![CDATA[<p>Data Lab: Manipulating Bits #2 - 对于实验一（Data Lab）的一些想法（下）。</p>
 <a id="more"></a>
 <p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png"></p>
@@ -588,7 +588,7 @@
   </entry>
   <entry>
     <title>还不会操作「顺序表」？</title>
-    <url>/Data-Structures-Experiment-1/</url>
+    <url>/blog/Data-Structures-Experiment-1/</url>
     <content><![CDATA[<p>Data Structures Experiment #1 - 搭建实验环境，并实现顺序表的基本操作</p>
 <a id="more"></a>
 
@@ -627,7 +627,7 @@
   </entry>
   <entry>
     <title>还不会存储「有向图」？</title>
-    <url>/Data-Structures-Experiment-10/</url>
+    <url>/blog/Data-Structures-Experiment-10/</url>
     <content><![CDATA[<p>Data Structures Experiment #10 - 使用<strong>邻接表</strong>来完成有向图的存储，并实现相应的辅助函数用于检测图存储的是否正确。</p>
 <blockquote>
 <p><em>根据要求，不可使用顺序表，故对算法进行了改进。</em></p>
@@ -689,7 +689,7 @@
   </entry>
   <entry>
     <title>还不知道 Prim 和 Kruskal 算法？</title>
-    <url>/Data-Structures-Experiment-11/</url>
+    <url>/blog/Data-Structures-Experiment-11/</url>
     <content><![CDATA[<p>Data Structures Experiment #11 - 完成最小生成树Prim算法和Kruskal算法</p>
 <a id="more"></a>
 
@@ -771,7 +771,7 @@
   </entry>
   <entry>
     <title>还不会「拓扑排序」？</title>
-    <url>/Data-Structures-Experiment-12/</url>
+    <url>/blog/Data-Structures-Experiment-12/</url>
     <content><![CDATA[<p>Data Structures Experiment #12 - 完成图形类中拓扑排序的算法</p>
 <a id="more"></a>
 
@@ -827,7 +827,7 @@
   </entry>
   <entry>
     <title>还不知道 Dijkstra 算法？</title>
-    <url>/Data-Structures-Experiment-13/</url>
+    <url>/blog/Data-Structures-Experiment-13/</url>
     <content><![CDATA[<p>Data Structures Experiment #13 - 完成Dijkstra算法，实现单源最短路的求法（邻接表表示）</p>
 <a id="more"></a>
 
@@ -894,7 +894,7 @@
   </entry>
   <entry>
     <title>还不会「查找」？</title>
-    <url>/Data-Structures-Experiment-14/</url>
+    <url>/blog/Data-Structures-Experiment-14/</url>
     <content><![CDATA[<p>Data Structures Experiment #14 - 查找</p>
 <a id="more"></a>
 
@@ -987,7 +987,7 @@
   </entry>
   <entry>
     <title>还不会实现「哈希」？</title>
-    <url>/Data-Structures-Experiment-15/</url>
+    <url>/blog/Data-Structures-Experiment-15/</url>
     <content><![CDATA[<p>Data Structures Experiment #15 - 使用哈希算法完成<code>MyHash</code>类，实现简单的哈希类。</p>
 <a id="more"></a>
 
@@ -1025,7 +1025,7 @@
   </entry>
   <entry>
     <title>还不会「冒泡排序」、「快排」和「堆排序」？</title>
-    <url>/Data-Structures-Experiment-16/</url>
+    <url>/blog/Data-Structures-Experiment-16/</url>
     <content><![CDATA[<p>Data Structures Experiment #16 - 排序</p>
 <a id="more"></a>
 
@@ -1107,7 +1107,7 @@
   </entry>
   <entry>
     <title>还不会「归并排序」和「基数排序」？</title>
-    <url>/Data-Structures-Experiment-17/</url>
+    <url>/blog/Data-Structures-Experiment-17/</url>
     <content><![CDATA[<p>Data Structures Experiment #17 - 排序2</p>
 <a id="more"></a>
 
@@ -1191,7 +1191,7 @@
   </entry>
   <entry>
     <title>还不会操作「链表」？</title>
-    <url>/Data-Structures-Experiment-2/</url>
+    <url>/blog/Data-Structures-Experiment-2/</url>
     <content><![CDATA[<p>Data Structures Experiment #2 - 使用给出的模板，实现链表的基本操作。</p>
 <a id="more"></a>
 
@@ -1260,7 +1260,7 @@
   </entry>
   <entry>
     <title>还不会实现「双向链表」？</title>
-    <url>/Data-Structures-Experiment-3/</url>
+    <url>/blog/Data-Structures-Experiment-3/</url>
     <content><![CDATA[<p>Data Structures Experiment #3 - 双向链表的实现。</p>
 <a id="more"></a>
 
@@ -1303,7 +1303,7 @@
   </entry>
   <entry>
     <title>还不会实现「栈」？</title>
-    <url>/Data-Structures-Experiment-4/</url>
+    <url>/blog/Data-Structures-Experiment-4/</url>
     <content><![CDATA[<p>Data Structures Experiment #4 - 设计并实现栈类。</p>
 <a id="more"></a>
 
@@ -1349,7 +1349,7 @@
   </entry>
   <entry>
     <title>还不会实现「队列」？</title>
-    <url>/Data-Structures-Experiment-5/</url>
+    <url>/blog/Data-Structures-Experiment-5/</url>
     <content><![CDATA[<p>Data Structures Experiment #5 - 设计并实现队列类。</p>
 <a id="more"></a>
 
@@ -1403,7 +1403,7 @@
   </entry>
   <entry>
     <title>还不会实现「字符串」？</title>
-    <url>/Data-Structures-Experiment-6/</url>
+    <url>/blog/Data-Structures-Experiment-6/</url>
     <content><![CDATA[<p>Data Structures Experiment #6 - 封装字符串类。</p>
 <a id="more"></a>
 
@@ -1458,7 +1458,7 @@
   </entry>
   <entry>
     <title>还不会实现「二叉树」？</title>
-    <url>/Data-Structures-Experiment-8/</url>
+    <url>/blog/Data-Structures-Experiment-8/</url>
     <content><![CDATA[<p>Data Structures Experiment #8 - 实现一个二叉树类。</p>
 <a id="more"></a>
 
@@ -1519,7 +1519,7 @@
   </entry>
   <entry>
     <title>还不会实现「稀疏矩阵」？</title>
-    <url>/Data-Structures-Experiment-7/</url>
+    <url>/blog/Data-Structures-Experiment-7/</url>
     <content><![CDATA[<p>Data Structures Experiment #7 - 实现稀疏矩阵的三元组形式。</p>
 <a id="more"></a>
 
@@ -1587,7 +1587,7 @@
   </entry>
   <entry>
     <title>还不会实现「哈夫曼树」？</title>
-    <url>/Data-Structures-Experiment-9/</url>
+    <url>/blog/Data-Structures-Experiment-9/</url>
     <content><![CDATA[<p>Data Structures Experiment #9 - 完成哈夫曼树类的私有属性以及接口，实现哈夫曼树类。</p>
 <a id="more"></a>
 
@@ -1659,7 +1659,7 @@
   </entry>
   <entry>
     <title>「还不会」的「数据结构实验」</title>
-    <url>/Data-Structures-Experiments/</url>
+    <url>/blog/Data-Structures-Experiments/</url>
     <content><![CDATA[<p>Data Structures Experiments - 目录</p>
 <a id="more"></a>
 
@@ -1692,7 +1692,7 @@
   </entry>
   <entry>
     <title>什么是「单精度浮点数」？</title>
-    <url>/IEEE754-float/</url>
+    <url>/blog/IEEE754-float/</url>
     <content><![CDATA[<p>IEEE 754: Single-precision floating-point format - 关于单精度浮点数编码的简介</p>
 <a id="more"></a>
 <p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png"></p>
@@ -1774,7 +1774,7 @@
   </entry>
   <entry>
     <title>打造一个属于你的 VS Code</title>
-    <url>/VS-Code-Config/</url>
+    <url>/blog/VS-Code-Config/</url>
     <content><![CDATA[<p>Windows 安装并配置 Visual Studio Code 过程记录</p>
 <a id="more"></a>
 
@@ -1872,7 +1872,7 @@
   </entry>
   <entry>
     <title>让 Ubuntu 来到你的 Windows 上</title>
-    <url>/Win-VM-Ubuntu-20-04/</url>
+    <url>/blog/Win-VM-Ubuntu-20-04/</url>
     <content><![CDATA[<p>Windows&amp;VMware&amp;Ubuntu_20.04 安装虚拟机过程记录</p>
 <a id="more"></a>
 
@@ -1976,7 +1976,7 @@
   </entry>
   <entry>
     <title>谁说 M1 Mac 不能安装虚拟机？</title>
-    <url>/macOS-PD-Ubuntu-20-04/</url>
+    <url>/blog/macOS-PD-Ubuntu-20-04/</url>
     <content><![CDATA[<p>macOS&amp;Parallels_Desktop&amp;Ubuntu_20.04 安装虚拟机过程记录</p>
 <a id="more"></a>
 
@@ -2051,7 +2051,7 @@
   </entry>
   <entry>
     <title>关于 C++ 你不能不知道的事</title>
-    <url>/IPC-Notes/</url>
+    <url>/blog/IPC-Notes/</url>
     <content><![CDATA[<p>A passage about C++ - Introduction to Programming with C++_Notes</p>
 <a id="more"></a>
 
@@ -2646,7 +2646,7 @@
   </entry>
   <entry>
     <title>理论学习（二）</title>
-    <url>/Theory-Study-2/</url>
+    <url>/blog/Theory-Study-2/</url>
     <content><![CDATA[<p>本文整理了理论学习的有关资料，如有错误恳请指正。</p>
 <a id="more"></a>
 
@@ -2727,7 +2727,7 @@
   </entry>
   <entry>
     <title>关于「xv6」的五个小实验</title>
-    <url>/Xv6-homeworks/</url>
+    <url>/blog/Xv6-homeworks/</url>
     <content><![CDATA[<p>Reports of MIT 6.828 xv6 homeworks</p>
 <a id="more"></a>
 
@@ -2863,7 +2863,7 @@
   </entry>
   <entry>
     <title>让 Markdown Powerup（摘自「庭说」）</title>
-    <url>/markdown/</url>
+    <url>/blog/markdown/</url>
     <content><![CDATA[<p>如何写文章？</p>
 <a id="more"></a>
 
@@ -3220,7 +3220,7 @@
   </entry>
   <entry>
     <title>缓冲区溢出漏洞竟然可以被用来攻击！</title>
-    <url>/Attack-Lab/</url>
+    <url>/blog/Attack-Lab/</url>
     <content><![CDATA[<p>CS:APP - Lab assignments #3 - Attack Lab: Understanding Buffer Overflow Bugs</p>
 <a id="more"></a>
 
@@ -3642,7 +3642,7 @@
   </entry>
   <entry>
     <title>缓存影响了什么？</title>
-    <url>/Cache-Lab/</url>
+    <url>/blog/Cache-Lab/</url>
     <content><![CDATA[<p>CS:APP–Lab assignments #7 - Cache Lab: Understanding Cache Memories</p>
 <a id="more"></a>
 
@@ -4013,7 +4013,7 @@
   </entry>
   <entry>
     <title>D!U!M!P!</title>
-    <url>/Computer-Systems-Experiment-1/</url>
+    <url>/blog/Computer-Systems-Experiment-1/</url>
     <content><![CDATA[<p>Computer Systems Experiment #1 - 编写一个C程序：filedump，用于显示规定格式的某个文件的实际字节信息。</p>
 <a id="more"></a>
 
@@ -4050,7 +4050,7 @@
   </entry>
   <entry>
     <title>听说黎明前总是最黑暗的</title>
-    <url>/Final-Homework/</url>
+    <url>/blog/Final-Homework/</url>
     <content><![CDATA[<p>Final Homework - 攻击+拆弹+分析</p>
 <a id="more"></a>
 
@@ -4563,7 +4563,7 @@
   </entry>
   <entry>
     <title>理论学习（三）</title>
-    <url>/Theory-Study-3/</url>
+    <url>/blog/Theory-Study-3/</url>
     <content><![CDATA[<p>本文整理了理论学习的有关资料，如有错误恳请指正。</p>
 <a id="more"></a>
 
@@ -5043,7 +5043,7 @@
   </entry>
   <entry>
     <title>你也想拥有这样的博客吗？</title>
-    <url>/Blog-Config-0/</url>
+    <url>/blog/Blog-Config-0/</url>
     <content><![CDATA[<p>GitHub&amp;Hexo&amp;NexT Blog 配置过程记录（上）：基本配置</p>
 <a id="more"></a>
 
@@ -5264,7 +5264,7 @@
   </entry>
   <entry>
     <title>听说你不会拆弹？</title>
-    <url>/Bomb-Lab/</url>
+    <url>/blog/Bomb-Lab/</url>
     <content><![CDATA[<p>Bomb Lab: Defusing a Binary Bomb</p>
 <a id="more"></a>
 
@@ -6006,7 +6006,7 @@
   </entry>
   <entry>
     <title>理论学习（一）</title>
-    <url>/Theory-Study-1/</url>
+    <url>/blog/Theory-Study-1/</url>
     <content><![CDATA[<p>本文整理了理论学习的有关资料，如有错误恳请指正。</p>
 <a id="more"></a>
 
@@ -6428,7 +6428,7 @@
   </entry>
   <entry>
     <title>深入理解《深入理解计算机系统》</title>
-    <url>/CS-APP-Notes/</url>
+    <url>/blog/CS-APP-Notes/</url>
     <content><![CDATA[<p>对于《深入理解计算机系统（第三版）》一书的一些摘要与想法。Computer Systems: A Programmer’s Perspective_Notes</p>
 <p><em>持续更新…</em></p>
 <a id="more"></a>
@@ -7691,7 +7691,7 @@
   </entry>
   <entry>
     <title>三万字告诉你什么是「数据结构」</title>
-    <url>/Data-Structures-Notes/</url>
+    <url>/blog/Data-Structures-Notes/</url>
     <content><![CDATA[<p>《数据结构（C语言版）》（严蔚敏，清华大学出版社）笔记</p>
 <a id="more"></a>
 
