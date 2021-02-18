@@ -21,12 +21,12 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.superpung.xyz","root":"/blog/","images":"/blog/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"superpung.xyz","root":"/blog/","images":"/blog/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="Data Lab: Manipulating Bits #2 - 对于实验一（Data Lab）的一些想法（下）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单又复杂的位级运算（续集）">
-<meta property="og:url" content="https://www.superpung.xyz/Data-Lab-2/">
+<meta property="og:url" content="https://superpung.xyz/Data-Lab-2/">
 <meta property="og:site_name" content="SuperPung">
 <meta property="og:description" content="Data Lab: Manipulating Bits #2 - 对于实验一（Data Lab）的一些想法（下）。">
 <meta property="og:locale" content="en_US">
@@ -43,7 +43,7 @@
 <meta name="twitter:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png">
 
 
-<link rel="canonical" href="https://www.superpung.xyz/Data-Lab-2/">
+<link rel="canonical" href="https://superpung.xyz/Data-Lab-2/">
 
 
 <script class="page-configurations">
@@ -313,7 +313,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.superpung.xyz/Data-Lab-2/">
+    <link itemprop="mainEntityOfPage" href="https://superpung.xyz/Data-Lab-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.jpeg">
@@ -399,7 +399,7 @@
 <p>conditional - same as x ? y : z<br>Example: conditional(2,4,5) = 4<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 16<br>Rating: 3</p>
 </blockquote>
 <p>利用位操作来实现三目运算符表达式<code>x ? y : z</code>的功能，只需判断<code>x</code>是否为<code>0</code>：若不为<code>0</code>则返回<code>y</code>；反之则返回<code>z</code>。</p>
-<p>同样可以利用算术右移的特点制作一个<strong>掩码（mask）</strong>，类似<a href="https://www.superpung.xyz/2020/04/02/Data-Lab-1/">#1</a>中提到的“模版”，以便于操作。</p>
+<p>同样可以利用算术右移的特点制作一个<strong>掩码（mask）</strong>，类似<a target="_blank" rel="noopener" href="https://www.superpung.xyz/2020/04/02/Data-Lab-1/">#1</a>中提到的“模版”，以便于操作。</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">conditional</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msk = (!!x) &lt;&lt; <span class="number">31</span> &gt;&gt; <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">return</span> (msk &amp; y) | (~msk &amp; z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Puzzle-2-isNonNegative"><a href="#Puzzle-2-isNonNegative" class="headerlink" title="Puzzle 2 - isNonNegative"></a>Puzzle 2 - isNonNegative</h1><blockquote>
 <p>isNonNegative - return 1 if x &gt;= 0, return 0 otherwise<br>Example: isNonNegative(-1) = 0.  isNonNegative(0) = 1.<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 6<br>Rating: 3</p>
@@ -430,7 +430,7 @@
 <h1 id="Puzzle-6-float-neg"><a href="#Puzzle-6-float-neg" class="headerlink" title="Puzzle 6 - float_neg"></a>Puzzle 6 - float_neg</h1><blockquote>
 <p>float_neg - Return bit-level equivalent of expression -f for floating point argument f. Both the argument and result are passed as unsigned int’s, but they are to be interpreted as the bit-level representations of single-precision floating point values.<br>When argument is NaN, return argument.<br>Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while<br>Max ops: 10<br>Rating: 2</p>
 </blockquote>
-<p>本题需要对浮点数的构成有基本的了解，鉴于下题需要对浮点数有极为全面的认识，此处建议提前阅读<a href="https://www.superpung.xyz/2020/04/10/IEEE754-float/">IEEE754与单精度浮点数</a>，注意文章中对<code>NaN</code>的定义并思考相反数的求法。</p>
+<p>本题需要对浮点数的构成有基本的了解，鉴于下题需要对浮点数有极为全面的认识，此处建议提前阅读<a target="_blank" rel="noopener" href="https://www.superpung.xyz/2020/04/10/IEEE754-float/">IEEE754与单精度浮点数</a>，注意文章中对<code>NaN</code>的定义并思考相反数的求法。</p>
 <p>0x7fffffff = 0111 1111 1111 1111 1111 1111 1111 1111<br>0x7f800000 = 0111 1111 1000 0000 0000 0000 0000 0000<br>0x80000000 = 1000 0000 0000 0000 0000 0000 0000 0000</p>
 <p>本题只需判断参数<code>uf</code>是否为<code>NaN</code>，是则返回其本身，否则返回其相反数。</p>
 <p>制作低<code>31</code>位全1的掩码，同原值取与以保留参数<code>uf</code>除去符号位的值，取与结果同0x7f800000相比可判断原值是否为<code>NaN</code>。</p>
@@ -439,7 +439,7 @@
 <h1 id="Puzzle-7-float-i2f"><a href="#Puzzle-7-float-i2f" class="headerlink" title="Puzzle 7 - float_i2f"></a>Puzzle 7 - float_i2f</h1><blockquote>
 <p>float_i2f - Return bit-level equivalent of expression (float) x<br>Result is returned as unsigned int, but it is to be interpreted as the bit-level representation of a single-precision floating point values.<br>Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while<br>Max ops: 30<br>Rating: 4</p>
 </blockquote>
-<p>本题需将<code>int</code>型参数<code>x</code>转化为单精度浮点数<code>float</code>型数值，即实现类型转换<code>(float)x</code>的功能。如果你对浮点数没有基本的了解，可能会认为<code>int</code>型<code>x</code>是整数，转化为<code>float</code>型就不存在小数了。为避免类似一些误解，需要对浮点数有极为全面的认识，此处建议<span id = "IEEE754">提前阅读</span><a href="https://www.superpung.xyz/2020/04/10/IEEE754-float/">IEEE754与单精度浮点数</a>。</p>
+<p>本题需将<code>int</code>型参数<code>x</code>转化为单精度浮点数<code>float</code>型数值，即实现类型转换<code>(float)x</code>的功能。如果你对浮点数没有基本的了解，可能会认为<code>int</code>型<code>x</code>是整数，转化为<code>float</code>型就不存在小数了。为避免类似一些误解，需要对浮点数有极为全面的认识，此处建议<span id = "IEEE754">提前阅读</span><a target="_blank" rel="noopener" href="https://www.superpung.xyz/2020/04/10/IEEE754-float/">IEEE754与单精度浮点数</a>。</p>
 <p>整数转化为浮点数，首先将整数的二进制编码转化为科学计数法$m\times 2^{e}$的形式，其中$m$的小数部分便对应浮点数的<code>fraction</code>位，$e$对应浮点数的<code>exponent</code>位，符号位互相对应。例如$78=1001110_{2}=1.00111\times 2^{6}_{2}$，故<code>sign</code>位为0，<code>exponent</code>位为$6+127=133=100 00101_{2}$，<code>fraction</code>位为$001 1100 0000 0000 0000 0000$。</p>
 <p>由于浮点数由<code>sign</code>、<code>exponent</code>、<code>fraction</code>三部分组成，可以分三部分来进行转换。</p>
 <h2 id="Declare-Variables"><a href="#Declare-Variables" class="headerlink" title="Declare Variables"></a>Declare Variables</h2><p><code>sig</code>、<code>exp</code>、<code>frc</code>分别代表浮点数的三部分；<code>frcMsk</code>为<code>fraction</code>位全1的掩码，用于存放<code>fraction</code>位；<code>eBit</code>指向<code>x</code>中1的最高位。</p>
@@ -498,7 +498,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.superpung.xyz/Data-Lab-2/" title="简单又复杂的位级运算（续集）">https://www.superpung.xyz/Data-Lab-2/</a>
+      <a href="https://superpung.xyz/Data-Lab-2/" title="简单又复杂的位级运算（续集）">https://superpung.xyz/Data-Lab-2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.

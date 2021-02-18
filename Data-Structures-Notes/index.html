@@ -21,12 +21,12 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.superpung.xyz","root":"/blog/","images":"/blog/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"superpung.xyz","root":"/blog/","images":"/blog/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="《数据结构（C语言版）》（严蔚敏，清华大学出版社）笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三万字告诉你什么是「数据结构」">
-<meta property="og:url" content="https://www.superpung.xyz/Data-Structures-Notes/">
+<meta property="og:url" content="https://superpung.xyz/Data-Structures-Notes/">
 <meta property="og:site_name" content="SuperPung">
 <meta property="og:description" content="《数据结构（C语言版）》（严蔚敏，清华大学出版社）笔记">
 <meta property="og:locale" content="en_US">
@@ -69,7 +69,7 @@
 <meta name="twitter:image" content="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png">
 
 
-<link rel="canonical" href="https://www.superpung.xyz/Data-Structures-Notes/">
+<link rel="canonical" href="https://superpung.xyz/Data-Structures-Notes/">
 
 
 <script class="page-configurations">
@@ -339,7 +339,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.superpung.xyz/Data-Structures-Notes/">
+    <link itemprop="mainEntityOfPage" href="https://superpung.xyz/Data-Structures-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.jpeg">
@@ -419,7 +419,7 @@
 <a id="more"></a>
 
 <p><img src="https://super-bucket1.oss-cn-beijing.aliyuncs.com/ExiTalk.png"></p>
-<p>具体算法参见<a href="https://www.superpung.xyz/Data-Structures-Experiments/">数据结构实验</a>。</p>
+<p>具体算法参见<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiments/">数据结构实验</a>。</p>
 <h1 id="第1章-绪论"><a href="#第1章-绪论" class="headerlink" title="第1章 绪论"></a>第1章 绪论</h1><ol>
 <li>计算机加工处理的对象由纯粹的数值发展到字符、表格和图像等各种<strong>具有一定结构</strong>的数据，这就给程序设计带来一些新的问题。为编写出一个“好”的程序，必须分析待处理的对象的特性以及各处理对象之间存在的关系。</li>
 <li>数据的<strong>存储结构</strong>分为：<ul>
@@ -1520,7 +1520,7 @@
 <li>设计电文总长最短的二进制前缀编码即为以n种字符出现的频率作权，设计一棵赫夫曼树的问题，由此得到的二进制前缀编码便称为<strong>赫夫曼编码</strong>。</li>
 <li>赫夫曼树中没有度为1的结点，这类树又称严格的（strict，正则的）二叉树。</li>
 <li>一棵有n个叶子结点的赫夫曼树共有2n-1个结点，可以存储在一个大小为2n-1的一维数组中。</li>
-<li>赫夫曼树具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-9/">传送门</a>。</li>
+<li>赫夫曼树具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-9/">传送门</a>。</li>
 </ol>
 <h2 id="6-7-回溯法与树的遍历"><a href="#6-7-回溯法与树的遍历" class="headerlink" title="6.7 回溯法与树的遍历"></a>6.7 回溯法与树的遍历</h2><ol>
 <li>有一类问题要求一组解、全部解或最优解，而不是根据某种确定的计算法则，是利用试探和<strong>回溯（Backtracking）</strong>的搜索技术求解。</li>
@@ -1771,7 +1771,7 @@
 <p>至多对e条边各扫描一次，每次选择最小权的边仅需O(loge)的时间（前提以“堆”存放，且第一次需O(e)）；每个连通分量看成一个等价类，加边则相当于求等价类，仅需O(eloge)时间（前提以MFSet类型来描述），故时间复杂度为O(eloge)，和顶点数无关，适合于求边稀疏的网的最小生成树。</p>
 </li>
 </ul>
-<p>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-11/">传送门</a>。</p>
+<p>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-11/">传送门</a>。</p>
 </li>
 </ol>
 <h3 id="7-4-4-关节点和重连通分量"><a href="#7-4-4-关节点和重连通分量" class="headerlink" title="7.4.4 关节点和重连通分量"></a>7.4.4 关节点和重连通分量</h3><ol>
@@ -1829,7 +1829,7 @@
 <li>重复上述两步，直至全部顶点均已输出，或者当前图中不存在无前驱的顶点为止（这种情况说明有向图中存在环）。</li>
 </ul>
 </li>
-<li><p>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-12/">传送门</a>。</p>
+<li><p>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-12/">传送门</a>。</p>
 </li>
 <li><p>拓扑排序总的时间复杂度为O(n+e)。</p>
 </li>
@@ -1886,7 +1886,7 @@
 </ol>
 <h2 id="7-6-最短路径"><a href="#7-6-最短路径" class="headerlink" title="7.6 最短路径"></a>7.6 最短路径</h2><p>路径上的第一个顶点为<strong>源点（Source）</strong>，最后一个顶点为<strong>终点（Destination）</strong>，路径长度的度量是路径上边的权值之和。</p>
 <h3 id="7-6-1-从某个源点到其余各顶点的最短路径"><a href="#7-6-1-从某个源点到其余各顶点的最短路径" class="headerlink" title="7.6.1 从某个源点到其余各顶点的最短路径"></a>7.6.1 从某个源点到其余各顶点的最短路径</h3><p>解决单源点的最短路径问题——迪杰斯特拉（Dijkstra）算法：</p>
-<p>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-13/">传送门</a>。</p>
+<p>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-13/">传送门</a>。</p>
 <h3 id="7-6-2-每一对顶点之间的最短路径"><a href="#7-6-2-每一对顶点之间的最短路径" class="headerlink" title="7.6.2 每一对顶点之间的最短路径"></a>7.6.2 每一对顶点之间的最短路径</h3><ol>
 <li><p>根据上一节的从单个源点到其余各顶点的最短路径算法，此处只需每次以一个顶点为源点，重复执行Dijkstra算法n次即可，总执行时间为O($n^{3}$)。</p>
 </li>
@@ -2269,7 +2269,7 @@
 </ul>
 </li>
 <li>哈希表的ASL是$\alpha$的函数，而不是n的函数。所以，不管n多大，我们总可以选择一个合适的装填因子，以便将ASL限定在一个范围内。</li>
-<li>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-15/">传送门</a>。</li>
+<li>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-15/">传送门</a>。</li>
 </ol>
 <h1 id="第10章-内部排序"><a href="#第10章-内部排序" class="headerlink" title="第10章 内部排序"></a>第10章 内部排序</h1><h2 id="10-1-概述"><a href="#10-1-概述" class="headerlink" title="10.1 概述"></a>10.1 概述</h2><ol>
 <li><p><strong>排序（Sorting）</strong>是将任意序列重新排列成一个有序序列（按关键字）。</p>
@@ -2355,7 +2355,7 @@
 <li>在起泡排序的过程中，关键字较小的记录好比水中气泡逐趟向上漂浮，而关键字较大的记录好比石块往下沉，每一趟有一块“最大”的石头沉到水底。</li>
 <li>起泡排序的时间复杂度为O($n^{2}$)，同时也是一个稳定的排序方法。</li>
 <li><strong>快速排序（Quick Sort）</strong>是对起泡排序的一种改进，它的基本思想是，选取一个对象作为<strong>枢轴</strong>（pivot，支点、基准），将对象序列分为比它大和比它小的两部分，再继续对子序列重复上述过程，直到所有对象都排在相应位置上。</li>
-<li>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-16/">传送门</a>。</li>
+<li>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-16/">传送门</a>。</li>
 <li>快速排序在所有同数量级O(nlogn)的排序方法中是平均性能最好的，但若初始记录序列按关键字有序或基本有序时，快排退化为起泡排序，时间复杂度为O($n^{2}$)。</li>
 <li>快速排序是一种不稳定的排序方法。</li>
 </ol>
@@ -2386,17 +2386,17 @@
 </ol>
 <h3 id="10-4-3-堆排序"><a href="#10-4-3-堆排序" class="headerlink" title="10.4.3 堆排序"></a>10.4.3 堆排序</h3><ol>
 <li><strong>堆排序（Heap Sort）</strong>只需要一个记录大小的辅助空间，每个待排序的记录仅占有一个存储空间。</li>
-<li>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-16/">传送门</a>。</li>
+<li>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-16/">传送门</a>。</li>
 <li>堆排序在最坏的情况下，时间复杂度也为O(nlogn)，同时堆排序是一个不稳定的排序方法。</li>
 </ol>
 <h2 id="10-5-归并排序"><a href="#10-5-归并排序" class="headerlink" title="10.5 归并排序"></a>10.5 归并排序</h2><ol>
 <li><strong>归并</strong>是将两个或两个以上的有序表组合成一个新的有序表。</li>
 <li>可以将n个记录看成是n个有序的子序列，然后两两归并，得到$\lceil \frac{n}{2}\rceil$个长度为2或1的有序子序列，再重复两两归并，直至得到一个长度为n的有序序列为止，这种排序方法称为<strong>2-路归并排序</strong>。</li>
-<li>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-17/">传送门</a>。</li>
+<li>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-17/">传送门</a>。</li>
 <li>实现归并排序需和待排记录等数量的辅助空间，其时间复杂度为O(nlogn)。归并排序是一个稳定的排序方法。</li>
 </ol>
 <h2 id="10-6-基数排序"><a href="#10-6-基数排序" class="headerlink" title="10.6 基数排序"></a>10.6 基数排序</h2><p><strong>基数排序（Radix Sorting）</strong>是一种借助多关键字排序思想，对单逻辑关键字进行排序的方法，不需要进行记录关键字间的比较。</p>
-<h3 id="10-6-1-多关键字的排序"><a href="#10-6-1-多关键字的排序" class="headerlink" title="10.6.1 多关键字的排序"></a>10.6.1 多关键字的排序</h3><p>具体算法请走<a href="https://www.superpung.xyz/Data-Structures-Experiment-17/">传送门</a>。</p>
+<h3 id="10-6-1-多关键字的排序"><a href="#10-6-1-多关键字的排序" class="headerlink" title="10.6.1 多关键字的排序"></a>10.6.1 多关键字的排序</h3><p>具体算法请走<a target="_blank" rel="noopener" href="https://www.superpung.xyz/Data-Structures-Experiment-17/">传送门</a>。</p>
 <h3 id="10-6-2-链式基数排序"><a href="#10-6-2-链式基数排序" class="headerlink" title="10.6.2 链式基数排序"></a>10.6.2 链式基数排序</h3><ol>
 <li>基数排序：借助“分配”和“收集”对单逻辑关键字进行排序。</li>
 <li>链式基数排序方法：用链表作存储结构的基数排序。</li>
@@ -2541,7 +2541,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.superpung.xyz/Data-Structures-Notes/" title="三万字告诉你什么是「数据结构」">https://www.superpung.xyz/Data-Structures-Notes/</a>
+      <a href="https://superpung.xyz/Data-Structures-Notes/" title="三万字告诉你什么是「数据结构」">https://superpung.xyz/Data-Structures-Notes/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.

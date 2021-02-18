@@ -3,11 +3,11 @@
   <title>SuperPung</title>
   
   <subtitle>Follow Your Heart</subtitle>
-  <link href="https://www.superpung.xyz/atom.xml" rel="self"/>
+  <link href="https://superpung.xyz/atom.xml" rel="self"/>
   
-  <link href="https://www.superpung.xyz/"/>
+  <link href="https://superpung.xyz/"/>
   <updated>2021-02-17T06:27:25.566Z</updated>
-  <id>https://www.superpung.xyz/</id>
+  <id>https://superpung.xyz/</id>
   
   <author>
     <name>SUPER</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>在博客文章中插入图片</title>
-    <link href="https://www.superpung.xyz/Blog-insert-images/"/>
-    <id>https://www.superpung.xyz/Blog-insert-images/</id>
+    <link href="https://superpung.xyz/Blog-insert-images/"/>
+    <id>https://superpung.xyz/Blog-insert-images/</id>
     <published>2021-02-17T06:26:19.000Z</published>
     <updated>2021-02-17T06:27:25.566Z</updated>
     
@@ -31,14 +31,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>在博客文章中插入音视频</title>
-    <link href="https://www.superpung.xyz/Blog-insert-audio-video/"/>
-    <id>https://www.superpung.xyz/Blog-insert-audio-video/</id>
+    <link href="https://superpung.xyz/Blog-insert-audio-video/"/>
+    <id>https://superpung.xyz/Blog-insert-audio-video/</id>
     <published>2021-02-17T06:24:20.000Z</published>
     <updated>2021-02-17T06:25:58.368Z</updated>
     
@@ -50,14 +50,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>让 Markdown Powerup（摘自「庭说」）</title>
-    <link href="https://www.superpung.xyz/markdown/"/>
-    <id>https://www.superpung.xyz/markdown/</id>
+    <link href="https://superpung.xyz/markdown/"/>
+    <id>https://superpung.xyz/markdown/</id>
     <published>2021-02-17T06:19:51.000Z</published>
     <updated>2021-02-17T06:43:20.870Z</updated>
     
@@ -69,14 +69,14 @@
     
     
     
-    <category term="Notes" scheme="https://www.superpung.xyz/tags/Notes/"/>
+    <category term="Notes" scheme="https://superpung.xyz/tags/Notes/"/>
     
   </entry>
   
   <entry>
     <title>把萌萌哒看板娘抱回你的博客吧！</title>
-    <link href="https://www.superpung.xyz/Blog-yuru-chara/"/>
-    <id>https://www.superpung.xyz/Blog-yuru-chara/</id>
+    <link href="https://superpung.xyz/Blog-yuru-chara/"/>
+    <id>https://superpung.xyz/Blog-yuru-chara/</id>
     <published>2021-02-17T06:17:44.000Z</published>
     <updated>2021-02-17T06:18:59.085Z</updated>
     
@@ -88,14 +88,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>在博客中添加评论功能</title>
-    <link href="https://www.superpung.xyz/Blog-comment-function/"/>
-    <id>https://www.superpung.xyz/Blog-comment-function/</id>
+    <link href="https://superpung.xyz/Blog-comment-function/"/>
+    <id>https://superpung.xyz/Blog-comment-function/</id>
     <published>2021-02-17T06:15:17.000Z</published>
     <updated>2021-02-17T06:16:21.114Z</updated>
     
@@ -107,14 +107,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>在博客中添加一个自定义页面</title>
-    <link href="https://www.superpung.xyz/Blog-a-custom-page/"/>
-    <id>https://www.superpung.xyz/Blog-a-custom-page/</id>
+    <link href="https://superpung.xyz/Blog-a-custom-page/"/>
+    <id>https://superpung.xyz/Blog-a-custom-page/</id>
     <published>2021-02-17T06:13:49.000Z</published>
     <updated>2021-02-17T06:14:50.146Z</updated>
     
@@ -126,14 +126,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>博客文章如何加密？</title>
-    <link href="https://www.superpung.xyz/Blog-article-encryption/"/>
-    <id>https://www.superpung.xyz/Blog-article-encryption/</id>
+    <link href="https://superpung.xyz/Blog-article-encryption/"/>
+    <id>https://superpung.xyz/Blog-article-encryption/</id>
     <published>2021-02-17T06:11:45.000Z</published>
     <updated>2021-02-17T06:13:05.338Z</updated>
     
@@ -145,14 +145,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>博客文章如何置顶？</title>
-    <link href="https://www.superpung.xyz/Blog-top-article/"/>
-    <id>https://www.superpung.xyz/Blog-top-article/</id>
+    <link href="https://superpung.xyz/Blog-top-article/"/>
+    <id>https://superpung.xyz/Blog-top-article/</id>
     <published>2021-02-17T06:09:11.000Z</published>
     <updated>2021-02-17T06:11:07.232Z</updated>
     
@@ -164,14 +164,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>有谁不沉迷唐诗宋词呢？</title>
-    <link href="https://www.superpung.xyz/Blog-poetry/"/>
-    <id>https://www.superpung.xyz/Blog-poetry/</id>
+    <link href="https://superpung.xyz/Blog-poetry/"/>
+    <id>https://superpung.xyz/Blog-poetry/</id>
     <published>2021-02-17T06:07:02.000Z</published>
     <updated>2021-02-17T06:10:18.745Z</updated>
     
@@ -183,14 +183,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>让博客在 Safari 上发光</title>
-    <link href="https://www.superpung.xyz/Blog-safari-rainbow/"/>
-    <id>https://www.superpung.xyz/Blog-safari-rainbow/</id>
+    <link href="https://superpung.xyz/Blog-safari-rainbow/"/>
+    <id>https://superpung.xyz/Blog-safari-rainbow/</id>
     <published>2021-02-17T06:03:36.000Z</published>
     <updated>2021-02-17T06:10:38.041Z</updated>
     
@@ -202,14 +202,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>鼠标指针下的光彩</title>
-    <link href="https://www.superpung.xyz/Blog-click-effects/"/>
-    <id>https://www.superpung.xyz/Blog-click-effects/</id>
+    <link href="https://superpung.xyz/Blog-click-effects/"/>
+    <id>https://superpung.xyz/Blog-click-effects/</id>
     <published>2021-02-17T06:00:44.000Z</published>
     <updated>2021-02-17T06:10:32.077Z</updated>
     
@@ -221,14 +221,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>我和博客的一年</title>
-    <link href="https://www.superpung.xyz/Blog-migration-process/"/>
-    <id>https://www.superpung.xyz/Blog-migration-process/</id>
+    <link href="https://superpung.xyz/Blog-migration-process/"/>
+    <id>https://superpung.xyz/Blog-migration-process/</id>
     <published>2021-02-17T05:54:27.000Z</published>
     <updated>2021-02-17T06:10:26.091Z</updated>
     
@@ -240,14 +240,14 @@
     
     
     
-    <category term="Blog Config" scheme="https://www.superpung.xyz/tags/Blog-Config/"/>
+    <category term="Blog Config" scheme="https://superpung.xyz/tags/Blog-Config/"/>
     
   </entry>
   
   <entry>
     <title>配置博客时不得不说的问题</title>
-    <link href="https://www.superpung.xyz/Blog-Config-1/"/>
-    <id>https://www.superpung.xyz/Blog-Config-1/</id>
+    <link href="https://superpung.xyz/Blog-Config-1/"/>
+    <id>https://superpung.xyz/Blog-Config-1/</id>
     <published>2021-02-14T03:09:58.000Z</published>
     <updated>2021-02-17T06:32:53.489Z</updated>
     
@@ -259,14 +259,14 @@
     
     
     
-    <category term="Notes" scheme="https://www.superpung.xyz/tags/Notes/"/>
+    <category term="Notes" scheme="https://superpung.xyz/tags/Notes/"/>
     
   </entry>
   
   <entry>
     <title>你也想拥有这样的博客吗？</title>
-    <link href="https://www.superpung.xyz/Blog-Config-0/"/>
-    <id>https://www.superpung.xyz/Blog-Config-0/</id>
+    <link href="https://superpung.xyz/Blog-Config-0/"/>
+    <id>https://superpung.xyz/Blog-Config-0/</id>
     <published>2021-02-11T01:17:47.000Z</published>
     <updated>2021-02-17T05:24:18.222Z</updated>
     
@@ -278,14 +278,14 @@
     
     
     
-    <category term="Notes" scheme="https://www.superpung.xyz/tags/Notes/"/>
+    <category term="Notes" scheme="https://superpung.xyz/tags/Notes/"/>
     
   </entry>
   
   <entry>
     <title>打造一个属于你的 VS Code</title>
-    <link href="https://www.superpung.xyz/VS-Code-Config/"/>
-    <id>https://www.superpung.xyz/VS-Code-Config/</id>
+    <link href="https://superpung.xyz/VS-Code-Config/"/>
+    <id>https://superpung.xyz/VS-Code-Config/</id>
     <published>2021-01-29T03:08:53.000Z</published>
     <updated>2021-02-17T05:50:15.890Z</updated>
     
@@ -297,14 +297,14 @@
     
     
     
-    <category term="Notes" scheme="https://www.superpung.xyz/tags/Notes/"/>
+    <category term="Notes" scheme="https://superpung.xyz/tags/Notes/"/>
     
   </entry>
   
   <entry>
     <title>谁说 M1 Mac 不能安装虚拟机？</title>
-    <link href="https://www.superpung.xyz/macOS-PD-Ubuntu-20-04/"/>
-    <id>https://www.superpung.xyz/macOS-PD-Ubuntu-20-04/</id>
+    <link href="https://superpung.xyz/macOS-PD-Ubuntu-20-04/"/>
+    <id>https://superpung.xyz/macOS-PD-Ubuntu-20-04/</id>
     <published>2021-01-27T11:17:18.000Z</published>
     <updated>2021-02-17T05:49:30.389Z</updated>
     
@@ -316,14 +316,14 @@
     
     
     
-    <category term="Notes" scheme="https://www.superpung.xyz/tags/Notes/"/>
+    <category term="Notes" scheme="https://superpung.xyz/tags/Notes/"/>
     
   </entry>
   
   <entry>
     <title>让 Ubuntu 来到你的 Windows 上</title>
-    <link href="https://www.superpung.xyz/Win-VM-Ubuntu-20-04/"/>
-    <id>https://www.superpung.xyz/Win-VM-Ubuntu-20-04/</id>
+    <link href="https://superpung.xyz/Win-VM-Ubuntu-20-04/"/>
+    <id>https://superpung.xyz/Win-VM-Ubuntu-20-04/</id>
     <published>2021-01-27T03:47:34.000Z</published>
     <updated>2021-02-17T05:51:50.639Z</updated>
     
@@ -335,14 +335,14 @@
     
     
     
-    <category term="Notes" scheme="https://www.superpung.xyz/tags/Notes/"/>
+    <category term="Notes" scheme="https://superpung.xyz/tags/Notes/"/>
     
   </entry>
   
   <entry>
     <title>关于「xv6」的五个小实验</title>
-    <link href="https://www.superpung.xyz/Xv6-homeworks/"/>
-    <id>https://www.superpung.xyz/Xv6-homeworks/</id>
+    <link href="https://superpung.xyz/Xv6-homeworks/"/>
+    <id>https://superpung.xyz/Xv6-homeworks/</id>
     <published>2020-12-29T11:01:25.000Z</published>
     <updated>2021-02-17T05:52:58.946Z</updated>
     
@@ -354,16 +354,16 @@
     
     
     
-    <category term="Experiments" scheme="https://www.superpung.xyz/tags/Experiments/"/>
+    <category term="Experiments" scheme="https://superpung.xyz/tags/Experiments/"/>
     
-    <category term="Operating Systems" scheme="https://www.superpung.xyz/tags/Operating-Systems/"/>
+    <category term="Operating Systems" scheme="https://superpung.xyz/tags/Operating-Systems/"/>
     
   </entry>
   
   <entry>
     <title>理论学习（三）</title>
-    <link href="https://www.superpung.xyz/Theory-Study-3/"/>
-    <id>https://www.superpung.xyz/Theory-Study-3/</id>
+    <link href="https://superpung.xyz/Theory-Study-3/"/>
+    <id>https://superpung.xyz/Theory-Study-3/</id>
     <published>2020-11-21T12:26:02.000Z</published>
     <updated>2020-11-21T13:04:19.000Z</updated>
     
@@ -375,14 +375,14 @@
     
     
     
-    <category term="Others" scheme="https://www.superpung.xyz/tags/Others/"/>
+    <category term="Others" scheme="https://superpung.xyz/tags/Others/"/>
     
   </entry>
   
   <entry>
     <title>「还不会」的「数据结构实验」</title>
-    <link href="https://www.superpung.xyz/Data-Structures-Experiments/"/>
-    <id>https://www.superpung.xyz/Data-Structures-Experiments/</id>
+    <link href="https://superpung.xyz/Data-Structures-Experiments/"/>
+    <id>https://superpung.xyz/Data-Structures-Experiments/</id>
     <published>2020-06-03T11:21:35.000Z</published>
     <updated>2021-02-17T05:43:25.032Z</updated>
     
@@ -394,9 +394,9 @@
     
     
     
-    <category term="Experiments" scheme="https://www.superpung.xyz/tags/Experiments/"/>
+    <category term="Experiments" scheme="https://superpung.xyz/tags/Experiments/"/>
     
-    <category term="Data Structures" scheme="https://www.superpung.xyz/tags/Data-Structures/"/>
+    <category term="Data Structures" scheme="https://superpung.xyz/tags/Data-Structures/"/>
     
   </entry>
   
